@@ -9,8 +9,8 @@
 # they accept any liabilities with respect to them.
 
 master.footer.title.about = About us
-master.footer.label.company = Company
-master.footer.label.license = License
+master.footer.label.company = Acme L3 Company
+master.footer.label.license = Acme L3 License
 master.footer.title.social = Social
 master.footer.url.linkedin = http://www.linkedin.com
 master.footer.label.linked-in = Linked-In
