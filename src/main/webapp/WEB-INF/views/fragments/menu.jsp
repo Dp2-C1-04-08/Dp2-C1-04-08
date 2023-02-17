@@ -24,6 +24,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.ernrivper-link" action="https://mrdoob.com/#/157/spin_painter"/>
 			<acme:menu-suboption code="master.menu.anonymous.manbarjim2-link" action="https://www.transfermarkt.es/"/>
 			<acme:menu-suboption code="master.menu.anonymous.siadan-link" action="https://www.twitch.tv/"/>
+			<acme:menu-suboption code="master.menu.anonymous.ignplathi-link" action="https://www.ecosia.org/"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
