@@ -21,6 +21,9 @@
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.rubcasfer2-link" action="https://www.chess.com/es"/>
+			<acme:menu-suboption code="master.menu.anonymous.ernrivper-link" action="https://mrdoob.com/#/157/spin_painter"/>
+			<acme:menu-suboption code="master.menu.anonymous.manbarjim2-link" action="https://www.transfermarkt.es/"/>
+			<acme:menu-suboption code="master.menu.anonymous.siadan-link" action="https://www.twitch.tv/"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
