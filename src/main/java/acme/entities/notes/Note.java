@@ -1,5 +1,5 @@
 
-package notes;
+package acme.entities.notes;
 
 import java.util.Date;
 
