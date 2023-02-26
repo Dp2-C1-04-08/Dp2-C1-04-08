@@ -4,10 +4,8 @@ package acme.entities.tutorials;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -21,7 +19,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Session extends AbstractEntity {
+public class SessionTutorial extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -50,9 +48,9 @@ public class Session extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				endTime;
 
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	protected Tutorial			tutorial;
+	//	@NotNull
+	//	@Valid
+	//	@ManyToOne(optional = false)
+	//	protected Tutorial			tutorial;
 
 }
