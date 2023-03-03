@@ -48,6 +48,7 @@ public class Tutorial extends AbstractEntity {
 
 	//	@NotNull
 	//	@Valid
+	//	@ManyToOne(optional = false)
 	//	protected Course			course;
 
 }
