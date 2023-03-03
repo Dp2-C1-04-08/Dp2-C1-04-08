@@ -48,6 +48,8 @@ public class SessionTutorial extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				endTime;
 
+	protected boolean			draft;
+
 	//	@NotNull
 	//	@Valid
 	//	@ManyToOne(optional = false)
