@@ -14,7 +14,7 @@ public class StudentDashboards extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	Integer						numberOfTheoryActivities;
+	Integer						numberoOfTheoryActivities;
 	Integer						numberOfHandsOnActivities;
 	Double						averagePeriodOfActivities;
 	Double						deviationPeriodOfActivities;
