@@ -164,7 +164,8 @@ Practicum
 + title: String {NotBlank,Length(0, 75)}
 + abstract: String {NotBlank,Length(0, 100)}
 + goals: String {NotBlank,Length(0, 100)}
-+ estimatedTime: Integer
++ estimatedTimeMinus10: Double
++ estimatedTimePlus10: Double
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
@@ -265,18 +266,34 @@ at least one week long</panel_attributes>
       <x>1000</x>
       <y>670</y>
       <w>390</w>
-      <h>140</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 CompanyDashboard
 --
-+ total: Map&lt;String,Integer&gt;
-+ average: Double
-+ deviation: Double
-+ minumun: Double
-+ maximum: Double
++ totalSession: Map&lt;String,Integer&gt;
++ averageSession: Double
++ deviationSession: Double
++ minumunSession: Double
++ maximumSession: Double
++ averagePractica: Double
++ deviationPractica: Double
++ minumunPractica: Double
++ maximumDoublePractica: Double
 
 bg=green</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>950</x>
+      <y>540</y>
+      <w>250</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-x
+m2=1..*</panel_attributes>
+    <additional_attributes>230.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
