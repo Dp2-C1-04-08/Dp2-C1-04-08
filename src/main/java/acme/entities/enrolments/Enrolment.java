@@ -14,7 +14,7 @@ import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
 
-import acme.framework.data.AbstractRole;
+import acme.framework.data.AbstractEntity;
 import acme.roles.Student;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,7 +22,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Enrolment extends AbstractRole {
+public class Enrolment extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
