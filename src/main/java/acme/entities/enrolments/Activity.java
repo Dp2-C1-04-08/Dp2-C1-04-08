@@ -12,14 +12,14 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.framework.data.AbstractRole;
+import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Activity extends AbstractRole {
+public class Activity extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
