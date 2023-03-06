@@ -45,20 +45,10 @@ public class Note extends AbstractEntity {
 	@Email
 	protected String			email;
 
-	/*
-	 * @ManyToOne(optional = false)
-	 * protected UserIdentity userAuthor;
-	 */
 	@NotNull
 	@Valid
 	@Length(max = 75)
 	protected String			author;
 
-	/*
-	 * @PrePersist
-	 * public void setAuthor() {
-	 * String parsedAuthor = " - "+userAuthor.getFullName();
-	 * this.author = parsedAuthor;
-	 * }
-	 */
+	
 }
