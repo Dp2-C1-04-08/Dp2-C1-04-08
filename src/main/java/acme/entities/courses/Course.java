@@ -9,6 +9,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,11 +24,6 @@ public class Course extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	//	@NotNull
-	//	@Valid
-	//	@OneToMany
-	//	protected Lecture			lecture;
-
 	@Column(unique = true)
 	@NotBlank
 	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
@@ -39,9 +35,11 @@ public class Course extends AbstractEntity {
 
 	@NotBlank
 	@Length(min = 1, max = 100)
-	protected String			abstact;
+	protected String			abstactStr;
 
-	protected courseType		courseType;
+	protected Nature			courseType;
+
+	protected Money				retailPrice;
 
 	@URL
 	protected String			link;
