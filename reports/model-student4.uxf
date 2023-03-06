@@ -143,7 +143,7 @@ bg=green
 Company
 --
 + name: String {NotBlank,Length(0, 75)}
-+ vat: String {NotBlank,Length(0, 75)}
++ vat: String {NotBlank,Length(0, 25)}
 + summary: String {NotBlank,Length(0, 100)}
 + link
 bg=green</panel_attributes>
