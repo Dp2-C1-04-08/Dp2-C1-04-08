@@ -3,7 +3,9 @@ package acme.entities.courses;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -11,6 +13,7 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
+import acme.roles.Lecturer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,6 +26,10 @@ public class Course extends AbstractEntity {
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
+
+	@NotNull
+	@Valid
+	protected Lecturer			lecturer;
 
 	@Column(unique = true)
 	@NotBlank
