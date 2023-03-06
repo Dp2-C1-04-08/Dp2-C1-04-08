@@ -26,12 +26,12 @@ public class PracticumSession extends AbstractEntity {
 	protected static final long	serialVersionUID	= 1L;
 
 	@NotBlank
-	@Length(min = 0, max = 75)
+	@Length(min = 1, max = 75)
 	protected String			title;
 
 	@NotBlank
-	@Length(min = 0, max = 100)
-	protected String			abstractString;
+	@Length(min = 1, max = 100)
+	protected String			abstractStr;
 
 	@URL
 	protected String			link;
@@ -44,8 +44,7 @@ public class PracticumSession extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				endDate;
 
-	
-	 @ManyToOne(optional = false)
-	 protected Practicum practicum;
-	
+	@ManyToOne(optional = false)
+	protected Practicum			practicum;
+
 }

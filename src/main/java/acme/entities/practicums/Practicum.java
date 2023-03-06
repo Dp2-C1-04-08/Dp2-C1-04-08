@@ -25,15 +25,14 @@ public class Practicum extends AbstractEntity {
 	protected String			code;
 
 	@NotBlank
-	@Length(min = 0, max = 75)
+	@Length(min = 1, max = 75)
 	protected String			title;
 
 	@NotBlank
-	@Length(min = 0, max = 100)
+	@Length(min = 1, max = 100)
 	protected String			goals;
 
-	protected Integer			timePlus10;
-
-	protected Integer			timeMinus10;
-
+	@NotBlank
+	@Length(min = 1, max = 100)
+	protected String			abstractStr;
 }

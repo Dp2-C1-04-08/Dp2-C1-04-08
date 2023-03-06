@@ -1,0 +1,7 @@
+key,code,title,abstractStr,goals
+practicum-01,"ABC1234","practica1","esto es un abstract","Estos son los goals"
+practicum-02,"XY5678","practica2","Esto es el: abstact $","Probando el limite máximo de caracteres en el atributo de la entidad del rol de company (límite 100)"
+practicum-03,"DEF9012","practica3","Se puede con codificación UTF-8","Metas para la practica: 1. Interiorizar conocimientos tema 1"
+practicum-04,"MNO4567","practica4","ADMITE MAYÚSCULAS","Meta2: Tener testeado el 50% de la app"
+practicum-05,"PQ1234","practica5","#Practica 5, coste de 50$","Meta3: Leyes de Datos en España"
+practicum-06,"XYZ5678","practica6","Probando el limite máximo de caracteres en el atributo de la entidad del rol de company (límite 100)","Meta final: #Evaluación"
