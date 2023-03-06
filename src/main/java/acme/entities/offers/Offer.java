@@ -31,6 +31,7 @@ public class Offer extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
 	@PastOrPresent
 	protected Date				instanciationMoment;
 
