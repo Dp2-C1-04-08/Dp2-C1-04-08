@@ -1,26 +1,22 @@
 
 package acme.entities.courses;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import java.util.Date;
+
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Lecturer;
-import lombok.Getter;
-import lombok.Setter;
 
-@Entity
-@Getter
-@Setter
-public class Course extends AbstractEntity {
+public class Lecture extends AbstractEntity {
 	// Serialisation identifier -----------------------------------------------
 
 	protected static final long	serialVersionUID	= 1L;
@@ -29,12 +25,8 @@ public class Course extends AbstractEntity {
 
 	@NotNull
 	@Valid
-	protected Lecturer			lecturer;
-
-	@Column(unique = true)
-	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
-	protected String			code;
+	@ManyToOne
+	protected Course			course;
 
 	@NotBlank
 	@Length(min = 1, max = 75)
@@ -42,13 +34,27 @@ public class Course extends AbstractEntity {
 
 	@NotBlank
 	@Length(min = 1, max = 100)
-	protected String			abstactStr;
+	protected String			abstractStr;
 
-	protected Nature			courseType;
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				startTime;
 
-	protected Money				retailPrice;
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date				endTime;
+
+	@NotBlank
+	@Length(min = 1, max = 100)
+	protected String			body;
+
+	protected Nature			lectureType;
 
 	@URL
 	protected String			link;
+
+	@NotNull
+	@Valid
+	protected Lecturer			lecturer;
 
 }
