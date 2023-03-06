@@ -1,8 +1,6 @@
 
 package acme.roles;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
@@ -34,7 +32,7 @@ public class Lecturer extends AbstractRole {
 
 	@NotBlank
 	@Length(min = 1, max = 100)
-	protected List<Integer>		listQualifications;
+	protected String			listQualifications;
 
 	@URL
 	protected String			link;
