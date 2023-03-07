@@ -3,7 +3,6 @@ package acme.entities.courses;
 
 import java.util.Date;
 
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -22,11 +21,6 @@ public class Lecture extends AbstractEntity {
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-
-	@NotNull
-	@Valid
-	@ManyToOne
-	protected Course			course;
 
 	@NotBlank
 	@Length(min = 1, max = 75)
