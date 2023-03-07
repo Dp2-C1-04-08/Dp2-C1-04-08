@@ -1,19 +1,15 @@
 
 package acme.entities.courses;
 
-import java.util.Date;
-
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.Valid;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractEntity;
-import acme.roles.Lecturer;
 
 public class Lecture extends AbstractEntity {
 	// Serialisation identifier -----------------------------------------------
@@ -31,12 +27,8 @@ public class Lecture extends AbstractEntity {
 	protected String			abstractStr;
 
 	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
-	protected Date				startTime;
-
-	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
-	protected Date				endTime;
+	@Positive
+	protected Double			estimatedLearningTime;
 
 	@NotBlank
 	@Length(min = 1, max = 100)
@@ -47,8 +39,7 @@ public class Lecture extends AbstractEntity {
 	@URL
 	protected String			link;
 
-	@NotNull
-	@Valid
-	protected Lecturer			lecturer;
+	@ManyToOne
+	protected Course			course;
 
 }
