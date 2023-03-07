@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>721</x>
-      <y>343</y>
+      <x>735</x>
+      <y>322</y>
       <w>238</w>
       <h>84</h>
     </coordinates>
@@ -23,8 +23,8 @@ bg=GREEN</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>315</x>
-      <y>336</y>
+      <x>329</x>
+      <y>315</y>
       <w>301</w>
       <h>98</h>
     </coordinates>
@@ -44,8 +44,8 @@ bg=GREEN</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>308</x>
-      <y>525</y>
+      <x>322</x>
+      <y>504</y>
       <w>301</w>
       <h>105</h>
     </coordinates>
@@ -56,7 +56,7 @@ Lecture
 + abstract: String {NotBlank, Length(1,100)}
 +stimatedLerningTime: Double {Positive, NotNull}
 + body: String {NotBlank, Length(1,100)}
-+ courseType: Nature
++ lectureType: Nature
 + link
 fg=BLACK
 bg=GREEN</panel_attributes>
@@ -65,8 +65,8 @@ bg=GREEN</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>693</x>
-      <y>483</y>
+      <x>707</x>
+      <y>462</y>
       <w>301</w>
       <h>133</h>
     </coordinates>
@@ -89,8 +89,8 @@ bg=GREEN</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>609</x>
-      <y>378</y>
+      <x>623</x>
+      <y>357</y>
       <w>126</w>
       <h>28</h>
     </coordinates>
@@ -102,8 +102,8 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>448</x>
-      <y>427</y>
+      <x>462</x>
+      <y>406</y>
       <w>35</w>
       <h>112</h>
     </coordinates>
@@ -114,8 +114,8 @@ m2=1..*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>252</x>
-      <y>140</y>
+      <x>266</x>
+      <y>119</y>
       <w>147</w>
       <h>77</h>
     </coordinates>
@@ -131,8 +131,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>252</x>
-      <y>245</y>
+      <x>266</x>
+      <y>224</y>
       <w>147</w>
       <h>35</h>
     </coordinates>
@@ -144,8 +144,8 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>315</x>
-      <y>210</y>
+      <x>329</x>
+      <y>189</y>
       <w>21</w>
       <h>49</h>
     </coordinates>
@@ -155,8 +155,8 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>476</x>
-      <y>84</y>
+      <x>490</x>
+      <y>63</y>
       <w>147</w>
       <h>35</h>
     </coordinates>
@@ -168,8 +168,8 @@ bg=YELLOW</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>714</x>
-      <y>21</y>
+      <x>728</x>
+      <y>0</y>
       <w>147</w>
       <h>35</h>
     </coordinates>
@@ -181,8 +181,8 @@ bg=YELLOW</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>714</x>
-      <y>77</y>
+      <x>728</x>
+      <y>56</y>
       <w>147</w>
       <h>35</h>
     </coordinates>
@@ -194,8 +194,8 @@ bg=YELLOW</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>721</x>
-      <y>140</y>
+      <x>735</x>
+      <y>119</y>
       <w>147</w>
       <h>35</h>
     </coordinates>
@@ -207,8 +207,8 @@ bg=YELLOW</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>616</x>
-      <y>91</y>
+      <x>630</x>
+      <y>70</y>
       <w>112</w>
       <h>21</h>
     </coordinates>
@@ -218,8 +218,8 @@ bg=YELLOW</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>658</x>
-      <y>35</y>
+      <x>672</x>
+      <y>14</y>
       <w>70</w>
       <h>77</h>
     </coordinates>
@@ -229,12 +229,29 @@ bg=YELLOW</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>658</x>
-      <y>91</y>
+      <x>672</x>
+      <y>70</y>
       <w>77</w>
       <h>84</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;100.0;90.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>70</x>
+      <y>462</y>
+      <w>147</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+Nature
+--
+Theorical
+Hands-on
+
+bg=GREEN</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
