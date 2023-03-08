@@ -1,0 +1,6 @@
+key,instantiationMoment,startDate,endDate,image,slogan,link
+banner-01,2019/03/10 09:30,2019/03/10 10:00,2019/03/10 11:00,http://fondo.jpg,"Fondo de página web",
+banner-02,2019/05/15 12:00,2019/05/15 13:00,2019/05/15 14:00,http://banner.png,"Banner de página web",http://www.otroejemplo.com
+banner-03,2019/07/02 14:30,2019/07/02 15:00,2019/07/02 16:00,http://imagen.jpg,"imagen página web 2018",https://www.otraurl.com
+banner-04,2019/09/19 16:45,2019/09/19 17:00,2019/09/19 18:00,http://paisaje.png,"imágen de paisaje(Noruega)",http://www.ultimoejemplo.com
+banner-05,2019/12/24 18:15,2019/12/24 19:00,2019/12/24 20:00,http://logo.png,"#Logo de Empresa",https://www.ultimourl.com
