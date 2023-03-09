@@ -11,6 +11,8 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+
+import acme.entities.courses.Course;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Auditor;
 import lombok.Getter;
@@ -44,7 +46,8 @@ public class Audit extends AbstractEntity {
 	@Length(min = 1, max = 100)
 	protected String			weakPoints;
 
-	//protected MarkValue mark;
+	protected MarkValue			mark;
+
 
 	@NotNull
 	protected Boolean			published;
@@ -54,9 +57,9 @@ public class Audit extends AbstractEntity {
 	@ManyToOne(optional = false)
 	protected Auditor			auditor;
 
-	//	@Valid
-	//	@NotNull
-	//	@ManyToOne(optional = false)
-	//	protected Course			course;
+	@Valid
+	@NotNull
+	@ManyToOne(optional = false)
+	protected Course			course;
 
 }
