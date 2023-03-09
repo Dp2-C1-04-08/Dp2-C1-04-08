@@ -39,7 +39,7 @@ public class Lecture extends AbstractEntity {
 	@URL
 	protected String			link;
 
-	@ManyToOne
+	@ManyToOne(optional = false)
 	protected Course			course;
 
 }
