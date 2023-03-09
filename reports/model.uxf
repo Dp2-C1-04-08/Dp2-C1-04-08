@@ -189,10 +189,10 @@ bg=green</panel_attributes>
 Banner
 --
 + instantiationMoment: Date {Temporal(TIMESTAMP), NotNull, Past}
-+ startDate: Date {NotNull, Past}
++ startDate: Date {NotNull}
 + endDate: Date {NotNull}
++ image: String {NotBlank}
 + slogan: String {NotBlank} {Length(1,76)}
-+ target: String {NotBlank}
 + link: String {NotBlank, URL} 
 bg=green</panel_attributes>
     <additional_attributes/>
@@ -234,7 +234,7 @@ Offer
 + startDate: Date {NotNull, Past}
 + endDate: Date {NotNull}
 + link: String {URL}
-+ price: Money
++ price: Money {PositiveOrZero}
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
