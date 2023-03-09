@@ -4,7 +4,9 @@ package acme.entities.courses;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -41,12 +43,16 @@ public class Course extends AbstractEntity {
 
 	protected Nature			courseType;
 
+	@NotNull
+	@Valid
 	protected Money				retailPrice;
 
 	@URL
 	protected String			link;
 
-	@ManyToOne
+	@ManyToOne(optional = false)
+	@NotNull
+	@Valid
 	protected Lecturer			lecturer;
 
 }
