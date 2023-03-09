@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>665</x>
+      <x>742</x>
       <y>147</y>
       <w>238</w>
       <h>84</h>
@@ -23,7 +23,7 @@ bg=GREEN</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>259</x>
+      <x>336</x>
       <y>140</y>
       <w>301</w>
       <h>98</h>
@@ -44,7 +44,7 @@ bg=GREEN</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>252</x>
+      <x>329</x>
       <y>329</y>
       <w>301</w>
       <h>105</h>
@@ -65,7 +65,7 @@ bg=GREEN</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>637</x>
+      <x>714</x>
       <y>287</y>
       <w>301</w>
       <h>133</h>
@@ -73,7 +73,7 @@ bg=GREEN</panel_attributes>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 LecturerDashboard
 --
-+ totalLecture: Map&lt;String, Integer&gt;
++ totalLecture: Map&lt;Nature, Integer&gt;
 + averageLecture: Double
 + deviationLecture: Double
 + minimumLecture: Double
@@ -89,7 +89,7 @@ bg=GREEN</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>553</x>
+      <x>630</x>
       <y>189</y>
       <w>126</w>
       <h>28</h>
@@ -102,7 +102,7 @@ m2=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>392</x>
+      <x>469</x>
       <y>231</y>
       <w>35</w>
       <h>112</h>
@@ -114,7 +114,7 @@ m2=1..*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
+      <x>77</x>
       <y>287</y>
       <w>147</w>
       <h>56</h>
