@@ -14,7 +14,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Company extends AbstractRole {
+public class Auditor extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -24,16 +24,15 @@ public class Company extends AbstractRole {
 
 	@NotBlank
 	@Length(min = 1, max = 75)
-	protected String			name;
+	protected String			firm;
 
 	@NotBlank
 	@Length(min = 1, max = 25)
-	protected String			vatNumber;
+	protected String			professionalId;
 
 	@NotBlank
 	@Length(min = 1, max = 100)
-
-	protected String			summary;
+	protected String			certifications;
 
 	@URL
 	protected String			link;
