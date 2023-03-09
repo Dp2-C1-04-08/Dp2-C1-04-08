@@ -88,7 +88,7 @@ Tutorial
 --
 + code: String {Unique, NotBlank, Pattern("[A-Z]{1,3}[0-9][0-9]{3}")} 
 + title:String {NotBlank, Length(1,75)}
-+ tutorialAabstract: String {NotBlank, Length(1,100)}
++ tutorialAbstract: String {NotBlank, Length(1,100)}
 + goals: String {NotBlank, Length(1,100)}
 + estimatedTotalTime:Double {NotNull, PositiveOrZero}
 + draft: boolean
