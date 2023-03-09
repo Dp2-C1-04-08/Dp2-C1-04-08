@@ -12,7 +12,7 @@ public class LecturerDashboard {
 
 	// Attributes -------------------------------------------------------------
 
-	Map<Nature, Integer>		totalLectures;
+	Map<Nature, Integer>		totalLecture;
 	Double						averageLecture;
 	Double						deviationLecture;
 	Double						minimumLecture;
