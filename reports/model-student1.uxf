@@ -15,7 +15,7 @@ Lecturer
 + almaMater: String {NotBlank,Length(0, 75)}
 + resume: String {NotBlank,Length(0, 100)}
 + listQualifications: String {NotBlank,Length(0, 100)}
-+ link
++ link{URL}
 fg=BLACK
 bg=GREEN</panel_attributes>
     <additional_attributes/>
@@ -36,7 +36,7 @@ Course
 + abstract: String {NotBlank, Length(1,100)}
 + courseType: Nature
 + retailPrice: Money
-+ link
++ link{URL}
 fg=BLACK
 bg=GREEN</panel_attributes>
     <additional_attributes/>
@@ -57,7 +57,7 @@ Lecture
 +stimatedLerningTime: Double {Positive, NotNull}
 + body: String {NotBlank, Length(1,100)}
 + lectureType: Nature
-+ link
++ link{URL}
 fg=BLACK
 bg=GREEN</panel_attributes>
     <additional_attributes/>
