@@ -1,16 +1,13 @@
 
 package acme.entities.enrolments;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -44,14 +41,8 @@ public class Enrolment extends AbstractEntity {
 	protected String			goals;
 
 	@NotNull
-	@PositiveOrZero
-	protected Double			workTime;
-
-	protected List<Activity>	workbook;
-
-	@NotNull
 	@Valid
-	@ManyToOne(optional = false)
+	@OneToOne(optional = false)
 	protected Student			student;
 
 }
