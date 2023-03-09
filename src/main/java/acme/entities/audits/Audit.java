@@ -11,7 +11,6 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
-
 import acme.entities.courses.Course;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Auditor;
@@ -31,7 +30,7 @@ public class Audit extends AbstractEntity {
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
+	@Pattern(regexp = "[A-Z]{1,3}[0-9]{4}")
 	protected String			code;
 
 	@NotBlank
@@ -47,7 +46,6 @@ public class Audit extends AbstractEntity {
 	protected String			weakPoints;
 
 	protected MarkValue			mark;
-
 
 	@NotNull
 	protected Boolean			published;
