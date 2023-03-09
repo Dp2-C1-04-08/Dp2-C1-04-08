@@ -11,6 +11,7 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+
 import acme.entities.courses.Course;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Auditor;
@@ -46,6 +47,7 @@ public class Audit extends AbstractEntity {
 	protected String			weakPoints;
 
 	protected MarkValue			mark;
+
 
 	@NotNull
 	protected Boolean			published;
