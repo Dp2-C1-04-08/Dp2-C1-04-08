@@ -29,7 +29,7 @@ public class Note extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	@PastOrPresent
 	@NotNull
-	protected Date				CreationDate;
+	protected Date				creationDate;
 
 	@NotBlank
 	@NotNull
