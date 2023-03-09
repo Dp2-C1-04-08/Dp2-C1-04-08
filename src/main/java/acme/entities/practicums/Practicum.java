@@ -3,7 +3,10 @@ package acme.entities.practicums;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -35,4 +38,12 @@ public class Practicum extends AbstractEntity {
 	@NotBlank
 	@Length(min = 1, max = 100)
 	protected String			abstractStr;
+
+	protected Integer			estimatedTime;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Course			course;
+
 }

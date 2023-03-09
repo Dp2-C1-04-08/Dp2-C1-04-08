@@ -1,5 +1,3 @@
 key,enabled,identity,password,username
 user-account-company-01,true,"UserIdentity{name: 'Company', surname: '1', email: 'company1@acme.com'}",company1,company1
 user-account-company-02,true,"UserIdentity{name: 'Company', surname: '2', email: 'company2@acme.com'}",company2,company2
-user-account-company-03,true,"UserIdentity{name: 'Company', surname: '3', email: 'company3@acme.com'}",company3,company3
-user-account-company-04,true,"UserIdentity{name: 'Company', surname: '4', email: 'company4@acme.com'}",company4,company4
