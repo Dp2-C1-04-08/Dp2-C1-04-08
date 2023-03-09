@@ -165,7 +165,7 @@ Audit
 + strongPoints: String {NotBlank, Length(1,101)}
 + weakPoints: String {NotBlank, Length(1,101)}
 + published: Boolean {NotNull}
-/ mark: MarkValue
++ / mark: MarkValue
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
@@ -300,15 +300,20 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>770</x>
-      <y>196</y>
+      <x>987</x>
+      <y>273</y>
       <w>112</w>
-      <h>49</h>
+      <h>105</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Enum&gt;&gt;
 MarkValue
 --
-A+,A,B,C,F,F-
++ APLUS
++ A
++ B
++ C
++ F
++ FMINUS
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
