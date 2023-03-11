@@ -1,6 +1,5 @@
-key,almaMater,resume,listQualifications,link
-lecturer-01,"Universidad de Sevilla","2 years as a substitute at the University of Seville","7, 6, 8, 6, 6, 8, 8, 8, 8, 8",
-lecturer-02,"Universidad de Sevilla","4 years as a professor at the University of Seville","5, 8, 9, 5, 7, 7",
-lecturer-03,"Universidad de Sevilla","1 years as a substitute at the University of Seville","7, 7, 7, 7, 7, 8",http.example.com
-lecturer-04,"Universidad de Sevilla","1 years as a professor at the University of Seville","8, 8, 8, 8, 8, 8, 8, 8, 8, 8",
-lecturer-05,"Universidad de Sevilla","9 years as a professor at the University of Seville","6, 7, 8, 9, 5, 6, 7, 8, 9",http.example.com
+key,almaMater,resume,listQualifications,link,key:userAccount
+lecturer-01,"Universidad de Sevilla","1","7, 6, 8, 6, 6, 8, 8, 8, 8, 8",,user-account-lecturer-01
+lecturer-02,"1","4 years as a professor at the University of Seville","1",,user-account-lecturer-02
+lecturer-03,"Probando el limite de 75 caracteres maximo en el atributo alma mater       ","1 years as a substitute at the University of Seville","5,6,7,8,6,7,8,7,6,7,8,9,10,6,5,7,8,7,6,5,5,5,8,8,8,8,9,9,9,9,9,6,7,8,5,8,9,8,7,7,7,7,7,7,7,7,7,7,7,7",https://en.wikipedia.org/wiki/URL,user-account-lecturer-03
+lecturer-04,"Universidad de Sevilla","       Probando el limite máximo de caracteres en el atributo resume de la entidad del rol lecturer","8, 8, 8, 8, 8, 8, 8, 8, 8, 8",,user-account-lecturer-04
