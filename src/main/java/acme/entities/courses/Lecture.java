@@ -1,14 +1,12 @@
 
-package acme.entities.banners;
-
-import java.util.Date;
+package acme.entities.courses;
 
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -20,35 +18,37 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Banner extends AbstractEntity {
-
+public class Lecture extends AbstractEntity {
 	// Serialisation identifier -----------------------------------------------
+
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-	@Temporal(TemporalType.TIMESTAMP)
-	@PastOrPresent
-	@NotNull
-	protected Date				instantiationMoment;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@NotNull
-	protected Date				startDate;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@NotNull
-	protected Date				endDate;
-
-	@URL
-	@NotBlank
-	protected String			image;
 
 	@NotBlank
 	@Length(min = 1, max = 75)
-	protected String			slogan;
+	protected String			title;
+
+	@NotBlank
+	@Length(min = 1, max = 100)
+	protected String			lectureAbstract;
+
+	@NotNull
+	@Positive
+	protected Double			estimatedLearningTime;
+
+	@NotBlank
+	@Length(min = 1, max = 100)
+	protected String			body;
+
+	protected Nature			lectureType;
 
 	@URL
-	@NotBlank
 	protected String			link;
+
+	@ManyToOne(optional = false)
+	@NotNull
+	@Valid
+	protected Course			course;
 
 }

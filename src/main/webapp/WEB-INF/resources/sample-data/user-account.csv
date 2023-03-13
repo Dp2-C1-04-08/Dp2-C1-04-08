@@ -1,3 +1,9 @@
 key,enabled,identity,password,username
 user-account-administrator-02,true,"UserIdentity{name: 'Administrator1', surname: 'Acme', email: 'administrator1@acme.com'}",administrator1,administrator1
 user-account-administrator-03,true,"UserIdentity{name: 'Administrator2', surname: 'Acme', email: 'administrator2@acme.com'}",administrator2,administrator2
+user-account-company-01,true,"UserIdentity{name: 'Company', surname: '1', email: 'company1@acme.com'}",company1,company1
+user-account-company-02,true,"UserIdentity{name: 'Company', surname: '2', email: 'company2@acme.com'}",company2,company2
+user-account-company-03,true,"UserIdentity{name: 'Company', surname: '3', email: 'company3@acme.com'}",company3,company3
+user-account-company-04,true,"UserIdentity{name: 'Company', surname: '4', email: 'company4@acme.com'}",company4,company4
+user-account-lecturer-01,true,"UserIdentity{name: 'Lecturer', surname: '1', email: 'lecturer1@acme.com'}",lecturer1,lecturer1
+user-account-lecturer-02,true,"UserIdentity{name: 'Lecturer', surname: '2', email: 'lecturer2@acme.com'}",lecturer2,lecturer2

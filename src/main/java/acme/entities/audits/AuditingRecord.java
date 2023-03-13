@@ -1,11 +1,13 @@
 
-package acme.entities.banners;
+package acme.entities.audits;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
@@ -20,35 +22,40 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Banner extends AbstractEntity {
+public class AuditingRecord extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
+
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-	@Temporal(TemporalType.TIMESTAMP)
-	@PastOrPresent
-	@NotNull
-	protected Date				instantiationMoment;
+
+	@NotBlank
+	@Length(min = 1, max = 75)
+	protected String			subject;
+
+	@NotBlank
+	@Length(min = 1, max = 100)
+	protected String			assessment;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
+	@PastOrPresent
 	protected Date				startDate;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
+	@PastOrPresent
 	protected Date				endDate;
 
-	@URL
-	@NotBlank
-	protected String			image;
-
-	@NotBlank
-	@Length(min = 1, max = 75)
-	protected String			slogan;
+	protected MarkValue			mark;
 
 	@URL
-	@NotBlank
 	protected String			link;
+
+	@Valid
+	@NotNull
+	@ManyToOne(optional = false)
+	protected Audit				audit;
 
 }
