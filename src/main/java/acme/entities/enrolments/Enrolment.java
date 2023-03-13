@@ -1,27 +1,26 @@
 
-package acme.entities.courses;
+package acme.entities.enrolments;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.URL;
 
-import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
-import acme.roles.Lecturer;
+import acme.roles.Student;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Course extends AbstractEntity {
+public class Enrolment extends AbstractEntity {
+
 	// Serialisation identifier -----------------------------------------------
 
 	protected static final long	serialVersionUID	= 1L;
@@ -35,24 +34,15 @@ public class Course extends AbstractEntity {
 
 	@NotBlank
 	@Length(min = 1, max = 75)
-	protected String			title;
+	protected String			motivation;
 
 	@NotBlank
 	@Length(min = 1, max = 100)
-	protected String			courseAbstract;
-
-	protected Nature			courseType;
+	protected String			goals;
 
 	@NotNull
 	@Valid
-	protected Money				retailPrice;
-
-	@URL
-	protected String			link;
-
-	@ManyToOne(optional = false)
-	@NotNull
-	@Valid
-	protected Lecturer			lecturer;
+	@OneToOne(optional = false)
+	protected Student			student;
 
 }
