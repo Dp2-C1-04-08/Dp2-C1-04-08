@@ -9,6 +9,7 @@ import org.hibernate.validator.constraints.URL;
 import acme.framework.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
+
 @Entity
 @Getter
 @Setter
@@ -22,11 +23,9 @@ public class Lecturer extends AbstractRole {
 	@NotBlank
 	@Length(min = 1, max = 100)
 	protected String			resume;
-
 	@NotBlank
 	@Length(min = 1, max = 100)
 	protected String			listQualifications;
-
 	@URL
 	protected String			link;
 }
