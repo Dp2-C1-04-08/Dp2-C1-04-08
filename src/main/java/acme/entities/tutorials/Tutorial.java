@@ -40,7 +40,7 @@ public class Tutorial extends AbstractEntity {
 
 	@NotBlank
 	@Length(min = 1, max = 100)
-	protected String			abstactStr;
+	protected String			abstractStr;
 
 	@NotBlank
 	@Length(min = 1, max = 100)
