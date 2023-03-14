@@ -1,5 +1,5 @@
 
-package acme.entities.courses;
+package acme.entities.practicums;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,26 +10,21 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.URL;
 
-import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
-import acme.roles.Lecturer;
+import acme.roles.Company;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Course extends AbstractEntity {
-	// Serialisation identifier -----------------------------------------------
+public class Practicum extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	// Attributes -------------------------------------------------------------
-
-	@Column(unique = true)
 	@NotBlank
+	@Column(unique = true)
 	@Pattern(regexp = "[A-Z]{1,3}[0-9][0-9]{3}")
 	protected String			code;
 
@@ -39,20 +34,17 @@ public class Course extends AbstractEntity {
 
 	@NotBlank
 	@Length(min = 1, max = 100)
-	protected String			courseAbstract;
+	protected String			goals;
 
-	protected Nature			courseType;
+	@NotBlank
+	@Length(min = 1, max = 100)
+	protected String			abstractStr;
+
+	protected Integer			estimatedTime;
 
 	@NotNull
 	@Valid
-	protected Money				retailPrice;
-
-	@URL
-	protected String			link;
-
 	@ManyToOne(optional = false)
-	@NotNull
-	@Valid
-	protected Lecturer			lecturer;
+	protected Company			company;
 
 }
