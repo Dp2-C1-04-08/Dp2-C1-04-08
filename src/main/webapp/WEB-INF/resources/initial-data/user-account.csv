@@ -14,3 +14,8 @@ user-account-assistant-10,true,"UserIdentity{name: 'Assistant10', surname: 'Acme
 user-account-assistant-11,true,"UserIdentity{name: 'Assistant11', surname: 'Acme', email: 'assistant11@acme.com'}",assistant11,assistant11
 user-account-assistant-12,true,"UserIdentity{name: 'Assistant12', surname: 'Acme', email: 'assistant12@acme.com'}",assistant12,assistant12
 user-account-assistant-13,true,"UserIdentity{name: 'Assistant13', surname: 'Acme', email: 'assistant13@acme.com'}",assistant13,assistant13
+user-account-student-1,true,"UserIdentity{name: 'Student1', surname: 'Acme', email: 'student1@acme.com'}",student1,student1
+user-account-student-2,true,"UserIdentity{name: 'Student2', surname: 'Acme', email: 'student2@acme.com'}",student2,student2
+user-account-student-3,true,"UserIdentity{name: 'Student3', surname: 'Acme', email: 'student3@acme.com'}",student3,student3
+user-account-student-4,true,"UserIdentity{name: 'Student4', surname: 'Acme', email: 'student4@acme.com'}",student4,student4
+user-account-student-5,true,"UserIdentity{name: 'Student5', surname: 'Acme', email: 'student5@acme.com'}",student5,student5
