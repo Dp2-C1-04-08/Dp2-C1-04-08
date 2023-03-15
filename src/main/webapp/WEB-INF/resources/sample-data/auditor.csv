@@ -1,11 +1,11 @@
 key,firm,professional-id,certifications,link,key:userAccount
-auditor-01,valid firm,validId123,"cert1,cert,cer3",www.example.org,user-account-auditor-01
-auditor-02,v,validId123,"cert1,cert,cer3",www.example.org,user-account-auditor-02
-auditor-03,75 characters long firm name for the sample data xxxxxxxxxxxxxxxxxxxxxxxxxx,validId123,"cert1,cert,cer3",www.example.org,user-account-auditor-03
-auditor-04,valid firm,i,"cert1,cert,cer3",www.example.org,user-account-auditor-04
-auditor-05,valid firm,25 character long id xxxx,"cert1,cert,cer3",www.example.org,user-account-auditor-05
-auditor-06,valid firm,validId123,c,www.example.org,user-account-auditor-06
-auditor-07,valid firm,validId123,100 character long list of certifications xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx,www.example.org,user-account-auditor-07
+auditor-01,valid firm,validId123,"cert1,cert,cer3",http://www.example.org,user-account-auditor-01
+auditor-02,v,validId123,"cert1,cert,cer3",http://www.example.org,user-account-auditor-02
+auditor-03,75 characters long firm name for the sample data xxxxxxxxxxxxxxxxxxxxxxxxxx,validId123,"cert1,cert,cer3",http://www.example.org,user-account-auditor-03
+auditor-04,valid firm,i,"cert1,cert,cer3",http://www.example.org,user-account-auditor-04
+auditor-05,valid firm,25 character long id xxxx,"cert1,cert,cer3",http://www.example.org,user-account-auditor-05
+auditor-06,valid firm,validId123,c,http://www.example.org,user-account-auditor-06
+auditor-07,valid firm,validId123,100 character long list of certifications xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx,http://www.example.org,user-account-auditor-07
 auditor-08,valid firm,validId123,"cert1,cert,cer3",null,user-account-auditor-08
 auditor-09,valid firm,validId123,"cert1,cert,cer3",https://furtherInfo.org,user-account-auditor-09
 auditor-10,valid firm,validId123,"cert1,cert,cer3",http://127.0.0.1:8080,user-account-auditor-10
