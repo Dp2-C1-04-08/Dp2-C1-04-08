@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>742</x>
+      <y>147</y>
+      <w>238</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+Lecturer
+--
++ almaMater: String {NotBlank,Length(0, 75)}
++ resume: String {NotBlank,Length(0, 100)}
++ listQualifications: String {NotBlank,Length(0, 100)}
++ link{URL}
+fg=BLACK
+bg=GREEN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>336</x>
+      <y>140</y>
+      <w>301</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Course
+--
++ code: String {Unique, NotBlank, Pattern("[A-Z]{1,3}[0-9][0-9]{3}")} 
++ title:String {NotBlank, Length(1,75)}
++ courseAbstract: String {NotBlank, Length(1,100)}
++ courseType: Nature
++ retailPrice: Money
++ link{URL}
+fg=BLACK
+bg=GREEN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>329</x>
+      <y>329</y>
+      <w>301</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Lecture
+--
++ title:String {NotBlank, Length(1,75)}
++ lectureAbstract: String {NotBlank, Length(1,100)}
++stimatedLerningTime: Double {Positive, NotNull}
++ body: String {NotBlank, Length(1,100)}
++ lectureType: Nature
++ link{URL}
+fg=BLACK
+bg=GREEN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>714</x>
+      <y>287</y>
+      <w>301</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+LecturerDashboard
+--
++ totalLecture: Map&lt;Nature, Integer&gt;
++ averageLecture: Double
++ deviationLecture: Double
++ minimumLecture: Double
++ maximumLecture: Double
++ averageCourse: Double
++ deviationCourse: Double
++ minimumCourse: Double
++ maximumCourse: Double
+fg=BLACK
+bg=GREEN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>189</y>
+      <w>126</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=x-&gt;
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;160.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>469</x>
+      <y>231</y>
+      <w>35</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1..*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>77</x>
+      <y>287</y>
+      <w>147</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+Nature
+--
+Theorical
+Hands-on
+
+bg=GREEN</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
