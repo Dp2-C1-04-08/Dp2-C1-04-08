@@ -304,8 +304,8 @@ StudentDashboard
 + numberOfHandsOnActivities: Integer {NotNull}
 + averagePeriodOfActivities: Double
 + deviationPeriodOfActivities: Double
-+ minimumPeriodOfActivities: Double {NotNull}
-+ maximumPeriodOfActivities: Double {NotNull}
++ minimumPeriodOfActivities: Double
++ maximumPeriodOfActivities: Double
 + averageLearningTime: Double
 + deviatiomLearningTime: Double
 + minimumLearningTime: Double
