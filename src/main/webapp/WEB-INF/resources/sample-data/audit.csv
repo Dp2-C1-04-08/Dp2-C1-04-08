@@ -7,4 +7,4 @@ audit-05,ZZ9999,Valid conclusion,"100 character long strong points ///&&&&%%%%$$
 audit-06,ZZZ9999,Valid conclusion,Valid strong points,W,FMINUS,false,auditor-06,course-03
 audit-07,AB1122,Valid conclusion,Valid strong points,"100 character long weak points ///&&&&%%%%$$$$""""""""""""@@@@@@xxxxxXxxxx~~xxxxxxxxxxxxxxxxxxxxxxxx0===()",B,true,auditor-07,course-02
 audit-08,ABC1123,Valid conclusion,Valid strong points,Valid weak points,C,false,auditor-08,course-02
-audit-09,BBB4567,Valid conclusion,Valid strong points,Valid weak points,A,true,auditor-09,course-01
+audit-09,BBB4567,Valid conclusion,Valid strong points,Valid weak points,NA,true,auditor-09,course-01
