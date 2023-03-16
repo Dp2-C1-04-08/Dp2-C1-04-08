@@ -48,6 +48,7 @@ public class AuditingRecord extends AbstractEntity {
 	@PastOrPresent
 	protected Date				endDate;
 
+	@NotNull
 	protected MarkValue			mark;
 
 	@URL
