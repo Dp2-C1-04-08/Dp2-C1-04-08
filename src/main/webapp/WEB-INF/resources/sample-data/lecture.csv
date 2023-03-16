@@ -1,0 +1,4 @@
+key,title,lectureAbstract,estimatedLearningTime,body,lectureType,link,key:course
+lecture-01,"titulo","Esto es el resumen(abstract)de clase(lecture) donde comprueba que los caracteres son 100 como maximo",1.80,"body",HANDS_ON,https://www.contadordecaracteres.com/,course-01
+lecture-02,"1","1",2.0,"Esto es el contenido(body) de clase(lecture) donde comprueba que los caracteres son 100 como maximo ",THEORETICAL,,course-01
+lecture-03,"Esto es un titulo de una clase donde comprueba los caracteres son 75 maximo","resumen",1.50,"1",THEORETICAL,https://www.youtube.com/,course-02

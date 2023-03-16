@@ -1,0 +1,10 @@
+key,code,conclusion,strong-points,weak-points,mark,published,key:auditor,key:course
+audit-01,A1111,Valid conclusion,Valid strong points,Valid weak points,APLUS,true,auditor-01,course-01
+audit-02,AA2222,%,Valid strong points,Valid weak points,A,true,auditor-02,course-01
+audit-03,AAA3333,"100 character long conclusion ///&&&&%%%%$$$$""""""""""""@@@@@@xxxxxXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx0===()",Valid strong points,Valid weak points,B,false,auditor-03,course-02
+audit-04,Z9999,Valid conclusion,S,Valid weak points,C,true,auditor-04,course-02
+audit-05,ZZ9999,Valid conclusion,"100 character long strong points ///&&&&%%%%$$$$""""""""""""@@@@@@xxxxxXxxxxxxxxxxxxxxxxxxxxxxxxxxxx0===()",Valid weak points,F,true,auditor-05,course-03
+audit-06,ZZZ9999,Valid conclusion,Valid strong points,W,FMINUS,false,auditor-06,course-03
+audit-07,AB1122,Valid conclusion,Valid strong points,"100 character long weak points ///&&&&%%%%$$$$""""""""""""@@@@@@xxxxxXxxxx~~xxxxxxxxxxxxxxxxxxxxxxxx0===()",B,true,auditor-07,course-02
+audit-08,ABC1123,Valid conclusion,Valid strong points,Valid weak points,C,false,auditor-08,course-02
+audit-09,BBB4567,Valid conclusion,Valid strong points,Valid weak points,A,true,auditor-09,course-01

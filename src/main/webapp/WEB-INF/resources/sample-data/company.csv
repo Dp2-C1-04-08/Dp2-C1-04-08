@@ -1,0 +1,5 @@
+key,name,vatNumber,summary,link,key:userAccount
+company-01,company1,"12345563","Esto es un resumen",https://www.google.com,user-account-company-01
+company-02,company2,"12345563","Esto es un resumen. De la revisión de la compañia",ftp://ejemplo.com/pub/fichero.txt,user-account-company-02
+company-03,company3,"12345563343434342349535","Se gasto un total de: 34$ ",https://en.wikipedia.org/wiki/URL,user-account-company-03
+company-04,company4,"546","Probando el limite máximo de caracteres en el atributo de la entidad del rol de company (límite 100)",http://www.ejemplo.com,user-account-company-04
