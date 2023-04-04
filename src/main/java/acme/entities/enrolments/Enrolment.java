@@ -3,6 +3,7 @@ package acme.entities.enrolments;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -11,6 +12,7 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.entities.courses.Course;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Student;
 import lombok.Getter;
@@ -44,5 +46,10 @@ public class Enrolment extends AbstractEntity {
 	@Valid
 	@OneToOne(optional = false)
 	protected Student			student;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Course			course;
 
 }
