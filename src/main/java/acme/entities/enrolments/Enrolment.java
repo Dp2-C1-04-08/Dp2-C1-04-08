@@ -52,4 +52,6 @@ public class Enrolment extends AbstractEntity {
 	@ManyToOne(optional = false)
 	protected Course			course;
 
+	@NotNull
+	protected Boolean			isFinalised;
 }
