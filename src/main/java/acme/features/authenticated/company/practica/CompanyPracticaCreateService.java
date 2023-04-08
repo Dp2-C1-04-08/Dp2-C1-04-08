@@ -45,7 +45,7 @@ public class CompanyPracticaCreateService extends AbstractService<Company, Pract
 	public void bind(final Practicum object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "goals", "abstractStr", "estimatedTime", "estimatedTime");
+		super.bind(object, "code", "title", "goals", "abstractStr", "estimatedTime", "estimatedTime", "published");
 	}
 
 	@Override
@@ -57,6 +57,7 @@ public class CompanyPracticaCreateService extends AbstractService<Company, Pract
 	@Override
 	public void perform(final Practicum object) {
 		assert object != null;
+		final int hoo = 1;
 
 		this.repository.save(object);
 	}
@@ -67,7 +68,7 @@ public class CompanyPracticaCreateService extends AbstractService<Company, Pract
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "goals", "abstractStr", "estimatedTime");
+		tuple = super.unbind(object, "code", "title", "goals", "abstractStr", "estimatedTime", "published");
 
 		super.getResponse().setData(tuple);
 	}

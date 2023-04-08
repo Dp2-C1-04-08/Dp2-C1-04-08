@@ -1,19 +1,19 @@
 
-package acme.features.authenticated.company.practica;
+package acme.features.authenticated.company.practicumSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.practicums.Practicum;
+import acme.entities.practicumSessions.PracticumSession;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticaShowService extends AbstractService<Company, Practicum> {
+public class CompanyPracticumSessionShowService extends AbstractService<Company, PracticumSession> {
 
 	@Autowired
-	protected CompanyPracticaRepository repository;
+	protected CompanyPracticumSessionRepository repository;
 
 
 	@Override
@@ -32,21 +32,21 @@ public class CompanyPracticaShowService extends AbstractService<Company, Practic
 
 	@Override
 	public void load() {
-		Practicum practicum;
+		PracticumSession practicumSession;
 		int id;
 		id = super.getRequest().getData("id", int.class);
-		practicum = this.repository.findPracticaById(id);
-		super.getBuffer().setData(practicum);
+		practicumSession = this.repository.findSessionById(id);
+		super.getBuffer().setData(practicumSession);
 	}
 
 	@Override
-	public void unbind(final Practicum object) {
+	public void unbind(final PracticumSession object) {
 
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "goals", "abstractStr", "estimatedTime", "estimatedTime", "company", "published");
-
+		tuple = super.unbind(object, "title", "abstractStr", "link", "startDate", "endDate", "practicum");
+		tuple.put("masterId", object.getPracticum().getId());
 		super.getResponse().setData(tuple);
 	}
 

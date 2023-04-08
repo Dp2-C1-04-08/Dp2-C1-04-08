@@ -45,6 +45,9 @@ public class Practicum extends AbstractEntity {
 	protected Integer			estimatedTime;
 
 	@NotNull
+	protected Boolean			published;
+
+	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
 	protected Company			company;

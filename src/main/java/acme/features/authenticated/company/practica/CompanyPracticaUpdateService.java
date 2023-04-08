@@ -37,12 +37,15 @@ public class CompanyPracticaUpdateService extends AbstractService<Company, Pract
 	@Override
 	public void bind(final Practicum object) {
 		assert object != null;
+
 		super.bind(object, "code", "title", "goals", "abstractStr", "estimatedTime");
 
 	}
 	@Override
 	public void validate(final Practicum object) {
 		assert object != null;
+		final boolean isPublished = object.getPublished();
+		super.state(!isPublished, "title", "company.practica.form.error.update.published");
 
 	}
 
@@ -58,7 +61,7 @@ public class CompanyPracticaUpdateService extends AbstractService<Company, Pract
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "goals", "abstractStr", "estimatedTime", "estimatedTime");
+		tuple = super.unbind(object, "code", "title", "goals", "abstractStr", "estimatedTime", "estimatedTime", "published");
 
 		super.getResponse().setData(tuple);
 	}

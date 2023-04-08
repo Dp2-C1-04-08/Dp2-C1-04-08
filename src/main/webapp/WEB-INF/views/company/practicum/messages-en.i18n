@@ -13,7 +13,15 @@ company.practica.list.label.title = Title
 company.practica.list.label.goals = Goals
 company.practica.list.label.abstractStr = Abstract
 company.practica.list.label.estimatedTime = Estimated Time
+company.practica.list.label.published = Published
+company.practica.list.form.published = Public
 
 company.practica.list.button.create = Create
 company.practica.list.button.update = Update
 company.practica.list.button.delete = Delete
+
+company.practica.form.error.update.published = Cannot be update with the practica published
+company.practica.form.error.delete.published = Cannot be deleted with the practica published
+
+
+company.practicumSession.list.button = List Sessions

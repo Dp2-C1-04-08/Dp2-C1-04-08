@@ -1,10 +1,14 @@
 
 package acme.features.authenticated.company.practica;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.practicumSessions.PracticumSession;
 import acme.entities.practicums.Practicum;
+import acme.features.authenticated.company.practicumSession.CompanyPracticumSessionRepository;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
@@ -13,7 +17,10 @@ import acme.roles.Company;
 public class CompanyPracticaDeleteService extends AbstractService<Company, Practicum> {
 
 	@Autowired
-	protected CompanyPracticaRepository repository;
+	protected CompanyPracticaRepository			repository;
+
+	@Autowired
+	protected CompanyPracticumSessionRepository	practicumSessionRepository;
 
 
 	@Override
@@ -37,17 +44,24 @@ public class CompanyPracticaDeleteService extends AbstractService<Company, Pract
 	@Override
 	public void bind(final Practicum object) {
 		assert object != null;
-		super.bind(object, "code", "title", "goals", "abstractStr", "estimatedTime", "estimatedTime", "company");
+		super.bind(object, "code", "title", "goals", "abstractStr", "estimatedTime", "estimatedTime");
 
 	}
 
 	@Override
 	public void validate(final Practicum object) {
 		assert object != null;
+		final boolean isPublished = object.getPublished();
+		super.state(!isPublished, "title", "company.practica.form.error.delete.published");
+
 	}
 	@Override
 	public void perform(final Practicum object) {
 		assert object != null;
+		final List<PracticumSession> practicumSessions = this.practicumSessionRepository.findAllSessionByPracticum(object.getId());
+		if (practicumSessions != null && practicumSessions.size() > 0)
+			for (final PracticumSession ps : practicumSessions)
+				this.practicumSessionRepository.delete(ps);
 
 		this.repository.delete(object);
 	}
