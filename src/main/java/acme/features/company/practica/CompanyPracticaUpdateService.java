@@ -1,26 +1,19 @@
 
-package acme.features.authenticated.company.practica;
-
-import java.util.List;
+package acme.features.company.practica;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.practicumSessions.PracticumSession;
 import acme.entities.practicums.Practicum;
-import acme.features.authenticated.company.practicumSession.CompanyPracticumSessionRepository;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticaDeleteService extends AbstractService<Company, Practicum> {
+public class CompanyPracticaUpdateService extends AbstractService<Company, Practicum> {
 
 	@Autowired
-	protected CompanyPracticaRepository			repository;
-
-	@Autowired
-	protected CompanyPracticumSessionRepository	practicumSessionRepository;
+	protected CompanyPracticaRepository repository;
 
 
 	@Override
@@ -44,36 +37,33 @@ public class CompanyPracticaDeleteService extends AbstractService<Company, Pract
 	@Override
 	public void bind(final Practicum object) {
 		assert object != null;
-		super.bind(object, "code", "title", "goals", "abstractStr", "estimatedTime", "estimatedTime");
+
+		super.bind(object, "code", "title", "goals", "abstractStr", "estimatedTime");
 
 	}
-
 	@Override
 	public void validate(final Practicum object) {
 		assert object != null;
 		final boolean isPublished = object.getPublished();
-		super.state(!isPublished, "title", "company.practica.form.error.delete.published");
+		super.state(!isPublished, "title", "company.practica.form.error.update.published");
 
 	}
+
 	@Override
 	public void perform(final Practicum object) {
 		assert object != null;
-		final List<PracticumSession> practicumSessions = this.practicumSessionRepository.findAllSessionByPracticum(object.getId());
-		if (practicumSessions != null && practicumSessions.size() > 0)
-			for (final PracticumSession ps : practicumSessions)
-				this.practicumSessionRepository.delete(ps);
-
-		this.repository.delete(object);
+		this.repository.save(object);
 	}
+
 	@Override
 	public void unbind(final Practicum object) {
 
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "goals", "abstractStr", "estimatedTime", "estimatedTime", "company");
+		tuple = super.unbind(object, "code", "title", "goals", "abstractStr", "estimatedTime", "estimatedTime", "published");
 
 		super.getResponse().setData(tuple);
-
 	}
+
 }

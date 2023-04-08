@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.company.practicumSession;
+package acme.features.company.practicumSession;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,20 +13,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.practicumSessions.PracticumSession;
-import acme.entities.practicums.Practicum;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumSessionCreateService extends AbstractService<Company, PracticumSession> {
-	// Internal state ---------------------------------------------------------
+public class CompanyPracticumSessionUpdateService extends AbstractService<Company, PracticumSession> {
 
 	@Autowired
 	protected CompanyPracticumSessionRepository repository;
-
-	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -37,32 +33,17 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 	@Override
 	public void authorise() {
 		boolean status;
-		Integer numberAddendum;
-		final int masterId = super.getRequest().getData("masterId", int.class);
-		numberAddendum = this.repository.countNumberOfAddendum(masterId);
-		status = numberAddendum < 1;
+		status = super.getRequest().getPrincipal().hasRole(Company.class);
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-
-		final PracticumSession practicumSession = new PracticumSession();
-		final Practicum practicum;
-
-		final int masterId;
-
-		masterId = super.getRequest().getData("masterId", int.class);
-		practicum = this.repository.findPracticumById(masterId);
-		practicumSession.setPracticum(practicum);
-		if (practicum.getPublished() == true)
-			practicumSession.setAddendum(true);
-		else
-			practicumSession.setAddendum(false);
+		final int id = super.getRequest().getData("id", int.class);
+		final PracticumSession practicumSession = this.repository.findSessionById(id);
 
 		super.getBuffer().setData(practicumSession);
 	}
-
 	@Override
 	public void bind(final PracticumSession object) {
 		assert object != null;
@@ -80,9 +61,9 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 			e.printStackTrace();
 		}
 
-		super.bind(object, "title", "abstractStr", "link");
-	}
+		super.bind(object, "title", "abstractStr", "link", "startDate", "endDate");
 
+	}
 	@Override
 	public void validate(final PracticumSession object) {
 		assert object != null;
@@ -101,23 +82,23 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 		final boolean isOneWeekAhead = daysAhead >= 7;
 		super.state(isOneWeekAhead, "startDate", "company.practicumSession.form.error.oneWeekAhead");
 
-	}
+		final boolean isPublished = object.getPracticum().getPublished();
+		super.state(!isPublished, "title", "company.practicumSession.form.error.isPublished");
 
+	}
 	@Override
 	public void perform(final PracticumSession object) {
 		assert object != null;
-
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final PracticumSession object) {
-		assert object != null;
 
+		assert object != null;
 		Tuple tuple;
 
 		tuple = super.unbind(object, "title", "abstractStr", "link", "startDate", "endDate", "practicum");
-		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
 
 		super.getResponse().setData(tuple);
 	}

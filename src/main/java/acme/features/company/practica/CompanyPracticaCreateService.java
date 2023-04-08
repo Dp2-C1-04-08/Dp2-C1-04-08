@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.company.practica;
+package acme.features.company.practica;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

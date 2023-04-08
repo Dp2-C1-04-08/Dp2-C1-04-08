@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.company.practicumSession;
+package acme.features.company.practicumSession;
 
 import java.time.Duration;
 import java.time.Instant;
