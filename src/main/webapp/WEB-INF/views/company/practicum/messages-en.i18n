@@ -13,6 +13,7 @@ company.practica.list.label.title = Title
 company.practica.list.label.goals = Goals
 company.practica.list.label.abstractStr = Abstract
 company.practica.list.label.estimatedTime = Estimated Time
+company.practica.list.label.course = Course
 company.practica.list.label.published = Published
 company.practica.list.form.published = Public
 

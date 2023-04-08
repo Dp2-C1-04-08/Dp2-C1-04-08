@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.practicumSessions.PracticumSession;
 import acme.entities.practicums.Practicum;
+import acme.features.company.practica.CompanyPracticaRepository;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -24,7 +25,10 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected CompanyPracticumSessionRepository repository;
+	protected CompanyPracticumSessionRepository	repository;
+
+	@Autowired
+	CompanyPracticaRepository					companyPracticaRepository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -106,8 +110,15 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 	@Override
 	public void perform(final PracticumSession object) {
 		assert object != null;
-
+		final LocalDateTime initialDate = Instant.ofEpochMilli(object.getStartDate().getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
+		final LocalDateTime endDate = Instant.ofEpochMilli(object.getEndDate().getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
+		final Duration durationLong = Duration.between(initialDate, endDate);
+		final long daysLong = durationLong.toDays();
+		final Practicum practicum = object.getPracticum();
+		final Integer duration = (int) (practicum.getEstimatedTime() + daysLong);
+		practicum.setEstimatedTime(duration);
 		this.repository.save(object);
+		this.companyPracticaRepository.save(practicum);
 	}
 
 	@Override

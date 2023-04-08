@@ -20,14 +20,10 @@
 	<acme:input-textbox code="company.practica.list.label.title" path="title"/>
 	<acme:input-textarea code="company.practica.list.label.goals" path="goals"/>
 	<acme:input-textarea code="company.practica.list.label.abstractStr" path="abstractStr"/>
-	<acme:input-integer code="company.practica.list.label.estimatedTime" path="estimatedTime"/>
-	<jstl:choose>
-	<jstl:when test="${published==false}">
+	<acme:input-select code="company.practica.list.label.course" path="course" choices="${courses}"/>	
+	
 	<acme:input-checkbox code="company.practica.list.label.published" path="published"/>
-	</jstl:when>
-	<jstl:when test="${published==false}">
-	</jstl:when>
-	</jstl:choose>
+	
 
 	<jstl:choose>
 		<jstl:when test="${_command == 'show' || _command == 'update'|| _command == 'delete' || _command == list}">

@@ -1,5 +1,4 @@
-
-package acme.features.company.practica;
+package acme.features.authenticated.practicum;
 
 import java.util.Collection;
 
@@ -8,20 +7,23 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.courses.Course;
 import acme.entities.practicums.Practicum;
+import acme.features.company.practica.CompanyPracticaRepository;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticaUpdateService extends AbstractService<Company, Practicum> {
-
+public class AuthenticatedPracticumShowService extends AbstractService<Authenticated,Practicum> {
 	@Autowired
 	protected CompanyPracticaRepository repository;
 
 
 	@Override
 	public void check() {
+		boolean status;
+		status = super.getRequest().hasData("id", int.class);
 		super.getResponse().setChecked(true);
 	}
 
@@ -29,41 +31,16 @@ public class CompanyPracticaUpdateService extends AbstractService<Company, Pract
 	public void authorise() {
 		boolean status;
 		status = super.getRequest().getPrincipal().hasRole(Company.class);
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		final int id = super.getRequest().getData("id", int.class);
-		final Practicum practicum = this.repository.findPracticaById(id);
+		Practicum practicum;
+		int id;
+		id = super.getRequest().getData("id", int.class);
+		practicum = this.repository.findPracticaById(id);
 		super.getBuffer().setData(practicum);
-	}
-	@Override
-	public void bind(final Practicum object) {
-		assert object != null;
-		final int courseId = super.getRequest().getData("course", int.class);
-		final Course course = this.repository.findCourseById(courseId);
-		object.setCourse(course);
-
-		super.bind(object, "code", "title", "goals", "abstractStr");
-
-	}
-	@Override
-	public void validate(final Practicum object) {
-		assert object != null;
-		final boolean published = object.getPublished();
-
-		final boolean isPublished = published;
-		super.state(!isPublished, "title", "company.practica.form.error.update.published");
-
-	}
-
-	@Override
-	public void perform(final Practicum object) {
-		assert object != null;
-		final boolean published = super.getRequest().getData("published", boolean.class);
-		object.setPublished(published);
-		this.repository.save(object);
 	}
 
 	@Override
