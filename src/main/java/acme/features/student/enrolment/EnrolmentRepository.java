@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.enrolment;
+package acme.features.student.enrolment;
 
 import java.util.Collection;
 
@@ -19,13 +19,12 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.enrolments.Enrolment;
 import acme.framework.repositories.AbstractRepository;
-import acme.roles.Student;
 
 @Repository
 public interface EnrolmentRepository extends AbstractRepository {
 
-	@Query("SELECT e FROM Enrolment e WHERE e.student = :student")
-	Collection<Enrolment> findEnrolmentsByStudent(Student student);
+	@Query("SELECT e FROM Enrolment e WHERE e.student.id = :id")
+	Collection<Enrolment> findEnrolmentsByStudentId(int id);
 
 	@Query("SELECT e FROM Enrolment e WHERE e.id = :id")
 	Enrolment findEnrolmentById(int id);

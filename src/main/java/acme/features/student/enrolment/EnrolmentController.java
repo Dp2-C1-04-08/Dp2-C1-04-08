@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.enrolment;
+package acme.features.student.enrolment;
 
 import javax.annotation.PostConstruct;
 
@@ -27,14 +27,34 @@ public class EnrolmentController extends AbstractController<Authenticated, Enrol
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected EnrolmentService service;
+	protected EnrolmentListService		listService;
+
+	@Autowired
+	protected EnrolmentShowService		showService;
+
+	@Autowired
+	protected EnrolmentRegisterService	registerService;
+
+	@Autowired
+	protected EnrolmentUpdateService	updateService;
+
+	@Autowired
+	protected EnrolmentDeleteService	deleteService;
+
+	@Autowired
+	protected EnrolmentFinaliseService	finaliseService;
 
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
-		super.addBasicCommand("show", this.service);
+		super.addBasicCommand("list", this.listService);
+		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("register", this.registerService);
+		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("delete", this.deleteService);
+		super.addBasicCommand("finalise", this.finaliseService);
 	}
 
 }

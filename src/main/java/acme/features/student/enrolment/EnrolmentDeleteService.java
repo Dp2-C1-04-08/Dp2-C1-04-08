@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.enrolment;
+package acme.features.student.enrolment;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class EnrolmentService extends AbstractService<Authenticated, Enrolment> {
+public class EnrolmentDeleteService extends AbstractService<Authenticated, Enrolment> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -33,11 +33,7 @@ public class EnrolmentService extends AbstractService<Authenticated, Enrolment> 
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
@@ -48,22 +44,40 @@ public class EnrolmentService extends AbstractService<Authenticated, Enrolment> 
 
 		id = super.getRequest().getData("id", int.class);
 		enrolment = this.repository.findEnrolmentById(id);
-		status = enrolment.getIsFinalised();
+		status = !enrolment.getIsFinalised();
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Enrolment object;
-		int id;
-
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findEnrolmentById(id);
-
-		super.getBuffer().setData(object);
+		final int id = super.getRequest().getData("id", int.class);
+		final Enrolment enrolment = this.repository.findEnrolmentById(id);
+		super.getBuffer().setData(enrolment);
 	}
 
+	@Override
+	public void bind(final Enrolment object) {
+		assert object != null;
+
+		super.bind(object, "code", "motivation", "goals", "student", "course", "isFinalised");
+
+	}
+
+	@Override
+	public void validate(final Enrolment object) {
+		assert object != null;
+		final boolean isFinalised = object.getIsFinalised();
+		super.state(isFinalised, "title", "enrolment.form.error.delete.finalised");
+
+	}
+
+	@Override
+	public void perform(final Enrolment object) {
+		assert object != null;
+
+		this.repository.delete(object);
+	}
 	@Override
 	public void unbind(final Enrolment object) {
 		assert object != null;
