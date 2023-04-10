@@ -13,10 +13,10 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AuthenticatedPeepRepository extends AbstractRepository {
 
-	@Query("select p from Peep a where p.id = :id")
-	Peep findOneAnnouncementById(int id);
+	@Query("select p from Peep p where p.id = :id")
+	Peep findOnePeepById(int id);
 
-	@Query("select p from Peep a where p.instanciationMoment >= :deadline")
-	Collection<Peep> findRecentAnnouncements(Date deadline);
+	@Query("select p from Peep p where p.instanciationMoment >= :deadline")
+	Collection<Peep> findRecentPeeps(Date deadline);
 
 }
