@@ -12,8 +12,6 @@
 
 package acme.features.authenticated.offer;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,14 +42,6 @@ public class AuthenticatedOfferShowService extends AbstractService<Authenticated
 
 	@Override
 	public void authorise() {
-		final boolean status;
-		int id;
-		Offer offer;
-		final Date deadline;
-
-		id = super.getRequest().getData("id", int.class);
-		offer = this.repository.findOneOfferById(id);
-
 		super.getResponse().setAuthorised(true);
 	}
 
