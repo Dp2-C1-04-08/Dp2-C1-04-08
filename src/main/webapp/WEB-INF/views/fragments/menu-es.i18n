@@ -44,10 +44,16 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+
 #master.menu.company ###########################################################
 master.menu.company.practicum = Practicas
 master.menu.company.practicum.list = Listar Practicas
 master.menu.company.practicum.create = Crear Practica
+
+#master.menu.any ##########################################################
+master.menu.any = Cualquiera
+master.menu.any.course = Curso
+
 
 # master.menu.user-account ####################################################
 
