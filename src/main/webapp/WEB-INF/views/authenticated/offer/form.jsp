@@ -20,4 +20,6 @@
 	<acme:input-textarea code="authenticated.offer.form.label.summary" path="summary"/>
 	<acme:input-money code="authenticated.offer.form.label.price" path="price"/>
 	<acme:input-url code="authenticated.offer.form.label.link" path="link"/>
+	<acme:input-moment code="authenticated.offer.form.label.start-date" path="startDate"/>
+	<acme:input-moment code="authenticated.offer.form.label.end-date" path="endDate"/>
 </acme:form>

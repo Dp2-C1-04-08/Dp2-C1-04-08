@@ -12,8 +12,12 @@ authenticated.offer.list.label.heading = Heading
 authenticated.offer.list.label.summary = Summary
 authenticated.offer.list.label.price = Price
 authenticated.offer.list.label.link = Link
+authenticated.offer.list.label.start-date = Start Date
+authenticated.offer.list.label.end-date = End Date
 
 authenticated.offer.form.label.heading = Heading
 authenticated.offer.form.label.summary = Summary
 authenticated.offer.form.label.price = Price
 authenticated.offer.form.label.link = Link
+authenticated.offer.form.label.start-date = Start Date
+authenticated.offer.form.label.end-date = End Date
