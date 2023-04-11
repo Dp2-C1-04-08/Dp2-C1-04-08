@@ -48,7 +48,7 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "code", "courseAbstract", "courseType", "retailPrice", "link");
+		tuple = super.unbind(object, "title", "code", "courseAbstract", "courseType", "retailPrice", "link", "lecturer");
 
 		super.getResponse().setData(tuple);
 	}
