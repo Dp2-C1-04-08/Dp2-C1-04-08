@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.peep;
+package acme.features.any.peep;
 
 import javax.annotation.PostConstruct;
 
@@ -7,19 +7,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import acme.entities.peeps.Peep;
-import acme.framework.components.accounts.Authenticated;
+import acme.framework.components.accounts.Any;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-public class AuthenticatedPeepController extends AbstractController<Authenticated, Peep> {
+public class AnyPeepController extends AbstractController<Any, Peep> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedPeepListService	listService;
+	protected AnyPeepListService	listService;
 
 	@Autowired
-	protected AuthenticatedPeepShowService	showService;
+	protected AnyPeepShowService	showService;
 
 	// Constructors -----------------------------------------------------------
 

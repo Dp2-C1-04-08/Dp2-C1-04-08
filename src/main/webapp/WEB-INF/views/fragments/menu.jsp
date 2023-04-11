@@ -44,8 +44,8 @@
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.peep" access="isAuthenticated()">
-			<acme:menu-suboption code="master.menu.peep.list" action="/authenticated/peep/list"/>
+		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
+			<acme:menu-suboption code="master.menu.any.peep" action="/any/peep/list"/>
 		</acme:menu-option>
 	</acme:menu-left>
 

@@ -1,33 +1,32 @@
 
-package acme.features.authenticated.peep;
-
-import java.time.temporal.ChronoUnit;
-import java.util.Collection;
-import java.util.Date;
+package acme.features.any.peep;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.peeps.Peep;
-import acme.framework.components.accounts.Authenticated;
+import acme.framework.components.accounts.Any;
 import acme.framework.components.models.Tuple;
-import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AuthenticatedPeepListService extends AbstractService<Authenticated, Peep> {
+public class AnyPeepShowService extends AbstractService<Any, Peep> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedPeepRepository repository;
+	protected AnyPeepRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -37,13 +36,11 @@ public class AuthenticatedPeepListService extends AbstractService<Authenticated,
 
 	@Override
 	public void load() {
-		Collection<Peep> objects;
-		Date deadline;
+		final int id = super.getRequest().getData("id", int.class);
 
-		deadline = MomentHelper.deltaFromCurrentMoment(-30, ChronoUnit.DAYS);
-		objects = this.repository.findRecentPeeps(deadline);
+		final Peep object = this.repository.findOnePeepById(id);
 
-		super.getBuffer().setData(objects);
+		super.getBuffer().setData(object);
 	}
 
 	@Override

@@ -44,9 +44,9 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
-#master.menu.peep ##########################################################
-master.menu.peep = Peep
-master.menu.peep.list = List
+#master.menu.any ##########################################################
+master.menu.any = Any
+master.menu.any.peep = Peep
 
 # master.menu.user-account ####################################################
 
