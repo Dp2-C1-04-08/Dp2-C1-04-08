@@ -13,6 +13,7 @@
 package acme.features.authenticated.offer;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -28,5 +29,8 @@ public interface AuthenticatedOfferRepository extends AbstractRepository {
 
 	@Query("select o from Offer o")
 	Collection<Offer> findAllOffers();
+
+	@Query("select o from Offer o where o.startDate < :moment and o.endDate > :moment")
+	Collection<Offer> findActiveOffers(Date moment);
 
 }

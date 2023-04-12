@@ -13,6 +13,7 @@
 package acme.features.authenticated.offer;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.offers.Offer;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -46,7 +48,10 @@ public class AuthenticatedOfferListService extends AbstractService<Authenticated
 	@Override
 	public void load() {
 		Collection<Offer> objects;
-		objects = this.repository.findAllOffers();
+		Date moment;
+		moment = MomentHelper.getCurrentMoment();
+
+		objects = this.repository.findActiveOffers(moment);
 
 		super.getBuffer().setData(objects);
 	}
