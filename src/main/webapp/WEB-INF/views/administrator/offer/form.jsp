@@ -24,8 +24,9 @@
 	<acme:input-moment code="administrator.offer.form.label.end-date" path="endDate"/>
 
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update')}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
 			<acme:submit code="administrator.offer.form.button.update" action="/administrator/offer/update"/>
+			<acme:submit code="administrator.offer.form.button.delete" action="/administrator/offer/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="administrator.offer.form.button.create" action="/administrator/offer/create"/>

@@ -24,6 +24,7 @@ administrator.offer.form.label.start-date = Inicio
 administrator.offer.form.label.end-date = Fin
 administrator.offer.form.button.create = Crear
 administrator.offer.form.button.update = Actualizar
+administrator.offer.form.button.delete = Eliminar
 
 administrator.offer.form.error.invalid-start-date = La oferta no puede empezar en menos de un día
 administrator.offer.form.error.invalid-end-date = La oferta debe durar como mínimo 7 días

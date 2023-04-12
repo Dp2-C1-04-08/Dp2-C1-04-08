@@ -38,6 +38,9 @@ public class AdministratorOfferController extends AbstractController<Administrat
 	@Autowired
 	protected AdministratorOfferUpdateService	updateService;
 
+	@Autowired
+	protected AdministratorOfferDeleteService	deleteService;
+
 	// Constructors -----------------------------------------------------------
 
 
@@ -47,6 +50,7 @@ public class AdministratorOfferController extends AbstractController<Administrat
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("delete", this.deleteService);
 	}
 
 }
