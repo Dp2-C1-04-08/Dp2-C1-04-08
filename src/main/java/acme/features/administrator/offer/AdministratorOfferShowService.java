@@ -63,7 +63,7 @@ public class AdministratorOfferShowService extends AbstractService<Administrator
 		Tuple tuple;
 
 		tuple = super.unbind(object, "heading", "summary", "price", "link", "startDate", "endDate");
-
+		tuple.put("readonly", true);
 		super.getResponse().setData(tuple);
 	}
 

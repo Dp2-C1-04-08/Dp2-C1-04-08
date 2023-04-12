@@ -23,3 +23,5 @@
 	<acme:list-column code="administrator.offer.list.label.end-date" path="endDate"/>
 	<acme:list-column code="administrator.offer.list.label.link" path="link"/>
 </acme:list>
+
+<acme:button code="administrator.offer.list.button.create" action="/administrator/offer/create"/>

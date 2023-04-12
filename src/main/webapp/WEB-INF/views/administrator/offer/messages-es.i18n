@@ -14,6 +14,7 @@ administrator.offer.list.label.price = Precio
 administrator.offer.list.label.link = Link
 administrator.offer.list.label.start-date = Inicio
 administrator.offer.list.label.end-date = Fin
+administrator.offer.list.button.create = Crear
 
 administrator.offer.form.label.heading = Cabecera
 administrator.offer.form.label.summary = Resumen
@@ -21,3 +22,8 @@ administrator.offer.form.label.price = Precio
 administrator.offer.form.label.link = Link
 administrator.offer.form.label.start-date = Inicio
 administrator.offer.form.label.end-date = Fin
+administrator.offer.form.button.create = Crear
+
+administrator.offer.form.error.invalid-start-date = La oferta no puede empezar en menos de un día
+administrator.offer.form.error.invalid-end-date = La oferta debe durar como mínimo 7 días
+administrator.offer.form.error.negative-or-zero-price = El precio debe ser superior a cero
