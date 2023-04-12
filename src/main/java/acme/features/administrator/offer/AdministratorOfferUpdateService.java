@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementShowService.java
+ * EmployerDutyUpdateService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -12,16 +12,21 @@
 
 package acme.features.administrator.offer;
 
+import java.time.Duration;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.offers.Offer;
 import acme.framework.components.accounts.Administrator;
+import acme.framework.components.datatypes.Money;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AdministratorOfferShowService extends AbstractService<Administrator, Offer> {
+public class AdministratorOfferUpdateService extends AbstractService<Administrator, Offer> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -54,6 +59,44 @@ public class AdministratorOfferShowService extends AbstractService<Administrator
 		object = this.repository.findOneOfferById(id);
 
 		super.getBuffer().setData(object);
+	}
+
+	@Override
+	public void bind(final Offer object) {
+		assert object != null;
+		super.bind(object, "heading", "summary", "price", "link", "startDate", "endDate");
+	}
+
+	@Override
+	public void validate(final Offer object) {
+		assert object != null;
+
+		Date moment;
+		moment = MomentHelper.getCurrentMoment();
+
+		final Date startDate = super.getRequest().getData("startDate", Date.class);
+		final Date endDate = super.getRequest().getData("endDate", Date.class);
+		final Money price = super.getRequest().getData("price", Money.class);
+
+		final Duration startDelay = MomentHelper.computeDuration(moment, startDate);
+		final Duration activeDelay = MomentHelper.computeDuration(startDate, endDate);
+		final Duration startMinimumDuration = Duration.ofDays(1);
+		final Duration activeMinimumDuration = Duration.ofDays(7);
+
+		final Boolean startDelayBool = startMinimumDuration.minus(startDelay).isNegative();
+		final Boolean activeDelayBool = activeMinimumDuration.minus(activeDelay).isNegative();
+
+		super.state(startDelayBool, "startDate", "administrator.offer.form.error.invalid-start-date");
+		super.state(activeDelayBool, "endDate", "administrator.offer.form.error.invalid-end-date");
+		super.state(price.getAmount() > 0, "price", "administrator.offer.form.error.negative-or-zero-price");
+
+	}
+
+	@Override
+	public void perform(final Offer object) {
+		assert object != null;
+
+		this.repository.save(object);
 	}
 
 	@Override

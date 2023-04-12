@@ -23,6 +23,7 @@ administrator.offer.form.label.link = Link
 administrator.offer.form.label.start-date = Start Date
 administrator.offer.form.label.end-date = End Date
 administrator.offer.form.button.create = Create
+administrator.offer.form.button.update = Update
 
 administrator.offer.form.error.invalid-start-date = The offer can not start in less than a day
 administrator.offer.form.error.invalid-end-date = The offer must last at least 7 days

@@ -23,7 +23,12 @@
 	<acme:input-moment code="administrator.offer.form.label.start-date" path="startDate"/>
 	<acme:input-moment code="administrator.offer.form.label.end-date" path="endDate"/>
 
-	<jstl:if test="${!readonly}">
-		<acme:submit code="administrator.offer.form.button.create" action="/administrator/offer/create"/>
-	</jstl:if>
+	<jstl:choose>
+		<jstl:when test="${acme:anyOf(_command, 'show|update')}">
+			<acme:submit code="administrator.offer.form.button.update" action="/administrator/offer/update"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="administrator.offer.form.button.create" action="/administrator/offer/create"/>
+		</jstl:when>		
+	</jstl:choose>		
 </acme:form>
