@@ -1,0 +1,13 @@
+lecturer.lecture.form.label.title = Title:
+lecturer.lecture.form.label.lecture-abstract = Abstract:
+lecturer.lecture.form.label.estimated-learning-time = Estimated Learning Time:
+lecturer.lecture.form.label.body = Body:
+lecturer.lecture.form.label.lecture-type = Type:
+lecturer.lecture.form.label.link = Link:
+
+lecturer.lecture.list.label.title = Title
+lecturer.lecture.list.label.lecture-abstract = Abstract
+lecturer.lecture.list.label.lecture-type = Type
+lecturer.lecture.list.label.body = Body
+lecturer.lecture.list.label.estimated-learning-time = Estimated Learning Time
+lecturer.lecture.list.label.link = Link
