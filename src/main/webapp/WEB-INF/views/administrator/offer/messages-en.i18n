@@ -25,7 +25,7 @@ administrator.offer.form.label.end-date = End Date
 administrator.offer.form.button.create = Create
 administrator.offer.form.button.update = Update
 administrator.offer.form.button.delete = Delete
-
-administrator.offer.form.error.invalid-start-date = The offer can not start in less than a day
-administrator.offer.form.error.invalid-end-date = The offer must last at least 7 days
-administrator.offer.form.error.negative-or-zero-price = Price must be greater than 0
+administrator.offer.form.error.price.negative-or-zero = Must be positive
+administrator.offer.form.error.price.invalid-currency = Invalid currency
+administrator.offer.form.error.start-date.invalid = It can not start in the next 24h
+administrator.offer.form.error.end-date.invalid = It must end at least 7 days after the start date
