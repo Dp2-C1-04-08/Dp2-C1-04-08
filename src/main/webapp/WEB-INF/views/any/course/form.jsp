@@ -11,3 +11,12 @@
 	<acme:input-money code="any.course.form.label.retail-price" path="retailPrice"/>
 	<acme:input-url code="any.course.form.label.link" path="link"/>
 </acme:form>
+<jstl:choose>
+		<jstl:when test="${_command == 'show' || _command == list}">
+			
+			<acme:button code="any.course.form.list.button" action="/any/practicum/list?masterId=${id}"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'create'}">
+			
+		</jstl:when>
+	</jstl:choose>

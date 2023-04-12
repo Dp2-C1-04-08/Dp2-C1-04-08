@@ -24,7 +24,7 @@ public class CompanyPracticaShowService extends AbstractService<Company, Practic
 	public void check() {
 		boolean status;
 		status = super.getRequest().hasData("id", int.class);
-		super.getResponse().setChecked(true);
+		super.getResponse().setChecked(status);
 	}
 
 	@Override

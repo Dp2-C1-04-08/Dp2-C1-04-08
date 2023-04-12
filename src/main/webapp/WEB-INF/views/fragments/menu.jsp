@@ -48,7 +48,7 @@
 		<acme:menu-option code="master.menu.company.practicum" access="hasRole('Company')">
 		<acme:menu-suboption code="master.menu.company.practicum.list" action="/company/practicum/list"/>
 		<acme:menu-suboption code="master.menu.company.practicum.create" action="/company/practicum/create"/>
-
+		</acme:menu-option>
 		<acme:menu-option code="master.menu.any" access="hasRole('Any')">
 			<acme:menu-suboption code="master.menu.any.course" action="/any/course/list"/>
 

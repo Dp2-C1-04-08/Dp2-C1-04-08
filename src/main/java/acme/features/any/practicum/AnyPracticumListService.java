@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.practicum;
+package acme.features.any.practicum;
 
 import java.util.Collection;
 
@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.practicums.Practicum;
 import acme.features.company.practica.CompanyPracticaRepository;
-import acme.framework.components.accounts.Authenticated;
+import acme.framework.components.accounts.Any;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AuthenticatedPracticumListService extends AbstractService<Authenticated, Practicum> {
+public class AnyPracticumListService extends AbstractService<Any, Practicum> {
 
 	@Autowired
 	protected CompanyPracticaRepository repository;

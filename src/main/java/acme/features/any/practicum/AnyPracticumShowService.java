@@ -1,4 +1,5 @@
-package acme.features.authenticated.practicum;
+
+package acme.features.any.practicum;
 
 import java.util.Collection;
 
@@ -8,29 +9,26 @@ import org.springframework.stereotype.Service;
 import acme.entities.courses.Course;
 import acme.entities.practicums.Practicum;
 import acme.features.company.practica.CompanyPracticaRepository;
-import acme.framework.components.accounts.Authenticated;
+import acme.framework.components.accounts.Any;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Company;
 
 @Service
-public class AuthenticatedPracticumShowService extends AbstractService<Authenticated,Practicum> {
+public class AnyPracticumShowService extends AbstractService<Any, Practicum> {
+
 	@Autowired
 	protected CompanyPracticaRepository repository;
 
 
 	@Override
 	public void check() {
-		boolean status;
-		status = super.getRequest().hasData("id", int.class);
+
 		super.getResponse().setChecked(true);
 	}
 
 	@Override
 	public void authorise() {
-		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Company.class);
 		super.getResponse().setAuthorised(true);
 	}
 
