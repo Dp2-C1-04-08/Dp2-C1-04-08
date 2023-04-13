@@ -27,5 +27,5 @@ administrator.offer.form.button.update = Update
 administrator.offer.form.button.delete = Delete
 administrator.offer.form.error.price.negative-or-zero = Must be positive
 administrator.offer.form.error.price.invalid-currency = Invalid currency
-administrator.offer.form.error.start-date.invalid = It can not start in the next 24h
+administrator.offer.form.error.start-date.invalid = It can not start until tomorrow(24h from now)
 administrator.offer.form.error.end-date.invalid = It must end at least 7 days after the start date
