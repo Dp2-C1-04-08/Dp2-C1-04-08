@@ -1,0 +1,26 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+company.enrolment.list.label.code = Código
+company.enrolment.list.label.motivation = Motivación
+company.enrolment.list.label.goals = Metas
+company.enrolment.list.label.isFinalised = Está finalizado
+
+company.enrolment.list.button.finalise = Finalizar
+company.enrolment.list.button.register = Registrar
+company.enrolment.list.button.update = Actualizar
+company.enrolment.list.button.delete = Borrar
+
+company.enrolment.form.error.update.finalised = No se puede actualizar una matriculación finalizada
+company.enrolment.form.error.delete.finalised = No se puede borrar una matriculación finalizada
+company.enrolment.form.error.finalise.finalised = No se puede finalizar una matriculación ya finalizada
+
+
+company.enrolment.list.button = List Enrolments
