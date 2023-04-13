@@ -51,6 +51,7 @@ master.menu.any.course = Course
 #master.menu.lecturer ##########################################################
 master.menu.lecturer = Lecturer
 master.menu.lecturer.lecture = Lecture
+master.menu.lecturer.course = Course
 
 # master.menu.user-account ####################################################
 
