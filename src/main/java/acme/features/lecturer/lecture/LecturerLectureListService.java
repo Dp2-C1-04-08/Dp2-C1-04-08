@@ -24,21 +24,30 @@ public class LecturerLectureListService extends AbstractService<Lecturer, Lectur
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("masterId", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+
+		status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		Collection<Lecture> objects;
-		int lecturerId;
+		int courseId;
 
-		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
-		objects = this.repository.findLecturesByLecturerId(lecturerId);
+		courseId = super.getRequest().getData("masterId", int.class);
+
+		objects = this.repository.findLecturesByCourseId(courseId);
 
 		super.getBuffer().setData(objects);
 	}
@@ -48,12 +57,8 @@ public class LecturerLectureListService extends AbstractService<Lecturer, Lectur
 		assert object != null;
 
 		Tuple tuple;
-		Lecturer lecturer;
-
-		lecturer = this.repository.findLecturerByLectureId(object.getId());
 
 		tuple = super.unbind(object, "title", "lectureAbstract", "estimatedLearningTime", "body", "lectureType", "link");
-		tuple.put("lecturer", lecturer.getIdentity().getFullName());
 
 		super.getResponse().setData(tuple);
 	}

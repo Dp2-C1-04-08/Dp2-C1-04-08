@@ -4,6 +4,7 @@ lecturer.course.form.label.course-abstract = Resumen:
 lecturer.course.form.label.course-type = Tipo:
 lecturer.course.form.label.retail-price = Precio:
 lecturer.course.form.label.link = Enlace:
+lecturer.course.form.list.lecture = Listado de clases
 
 lecturer.course.list.label.code = Codigo
 lecturer.course.list.label.title = Titulo

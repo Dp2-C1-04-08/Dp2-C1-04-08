@@ -9,6 +9,6 @@
 	<acme:list-column code="lecturer.course.list.label.title" path="title" width="10%"/>
 	<acme:list-column code="lecturer.course.list.label.course-abstract" path="courseAbstract" width="20%"/>	
 	<acme:list-column code="lecturer.course.list.label.course-type" path="courseType" width="20%"/>	
-	<acme:list-column code="lecturer.course.list.label.retail-price" path="courseType" width="20%"/>	
-	<acme:list-column code="lecturer.course.list.label.link" path="courseType" width="20%"/>
+	<acme:list-column code="lecturer.course.list.label.retail-price" path="retailPrice" width="20%"/>	
+	<acme:list-column code="lecturer.course.list.label.link" path="link" width="20%"/>
 </acme:list>

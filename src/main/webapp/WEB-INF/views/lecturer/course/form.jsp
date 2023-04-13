@@ -12,3 +12,12 @@
 	<acme:input-textarea code="lecturer.course.form.label.retail-price" path="retailPrice" />
 	<acme:input-textarea code="lecturer.course.form.label.link" path="link" />
 </acme:form>
+<jstl:choose>
+		<jstl:when test="${_command == 'show' || _command == list}">
+			
+			<acme:button code="lecturer.course.form.list.lecture" action="/lecturer/lecture/list?masterId=${id}"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'create'}">
+			
+		</jstl:when>
+	</jstl:choose>

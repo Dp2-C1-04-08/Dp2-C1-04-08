@@ -4,7 +4,6 @@ package acme.features.lecturer.lecture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.courses.Course;
 import acme.entities.courses.Lecture;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -33,12 +32,8 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 	@Override
 	public void authorise() {
 		boolean status;
-		int id;
-		Lecturer lecturer;
 
-		id = super.getRequest().getData("id", int.class);
-		lecturer = this.repository.findLecturerByLectureId(id);
-		status = lecturer.getUserAccount().getId() == super.getRequest().getPrincipal().getAccountId();
+		status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -59,12 +54,8 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 		assert object != null;
 
 		Tuple tuple;
-		Course course;
-
-		course = this.repository.findCourseByLectureId(object.getId());
 
 		tuple = super.unbind(object, "title", "lectureAbstract", "estimatedLearningTime", "body", "lectureType", "link");
-		tuple.put("masterId", course.getId());
 
 		super.getResponse().setData(tuple);
 	}
