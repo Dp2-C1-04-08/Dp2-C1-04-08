@@ -12,12 +12,17 @@
 
 package acme.features.authenticated.offer;
 
+import java.util.Collection;
+import java.util.Date;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.offers.Offer;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -42,7 +47,19 @@ public class AuthenticatedOfferShowService extends AbstractService<Authenticated
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		final Collection<Offer> objects;
+		Collection<Integer> objectsIds;
+		Date moment;
+		int id;
+		Boolean status;
+		moment = MomentHelper.getCurrentMoment();
+
+		objects = this.repository.findActiveOffers(moment);
+		id = super.getRequest().getData("id", int.class);
+		objectsIds = objects.stream().map(o -> o.getId()).collect(Collectors.toList());
+		status = objectsIds.contains(id);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
