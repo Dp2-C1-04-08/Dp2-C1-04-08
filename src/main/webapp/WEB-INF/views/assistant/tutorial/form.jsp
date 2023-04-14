@@ -20,7 +20,7 @@
 	<acme:input-textbox code="assistant.tutorial.form.label.title" path="title"/>
 	<acme:input-textarea code="assistant.tutorial.form.label.abstract-str" path="abstractStr"/>
 	<acme:input-textarea code="assistant.tutorial.form.label.goals" path="goals"/>
-	<acme:input-double code="assistant.tutorial.form.label.estimated-total-time" path="estimatedTotalTime"/>
+	<acme:input-double code="assistant.tutorial.form.label.estimated-total-time" path="estimatedTotalTime" readonly="true"/>
 	<acme:input-select code="assistant.tutorial.form.label.course" path="course" choices="${courses}"/>
 	<acme:input-checkbox code="assistant.tutorial.form.label.draft" path="draft" readonly="true"/>
 	

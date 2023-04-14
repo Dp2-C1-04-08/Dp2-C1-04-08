@@ -54,7 +54,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		object = new Tutorial();
 		object.setDraft(true);
 		object.setAssistant(assistant);
-		//		object.setCourse(new Course());
+		object.setEstimatedTotalTime(0.0);
 		super.getBuffer().setData(object);
 	}
 
@@ -63,7 +63,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		assert object != null;
 		int courseId;
 		Course course;
-		super.bind(object, "code", "title", "abstractStr", "goals", "estimatedTotalTime", "draft");
+		super.bind(object, "code", "title", "abstractStr", "goals", "draft");
 
 		courseId = super.getRequest().getData("course", int.class);
 		course = this.repository.findOneCourseById(courseId);
@@ -86,7 +86,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		Assistant assistant;
 		assistant = this.repository.findOneAssistantById(super.getRequest().getPrincipal().getActiveRoleId());
 		object.setAssistant(assistant);
-
+		object.setEstimatedTotalTime(0.0);
 		this.repository.save(object);
 	}
 
