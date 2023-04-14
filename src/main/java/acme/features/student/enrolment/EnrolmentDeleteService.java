@@ -12,9 +12,12 @@
 
 package acme.features.student.enrolment;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.enrolments.Activity;
 import acme.entities.enrolments.Enrolment;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -61,21 +64,21 @@ public class EnrolmentDeleteService extends AbstractService<Student, Enrolment> 
 		assert object != null;
 
 		super.bind(object, "code", "motivation", "goals", "student", "course", "isFinalised");
-
 	}
 
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
-		final boolean isFinalised = object.getIsFinalised();
-		super.state(isFinalised, "title", "enrolment.form.error.delete.finalised");
-
 	}
 
 	@Override
 	public void perform(final Enrolment object) {
 		assert object != null;
 
+		final int id = object.getId();
+		final Collection<Activity> activities = this.repository.findActivitiesByStudent(id);
+
+		this.repository.deleteAll(activities);
 		this.repository.delete(object);
 	}
 	@Override

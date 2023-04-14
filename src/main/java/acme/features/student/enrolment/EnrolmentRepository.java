@@ -17,6 +17,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.enrolments.Activity;
 import acme.entities.enrolments.Enrolment;
 import acme.framework.repositories.AbstractRepository;
 
@@ -28,5 +29,8 @@ public interface EnrolmentRepository extends AbstractRepository {
 
 	@Query("SELECT e FROM Enrolment e WHERE e.id = :id")
 	Enrolment findEnrolmentById(int id);
+
+	@Query("SELECT a FROM Activity a WHERE a.enrolment.id = :id")
+	Collection<Activity> findActivitiesByStudent(int id);
 
 }

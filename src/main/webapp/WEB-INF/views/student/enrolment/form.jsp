@@ -24,15 +24,13 @@
 	<acme:input-checkbox code="student.enrolment.form.label.isFinalised" path="isFinalised"/>
 
 	<jstl:choose>
-		<jstl:when test="${_command == 'show' || _command == 'update'|| _command == 'delete' || _command == list}">
+		<jstl:when test="${_command == 'show' || _command == 'update'|| _command == 'delete'}">
 			<acme:submit code="student.enrolment.form.button.update" action="/student/enrolment/update"/>
 			<acme:submit code="student.enrolment.form.button.delete" action="/student/enrolment/delete"/>
+			<acme:submit code="student.enrolment.form.button.register" action="/student/enrolment/create"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'finalise'}">
 			<acme:button code="student.enrolment.form.button.finalise" action="/student/enrolment-session/list?masterId=${id}"/>
-		</jstl:when>
-		<jstl:when test="${_command == 'register'}">
-			<acme:submit code="student.enrolment.form.button.register" action="/student/enrolment/create"/>
 		</jstl:when>
 	</jstl:choose>
 </acme:form>
