@@ -27,3 +27,4 @@ assistant.tutorial.form.label.course = Course
 assistant.tutorial.form.error.code.duplicated = This code already exists
 
 assistant.tutorial.form.button.create = Create
+assistant.tutorial.form.button.update = Update
