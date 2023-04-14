@@ -96,6 +96,7 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 		Optional<Tutorial> tutorialWithSameCode;
 		tutorialWithSameCode = this.repository.findTutorialByCode(code);
 		super.state(!tutorialWithSameCode.isPresent() || object.getId() == tutorialWithSameCode.get().getId(), "code", "assistant.tutorial.form.error.code.duplicated");
+		super.state(object.isDraft(), "*", "assistant.tutorial.form.error.general.update.not-draft");
 	}
 
 	@Override
