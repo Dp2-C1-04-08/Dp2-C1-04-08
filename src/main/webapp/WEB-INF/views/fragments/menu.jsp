@@ -42,6 +42,10 @@
 		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
 			<acme:menu-suboption code="master.menu.authenticated.offers.list" action="/authenticated/offer/list"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
+			<acme:menu-suboption code="master.menu.assistant.my-tutorials" action="/assistant/tutorial/list-mine"/>
+		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
