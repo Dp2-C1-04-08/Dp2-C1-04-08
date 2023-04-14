@@ -19,8 +19,7 @@
 	<acme:list-column code="company.practica.list.label.code" path="code"/>
 	<acme:list-column code="company.practica.list.label.title" path="title"/>
 	<acme:list-column code="company.practica.list.label.published" path="published"/>
-	<acme:list-column code="company.practica.list.label.goals" path="goals"/>
-	<acme:list-column code="company.practica.list.label.abstractStr" path="abstractStr"/>
+	
 	<acme:list-column code="company.practica.list.label.estimatedTime" path="estimatedTime"/>
 </acme:list>
 

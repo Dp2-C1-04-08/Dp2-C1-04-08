@@ -1,5 +1,5 @@
 
-package acme.features.any.practicum;
+package acme.features.authenticated.practicum;
 
 import javax.annotation.PostConstruct;
 
@@ -7,18 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import acme.entities.practicums.Practicum;
-import acme.framework.components.accounts.Any;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-public class AnyPracticumController extends AbstractController<Any, Practicum> {
+public class AuthenticatedPracticumController extends AbstractController<Authenticated, Practicum> {
 
 	//Internal state ----------------------------------
 	@Autowired
-	protected AnyPracticumListService	listService;
+	protected AuthenticatedPracticumListService	listService;
 
 	@Autowired
-	protected AnyPracticumShowService	showService;
+	protected AuthenticatedPracticumShowService	showService;
 
 	//Contructors ---------------------------------------------
 

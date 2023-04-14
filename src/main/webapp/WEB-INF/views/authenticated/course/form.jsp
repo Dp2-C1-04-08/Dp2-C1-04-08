@@ -14,7 +14,7 @@
 <jstl:choose>
 		<jstl:when test="${_command == 'show' || _command == list}">
 			
-			<acme:button code="any.course.form.list.button" action="/any/practicum/list?masterId=${id}"/>
+			<acme:button code="any.course.form.list.button" action="/authenticated/practicum/list?masterId=${id}"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			

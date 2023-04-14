@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.practicumSessions.PracticumSession;
+import acme.entities.practicums.Practicum;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
@@ -33,9 +34,14 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 	@Override
 	public void authorise() {
 		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Company.class);
+
+		final int masterId = super.getRequest().getData("masterId", int.class);
+		final int companyId = super.getRequest().getPrincipal().getActiveRoleId();
+		super.getResponse().setGlobal("masterId", masterId);
+		final Practicum practicum = this.repository.findPracticumById(masterId);
+		status = super.getRequest().getPrincipal().hasRole(Company.class) && practicum.getCompany().getId() == companyId;
 		super.getResponse().setAuthorised(status);
-		super.getResponse().setGlobal("masterId", super.getRequest().getData("masterId", int.class));
+
 	}
 
 	@Override
@@ -58,7 +64,7 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 		final Duration duracion = Duration.between(initialDate, endDate);
 		final long days = duracion.toDays();
 		final int masterId = super.getRequest().getData("masterId", int.class);
-		tuple = super.unbind(object, "title", "abstractStr", "link", "practicum");
+		tuple = super.unbind(object, "title", "abstractStr", "link", "practicum", "addendum");
 
 		tuple.put("duration", days);
 		tuple.put("masterId", masterId);

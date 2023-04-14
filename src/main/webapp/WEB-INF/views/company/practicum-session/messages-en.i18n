@@ -12,9 +12,10 @@
 company.practicumSession.list.label.title = Title
 company.practicumSession.list.label.abstractStr = Abstract
 company.practicumSession.list.label.link = Link
-company.practicumSession.list.label.startDate = Start Date (dd/MM/yyyy HH:mm)
-company.practicumSession.list.label.endDate = End Date (dd/MM/yyyy HH:mm)
+company.practicumSession.list.label.startDate = Start Date 
+company.practicumSession.list.label.endDate = End Date 
 company.practicumSession.list.label.duration = Duration
+company.practicumSession.list.label.addendum = Addendum
 
 company.practicumSession.list.button.update = Update
 company.practicumSession.list.button.delete = Delete
@@ -24,6 +25,7 @@ company.practicumSession.form.error.oneWeekLong = Must be at least one week long
 company.practicumSession.form.error.oneWeekAhead = Must be at least one week ahead
 company.practicumSession.form.error.isPublished = Cannot be updated with a published practica
 company.practicumSession.form.error.delete = Cannot be deleted with a published practica
+company.practicumSession.form.error.canAddendum = One single addendum can be added
 
 
 

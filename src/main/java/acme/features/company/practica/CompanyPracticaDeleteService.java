@@ -34,7 +34,11 @@ public class CompanyPracticaDeleteService extends AbstractService<Company, Pract
 	@Override
 	public void authorise() {
 		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Company.class);
+		final int companyId = super.getRequest().getPrincipal().getActiveRoleId();
+		final int practicumId = super.getRequest().getData("id", int.class);
+		final Practicum practicum = this.repository.findPracticaById(practicumId);
+		final boolean sameCompany = practicum.getCompany().getId() == companyId;
+		status = super.getRequest().getPrincipal().hasRole(Company.class) && sameCompany;
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -55,7 +59,7 @@ public class CompanyPracticaDeleteService extends AbstractService<Company, Pract
 	public void validate(final Practicum object) {
 		assert object != null;
 		final boolean isPublished = object.getPublished();
-		super.state(!isPublished, "title", "company.practica.form.error.delete.published");
+		super.state(!isPublished, "*", "company.practica.form.error.delete.published");
 
 	}
 	@Override

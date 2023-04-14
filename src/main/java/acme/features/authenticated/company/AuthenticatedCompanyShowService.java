@@ -1,19 +1,19 @@
 
-package acme.features.any.company;
+package acme.features.authenticated.company;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.framework.components.accounts.Any;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class AnyCompanyShowService extends AbstractService<Any, Company> {
+public class AuthenticatedCompanyShowService extends AbstractService<Authenticated, Company> {
 
 	@Autowired
-	protected AnyCompanyRepository repository;
+	protected AuthenticatedCompanyRepository repository;
 
 
 	@Override

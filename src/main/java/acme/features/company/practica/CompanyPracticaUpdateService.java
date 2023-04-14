@@ -28,7 +28,11 @@ public class CompanyPracticaUpdateService extends AbstractService<Company, Pract
 	@Override
 	public void authorise() {
 		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Company.class);
+		final int companyId = super.getRequest().getPrincipal().getActiveRoleId();
+		final int practicumId = super.getRequest().getData("id", int.class);
+		final Practicum practicum = this.repository.findPracticaById(practicumId);
+		final boolean sameCompany = practicum.getCompany().getId() == companyId;
+		status = super.getRequest().getPrincipal().hasRole(Company.class) && sameCompany;
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -54,7 +58,7 @@ public class CompanyPracticaUpdateService extends AbstractService<Company, Pract
 		final boolean published = object.getPublished();
 
 		final boolean isPublished = published;
-		super.state(!isPublished, "title", "company.practica.form.error.update.published");
+		super.state(!isPublished, "*", "company.practica.form.error.update.published");
 
 	}
 

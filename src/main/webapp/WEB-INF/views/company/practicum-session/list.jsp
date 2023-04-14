@@ -16,8 +16,9 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
+
 	<acme:list-column code="company.practicumSession.list.label.title" path="title"/>
-	<acme:list-column code="company.practicumSession.list.label.abstractStr" path="abstractStr"/>
+	<acme:list-column code="company.practicumSession.list.label.addendum" path="addendum"/>
 	<acme:list-column code="company.practicumSession.list.label.link" path="link"/>
 	<acme:list-column code="company.practicumSession.list.label.duration" path="duration"/>
 	

@@ -50,9 +50,9 @@ master.menu.company.practicum.list = List Practicum
 master.menu.company.practicum.create = Create Practicum
 
 
-#master.menu.any ##########################################################
-master.menu.any = Any
-master.menu.any.course = Course
+#master.menu.authenticated.course ##########################################################
+master.menu.authenticated.course = Courses
+master.menu.authenticated.course.list = Courses List
 
 
 # master.menu.user-account ####################################################

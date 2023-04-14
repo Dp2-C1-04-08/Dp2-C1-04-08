@@ -19,8 +19,8 @@
 	<acme:input-textbox code="company.practicumSession.list.label.title" path="title"/>
 	<acme:input-textbox code="company.practicumSession.list.label.abstractStr" path="abstractStr"/>
 	<acme:input-textarea code="company.practicumSession.list.label.link" path="link"/>
-	<acme:input-textbox code="company.practicumSession.list.label.startDate" path="startDate"/>
-	<acme:input-textbox code="company.practicumSession.list.label.endDate" path="endDate"/>
+	<acme:input-moment code="company.practicumSession.list.label.startDate" path="startDate"/>
+	<acme:input-moment code="company.practicumSession.list.label.endDate" path="endDate"/>
 	
 	
 

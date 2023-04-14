@@ -1,12 +1,7 @@
 
 package acme.features.company.practicumSession;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,16 +30,20 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		Boolean status;
+		status = super.getRequest().hasData("masterId");
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
 		boolean status;
-		Integer numberAddendum;
+		final Integer numberAddendum;
 		final int masterId = super.getRequest().getData("masterId", int.class);
-		numberAddendum = this.repository.countNumberOfAddendum(masterId);
-		status = numberAddendum < 1;
+		final int companyId = super.getRequest().getPrincipal().getActiveRoleId();
+
+		final Practicum practicum = this.repository.findPracticumById(masterId);
+		status = practicum.getCompany().getId() == companyId;
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -71,48 +70,50 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 	public void bind(final PracticumSession object) {
 		assert object != null;
 
-		final String startDateStr = this.getRequest().getData("startDate", String.class);
-		final String endDateStr = this.getRequest().getData("endDate", String.class);
-		final SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-		try {
-			final Date startDate = format.parse(startDateStr);
-			final Date endDate = format.parse(endDateStr);
-			object.setStartDate(startDate);
-			object.setEndDate(endDate);
-		} catch (final ParseException e) {
-
-			e.printStackTrace();
-		}
-
-		super.bind(object, "title", "abstractStr", "link");
+		super.bind(object, "title", "abstractStr", "link", "startDate", "endDate");
 	}
 
 	@Override
 	public void validate(final PracticumSession object) {
 		assert object != null;
+		Date moment;
+		moment = MomentHelper.getCurrentMoment();
+		Date startDate = null;
+		Date endDate = null;
 
-		final LocalDateTime initialDate = Instant.ofEpochMilli(object.getStartDate().getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
-		final LocalDateTime endDate = Instant.ofEpochMilli(object.getEndDate().getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
-		final Duration durationLong = Duration.between(initialDate, endDate);
-		final long daysLong = durationLong.toDays();
-		final boolean isOneWeekLong = daysLong >= 7;
-		super.state(isOneWeekLong, "endDate", "company.practicumSession.form.error.oneWeekLong");
+		try {
+			startDate = super.getRequest().getData("startDate", Date.class);
+		} catch (final Exception e) {
+		}
+		try {
+			endDate = super.getRequest().getData("endDate", Date.class);
+		} catch (final Exception e) {
+		}
 
-		final Date actualDate = MomentHelper.getCurrentMoment();
-		final LocalDateTime actualDateLocalTime = Instant.ofEpochMilli(actualDate.getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
-		final Duration durationAhead = Duration.between(actualDateLocalTime, initialDate);
-		final Long daysAhead = durationAhead.toDays();
-		final boolean isOneWeekAhead = daysAhead >= 7;
-		super.state(isOneWeekAhead, "startDate", "company.practicumSession.form.error.oneWeekAhead");
+		if (startDate != null) {
+			final Duration durationAhead = MomentHelper.computeDuration(moment, startDate);
+			final Duration minimunDurationAhead = Duration.ofDays(7);
+			final Boolean oneWeekAhead = minimunDurationAhead.minus(durationAhead).isNegative();
+			super.state(oneWeekAhead, "startDate", "company.practicumSession.form.error.oneWeekAhead");
+			if (endDate != null) {
+				final Duration durationLong = MomentHelper.computeDuration(startDate, endDate);
+				final Duration minimunDurationLong = Duration.ofDays(7);
+				final Boolean oneWeekLong = minimunDurationLong.minus(durationLong).isNegative();
+				super.state(oneWeekLong, "endDate", "company.practicumSession.form.error.oneWeekLong");
+			}
+		}
+		final int numberAddendum = this.repository.countNumberOfAddendum(object.getPracticum().getId());
+		final boolean canAddendum = numberAddendum < 1;
+		super.state(canAddendum, "*", "company.practicumSession.form.error.canAddendum");
 
 	}
 
 	@Override
 	public void perform(final PracticumSession object) {
 		assert object != null;
-		final LocalDateTime initialDate = Instant.ofEpochMilli(object.getStartDate().getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
-		final LocalDateTime endDate = Instant.ofEpochMilli(object.getEndDate().getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
-		final Duration durationLong = Duration.between(initialDate, endDate);
+		final Date startDate = super.getRequest().getData("startDate", Date.class);
+		final Date endDate = super.getRequest().getData("endDate", Date.class);
+		final Duration durationLong = MomentHelper.computeDuration(startDate, endDate);
 		final long daysLong = durationLong.toDays();
 		final Practicum practicum = object.getPracticum();
 		final Integer duration = (int) (practicum.getEstimatedTime() + daysLong);

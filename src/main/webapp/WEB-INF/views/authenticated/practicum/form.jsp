@@ -23,6 +23,6 @@
 	<acme:input-select code="any.practica.list.label.course" path="course" choices="${courses}"/>	
 	<acme:input-checkbox code="any.practica.list.label.published" path="published"/>
 	
-	<acme:button code="any.practica.button.show.company" action="/any/company/show?masterId=${company.id}"/>
+	<acme:button code="any.practica.button.show.company" action="/authenticated/company/show?masterId=${company.id}"/>
 		
 </acme:form>

@@ -17,7 +17,7 @@
 
 <acme:list>
 	<acme:list-column code="any.practica.list.label.code" path="code"/>
-	<acme:list-column code="any.practica.list.lany.practica.list.label.publishedabel.title" path="title"/>
+	<acme:list-column code="any.practica.list.label.title" path="title"/>
 	<acme:list-column code="any.practica.list.label.published" path="published"/>
 	<acme:list-column code="any.practica.list.label.goals" path="goals"/>
 	<acme:list-column code="any.practica.list.label.abstractStr" path="abstractStr"/>

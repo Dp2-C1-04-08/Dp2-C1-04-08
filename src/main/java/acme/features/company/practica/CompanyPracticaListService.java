@@ -25,6 +25,7 @@ public class CompanyPracticaListService extends AbstractService<Company, Practic
 
 	@Override
 	public void authorise() {
+
 		super.getResponse().setAuthorised(true);
 	}
 

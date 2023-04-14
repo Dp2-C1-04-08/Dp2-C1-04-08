@@ -32,13 +32,23 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+		status = super.getRequest().hasData("id", int.class);
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
 		boolean status;
 		status = super.getRequest().getPrincipal().hasRole(Company.class);
+
+		final int practicumId = super.getRequest().getData("id", int.class);
+		final int companyId = super.getRequest().getPrincipal().getActiveRoleId();
+		boolean sameCompany;
+		final PracticumSession practicumSession = this.repository.findSessionById(practicumId);
+		sameCompany = practicumSession.getPracticum().getCompany().getId() == companyId;
+		status = status && sameCompany;
+
 		super.getResponse().setAuthorised(status);
 	}
 
