@@ -14,12 +14,19 @@
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
+
 <acme:form>
-	<acme:input-textbox code="assistant.tutorial.form.label.code" path="code"/>
+	<acme:input-textbox code="assistant.tutorial.form.label.code" path="code" placeholder="ABC1234"/>
 	<acme:input-textbox code="assistant.tutorial.form.label.title" path="title"/>
 	<acme:input-textarea code="assistant.tutorial.form.label.abstract-str" path="abstractStr"/>
 	<acme:input-textarea code="assistant.tutorial.form.label.goals" path="goals"/>
 	<acme:input-double code="assistant.tutorial.form.label.estimated-total-time" path="estimatedTotalTime"/>
-	<acme:input-select code ="assistant.tutorial.form.label.course" path="course" choices="${courses}"/>
-	<acme:input-checkbox readonly="${true}" code="assistant.tutorial.form.label.draft" path="draft"/>
+	<acme:input-select code="assistant.tutorial.form.label.course" path="course" choices="${courses}"/>
+	<acme:input-checkbox code="assistant.tutorial.form.label.draft" path="draft" readonly="true"/>
+	
+	<jstl:choose>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="assistant.tutorial.form.button.create" action="/assistant/tutorial/create"/>
+		</jstl:when>		
+	</jstl:choose>
 </acme:form>

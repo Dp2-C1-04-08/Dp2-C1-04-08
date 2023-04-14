@@ -13,6 +13,7 @@
 package acme.features.assistant.tutorial;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Repository;
 import acme.entities.courses.Course;
 import acme.entities.tutorials.Tutorial;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Assistant;
 
 @Repository
 public interface AssistantTutorialRepository extends AbstractRepository {
@@ -30,6 +32,15 @@ public interface AssistantTutorialRepository extends AbstractRepository {
 	@Query("select t from Tutorial t where t.id = :id")
 	Tutorial findOneTutorialById(int id);
 
+	@Query("select a from Assistant a where a.id = :id")
+	Assistant findOneAssistantById(int id);
+
 	@Query("select c from Course c")
 	Collection<Course> findValidCourses();
+
+	@Query("select c from Course c where c.id = :id")
+	Course findOneCourseById(int id);
+
+	@Query("select t from Tutorial t where t.code = :code")
+	Optional<Tutorial> findTutorialByCode(String code);
 }

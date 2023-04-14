@@ -14,6 +14,7 @@ assistant.tutorial.list.label.abstract-str = Resumen
 # assistant.tutorial.list.label.goals = Objetivos
 # assistant.tutorial.list.label.estimated-total-time = Tiempo total estimado (horas)
 assistant.tutorial.list.label.draft = Borrador
+assistant.tutorial.list.button.create = Crear
 
 assistant.tutorial.form.label.code = Código
 assistant.tutorial.form.label.title = Titulo
@@ -22,3 +23,7 @@ assistant.tutorial.form.label.goals = Objetivos
 assistant.tutorial.form.label.estimated-total-time = Tiempo total estimado (horas)
 assistant.tutorial.form.label.draft = Borrador
 assistant.tutorial.form.label.course = Curso
+
+assistant.tutorial.form.error.code.duplicated = Este código ya existe
+
+assistant.tutorial.form.button.create = Crear

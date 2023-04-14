@@ -8,7 +8,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -47,7 +47,7 @@ public class Tutorial extends AbstractEntity {
 	protected String			goals;
 
 	@NotNull
-	@PositiveOrZero
+	@Positive
 	protected Double			estimatedTotalTime;
 
 	protected boolean			draft;

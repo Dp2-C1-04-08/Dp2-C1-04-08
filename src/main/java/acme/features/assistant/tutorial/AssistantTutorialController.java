@@ -32,12 +32,16 @@ public class AssistantTutorialController extends AbstractController<Assistant, T
 	@Autowired
 	protected AssistantTutorialShowService		showService;
 
+	@Autowired
+	protected AssistantTutorialCreateService	createService;
+
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
 
 		super.addCustomCommand("list-mine", "list", this.listMineService);
 	}

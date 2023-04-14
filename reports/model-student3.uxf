@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>126</x>
-      <y>264</y>
+      <y>246</y>
       <w>210</w>
       <h>84</h>
     </coordinates>
@@ -23,7 +23,7 @@ bg=green</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>420</y>
+      <y>402</y>
       <w>324</w>
       <h>144</h>
     </coordinates>
@@ -46,7 +46,7 @@ bg=green</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>462</x>
-      <y>318</y>
+      <y>300</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -58,7 +58,7 @@ m2=1..*</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>420</x>
-      <y>396</y>
+      <y>378</y>
       <w>210</w>
       <h>96</h>
     </coordinates>
@@ -79,7 +79,7 @@ bg=green</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>432</x>
-      <y>234</y>
+      <y>216</y>
       <w>264</w>
       <h>90</h>
     </coordinates>
@@ -90,7 +90,7 @@ Tutorial
 + title:String {NotBlank, Length(1,75)}
 + abstractStr: String {NotBlank, Length(1,100)}
 + goals: String {NotBlank, Length(1,100)}
-+ estimatedTotalTime:Double {NotNull, PositiveOrZero}
++ estimatedTotalTime:Double {NotNull, Positive}
 + draft: boolean
 bg=green</panel_attributes>
     <additional_attributes/>
@@ -99,7 +99,7 @@ bg=green</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>732</x>
-      <y>276</y>
+      <y>258</y>
       <w>108</w>
       <h>60</h>
     </coordinates>
@@ -112,7 +112,7 @@ is stored in hours</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>690</x>
-      <y>288</y>
+      <y>270</y>
       <w>54</w>
       <h>42</h>
     </coordinates>
@@ -123,7 +123,7 @@ is stored in hours</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>702</x>
-      <y>438</y>
+      <y>420</y>
       <w>174</w>
       <h>66</h>
     </coordinates>
@@ -139,7 +139,7 @@ and 5 hours later than the startTime</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>624</x>
-      <y>462</y>
+      <y>444</y>
       <w>90</w>
       <h>30</h>
     </coordinates>
@@ -150,7 +150,7 @@ and 5 hours later than the startTime</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>456</x>
-      <y>90</y>
+      <y>72</y>
       <w>264</w>
       <h>78</h>
     </coordinates>
@@ -167,7 +167,7 @@ bg=green</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>534</x>
-      <y>162</y>
+      <y>144</y>
       <w>30</w>
       <h>84</h>
     </coordinates>
@@ -179,7 +179,7 @@ m2=1..*</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>330</x>
-      <y>288</y>
+      <y>270</y>
       <w>114</w>
       <h>30</h>
     </coordinates>
