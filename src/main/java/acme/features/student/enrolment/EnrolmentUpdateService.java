@@ -16,12 +16,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.enrolments.Enrolment;
-import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Student;
 
 @Service
-public class EnrolmentUpdateService extends AbstractService<Authenticated, Enrolment> {
+public class EnrolmentUpdateService extends AbstractService<Student, Enrolment> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -66,7 +66,7 @@ public class EnrolmentUpdateService extends AbstractService<Authenticated, Enrol
 
 	@Override
 	public void validate(final Enrolment object) {
-		assert object != null;
+		assert object.getIsFinalised() != null;
 		final boolean isFinalised = object.getIsFinalised();
 		super.state(isFinalised, "title", "enrolment.form.error.update.finalised");
 

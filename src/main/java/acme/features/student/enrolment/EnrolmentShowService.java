@@ -16,12 +16,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.enrolments.Enrolment;
-import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Student;
 
 @Service
-public class EnrolmentShowService extends AbstractService<Authenticated, Enrolment> {
+public class EnrolmentShowService extends AbstractService<Student, Enrolment> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -33,7 +33,11 @@ public class EnrolmentShowService extends AbstractService<Authenticated, Enrolme
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override

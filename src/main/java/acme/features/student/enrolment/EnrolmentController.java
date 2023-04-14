@@ -18,11 +18,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import acme.entities.enrolments.Enrolment;
-import acme.framework.components.accounts.Authenticated;
 import acme.framework.controllers.AbstractController;
+import acme.roles.Student;
 
 @Controller
-public class EnrolmentController extends AbstractController<Authenticated, Enrolment> {
+public class EnrolmentController extends AbstractController<Student, Enrolment> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -51,10 +51,10 @@ public class EnrolmentController extends AbstractController<Authenticated, Enrol
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
-		super.addBasicCommand("register", this.registerService);
+		//	super.addBasicCommand("register", this.registerService);
 		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("delete", this.deleteService);
-		super.addBasicCommand("finalise", this.finaliseService);
+		//		super.addBasicCommand("finalise", this.finaliseService) poner los atributos como parte del enrolment y controlar que o los dos sean nulos o ninguno en el servicio;
 	}
 
 }

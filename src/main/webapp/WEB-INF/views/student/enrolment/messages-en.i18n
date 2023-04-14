@@ -8,19 +8,26 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-company.enrolment.list.label.code = Code
-company.enrolment.list.label.motivation = Motivation
-company.enrolment.list.label.goals = Goals
-company.enrolment.list.label.isFinalised = isFinalised
+student.enrolment.list.label.code = Code
+student.enrolment.list.label.motivation = Motivation
+student.enrolment.list.label.goals = Goals
+student.enrolment.list.label.isFinalised = isFinalised
 
-company.enrolment.list.button.finalise = Finalise
-company.enrolment.list.button.register = Register
-company.enrolment.list.button.update = Update
-company.enrolment.list.button.delete = Delete
+student.enrolment.form.label.code = Code
+student.enrolment.form.label.motivation = Motivation
+student.enrolment.form.label.goals = Goals
+student.enrolment.form.label.isFinalised = isFinalised
+student.enrolment.form.label.student.name = Student name
+student.enrolment.form.label.course.code = Course code
 
-company.enrolment.form.error.update.finalised = Cannot be update with the enrolment finalised
-company.enrolment.form.error.delete.finalised = Cannot be deleted with the enrolment finalised
-company.enrolment.form.error.finalise.finalised = Cannot be finalised with the enrolment finalised
+student.enrolment.form.button.finalise = Finalise
+student.enrolment.form.button.register = Register
+student.enrolment.form.button.update = Update
+student.enrolment.form.button.delete = Delete
+
+student.enrolment.form.error.update.finalised = Cannot be update with the enrolment finalised
+student.enrolment.form.error.delete.finalised = Cannot be deleted with the enrolment finalised
+student.enrolment.form.error.finalise.finalised = Cannot be finalised with the enrolment finalised
 
 
-company.enrolment.list.button = List Enrolments
+student.enrolment.list.button = List Enrolments

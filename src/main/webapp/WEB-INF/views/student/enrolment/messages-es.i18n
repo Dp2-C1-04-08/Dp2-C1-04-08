@@ -8,19 +8,27 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-company.enrolment.list.label.code = Código
-company.enrolment.list.label.motivation = Motivación
-company.enrolment.list.label.goals = Metas
-company.enrolment.list.label.isFinalised = Está finalizado
-
-company.enrolment.list.button.finalise = Finalizar
-company.enrolment.list.button.register = Registrar
-company.enrolment.list.button.update = Actualizar
-company.enrolment.list.button.delete = Borrar
-
-company.enrolment.form.error.update.finalised = No se puede actualizar una matriculación finalizada
-company.enrolment.form.error.delete.finalised = No se puede borrar una matriculación finalizada
-company.enrolment.form.error.finalise.finalised = No se puede finalizar una matriculación ya finalizada
+student.enrolment.list.label.code = Código
+student.enrolment.list.label.motivation = Motivación
+student.enrolment.list.label.goals = Metas
+student.enrolment.list.label.isFinalised = Está finalizado
 
 
-company.enrolment.list.button = List Enrolments
+student.enrolment.form.label.code = Código
+student.enrolment.form.label.motivation = Motivación
+student.enrolment.form.label.goals = Metas
+student.enrolment.form.label.isFinalised = Está finalizado
+student.enrolment.form.label.student.name = Nombre del estudiante
+student.enrolment.form.label.course.code = Código del curso
+
+student.enrolment.form.button.finalise = Finalizar
+student.enrolment.form.button.register = Registrar
+student.enrolment.form.button.update = Actualizar
+student.enrolment.form.button.delete = Borrar
+
+student.enrolment.form.error.update.finalised = No se puede actualizar una matriculación finalizada
+student.enrolment.form.error.delete.finalised = No se puede borrar una matriculación finalizada
+student.enrolment.form.error.finalise.finalised = No se puede finalizar una matriculación ya finalizada
+
+
+student.enrolment.list.button = Listar Matriculaciones

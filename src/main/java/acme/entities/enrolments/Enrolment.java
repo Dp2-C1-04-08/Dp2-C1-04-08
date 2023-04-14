@@ -53,5 +53,5 @@ public class Enrolment extends AbstractEntity {
 	protected Course			course;
 
 	@NotNull
-	protected Boolean			isFinalised;
+	protected Boolean			isFinalised			= false;
 }

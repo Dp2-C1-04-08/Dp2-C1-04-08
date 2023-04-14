@@ -16,12 +16,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.enrolments.Enrolment;
-import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Student;
 
 @Service
-public class EnrolmentFinaliseService extends AbstractService<Authenticated, Enrolment> {
+public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment> {
 
 	// Internal state ---------------------------------------------------------
 
