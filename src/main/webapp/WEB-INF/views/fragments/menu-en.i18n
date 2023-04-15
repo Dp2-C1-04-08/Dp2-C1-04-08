@@ -50,9 +50,10 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
-#master.menu.any ##########################################################
+# master.menu.any ##########################################################
+
 master.menu.any = Any
-master.menu.any.course = Course
+master.menu.any.course = Courses Published
 
 # master.menu.user-account ####################################################
 
