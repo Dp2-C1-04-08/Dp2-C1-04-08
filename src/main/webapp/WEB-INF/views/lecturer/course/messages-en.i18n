@@ -4,6 +4,7 @@ lecturer.course.form.label.course-abstract = Abstract:
 lecturer.course.form.label.course-type = Type:
 lecturer.course.form.label.retail-price = Retail Price:
 lecturer.course.form.label.link = Link:
+lecturer.course.form.label.draft = Draft
 
 lecturer.course.list.label.code = Code
 lecturer.course.list.label.title = Title
