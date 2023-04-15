@@ -22,6 +22,7 @@ student.enrolment.form.label.course.code = Course code
 
 student.enrolment.form.button.finalise = Finalise
 student.enrolment.form.button.register = Register
+student.enrolment.list.button.register = Register
 student.enrolment.form.button.update = Update
 student.enrolment.form.button.delete = Delete
 

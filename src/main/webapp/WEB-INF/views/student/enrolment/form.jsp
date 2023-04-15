@@ -16,21 +16,34 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="student.enrolment.form.label.code" path="code"/>	
-	<acme:input-textbox code="student.enrolment.form.label.motivation" path="motivation"/>
-	<acme:input-textbox code="student.enrolment.form.label.goals" path="goals"/>
-	<acme:input-textbox readonly="${true}" code="student.enrolment.form.label.student.name" path="student.name"/>
-	<acme:input-textbox readonly="${true}" code="student.enrolment.form.label.course.code" path="course.code"/>
-	<acme:input-checkbox code="student.enrolment.form.label.isFinalised" path="isFinalised"/>
-
+	
 	<jstl:choose>
 		<jstl:when test="${_command == 'show' || _command == 'update'|| _command == 'delete'}">
+			<acme:input-textbox code="student.enrolment.form.label.code" path="code"/>	
+			<acme:input-textbox code="student.enrolment.form.label.motivation" path="motivation"/>
+			<acme:input-textbox code="student.enrolment.form.label.goals" path="goals"/>
+			<acme:input-textbox readonly="${true}" code="student.enrolment.form.label.student.name" path="student.name"/>
+			<acme:input-textbox readonly="${true}" code="student.enrolment.form.label.course.code" path="course.code"/>
+			
 			<acme:submit code="student.enrolment.form.button.update" action="/student/enrolment/update"/>
 			<acme:submit code="student.enrolment.form.button.delete" action="/student/enrolment/delete"/>
-			<acme:submit code="student.enrolment.form.button.register" action="/student/enrolment/create"/>
+			<acme:button code="student.enrolment.form.button.finalise" action="/student/enrolment/finalise"/>
+			<jstl:choose>
+				<jstl:when test="${_command == 'register'}">
+				<acme:submit code="student.enrolment.form.button.register" action="/student/enrolment/register"/>
+				</jstl:when>
+			</jstl:choose>
 		</jstl:when>
+		
 		<jstl:when test="${_command == 'finalise'}">
-			<acme:button code="student.enrolment.form.button.finalise" action="/student/enrolment-session/list?masterId=${id}"/>
+			<acme:input-textbox code="student.enrolment.form.label.code" path="code"/>	
+			<acme:input-textbox code="student.enrolment.form.label.creditCardHolder" path="creditCardHolder"/>
+			<acme:input-textbox code="student.enrolment.form.label.expiryDate" path="expiryDate"/>
+			<acme:input-textbox code="student.enrolment.form.label.cvc" path="cvc"/>
+			<acme:input-textbox code="student.enrolment.form.label.upperNibble" path="upperNibble"/>
+			<acme:input-textbox code="student.enrolment.form.label.lowerNibble" path="lowerNibble"/>
+
+			<acme:button code="student.enrolment.form.button.finalise" action="/student/enrolment-session/finalise"/>
 		</jstl:when>
 	</jstl:choose>
 </acme:form>

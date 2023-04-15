@@ -51,10 +51,11 @@ public class EnrolmentController extends AbstractController<Student, Enrolment> 
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
-		//	super.addBasicCommand("register", this.registerService);
 		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("delete", this.deleteService);
-		//		super.addBasicCommand("finalise", this.finaliseService) poner los atributos como parte del enrolment y controlar que o los dos sean nulos o ninguno en el servicio;
+
+		super.addCustomCommand("register", "create", this.registerService);
+		super.addCustomCommand("finalise", "update", this.finaliseService);
 	}
 
 }

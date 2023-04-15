@@ -60,7 +60,7 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 	public void bind(final Enrolment object) {
 		assert object != null;
 
-		super.bind(object, "code", "motivation", "goals", "student", "course", "isFinalised");
+		super.bind(object, "code", "motivation", "goals", "student", "course", "creditCardHolder", "lowerNibble", "isFinalised");
 
 	}
 
@@ -85,7 +85,7 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "student", "course", "isFinalised");
+		tuple = super.unbind(object, "code", "motivation", "goals", "student", "course", "creditCardHolder", "lowerNibble", "isFinalised");
 
 		super.getResponse().setData(tuple);
 	}

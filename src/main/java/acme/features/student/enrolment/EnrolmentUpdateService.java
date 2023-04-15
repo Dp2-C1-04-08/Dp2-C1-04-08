@@ -60,12 +60,14 @@ public class EnrolmentUpdateService extends AbstractService<Student, Enrolment> 
 	public void bind(final Enrolment object) {
 		assert object != null;
 
-		super.bind(object, "code", "motivation", "goals", "student", "course", "isFinalised");
+		super.bind(object, "code", "motivation", "goals", "student", "course", "creditCardHolder", "lowerNibble", "isFinalised");
 
 	}
 
 	@Override
 	public void validate(final Enrolment object) {
+		if (object.getIsFinalised() == null)
+			object.setIsFinalised(false);
 		assert object.getIsFinalised() != null;
 		final boolean isFinalised = object.getIsFinalised();
 		super.state(isFinalised, "title", "enrolment.form.error.update.finalised");
@@ -84,7 +86,7 @@ public class EnrolmentUpdateService extends AbstractService<Student, Enrolment> 
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "student", "course", "isFinalised");
+		tuple = super.unbind(object, "code", "motivation", "goals", "student", "course", "creditCardHolder", "lowerNibble", "isFinalised");
 
 		super.getResponse().setData(tuple);
 	}

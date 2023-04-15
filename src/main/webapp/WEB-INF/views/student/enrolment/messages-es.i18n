@@ -23,6 +23,7 @@ student.enrolment.form.label.course.code = Código del curso
 
 student.enrolment.form.button.finalise = Finalizar
 student.enrolment.form.button.register = Registrar
+student.enrolment.list.button.register = Registrar
 student.enrolment.form.button.update = Actualizar
 student.enrolment.form.button.delete = Borrar
 

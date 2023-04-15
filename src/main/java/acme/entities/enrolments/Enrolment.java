@@ -52,6 +52,9 @@ public class Enrolment extends AbstractEntity {
 	@ManyToOne(optional = false)
 	protected Course			course;
 
+	protected String			creditCardHolder;
+	protected String			lowerNibble;
+
 	@NotNull
 	protected Boolean			isFinalised			= false;
 }
