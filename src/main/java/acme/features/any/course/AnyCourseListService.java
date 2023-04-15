@@ -32,7 +32,9 @@ public class AnyCourseListService extends AbstractService<Any, Course> {
 
 	@Override
 	public void load() {
-		final Collection<Course> object = this.repository.listAllCourse();
+		Collection<Course> object;
+
+		object = this.repository.findManyCoursesByAvailability();
 
 		super.getBuffer().setData(object);
 	}
