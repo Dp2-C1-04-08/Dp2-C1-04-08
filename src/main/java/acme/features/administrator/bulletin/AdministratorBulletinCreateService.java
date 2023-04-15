@@ -53,23 +53,18 @@ public class AdministratorBulletinCreateService extends AbstractService<Administ
 		object = new Bulletin();
 
 		object.setInstantiationMoment(moment);
-		object.setTitle("");
-		object.setMessage("");
-		object.setFlag(false);
-		object.setLink("");
 		super.getBuffer().setData(object);
 	}
 
 	@Override
 	public void bind(final Bulletin object) {
 		assert object != null;
-
 		super.bind(object, "instantiationMoment", "title", "message", "flag", "link");
 	}
 
 	@Override
 	public void validate(final Bulletin object) {
-		super.getBuffer().setData(object);
+		assert object != null;
 	}
 
 	@Override
