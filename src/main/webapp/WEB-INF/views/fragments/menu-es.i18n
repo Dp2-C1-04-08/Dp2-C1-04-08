@@ -18,6 +18,7 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
+master.menu.anonymous.all-courses = Cursos
 master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.anonymous.rubcasfer2-link = 29534831W: Casal Ferrero, Rubén
 master.menu.anonymous.ernrivper-link = 30261698T: Rivero Peralta, Ernesto
@@ -33,6 +34,12 @@ master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
+master.menu.administrator.offer.list = Listar ofertas
+
+# master.menu.authenticated ###################################################
+
+master.menu.authenticated = Autenticado
+master.menu.authenticated.offers.list = Listar ofertas
 
 # master.menu.provider ########################################################
 
@@ -44,9 +51,10 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
-#master.menu.any ##########################################################
+# master.menu.any ##########################################################
+
 master.menu.any = Cualquiera
-master.menu.any.course = Curso
+master.menu.any.course = Cursos Publicados
 
 #master.menu.lecturer ##########################################################
 master.menu.lecturer = Profesor

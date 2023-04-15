@@ -29,14 +29,24 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 	}
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int id;
+		Course course;
+
+		id = super.getRequest().getData("id", int.class);
+		course = this.repository.findOneCourseById(id);
+		status = course != null && !course.isDraft();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		final int id = super.getRequest().getData("id", int.class);
+		int id;
+		Course object;
 
-		final Course object = this.repository.findOneCourseById(id);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneCourseById(id);
 
 		super.getBuffer().setData(object);
 	}
