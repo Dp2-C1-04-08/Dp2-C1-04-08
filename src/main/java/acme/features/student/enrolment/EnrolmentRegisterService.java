@@ -46,7 +46,9 @@ public class EnrolmentRegisterService extends AbstractService<Student, Enrolment
 	public void load() {
 		Enrolment object;
 		Student student;
+		Course course;
 
+		course = this.repository.findCourseById(1); //aquí tendré que meter el id del curso en el que me voy a registrar
 		student = this.repository.findStudentById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new Enrolment();
 		object.setIsFinalised(false);
@@ -61,14 +63,7 @@ public class EnrolmentRegisterService extends AbstractService<Student, Enrolment
 	public void bind(final Enrolment object) {
 		assert object != null;
 
-		int courseId;
-		Course course;
-
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findCourseById(courseId);
-
 		super.bind(object, "code", "motivation", "goals", "student", "course", "creditCardHolder", "lowerNibble", "isFinalised");
-		object.setCourse(course);
 	}
 
 	@Override

@@ -9,8 +9,8 @@
 # they accept any liabilities with respect to them.
 
 student.enrolment.list.label.code = Código
-student.enrolment.list.label.motivation = Motivación
-student.enrolment.list.label.goals = Metas
+student.enrolment.list.label.student-id = Id del estudiante
+student.enrolment.list.label.course-code = Código del curso
 student.enrolment.list.label.isFinalised = Está finalizado
 
 
@@ -18,8 +18,8 @@ student.enrolment.form.label.code = Código
 student.enrolment.form.label.motivation = Motivación
 student.enrolment.form.label.goals = Metas
 student.enrolment.form.label.isFinalised = Está finalizado
-student.enrolment.form.label.student.name = Nombre del estudiante
-student.enrolment.form.label.course.code = Código del curso
+student.enrolment.form.label.student-id = Id del estudiante
+student.enrolment.form.label.course-code = Código del curso
 
 student.enrolment.form.button.finalise = Finalizar
 student.enrolment.form.button.register = Registrar

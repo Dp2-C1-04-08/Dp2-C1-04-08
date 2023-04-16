@@ -57,3 +57,4 @@ master.menu.user-account.become-consumer = Hazte consumidor
 
 menu.student = Estudiante
 menu.student.list = Listado de tus matriculaciones
+menu.student.register = Registra una matriculación

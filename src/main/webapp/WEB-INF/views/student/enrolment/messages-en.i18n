@@ -9,16 +9,16 @@
 # they accept any liabilities with respect to them.
 
 student.enrolment.list.label.code = Code
-student.enrolment.list.label.motivation = Motivation
-student.enrolment.list.label.goals = Goals
+student.enrolment.list.label.student-id = Student id
+student.enrolment.list.label.course-code = Course code
 student.enrolment.list.label.isFinalised = isFinalised
 
 student.enrolment.form.label.code = Code
 student.enrolment.form.label.motivation = Motivation
 student.enrolment.form.label.goals = Goals
 student.enrolment.form.label.isFinalised = isFinalised
-student.enrolment.form.label.student.name = Student name
-student.enrolment.form.label.course.code = Course code
+student.enrolment.form.label.student-id = Student id
+student.enrolment.form.label.course-code = Course code
 
 student.enrolment.form.button.finalise = Finalise
 student.enrolment.form.button.register = Register

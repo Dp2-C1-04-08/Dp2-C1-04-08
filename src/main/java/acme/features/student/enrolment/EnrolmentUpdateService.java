@@ -33,7 +33,11 @@ public class EnrolmentUpdateService extends AbstractService<Student, Enrolment> 
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -51,9 +55,13 @@ public class EnrolmentUpdateService extends AbstractService<Student, Enrolment> 
 
 	@Override
 	public void load() {
-		final int id = super.getRequest().getData("id", int.class);
-		final Enrolment enrolment = this.repository.findEnrolmentById(id);
-		super.getBuffer().setData(enrolment);
+		Enrolment object;
+		int id;
+
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findEnrolmentById(id);
+
+		super.getBuffer().setData(object);
 	}
 
 	@Override
@@ -66,9 +74,16 @@ public class EnrolmentUpdateService extends AbstractService<Student, Enrolment> 
 
 	@Override
 	public void validate(final Enrolment object) {
+		assert object != null;
+		assert object.getStudent() != null;
+		assert object.getCourse() != null;
+		object.setStudent(this.repository.findStudentById(super.getRequest().getPrincipal().getActiveRoleId()));
+
+		object.setCourse(this.repository.findEnrolmentById(super.getRequest().getData("id", int.class)).getCourse());
 		if (object.getIsFinalised() == null)
 			object.setIsFinalised(false);
 		assert object.getIsFinalised() != null;
+
 		final boolean isFinalised = object.getIsFinalised();
 		super.state(isFinalised, "title", "enrolment.form.error.update.finalised");
 
