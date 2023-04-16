@@ -46,10 +46,10 @@ master.menu.consumer.favourite-link = Enlace favorito
 
 
 #master.menu.company ###########################################################
-master.menu.company.practicum = Practicas
+master.menu.company.practicum = Mi Compañía
 master.menu.company.practicum.list = Listar Practicas
 master.menu.company.practicum.create = Crear Practica
-
+master.menu.company.company.dashboard = Mi Panel
 #master.menu.authenticated.course ##########################################################
 master.menu.authenticated.course = Cursos
 master.menu.authenticated.course.list = Listado Cursos
