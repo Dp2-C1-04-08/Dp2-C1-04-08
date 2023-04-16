@@ -30,6 +30,8 @@
 					<acme:submit code="student.enrolment.form.button.update" action="/student/enrolment/update"/>
 					<acme:submit code="student.enrolment.form.button.delete" action="/student/enrolment/delete"/>
 					<acme:button code="student.enrolment.form.button.finalise" action="/student/enrolment/finalise"/>
+					<acme:button code="student.enrolment.form.button.activities" action="/student/activity/list?id=${id}"/>
+					
 				</jstl:when>
 				<jstl:when test="${_command == 'register'}">
 					<acme:submit code="student.enrolment.form.button.register" action="/student/enrolment/register"/>

@@ -10,9 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.student.enrolment;
-
-import java.util.Collection;
+package acme.features.student.activity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,19 +22,22 @@ import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class EnrolmentDeleteService extends AbstractService<Student, Enrolment> {
+public class ActivityUpdateService extends AbstractService<Student, Activity> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected EnrolmentRepository repository;
+	protected ActivityRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -46,50 +47,50 @@ public class EnrolmentDeleteService extends AbstractService<Student, Enrolment> 
 		Enrolment enrolment;
 
 		id = super.getRequest().getData("id", int.class);
-		enrolment = this.repository.findEnrolmentById(id);
-		status = !enrolment.getIsFinalised();
+		enrolment = this.repository.findActivityById(id).getEnrolment();
+		status = super.getRequest().getPrincipal().hasRole(enrolment.getStudent()) && !enrolment.getIsFinalised();
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		final int id = super.getRequest().getData("id", int.class);
-		final Enrolment enrolment = this.repository.findEnrolmentById(id);
-		super.getBuffer().setData(enrolment);
+		Activity object;
+		int id;
+
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findActivityById(id);
+
+		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void bind(final Enrolment object) {
+	public void bind(final Activity object) {
 		assert object != null;
 
-		super.bind(object, "code", "motivation", "goals", "student", "course", "creditCardHolder", "lowerNibble", "isFinalised");
+		super.bind(object, "title", "activityAbstract", "activityType", "startTime", "endTime", "link");
 	}
 
 	@Override
-	public void validate(final Enrolment object) {
+	public void validate(final Activity object) {
 		assert object != null;
 	}
 
 	@Override
-	public void perform(final Enrolment object) {
+	public void perform(final Activity object) {
 		assert object != null;
-
-		final int id = object.getId();
-		final Collection<Activity> activities = this.repository.findActivitiesByEnrolmentId(id);
-
-		this.repository.deleteAll(activities);
-		this.repository.delete(object);
+		this.repository.save(object);
 	}
+
 	@Override
-	public void unbind(final Enrolment object) {
+	public void unbind(final Activity object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "student", "course", "creditCardHolder", "lowerNibble", "isFinalised");
-
-		super.getResponse().setData(tuple);
+		tuple = super.unbind(object, "title", "activityAbstract", "activityType", "startTime", "endTime", "link");
+		tuple.put("id", object.getEnrolment().getId());
+		tuple.put("isFinalised", object.getEnrolment().getIsFinalised());
 	}
 
 }

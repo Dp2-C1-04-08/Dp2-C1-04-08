@@ -15,6 +15,7 @@ package acme.features.student.enrolment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.courses.Course;
 import acme.entities.enrolments.Enrolment;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -67,16 +68,21 @@ public class EnrolmentUpdateService extends AbstractService<Student, Enrolment> 
 	@Override
 	public void bind(final Enrolment object) {
 		assert object != null;
+		int courseId;
+		Course course;
+
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repository.findCourseById(courseId);
 
 		super.bind(object, "code", "motivation", "goals", "student", "course", "creditCardHolder", "lowerNibble", "isFinalised");
-
+		object.setCourse(course);
 	}
 
 	@Override
 	public void validate(final Enrolment object) {
-		assert object != null;
-		assert object.getStudent() != null;
 		assert object.getCourse() != null;
+		assert object.getStudent() != null;
+
 		object.setStudent(this.repository.findStudentById(super.getRequest().getPrincipal().getActiveRoleId()));
 
 		object.setCourse(this.repository.findEnrolmentById(super.getRequest().getData("id", int.class)).getCourse());

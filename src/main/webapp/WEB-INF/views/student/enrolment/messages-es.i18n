@@ -23,9 +23,9 @@ student.enrolment.form.label.course-code = Código del curso
 
 student.enrolment.form.button.finalise = Finalizar
 student.enrolment.form.button.register = Registrar
-student.enrolment.list.button.register = Registrar
 student.enrolment.form.button.update = Actualizar
 student.enrolment.form.button.delete = Borrar
+student.enrolment.form.button.activities = Libro de actividades
 
 student.enrolment.form.error.update.finalised = No se puede actualizar una matriculación finalizada
 student.enrolment.form.error.delete.finalised = No se puede borrar una matriculación finalizada
