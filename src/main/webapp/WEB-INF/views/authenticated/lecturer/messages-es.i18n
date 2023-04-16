@@ -4,3 +4,4 @@ authenticated.lecturer.form.label.list-qualifications = Lista de calificaciones
 authenticated.lecturer.form.label.link = Enlace
 
 authenticated.lecturer.form.button.create = Registro
+authenticated.lecturer.form.button.update = Actualizar
