@@ -57,4 +57,4 @@ master.menu.user-account.become-consumer = Become a consumer
 
 menu.student = Student
 menu.student.list = List your enrolments
-menu.student.register = Register an enrolment
+menu.student.courseList = List of courses
