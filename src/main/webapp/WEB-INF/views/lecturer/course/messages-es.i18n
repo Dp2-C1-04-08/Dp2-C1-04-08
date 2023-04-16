@@ -5,7 +5,11 @@ lecturer.course.form.label.course-type = Tipo:
 lecturer.course.form.label.retail-price = Precio:
 lecturer.course.form.label.link = Enlace:
 lecturer.course.form.label.draft = Editable
+lecturer.course.form.button.update = Actualizar
+lecturer.course.form.button.delete = Eliminar
+lecturer.course.form.button.create = Crear
 
 lecturer.course.list.label.code = Codigo
 lecturer.course.list.label.title = Titulo
 lecturer.course.list.label.course-abstract = Resumen
+lecturer.course.list.button.create = Crear

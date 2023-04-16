@@ -5,7 +5,11 @@ lecturer.course.form.label.course-type = Type:
 lecturer.course.form.label.retail-price = Retail Price:
 lecturer.course.form.label.link = Link:
 lecturer.course.form.label.draft = Draft
+lecturer.course.form.button.update = Update
+lecturer.course.form.button.delete = Delete
+lecturer.course.form.button.create = Create
 
 lecturer.course.list.label.code = Code
 lecturer.course.list.label.title = Title
 lecturer.course.list.label.course-abstract = Abstract
+lecturer.course.list.button.create = Create
