@@ -45,9 +45,10 @@ master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
 #master.menu.company ############################################################
-master.menu.company.practicum = Practicum
+master.menu.company.practicum = My Company
 master.menu.company.practicum.list = List Practicum
 master.menu.company.practicum.create = Create Practicum
+master.menu.company.company.dashboard = My Dashboard
 
 
 #master.menu.authenticated.course ##########################################################
