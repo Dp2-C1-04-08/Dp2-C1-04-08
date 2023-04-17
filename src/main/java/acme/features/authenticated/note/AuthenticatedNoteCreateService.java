@@ -38,8 +38,7 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 	public void load() {
 		Note object;
 		object = new Note();
-		final Date creationDate = MomentHelper.getCurrentMoment();
-		object.setCreationDate(creationDate);
+		
 		super.getBuffer().setData(object);
 	}
 
@@ -75,7 +74,8 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 	@Override
 	public void perform(final Note object) {
 		assert object != null;
-
+		final Date creationDate = MomentHelper.getCurrentMoment();
+		object.setCreationDate(creationDate);
 		this.repository.save(object);
 	}
 
