@@ -20,5 +20,7 @@
 	<acme:input-textarea code="administrator.bulletin.form.label.message" path="message"/>
 	<acme:input-checkbox code="administrator.bulletin.form.label.flag" path="flag"/>
 	<acme:input-url code="administrator.bulletin.form.label.link" path="link"/>
+	<acme:input-checkbox code="authenticated.note.label.confirmation" path="confirmation"/>
+	
 	<acme:submit code="administrator.bulletin.form.button.create" action="/administrator/bulletin/create"/>		
 </acme:form>
