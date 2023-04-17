@@ -18,6 +18,7 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
+master.menu.anonymous.all-courses = Cursos
 master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.anonymous.rubcasfer2-link = 29534831W: Casal Ferrero, Rubén
 master.menu.anonymous.ernrivper-link = 30261698T: Rivero Peralta, Ernesto
@@ -33,6 +34,13 @@ master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
+master.menu.administrator.offer.list = Listar ofertas
+master.menu.administrator.banner.list = Listar pancartas
+
+# master.menu.authenticated ###################################################
+
+master.menu.authenticated = Autenticado
+master.menu.authenticated.offers.list = Listar ofertas
 
 # master.menu.provider ########################################################
 
@@ -44,10 +52,34 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+
 #master.menu.note ##########################################################
 master.menu.note = Nota
 master.menu.note.list = Listar
 master.menu.note.create = Crear
+
+
+
+#master.menu.company ###########################################################
+master.menu.company.practicum = Mi Compañía
+master.menu.company.practicum.list = Listar Practicas
+master.menu.company.practicum.create = Crear Practica
+master.menu.company.company.dashboard = Mi Panel
+#master.menu.authenticated.course ##########################################################
+master.menu.authenticated.course = Cursos
+master.menu.authenticated.course.list = Listado Cursos
+
+
+# master.menu.any ##########################################################
+
+master.menu.any = Cualquiera
+master.menu.any.course = Cursos Publicados
+
+# master.menu.assistant ###################################################
+master.menu.assistant = Asistente
+master.menu.assistant.my-tutorials = Mis tutoriales
+
+
 
 # master.menu.user-account ####################################################
 
@@ -57,3 +89,10 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+
+master.menu.user-account.become-company = Hazte una compañia
+master.menu.user-account.company = Datos Compañia
+
+
+master.menu.user-account.become-student = Hazte estudiante
+master.menu.user-account.student = Actualizar perfil de estudiante
