@@ -1,13 +1,13 @@
 key,code,title,abstract-str,goals,estimated-total-time,draft,key:assistant,key:course
-tutorial-01,AAA0001,default title,physics tutorial about Newton's laws,Know the 3 laws of Newton,2.6,true,assistant-01,course-01
-tutorial-02,AAB0002,d,physics tutorial about Newton's laws,Know the 3 laws of Newton,2.6,true,assistant-01,course-01
-tutorial-03,AAC0003,75 chars long tutorial title. The tutorial provides access to some sessions,physics tutorial about Newton's laws,Know the 3 laws of Newton,2.6,true,assistant-01,course-01
-tutorial-04,AAD0004,default title,a,Know the 3 laws of Newton,2.6,true,assistant-01,course-01
-tutorial-05,AAE0005,default title,100 char long abstract about physics tutorial about Newton's laws. In this course we will see 3 laws,Know the 3 laws of Newton,2.6,true,assistant-01,course-01
-tutorial-06,AAF0006,default title,physics tutorial about Newton's laws,g,2.6,true,assistant-01,course-01
-tutorial-07,AAG0007,default title,physics tutorial about Newton's laws,100 char long goals about physics tutorial. In this tutorial we will learn how to use the 3 formulas,2.6,true,assistant-01,course-01
-tutorial-08,AAH0008,default title,physics tutorial about Newton's laws,Know the 3 laws of Newton,0.001,true,assistant-01,course-01
-tutorial-09,AAI0009,default title,physics tutorial about Newton's laws,Know the 3 laws of Newton,1.7976931348623157E308,true,assistant-01,course-01
-tutorial-10,AAJ0010,default title,physics tutorial about Newton's laws,Know the 3 laws of Newton,2.6,false,assistant-01,course-01
-tutorial-11,AAK0011,default title,"<script>alert(""Hacked"")</script>",Know the 3 laws of Newton,2.6,true,assistant-01,course-01
-tutorial-12,AAL0012,default title,<h3>RANDOM TEXT</h3>,Know the 3 laws of Newton,2.6,true,assistant-02,course-02
+tutorial-01,AAA0001,default title,physics tutorial about Newton's laws,Know the 3 laws of Newton,2.6,true,assistant-01,course-03
+tutorial-02,AAB0002,d,physics tutorial about Newton's laws,Know the 3 laws of Newton,2.6,true,assistant-01,course-03
+tutorial-03,AAC0003,75 chars long tutorial title. The tutorial provides access to some sessions,physics tutorial about Newton's laws,Know the 3 laws of Newton,2.6,true,assistant-01,course-03
+tutorial-04,AAD0004,default title,a,Know the 3 laws of Newton,2.6,true,assistant-01,course-03
+tutorial-05,AAE0005,default title,100 char long abstract about physics tutorial about Newton's laws. In this course we will see 3 laws,Know the 3 laws of Newton,2.6,true,assistant-01,course-03
+tutorial-06,AAF0006,default title,physics tutorial about Newton's laws,g,2.6,true,assistant-01,course-03
+tutorial-07,AAG0007,default title,physics tutorial about Newton's laws,100 char long goals about physics tutorial. In this tutorial we will learn how to use the 3 formulas,2.6,true,assistant-01,course-03
+tutorial-08,AAH0008,default title,physics tutorial about Newton's laws,Know the 3 laws of Newton,0.001,true,assistant-01,course-03
+tutorial-09,AAI0009,default title,physics tutorial about Newton's laws,Know the 3 laws of Newton,1.7976931348623157E308,true,assistant-01,course-03
+tutorial-10,AAJ0010,default title,physics tutorial about Newton's laws,Know the 3 laws of Newton,2.6,false,assistant-01,course-03
+tutorial-11,AAK0011,default title,"<script>alert(""Hacked"")</script>",Know the 3 laws of Newton,2.6,true,assistant-01,course-03
+tutorial-12,AAL0012,default title,<h3>RANDOM TEXT</h3>,Know the 3 laws of Newton,2.6,true,assistant-02,course-03
