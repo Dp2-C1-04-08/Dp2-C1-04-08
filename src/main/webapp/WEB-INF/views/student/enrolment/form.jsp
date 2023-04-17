@@ -22,10 +22,11 @@
 			<acme:input-textbox code="student.enrolment.form.label.code" path="code"/>	
 			<acme:input-textbox code="student.enrolment.form.label.motivation" path="motivation"/>
 			<acme:input-textbox code="student.enrolment.form.label.goals" path="goals"/>
-			<acme:input-integer readonly="${true}" code="student.enrolment.form.label.student-id" path="id"/>
-			<acme:input-textbox readonly="${true}" code="student.enrolment.form.label.course-code" path="code"/>
 			
 			<jstl:choose>
+				<jstl:when test="${_command == 'show'}">
+					<acme:input-textbox readonly="${true}" code="student.enrolment.form.label.course-code" path="code"/>
+				</jstl:when>
 				<jstl:when test="${_command == 'show' || _command == 'update'|| _command == 'delete'}">
 					<acme:submit code="student.enrolment.form.button.update" action="/student/enrolment/update"/>
 					<acme:submit code="student.enrolment.form.button.delete" action="/student/enrolment/delete"/>

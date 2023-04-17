@@ -48,13 +48,18 @@ public class EnrolmentRegisterService extends AbstractService<Student, Enrolment
 		Student student;
 		Course course;
 
-		course = this.repository.findCourseById(1); //aquí tendré que meter el id del curso en el que me voy a registrar
-		student = this.repository.findStudentById(super.getRequest().getPrincipal().getActiveRoleId());
+		int id;
+
+		id = super.getRequest().getData("id", int.class);
 		object = new Enrolment();
+		course = this.repository.findCourseById(id);
+		student = this.repository.findStudentById(super.getRequest().getPrincipal().getActiveRoleId());
 		object.setIsFinalised(false);
 		object.setStudent(student);
 		object.setCreditCardHolder(null);
 		object.setLowerNibble(null);
+		object.setStudent(student);
+		object.setCourse(course);
 
 		super.getBuffer().setData(object);
 	}
@@ -63,7 +68,7 @@ public class EnrolmentRegisterService extends AbstractService<Student, Enrolment
 	public void bind(final Enrolment object) {
 		assert object != null;
 
-		super.bind(object, "code", "motivation", "goals", "student", "course", "creditCardHolder", "lowerNibble", "isFinalised");
+		super.bind(object, "code", "motivation", "goals", "student", "course");
 	}
 
 	@Override
@@ -84,7 +89,7 @@ public class EnrolmentRegisterService extends AbstractService<Student, Enrolment
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "student", "course", "creditCardHolder", "lowerNibble", "isFinalised");
+		tuple = super.unbind(object, "code", "motivation", "goals", "student", "course");
 
 		super.getResponse().setData(tuple);
 	}
