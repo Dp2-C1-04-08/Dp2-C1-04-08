@@ -30,7 +30,7 @@
 			<acme:submit code="student.activity.form.button.update" action="/student/activity/update"/>
 			<acme:submit code="student.activity.form.button.delete" action="/student/activity/delete"/>
 		</jstl:when>
-		<jstl:when test="${_command == 'create'}">
+		<jstl:when test="${_command == 'create'}"> 
 			<acme:submit code="student.activity.form.button.create" action="/student/activity/create?id=${id}"/>
 		</jstl:when>
 	</jstl:choose>

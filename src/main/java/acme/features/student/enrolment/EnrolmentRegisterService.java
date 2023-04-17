@@ -34,7 +34,11 @@ public class EnrolmentRegisterService extends AbstractService<Student, Enrolment
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -58,7 +62,6 @@ public class EnrolmentRegisterService extends AbstractService<Student, Enrolment
 		object.setStudent(student);
 		object.setCreditCardHolder(null);
 		object.setLowerNibble(null);
-		object.setStudent(student);
 		object.setCourse(course);
 
 		super.getBuffer().setData(object);
@@ -68,7 +71,7 @@ public class EnrolmentRegisterService extends AbstractService<Student, Enrolment
 	public void bind(final Enrolment object) {
 		assert object != null;
 
-		super.bind(object, "code", "motivation", "goals", "student", "course");
+		super.bind(object, "code", "motivation", "goals");
 	}
 
 	@Override
@@ -86,11 +89,15 @@ public class EnrolmentRegisterService extends AbstractService<Student, Enrolment
 	@Override
 	public void unbind(final Enrolment object) {
 		assert object != null;
+		final int courseId;
+		Course course;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "student", "course");
+		tuple = super.unbind(object, "code", "motivation", "goals");
 
+		course = object.getCourse();
+		tuple.put("course", course);
 		super.getResponse().setData(tuple);
 	}
 
