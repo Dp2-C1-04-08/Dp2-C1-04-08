@@ -19,7 +19,4 @@
 	<acme:list-column code="authenticated.offer.list.label.heading" path="heading"/>	
 	<acme:list-column code="authenticated.offer.list.label.summary" path="summary"/>
 	<acme:list-column code="authenticated.offer.list.label.price" path="price"/>
-	<acme:list-column code="authenticated.offer.list.label.start-date" path="startDate"/>
-	<acme:list-column code="authenticated.offer.list.label.end-date" path="endDate"/>
-	<acme:list-column code="authenticated.offer.list.label.link" path="link"/>
 </acme:list>

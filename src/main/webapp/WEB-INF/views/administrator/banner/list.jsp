@@ -16,9 +16,9 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="administrator.offer.list.label.heading" path="heading"/>	
-	<acme:list-column code="administrator.offer.list.label.summary" path="summary"/>
-	<acme:list-column code="administrator.offer.list.label.price" path="price"/>
+	<acme:list-column code="administrator.banner.list.label.slogan" path="slogan"/>	
+	<acme:list-column code="administrator.banner.list.label.image" path="image"/>
+	<acme:list-column code="administrator.banner.list.label.link" path="link"/>
 </acme:list>
 
-<acme:button code="administrator.offer.list.button.create" action="/administrator/offer/create"/>
+<acme:button code="administrator.banner.list.button.create" action="/administrator/banner/create"/>

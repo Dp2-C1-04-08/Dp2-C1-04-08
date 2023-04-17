@@ -1,20 +1,21 @@
 
-package acme.features.any.course;
+package acme.features.administrator.banner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.courses.Course;
-import acme.framework.components.accounts.Any;
+import acme.entities.banners.Banner;
+import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AnyCourseShowService extends AbstractService<Any, Course> {
+public class AdministratorBannerShowService extends AbstractService<Administrator, Banner> {
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnyCourseRepository repository;
+	protected AdministratorBannerRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -27,39 +28,32 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 
 		super.getResponse().setChecked(status);
 	}
+
 	@Override
 	public void authorise() {
-		boolean status;
-		int id;
-		Course course;
-
-		id = super.getRequest().getData("id", int.class);
-		course = this.repository.findOneCourseById(id);
-		status = course != null && !course.isDraft();
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
+		Banner object;
 		int id;
-		Course object;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneCourseById(id);
+		object = this.repository.findOneBannerById(id);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-
-	public void unbind(final Course object) {
+	public void unbind(final Banner object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "code", "courseAbstract", "courseType", "retailPrice", "link", "lecturer");
-
+		tuple = super.unbind(object, "slogan", "image", "link", "startDate", "endDate");
+		tuple.put("readonly", false);
 		super.getResponse().setData(tuple);
 	}
+
 }
