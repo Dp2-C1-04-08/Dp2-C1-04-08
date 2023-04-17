@@ -1,22 +1,23 @@
 
-package acme.features.authenticated.course;
+package acme.features.administrator.banner;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.courses.Course;
-import acme.framework.components.accounts.Authenticated;
+import acme.entities.banners.Banner;
+import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AuthenticatedCourseListService extends AbstractService<Authenticated, Course> {
+public class AdministratorBannerListService extends AbstractService<Administrator, Banner> {
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedCourseRepository repository;
+	protected AdministratorBannerRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -25,6 +26,7 @@ public class AuthenticatedCourseListService extends AbstractService<Authenticate
 	public void check() {
 		super.getResponse().setChecked(true);
 	}
+
 	@Override
 	public void authorise() {
 		super.getResponse().setAuthorised(true);
@@ -32,22 +34,21 @@ public class AuthenticatedCourseListService extends AbstractService<Authenticate
 
 	@Override
 	public void load() {
-		Collection<Course> object;
+		Collection<Banner> objects;
+		objects = this.repository.findAllBanners();
 
-		object = this.repository.findManyCoursesByAvailability();
-
-		super.getBuffer().setData(object);
+		super.getBuffer().setData(objects);
 	}
 
 	@Override
-
-	public void unbind(final Course object) {
+	public void unbind(final Banner object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "code", "courseAbstract", "courseType", "retailPrice", "link", "lecturer");
+		tuple = super.unbind(object, "slogan", "image", "link");
 
 		super.getResponse().setData(tuple);
 	}
+
 }

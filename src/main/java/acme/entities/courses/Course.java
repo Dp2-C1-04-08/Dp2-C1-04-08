@@ -52,6 +52,7 @@ public class Course extends AbstractEntity {
 
 	protected boolean			draft;
 
+
 	@ManyToOne(optional = false)
 	@NotNull
 	@Valid
