@@ -21,3 +21,7 @@ administrator.banner.form.label.end-date = End Date
 administrator.banner.form.button.create = Create
 administrator.banner.form.button.update = Update
 administrator.banner.form.button.delete = Delete
+
+administrator.banner.form.error.start-date.invalid = The display period must start in the future
+administrator.banner.form.error.end-date.invalid = The date of the end of the display period must be after the start date
+administrator.banner.form.error.period.invalid = The display period must be at least a week long

@@ -21,3 +21,7 @@ administrator.banner.form.label.end-date = Fecha de fin
 administrator.banner.form.button.create = Crear
 administrator.banner.form.button.update = Actualizar
 administrator.banner.form.button.delete = Eliminar
+
+administrator.banner.form.error.start-date.invalid = El periodo de exposición debe comenzar en el futuro
+administrator.banner.form.error.end-date.invalid = La fecha de fin de exposición debe ser después de la fecha de inicio
+administrator.banner.form.error.period.invalid = El periodo de exposición debe durar mínimo una semana
