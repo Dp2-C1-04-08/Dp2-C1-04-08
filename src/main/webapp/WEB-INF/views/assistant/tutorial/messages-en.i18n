@@ -25,7 +25,10 @@ assistant.tutorial.form.label.draft = Draft
 assistant.tutorial.form.label.course = Course
 
 assistant.tutorial.form.error.code.duplicated = This code already exists
+assistant.tutorial.form.error.general.update.not-draft = You cannot edit a tutorial once it is published
+assistant.tutorial.form.error.general.delete.not-draft = You cannot delete a tutorial once it is published
 
 assistant.tutorial.form.button.create = Create
 assistant.tutorial.form.button.update = Update
 assistant.tutorial.form.button.delete = Delete
+assistant.tutorial.form.button.publish = Publish

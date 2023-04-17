@@ -17,8 +17,8 @@
 
 <acme:list>
 	<acme:list-column code="assistant.tutorial.list.label.code" path="code" />	
-	<acme:list-column code="assistant.tutorial.list.label.title" path="title" />
-	<acme:list-column code="assistant.tutorial.list.label.abstract-str" path="abstractStr" />
+	<acme:list-column code="assistant.tutorial.list.label.title" path="title"/>
+	<acme:list-column code="assistant.tutorial.list.label.abstract-str" path="abstractStr"/>
 	<acme:list-column code="assistant.tutorial.list.label.draft" path="draft"/>
 </acme:list>
 
