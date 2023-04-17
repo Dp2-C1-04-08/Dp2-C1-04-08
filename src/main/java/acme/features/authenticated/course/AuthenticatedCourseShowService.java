@@ -1,40 +1,49 @@
 
-package acme.features.any.course;
-
-import java.util.Collection;
+package acme.features.authenticated.course;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.courses.Course;
-import acme.framework.components.accounts.Any;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AnyCourseListService extends AbstractService<Any, Course> {
+public class AuthenticatedCourseShowService extends AbstractService<Authenticated, Course> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnyCourseRepository repository;
+	protected AuthenticatedCourseRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+
+		final int id = super.getRequest().getData("id", int.class);
+		final Course object = this.repository.findOneCourseById(id);
+
+		super.getResponse().setAuthorised(!object.isDraft());
+
 	}
 
 	@Override
 	public void load() {
-		Collection<Course> object;
+		int id;
+		Course object;
 
-		object = this.repository.findManyCoursesByAvailability();
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneCourseById(id);
 
 		super.getBuffer().setData(object);
 	}

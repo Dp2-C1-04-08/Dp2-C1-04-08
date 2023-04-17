@@ -58,8 +58,20 @@
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 		
+
+
+		<acme:menu-option code="master.menu.company.practicum" access="hasRole('Company')">
+		<acme:menu-suboption code="master.menu.company.practicum.list" action="/company/practicum/list"/>
+		<acme:menu-suboption code="master.menu.company.practicum.create" action="/company/practicum/create"/>
+		<acme:menu-suboption code="master.menu.company.company.dashboard" action="/company/company-dashboard/show"/>
+		</acme:menu-option>
+		<acme:menu-option code="master.menu.authenticated.course" access="hasRole('Authenticated')">
+			<acme:menu-suboption code="master.menu.authenticated.course.list" action="/authenticated/course/list"/>
+
+
 		<acme:menu-option code="master.menu.any" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.any.course" action="/any/course/list"/>
+
 		</acme:menu-option>
 	</acme:menu-left>
 
@@ -73,8 +85,14 @@
 			<acme:menu-suboption code="master.menu.user-account.provider" action="/authenticated/provider/update" access="hasRole('Provider')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-consumer" action="/authenticated/consumer/create" access="!hasRole('Consumer')"/>
 			<acme:menu-suboption code="master.menu.user-account.consumer" action="/authenticated/consumer/update" access="hasRole('Consumer')"/>
+
+			<acme:menu-suboption code="master.menu.user-account.become-company" action="/authenticated/company/create" access="!hasRole('Company')"/>
+			<acme:menu-suboption code="master.menu.user-account.company" action="/authenticated/company/update" access="hasRole('Company')"/>
+			
+
 			<acme:menu-suboption code="master.menu.user-account.become-student" action="/authenticated/student/create" access="!hasRole('Student')"/>
 			<acme:menu-suboption code="master.menu.user-account.student" action="/authenticated/student/update" access="hasRole('Student')"/>
+
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>
