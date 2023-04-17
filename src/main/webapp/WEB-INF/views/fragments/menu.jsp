@@ -19,6 +19,7 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
+			<acme:menu-suboption code="master.menu.any.course" action="/any/course/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.rubcasfer2-link" action="https://www.chess.com/es"/>
 			<acme:menu-suboption code="master.menu.anonymous.ernrivper-link" action="https://mrdoob.com/#/157/spin_painter"/>
@@ -30,10 +31,19 @@
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.offer.list" action="/administrator/offer/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.banner.list" action="/administrator/banner/list"/>
+			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/populate-sample"/>			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
+		</acme:menu-option>
+		
+		
+		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
+			<acme:menu-suboption code="master.menu.authenticated.offers.list" action="/authenticated/offer/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
@@ -47,6 +57,10 @@
 		<acme:menu-option code="menu.student" access="hasRole('Student')">
 			<acme:menu-suboption code="menu.student.list" action="/student/enrolment/list"/>
 			<acme:menu-suboption code="menu.student.courseList" action="/student/course/list"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.any" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.any.course" action="/any/course/list"/>
 		</acme:menu-option>
 	</acme:menu-left>
 
