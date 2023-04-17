@@ -52,6 +52,12 @@ master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
 
+#master.menu.note ##########################################################
+master.menu.note = Note
+master.menu.note.list = List
+master.menu.note.create = Create
+
+
 #master.menu.company ############################################################
 master.menu.company.practicum = My Company
 master.menu.company.practicum.list = List Practicum
@@ -72,6 +78,7 @@ master.menu.any.course = Courses Published
 # master.menu.assistant ###################################################
 master.menu.assistant = Assistant
 master.menu.assistant.my-tutorials = My tutorials
+
 
 
 # master.menu.user-account ####################################################

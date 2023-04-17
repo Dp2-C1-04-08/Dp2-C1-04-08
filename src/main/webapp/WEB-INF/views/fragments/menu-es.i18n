@@ -53,6 +53,12 @@ master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
 
+#master.menu.note ##########################################################
+master.menu.note = Nota
+master.menu.note.list = Listar
+master.menu.note.create = Crear
+
+
 
 #master.menu.company ###########################################################
 master.menu.company.practicum = Mi Compañía
@@ -72,6 +78,7 @@ master.menu.any.course = Cursos Publicados
 # master.menu.assistant ###################################################
 master.menu.assistant = Asistente
 master.menu.assistant.my-tutorials = Mis tutoriales
+
 
 
 # master.menu.user-account ####################################################
