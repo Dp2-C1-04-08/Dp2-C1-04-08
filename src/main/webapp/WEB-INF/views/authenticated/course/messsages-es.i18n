@@ -1,15 +1,15 @@
-any.course.form.label.title = Titulo:
-any.course.form.label.code = Codigo:
-any.course.form.label.course-abstract = Resumen:
-any.course.form.label.course-type = Tipo:
-any.course.form.label.retail-price = Precio al por menor:
-any.course.form.label.link = Enlace:
+authenticated.course.form.label.title = Titulo:
+authenticated.course.form.label.code = Codigo:
+authenticated.course.form.label.course-abstract = Resumen:
+authenticated.course.form.label.course-type = Tipo:
+authenticated.course.form.label.retail-price = Precio al por menor:
+authenticated.course.form.label.link = Enlace:
 
-any.course.list.label.title = Titulo
-any.course.list.label.code = Codigo
-any.course.list.label.course-abstract = Resumen
-any.course.list.label.course-type = Tipo
-any.course.list.label.retail-price = Precio al por menor
-any.course.list.label.link = Enlace
+authenticated.course.list.label.title = Titulo
+authenticated.course.list.label.code = Codigo
+authenticated.course.list.label.course-abstract = Resumen
+authenticated.course.list.label.course-type = Tipo
+authenticated.course.list.label.retail-price = Precio al por menor
+authenticated.course.list.label.link = Enlace
 
-any.course.form.list.button = Listar Prácticas
+authenticated.course.form.list.button = Listar Prácticas
