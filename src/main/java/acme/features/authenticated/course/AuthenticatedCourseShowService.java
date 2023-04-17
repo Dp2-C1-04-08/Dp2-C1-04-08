@@ -29,7 +29,10 @@ public class AuthenticatedCourseShowService extends AbstractService<Authenticate
 	}
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		final int id = super.getRequest().getData("id", int.class);
+		final Course object = this.repository.findOneCourseById(id);
+
+		super.getResponse().setAuthorised(!object.isDraft());
 	}
 
 	@Override

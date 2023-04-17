@@ -12,10 +12,10 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AuthenticatedCourseRepository extends AbstractRepository {
 
-	@Query("select c from Course c")
+	@Query("select c from Course c Where c.draft= false")
 	Collection<Course> listAllCourse();
 
-	@Query("select c from Course c where c.id = :id")
+	@Query("select c from Course c where c.id = :id ")
 	Course findOneCourseById(int id);
 
 }

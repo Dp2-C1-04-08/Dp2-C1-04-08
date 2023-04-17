@@ -50,6 +50,8 @@ public class Course extends AbstractEntity {
 	@URL
 	protected String			link;
 
+	protected boolean			draft;
+
 	@ManyToOne(optional = false)
 	@NotNull
 	@Valid
