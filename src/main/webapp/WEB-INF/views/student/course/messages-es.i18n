@@ -8,18 +8,18 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-student.activity.list.label.title = Título
-student.activity.list.label.activityAbstract = Abstracto
-student.activity.list.label.activityType = Tipo
+student.course.list.label.title = Título
+student.course.list.label.code = Código
+student.course.list.label.courseAbstract = Abstracto
+student.course.list.label.courseType = Tipo
 
-student.activity.form.label.title = Título	
-student.activity.form.label.activityAbstract = Abstracto
-student.activity.form.label.activityType = Tipo
-student.activity.form.label.startTime = Inicio
-student.activity.form.label.endTime = Fin
-student.activity.form.label.link = Enlace
-	
-student.activity.form.button.create = Crear
-student.activity.list.button.create = Crear actividad
-student.activity.form.button.update = Actualizar
-student.activity.form.button.delete = Borrar
+student.course.form.label.title = Título	
+student.course.form.label.courseAbstract = Abstracto
+student.course.form.label.courseType = Tipo
+student.course.form.label.retailPrice = Precio
+student.course.form.label.lecturer-id = Id de profesor
+student.course.form.label.link = Enlace
+
+student.course.form.label.lectures-title = Título de lección
+
+student.enrolment.form.button.register = Registrarse en este curso

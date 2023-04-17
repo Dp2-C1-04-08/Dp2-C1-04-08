@@ -12,10 +12,13 @@
 
 package acme.features.student.course;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.courses.Course;
+import acme.entities.courses.Lecture;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -60,21 +63,14 @@ public class CourseShowService extends AbstractService<Student, Course> {
 	public void unbind(final Course object) {
 		assert object != null;
 		int id;
-		//		Collection<CourseLecture> courseLectures;
-		//		final Collection<Lecture> lectures;
+		final Collection<Lecture> lectures;
 
 		Tuple tuple;
 		id = super.getRequest().getData("id", int.class);
 
 		tuple = super.unbind(object, "code", "title", "courseAbstract", "courseType", "retailPrice", "link", "lecturer");
-		//		courseLectures = this.repository.findCourseLecturesByCourseId(id);
-
-		//		for (int i = 0; i < courseLectures.size(); i++) {
-		//			Iterator<CourseLecture> it = courseLectures.iterator();
-		//			final Lecture cl = it.get(i);
-		//			lectures.add(cl);
-		//		}
-		//		tuple.put("lectures", lectures);
+		lectures = this.repository.findLecturesByCourseId(id);
+		tuple.put("lectures", lectures);
 		super.getResponse().setData(tuple);
 	}
 
