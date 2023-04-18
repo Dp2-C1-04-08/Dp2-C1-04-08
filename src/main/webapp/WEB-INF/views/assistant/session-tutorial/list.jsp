@@ -19,6 +19,6 @@
 	<acme:list-column code="assistant.sessionTutorial.list.label.title" path="title"/>	
 	<acme:list-column code="assistant.sessionTutorial.list.label.abstract" path="abstractStr"/>
 	<acme:list-column code="assistant.sessionTutorial.list.label.type" path="type"/>
+	<acme:list-column code="assistant.sessionTutorial.list.label.startTime" path="startTime"/>
 </acme:list>
-
 <acme:button test="${showCreate}" code="assistant.sessionTutorial.list.button.create" action="/assistant/session-tutorial/create?masterId=${masterId}"/>
