@@ -24,16 +24,31 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 	@Override
 	public void authorise() {
 		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
+		int lecturerId;
+		int courseId;
+		Course course;
+		boolean sameLecturer;
+
+		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
+		courseId = super.getRequest().getData("id", int.class);
+		course = this.repository.findOneCourseById(courseId);
+		sameLecturer = course.getLecturer().getId() == lecturerId;
+
+		status = super.getRequest().getPrincipal().hasRole(Lecturer.class) && sameLecturer;
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		final int id = super.getRequest().getData("id", int.class);
-		final Course practicum = this.repository.findOneCourseById(id);
-		super.getBuffer().setData(practicum);
+		int id;
+		Course course;
+
+		id = super.getRequest().getData("id", int.class);
+		course = this.repository.findOneCourseById(id);
+
+		super.getBuffer().setData(course);
 	}
+
 	@Override
 	public void bind(final Course object) {
 		assert object != null;
@@ -44,6 +59,12 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
+
+		boolean isDraft;
+
+		isDraft = object.isDraft();
+
+		super.state(isDraft, "*", "lecturer.course.form.error.delete.draft");
 	}
 	@Override
 	public void perform(final Course object) {

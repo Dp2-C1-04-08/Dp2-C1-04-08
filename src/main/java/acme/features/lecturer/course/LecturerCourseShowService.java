@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.courses.Course;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Company;
 import acme.roles.Lecturer;
 
 @Service
@@ -32,13 +33,17 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 	@Override
 	public void authorise() {
 		boolean status;
+		int lecturerId;
 		int courseId;
 		Course course;
+		boolean sameLecturer;
 
+		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
 		courseId = super.getRequest().getData("id", int.class);
 		course = this.repository.findOneCourseById(courseId);
-		status = course != null && super.getRequest().getPrincipal().hasRole(course.getLecturer());
+		sameLecturer = course.getLecturer().getId() == lecturerId;
 
+		status = super.getRequest().getPrincipal().hasRole(Company.class) && sameLecturer;
 		super.getResponse().setAuthorised(status);
 	}
 

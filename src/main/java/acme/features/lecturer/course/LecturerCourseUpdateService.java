@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.courses.Course;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Company;
 import acme.roles.Lecturer;
 
 @Service
@@ -24,15 +25,25 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void authorise() {
 		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
+		int lecturerId;
+		int courseId;
+		Course course;
+		boolean sameLecturer;
+
+		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
+		courseId = super.getRequest().getData("id", int.class);
+		course = this.repository.findOneCourseById(courseId);
+		sameLecturer = course.getLecturer().getId() == lecturerId;
+
+		status = super.getRequest().getPrincipal().hasRole(Company.class) && sameLecturer;
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		final int id = super.getRequest().getData("id", int.class);
-		final Course practicum = this.repository.findOneCourseById(id);
-		super.getBuffer().setData(practicum);
+		final Course course = this.repository.findOneCourseById(id);
+		super.getBuffer().setData(course);
 	}
 	@Override
 	public void bind(final Course object) {
@@ -44,11 +55,26 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	public void validate(final Course object) {
 		assert object != null;
 
+		boolean draft;
+		boolean isDraft;
+
+		draft = object.isDraft();
+		isDraft = draft;
+
+		super.state(isDraft, "*", "lecturer.course.form.error.update.draft");
+
 	}
 
 	@Override
 	public void perform(final Course object) {
 		assert object != null;
+
+		boolean draft;
+
+		draft = super.getRequest().getData("draft", boolean.class);
+
+		object.setDraft(draft);
+
 		this.repository.save(object);
 	}
 

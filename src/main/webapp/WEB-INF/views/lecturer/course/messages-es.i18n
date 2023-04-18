@@ -13,3 +13,6 @@ lecturer.course.list.label.code = Codigo
 lecturer.course.list.label.title = Titulo
 lecturer.course.list.label.course-abstract = Resumen
 lecturer.course.list.button.create = Crear
+
+lecturer.course.form.error.update.draft = No se puede actualizar sin el curso en modo borrador
+lecturer.course.form.error.delete.draft = No se puede eliminar sin el curso en modo borrador
