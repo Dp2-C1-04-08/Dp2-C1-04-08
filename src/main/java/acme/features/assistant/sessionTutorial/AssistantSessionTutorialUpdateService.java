@@ -1,5 +1,5 @@
 /*
- * EmployerDutyCreateService.java
+ * EmployerDutyUpdateService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -13,11 +13,13 @@
 package acme.features.assistant.sessionTutorial;
 
 import java.time.Duration;
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.courses.Course;
 import acme.entities.courses.Nature;
 import acme.entities.tutorials.SessionTutorial;
 import acme.entities.tutorials.Tutorial;
@@ -29,7 +31,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class AssistantSessionTutorialCreateService extends AbstractService<Assistant, SessionTutorial> {
+public class AssistantSessionTutorialUpdateService extends AbstractService<Assistant, SessionTutorial> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -43,7 +45,7 @@ public class AssistantSessionTutorialCreateService extends AbstractService<Assis
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("masterId", int.class);
+		status = super.getRequest().hasData("id", int.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -51,30 +53,27 @@ public class AssistantSessionTutorialCreateService extends AbstractService<Assis
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
-		Tutorial tutorial;
+		int id;
+		SessionTutorial sessionTutorial;
 
 		Principal principal;
 
 		principal = super.getRequest().getPrincipal();
-		masterId = super.getRequest().getData("masterId", int.class);
-		tutorial = this.repository.findOneTutorialById(masterId);
+		id = super.getRequest().getData("id", int.class);
+		sessionTutorial = this.repository.findOneSessionTutorialById(id);
 
-		status = tutorial != null && tutorial.isDraft() && tutorial.getAssistant().getId() == principal.getActiveRoleId();
+		status = sessionTutorial != null && sessionTutorial.getTutorial().isDraft() && sessionTutorial.getTutorial().getAssistant().getId() == principal.getActiveRoleId();
 		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override
 	public void load() {
 		SessionTutorial object;
-		int masterId;
-		Tutorial tutorial;
+		int id;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		tutorial = this.repository.findOneTutorialById(masterId);
-		object = new SessionTutorial();
-		object.setTutorial(tutorial);
-		object.setDraft(true);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneSessionTutorialById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -82,8 +81,9 @@ public class AssistantSessionTutorialCreateService extends AbstractService<Assis
 	@Override
 	public void bind(final SessionTutorial object) {
 		assert object != null;
-
-		super.bind(object, "title", "abstractStr", "link", "type", "startTime", "endTime");
+		final int courseId;
+		final Course course;
+		super.bind(object, "title", "abstractStr", "type", "link", "startTime", "endTime");
 	}
 
 	@Override
@@ -121,11 +121,17 @@ public class AssistantSessionTutorialCreateService extends AbstractService<Assis
 
 	@Override
 	public void perform(final SessionTutorial object) {
-		assert object != null;
 
 		// compute the new estimatedTotalDuration of the tutorial
 		final Tutorial tutorial = object.getTutorial();
-		Double totalDurationInHours = tutorial.getEstimatedTotalTime();
+		Double totalDurationInHours = 0.;
+		final Collection<SessionTutorial> sessions = this.repository.findManySessionsTutorialByMasterId(tutorial.getId());
+		for (final SessionTutorial st : sessions)
+			if (st.getId() != object.getId()) {
+				final Duration stDuration = MomentHelper.computeDuration(st.getStartTime(), st.getEndTime());
+				final double stHours = stDuration.getSeconds() / 3600.;
+				totalDurationInHours += stHours;
+			}
 		final Duration objectDuration = MomentHelper.computeDuration(object.getStartTime(), object.getEndTime());
 		final double objectHours = objectDuration.getSeconds() / 3600.;
 		totalDurationInHours += objectHours;
@@ -133,6 +139,7 @@ public class AssistantSessionTutorialCreateService extends AbstractService<Assis
 
 		this.repository.save(object);
 		this.repository.save(tutorial);
+
 	}
 
 	@Override
@@ -142,9 +149,8 @@ public class AssistantSessionTutorialCreateService extends AbstractService<Assis
 		Tuple tuple;
 
 		tuple = super.unbind(object, "title", "abstractStr", "link", "startTime", "endTime", "draft");
-		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
-		tuple.put("draftMode", object.getTutorial().isDraft());
 		choices = SelectChoices.from(Nature.class, object.getType());
+		tuple.put("draftMode", object.getTutorial().isDraft());
 		tuple.put("types", choices);
 		tuple.put("type", choices.getSelected());
 

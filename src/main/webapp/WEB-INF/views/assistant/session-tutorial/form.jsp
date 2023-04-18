@@ -27,5 +27,8 @@
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="assistant.sessionTutorial.form.button.create" action="/assistant/session-tutorial/create?masterId=${masterId}"/>
 		</jstl:when>
+		<jstl:when test="${acme:anyOf(_command, 'show|update') && draftMode}">
+			<acme:submit code="assistant.Sessiontutorial.form.button.update" action="/assistant/session-tutorial/update"/>
+		</jstl:when>
 	</jstl:choose>
 </acme:form>

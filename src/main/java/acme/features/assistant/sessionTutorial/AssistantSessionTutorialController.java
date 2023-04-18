@@ -35,8 +35,8 @@ public class AssistantSessionTutorialController extends AbstractController<Assis
 	@Autowired
 	protected AssistantSessionTutorialCreateService	createService;
 
-	//	@Autowired
-	//	protected AssistantTutorialUpdateService	updateService;
+	@Autowired
+	protected AssistantSessionTutorialUpdateService	updateService;
 	//
 	//	@Autowired
 	//	protected AssistantTutorialDeleteService	deleteService;
@@ -52,7 +52,7 @@ public class AssistantSessionTutorialController extends AbstractController<Assis
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
-		//		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("update", this.updateService);
 		//		super.addBasicCommand("delete", this.deleteService);
 		//
 		//		super.addCustomCommand("list-mine", "list", this.listMineService);

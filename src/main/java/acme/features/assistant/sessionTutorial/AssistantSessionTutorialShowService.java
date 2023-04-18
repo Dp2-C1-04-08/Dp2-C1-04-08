@@ -15,9 +15,11 @@ package acme.features.assistant.sessionTutorial;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.courses.Nature;
 import acme.entities.tutorials.SessionTutorial;
 import acme.entities.tutorials.Tutorial;
 import acme.framework.components.accounts.Principal;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
@@ -76,11 +78,15 @@ public class AssistantSessionTutorialShowService extends AbstractService<Assista
 		assert object != null;
 
 		Tuple tuple;
+		SelectChoices choices;
 
 		tuple = super.unbind(object, "title", "abstractStr", "type", "link", "startTime", "endTime");
 		tuple.put("masterId", object.getTutorial().getId());
 		tuple.put("draftMode", object.getTutorial().isDraft());
 
+		choices = SelectChoices.from(Nature.class, object.getType());
+		tuple.put("types", choices);
+		tuple.put("type", choices.getSelected());
 		super.getResponse().setData(tuple);
 	}
 
