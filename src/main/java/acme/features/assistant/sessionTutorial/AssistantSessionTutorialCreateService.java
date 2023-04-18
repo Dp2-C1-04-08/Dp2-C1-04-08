@@ -13,6 +13,7 @@
 package acme.features.assistant.sessionTutorial;
 
 import java.time.Duration;
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -125,10 +126,20 @@ public class AssistantSessionTutorialCreateService extends AbstractService<Assis
 
 		// compute the new estimatedTotalDuration of the tutorial
 		final Tutorial tutorial = object.getTutorial();
-		Double totalDurationInHours = tutorial.getEstimatedTotalTime();
+		Double totalDurationInHours = 0.;
+		final Collection<SessionTutorial> sessions = this.repository.findManySessionsTutorialByMasterId(tutorial.getId());
+		for (final SessionTutorial st : sessions)
+			if (st.getId() != object.getId()) {
+				final Duration stDuration = MomentHelper.computeDuration(st.getStartTime(), st.getEndTime());
+				final double stHours = stDuration.getSeconds() / 3600.;
+				totalDurationInHours += stHours;
+			}
 		final Duration objectDuration = MomentHelper.computeDuration(object.getStartTime(), object.getEndTime());
 		final double objectHours = objectDuration.getSeconds() / 3600.;
 		totalDurationInHours += objectHours;
+
+		final double randomMultiplier = Math.random() * 0.2 - 0.1;
+		totalDurationInHours = totalDurationInHours * (1 + randomMultiplier);
 		tutorial.setEstimatedTotalTime(totalDurationInHours);
 
 		this.repository.save(object);

@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.courses.Course;
+import acme.entities.tutorials.SessionTutorial;
 import acme.entities.tutorials.Tutorial;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
@@ -106,6 +107,12 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 		assert object != null;
 		object.setDraft(false);
 
+		final Collection<SessionTutorial> sessions = this.repository.getChildrenForTutorial(object.getId());
+
+		for (final SessionTutorial st : sessions) {
+			st.setDraft(false);
+			this.repository.save(st);
+		}
 		this.repository.save(object);
 	}
 
