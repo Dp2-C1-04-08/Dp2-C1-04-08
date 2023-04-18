@@ -1,7 +1,7 @@
 
 package acme.forms;
 
-import java.util.Map;
+import java.util.List;
 
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
@@ -16,14 +16,15 @@ public class CompanyDashboard extends AbstractForm {
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-	Map<String, Integer>		totalSession;
+	List<Integer>				handsOnPracticum;
+	List<Integer>				theoreticalPracticum;
 	Double						averageSession;
 	Double						deviationSession;
 	Double						minimumSession;
 	Double						maximumSession;
 	Double						averagePractica;
 	Double						deviationPractica;
-	Double						minimumPractica;
-	Double						maximumPractica;
+	Integer						minimumPractica;
+	Integer						maximumPractica;
 
 }

@@ -1,5 +1,5 @@
 
-package acme.features.any.course;
+package acme.features.authenticated.course;
 
 import java.util.Collection;
 
@@ -10,12 +10,12 @@ import acme.entities.courses.Course;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AnyCourseRepository extends AbstractRepository {
+public interface AuthenticatedCourseRepository extends AbstractRepository {
 
-	@Query("select c from Course c")
+	@Query("select c from Course c Where c.draft= false")
 	Collection<Course> listAllCourse();
 
-	@Query("select c from Course c where c.id = :id")
+	@Query("select c from Course c where c.id = :id ")
 	Course findOneCourseById(int id);
 
 	@Query("select c from Course c where c.draft = false")
