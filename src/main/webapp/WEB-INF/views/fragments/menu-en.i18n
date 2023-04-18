@@ -99,3 +99,5 @@ master.menu.user-account.company = Company Data
 master.menu.user-account.become-student = Become a student
 master.menu.user-account.student = Update Student Profile
 
+master.menu.user-account.become-assistant= Become an assistant
+master.menu.user-account.assistant = Assistant data
