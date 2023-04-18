@@ -1,0 +1,31 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+assistant.sessionTutorial.list.label.title = Titulo
+assistant.sessionTutorial.list.label.abstract = Resumen
+assistant.sessionTutorial.list.label.type = Tipo
+assistant.sessionTutorial.list.label.startTime = Comienzo
+
+assistant.sessionTutorial.list.button.create = Crear
+
+assistant.sessionTutorial.form.label.title = Titulo
+assistant.sessionTutorial.form.label.abstract-str = Resumen
+assistant.sessionTutorial.form.label.type = Tipo
+assistant.sessionTutorial.form.label.link = Link
+assistant.sessionTutorial.form.label.startTime = Comienzo
+assistant.sessionTutorial.form.label.endTime = Fin
+
+assistant.Sessiontutorial.form.button.update = Crear
+assistant.Sessiontutorial.form.button.update = Actualizar
+assistant.Sessiontutorial.form.button.delete = Eliminar
+
+assistant.sessionTutorial.form.error.start-date.invalid = No puede empezar antes de mañana(24h desde ahora)
+assistant.sessionTutorial.form.error.end-date.too-short = La duración minima es de 1 hora
+assistant.sessionTutorial.form.error.end-date.too-long = La duración máxima es de 5 horas
