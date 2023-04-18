@@ -39,6 +39,7 @@ master.menu.administrator.banner.list = List banners
 # master.menu.authenticated ###################################################
 
 master.menu.authenticated = Authenticated
+master.menu.authenticated.bulletin.list = List bulletins
 master.menu.authenticated.offers.list = List offers
 
 # master.menu.provider ########################################################

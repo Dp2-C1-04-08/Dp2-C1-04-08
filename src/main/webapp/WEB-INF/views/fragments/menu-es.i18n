@@ -40,6 +40,7 @@ master.menu.administrator.banner.list = Listar pancartas
 # master.menu.authenticated ###################################################
 
 master.menu.authenticated = Autenticado
+master.menu.authenticated.bulletin.list = Listar boletines
 master.menu.authenticated.offers.list = Listar ofertas
 
 # master.menu.provider ########################################################

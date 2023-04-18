@@ -43,6 +43,8 @@
 		
 		
 		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
+		
+			<acme:menu-suboption code="master.menu.authenticated.bulletin.list" action="/authenticated/bulletin/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.offers.list" action="/authenticated/offer/list"/>
 		</acme:menu-option>
 		
