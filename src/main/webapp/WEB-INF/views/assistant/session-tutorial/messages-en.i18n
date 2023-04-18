@@ -21,3 +21,7 @@ assistant.sessionTutorial.form.label.type = Type
 assistant.sessionTutorial.form.label.link = Link
 assistant.sessionTutorial.form.label.startTime = Start
 assistant.sessionTutorial.form.label.endTime = End
+
+assistant.sessionTutorial.form.error.start-date.invalid = It can not start until tomorrow(24h from now)
+assistant.sessionTutorial.form.error.end-date.too-short = The minimum duration is 1 hour
+assistant.sessionTutorial.form.error.end-date.too-long = The maximum duration is 5 hours

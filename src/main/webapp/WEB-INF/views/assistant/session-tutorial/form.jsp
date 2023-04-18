@@ -18,8 +18,14 @@
 <acme:form>
 	<acme:input-textbox code="assistant.sessionTutorial.form.label.title" path="title"/>
 	<acme:input-textbox code="assistant.sessionTutorial.form.label.abstract-str" path="abstractStr"/>
-	<acme:input-textbox code="assistant.sessionTutorial.form.label.type" path="type"/>
-	<acme:input-url code="assistant.sessionTutorial.form.label.link" path="link" readonly="true"/>
+	<acme:input-select code="assistant.sessionTutorial.form.label.type" path="type" choices="${types}"/>
+	<acme:input-url code="assistant.sessionTutorial.form.label.link" path="link"/>
 	<acme:input-moment code="assistant.sessionTutorial.form.label.startTime" path="startTime"/>
-	<acme:input-moment code="assistant.sessionTutorial.form.label.endTime" path="endTime" readonly="true"/>
+	<acme:input-moment code="assistant.sessionTutorial.form.label.endTime" path="endTime"/>
+	
+	<jstl:choose>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="assistant.sessionTutorial.form.button.create" action="/assistant/session-tutorial/create?masterId=${masterId}"/>
+		</jstl:when>
+	</jstl:choose>
 </acme:form>
