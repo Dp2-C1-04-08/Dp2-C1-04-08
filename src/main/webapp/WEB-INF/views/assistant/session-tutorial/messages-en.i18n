@@ -11,6 +11,7 @@
 assistant.sessionTutorial.list.label.title = Title
 assistant.sessionTutorial.list.label.abstract = Abstract
 assistant.sessionTutorial.list.label.type = Type
+assistant.sessionTutorial.list.label.startTime = Start
 
 assistant.sessionTutorial.list.button.create = Create
 
