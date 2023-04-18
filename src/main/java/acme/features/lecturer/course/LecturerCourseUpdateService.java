@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import acme.entities.courses.Course;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Company;
 import acme.roles.Lecturer;
 
 @Service
@@ -35,7 +34,7 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 		course = this.repository.findOneCourseById(courseId);
 		sameLecturer = course.getLecturer().getId() == lecturerId;
 
-		status = super.getRequest().getPrincipal().hasRole(Company.class) && sameLecturer;
+		status = super.getRequest().getPrincipal().hasRole(Lecturer.class) && sameLecturer;
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -48,7 +47,7 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 	@Override
 	public void bind(final Course object) {
 		assert object != null;
-		super.bind(object, "code", "title", "courseAbstract", "courseType", "retailPrice", "link", "lecturer");
+		super.bind(object, "code", "title", "courseAbstract", "courseType", "retailPrice", "link");
 
 	}
 	@Override
@@ -84,7 +83,7 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "courseAbstract", "courseType", "retailPrice", "link", "lecturer");
+		tuple = super.unbind(object, "code", "title", "courseAbstract", "courseType", "retailPrice", "link");
 
 		super.getResponse().setData(tuple);
 	}

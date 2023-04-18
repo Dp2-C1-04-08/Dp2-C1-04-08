@@ -52,7 +52,7 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 	@Override
 	public void bind(final Course object) {
 		assert object != null;
-		super.bind(object, "code", "title", "courseAbstract", "courseType", "retailPrice", "link", "lecturer");
+		super.bind(object, "code", "title", "courseAbstract", "courseType", "retailPrice", "link", "draft");
 
 	}
 

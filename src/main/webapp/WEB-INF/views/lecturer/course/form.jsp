@@ -13,7 +13,7 @@
 	<acme:input-textarea code="lecturer.course.form.label.course-abstract" path="courseAbstract"/>
 	<acme:input-textbox code="lecturer.course.form.label.course-type" path="courseType"/>
 	<acme:input-money code="lecturer.course.form.label.retail-price" path="retailPrice"/>
-	<acme:input-url code="lecturer.course.form.label.course-link" path="link"/>
+	<acme:input-url code="lecturer.course.form.label.link" path="link"/>
 	<acme:input-checkbox code="lecturer.course.form.label.draft" path="draft"/>
 	
 	<jstl:choose>
