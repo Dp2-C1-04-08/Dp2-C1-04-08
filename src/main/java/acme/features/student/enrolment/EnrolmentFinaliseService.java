@@ -47,7 +47,7 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 
 		id = super.getRequest().getData("id", int.class);
 		enrolment = this.repository.findEnrolmentById(id);
-		status = !enrolment.getIsFinalised();
+		status = !enrolment.getIsFinalised() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -56,9 +56,6 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 	public void load() {
 		final int id = super.getRequest().getData("id", int.class);
 		final Enrolment enrolment = this.repository.findEnrolmentById(id);
-		boolean isFinalised;
-		isFinalised = enrolment.getCreditCardHolder() != null && enrolment.getLowerNibble() != null;
-		enrolment.setIsFinalised(isFinalised);
 		super.getBuffer().setData(enrolment);
 	}
 
@@ -66,7 +63,7 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 	public void bind(final Enrolment object) {
 		assert object != null;
 
-		super.bind(object, "code", "motivation", "goals", "student", "course", "creditCardHolder", "lowerNibble", "isFinalised");
+		super.bind(object, "creditCardHolder", "lowerNibble", "isFinalised");
 
 	}
 
@@ -80,14 +77,17 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 		final boolean isUpperNibbleAccepted = this.getRequest().getData("upperNibble", int.class) != null;
 		final boolean isLowerNibbleAccepted = this.getRequest().getData("lowerNibble", int.class) != null;
 
+		final boolean finalised = isCCCAccepted && isLowerNibbleAccepted;
+
 		super.state(isCCCAccepted, "creditCardHolder", "authentication.note.form.error.notAccepted");
 		super.state(isExpiryDateAccepted, "expiryDate", "authentication.note.form.error.notAccepted");
 		super.state(isCCVAccepted, "cvc", "authentication.note.form.error.notAccepted");
 		super.state(isLowerNibbleAccepted, "lowerNibble", "authentication.note.form.error.notAccepted");
 		super.state(isUpperNibbleAccepted, "upperNibble", "authentication.note.form.error.notAccepted");
 
-		final boolean isFinalised = object.getIsFinalised();
-		super.state(isFinalised, "title", "enrolment.form.error.finalise.finalised");
+		if (finalised)
+			object.setIsFinalised(true);
+		super.getBuffer().setData(object);
 
 	}
 

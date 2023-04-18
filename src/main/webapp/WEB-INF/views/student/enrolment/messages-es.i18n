@@ -31,5 +31,10 @@ student.enrolment.form.error.update.finalised = No se puede actualizar una matri
 student.enrolment.form.error.delete.finalised = No se puede borrar una matriculación finalizada
 student.enrolment.form.error.finalise.finalised = No se puede finalizar una matriculación ya finalizada
 
+student.enrolment.form.label.creditCardHolder = Dueño de la tarjeta de crédito
+student.enrolment.form.label.cvc =  CVC
+student.enrolment.form.label.expiryDate =  Fecha de caducidad
+student.enrolment.form.label.upperNibble = Número de tarjeta (primera mitad)
+student.enrolment.form.label.lowerNibble = Número de tarjeta (segunda mitad)
 
 student.enrolment.list.button = Listar Matriculaciones

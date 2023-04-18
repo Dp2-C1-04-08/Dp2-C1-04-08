@@ -30,5 +30,10 @@ student.enrolment.form.error.update.finalised = Cannot be update with the enrolm
 student.enrolment.form.error.delete.finalised = Cannot be deleted with the enrolment finalised
 student.enrolment.form.error.finalise.finalised = Cannot be finalised with the enrolment finalised
 
+student.enrolment.form.label.creditCardHolder = Credit card holder
+student.enrolment.form.label.cvc =  Card CVC
+student.enrolment.form.label.expiryDate =  Expiration date
+student.enrolment.form.label.upperNibble = Card number (first half)
+student.enrolment.form.label.lowerNibble = Card number (second half)
 
 student.enrolment.list.button = List Enrolments
