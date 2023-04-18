@@ -19,7 +19,10 @@ student.activity.form.label.startTime = Inicio
 student.activity.form.label.endTime = Fin
 student.activity.form.label.link = Enlace
 	
-student.activity.form.button.create = Crear
-student.activity.list.button.create = Crear actividad
+student.activity.form.button.createActivity = Crear
+student.activity.list.button.createActivity = Crear actividad
 student.activity.form.button.update = Actualizar
 student.activity.form.button.delete = Borrar
+
+
+student.activity.form.error.invalidDuration = El inicio de la actividad no puede ser después del fin de la misma o al mismo tiempo

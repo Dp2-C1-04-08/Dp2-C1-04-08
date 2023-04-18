@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.enrolments.Activity;
+import acme.entities.enrolments.Enrolment;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -40,7 +41,14 @@ public class ActivityListService extends AbstractService<Student, Activity> {
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		Enrolment enrolment;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+		enrolment = this.repository.findEnrolmentById(masterId);
+		status = enrolment != null && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -48,7 +56,7 @@ public class ActivityListService extends AbstractService<Student, Activity> {
 		Collection<Activity> objects;
 		int id;
 
-		id = super.getRequest().getData("id", int.class);
+		id = super.getRequest().getData("masterId", int.class);
 		objects = this.repository.findActivitiesByEnrolmentId(id);
 
 		super.getBuffer().setData(objects);
@@ -59,10 +67,21 @@ public class ActivityListService extends AbstractService<Student, Activity> {
 		assert object != null;
 
 		Tuple tuple;
-
+		final int masterId = super.getRequest().getData("masterId", int.class);
 		tuple = super.unbind(object, "title", "activityAbstract", "activityType", "startTime", "endTime", "link");
 
+		tuple.put("masterId", 4);
 		super.getResponse().setData(tuple);
+	}
+	@Override
+	public void unbind(final Collection<Activity> objects) {
+		assert objects != null;
+
+		int masterId;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+
+		super.getResponse().setGlobal("masterId", masterId);
 	}
 
 }

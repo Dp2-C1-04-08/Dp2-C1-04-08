@@ -40,7 +40,7 @@ public class ActivityCreateService extends AbstractService<Student, Activity> {
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("id", int.class);
+		status = super.getRequest().hasData("masterId", int.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -48,11 +48,11 @@ public class ActivityCreateService extends AbstractService<Student, Activity> {
 	@Override
 	public void authorise() {
 		boolean status;
-		int id;
+		int masterId;
 		Enrolment enrolment;
 
-		id = super.getRequest().getData("id", int.class);
-		enrolment = this.repository.findEnrolmentById(id);
+		masterId = super.getRequest().getData("masterId", int.class);
+		enrolment = this.repository.findEnrolmentById(masterId);
 		status = enrolment != null && !enrolment.getIsFinalised() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
 		super.getResponse().setAuthorised(status);
 	}
@@ -63,7 +63,7 @@ public class ActivityCreateService extends AbstractService<Student, Activity> {
 		int id;
 		Enrolment enrolment;
 
-		id = super.getRequest().getData("id", int.class);
+		id = super.getRequest().getData("masterId", int.class);
 		enrolment = this.repository.findEnrolmentById(id);
 
 		object = new Activity();
@@ -84,17 +84,11 @@ public class ActivityCreateService extends AbstractService<Student, Activity> {
 	@Override
 	public void validate(final Activity object) {
 		assert object != null;
-		final Date moment;
-		Date startDate = null;
-		Date endDate = null;
-		try {
-			startDate = super.getRequest().getData("startDate", Date.class);
-		} catch (final Exception e) {
-		}
-		try {
-			endDate = super.getRequest().getData("endDate", Date.class);
-		} catch (final Exception e) {
-		}
+
+		final Date startTime = object.getStartTime();
+		final Date endTime = object.getEndTime();
+		super.state(startTime.before(endTime), "*", "student.activity.form.error.invalidDuration");
+
 	}
 
 	@Override
@@ -112,7 +106,7 @@ public class ActivityCreateService extends AbstractService<Student, Activity> {
 		choices = SelectChoices.from(Nature.class, object.getActivityType());
 
 		tuple = super.unbind(object, "title", "activityAbstract", "activityType", "startTime", "endTime", "link");
-		tuple.put("id", object.getEnrolment().getId());
+		tuple.put("masterId", object.getEnrolment().getId());
 		tuple.put("isFinalised", object.getEnrolment().getIsFinalised());
 		tuple.put("activityTypes", choices);
 		super.getResponse().setData(tuple);

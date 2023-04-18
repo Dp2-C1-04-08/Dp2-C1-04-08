@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.courses.Nature;
 import acme.entities.enrolments.Activity;
+import acme.entities.enrolments.Enrolment;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -44,7 +45,14 @@ public class ActivityShowService extends AbstractService<Student, Activity> {
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		Enrolment enrolment;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+		enrolment = this.repository.findEnrolmentById(masterId);
+		status = enrolment != null && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

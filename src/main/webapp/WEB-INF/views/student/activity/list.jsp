@@ -20,5 +20,5 @@
 	<acme:list-column code="student.activity.list.label.activityAbstract" path="activityAbstract"/>
 	<acme:list-column code="student.enrolment.list.label.activityType" path="activityType"/>
 </acme:list>
-	<acme:button code="student.activity.list.button.createActivity" action="create?id=${id}"/>
+	<acme:button code="student.activity.list.button.createActivity" action="/student/activity/create?masterId=${masterId}"/>
 	

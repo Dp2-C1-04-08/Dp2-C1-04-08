@@ -47,9 +47,9 @@ public class ActivityDeleteService extends AbstractService<Student, Activity> {
 		id = super.getRequest().getData("id", int.class);
 		activity = this.repository.findActivityById(id);
 		enrolment = activity.getEnrolment();
-		status = !enrolment.getIsFinalised();
+		status = enrolment != null && !enrolment.getIsFinalised() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
 
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override

@@ -1,3 +1,4 @@
+
 /*
  * AuthenticatedAnnouncementShowService.java
  *
@@ -11,6 +12,8 @@
  */
 
 package acme.features.student.enrolment;
+
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,6 +56,9 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 	public void load() {
 		final int id = super.getRequest().getData("id", int.class);
 		final Enrolment enrolment = this.repository.findEnrolmentById(id);
+		boolean isFinalised;
+		isFinalised = enrolment.getCreditCardHolder() != null && enrolment.getLowerNibble() != null;
+		enrolment.setIsFinalised(isFinalised);
 		super.getBuffer().setData(enrolment);
 	}
 
@@ -67,6 +73,19 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
+
+		final Boolean isCCCAccepted = this.getRequest().getData("creditCardHolder", String.class) != null;
+		final Boolean isExpiryDateAccepted = this.getRequest().getData("expiryDate", Date.class) != null;
+		final Boolean isCCVAccepted = this.getRequest().getData("cvc", int.class) != null;
+		final boolean isUpperNibbleAccepted = this.getRequest().getData("upperNibble", int.class) != null;
+		final boolean isLowerNibbleAccepted = this.getRequest().getData("lowerNibble", int.class) != null;
+
+		super.state(isCCCAccepted, "creditCardHolder", "authentication.note.form.error.notAccepted");
+		super.state(isExpiryDateAccepted, "expiryDate", "authentication.note.form.error.notAccepted");
+		super.state(isCCVAccepted, "cvc", "authentication.note.form.error.notAccepted");
+		super.state(isLowerNibbleAccepted, "lowerNibble", "authentication.note.form.error.notAccepted");
+		super.state(isUpperNibbleAccepted, "upperNibble", "authentication.note.form.error.notAccepted");
+
 		final boolean isFinalised = object.getIsFinalised();
 		super.state(isFinalised, "title", "enrolment.form.error.finalise.finalised");
 

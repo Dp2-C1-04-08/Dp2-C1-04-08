@@ -19,7 +19,9 @@ student.activity.form.label.startTime = Start
 student.activity.form.label.endTime = End
 student.activity.form.label.link = Link
 	
-student.activity.form.button.create = Create
-student.activity.list.button.create = Create
+student.activity.form.button.createActivity = Create
+student.activity.list.button.createActivity = Create
 student.activity.form.button.update = Update
 student.activity.form.button.delete = Delete
+
+student.activity.form.error.invalidDuration = The start time can't be after the end time or at the same time
