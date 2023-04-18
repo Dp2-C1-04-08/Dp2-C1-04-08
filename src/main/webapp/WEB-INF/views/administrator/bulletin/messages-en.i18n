@@ -14,4 +14,4 @@ administrator.bulletin.form.label.flag = Flag
 administrator.bulletin.form.label.link = Link (Optional)
 administrator.bulletin.form.label.instantiationMoment = Instantiation Moment
 administrator.bulletin.form.button.create = Create
-authenticated.note.label.confirmation= Confirmation
+administrator.bulletin.label.confirmation = Confirmation

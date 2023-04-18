@@ -63,7 +63,7 @@ public class AdministratorBulletinCreateService extends AbstractService<Administ
 	@Override
 	public void bind(final Bulletin object) {
 		assert object != null;
-		super.bind(object, "instantiationMoment", "title", "message", "flag", "link");
+		super.bind(object, "title", "message", "flag", "link");
 	}
 
 	@Override
