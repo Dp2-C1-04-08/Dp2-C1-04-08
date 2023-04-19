@@ -79,10 +79,6 @@
 		<acme:menu-option code="master.menu.authenticated.course" access="hasRole('Authenticated')">
 			<acme:menu-suboption code="master.menu.authenticated.course.list" action="/authenticated/course/list"/>
 		</acme:menu-option>
-
-		<acme:menu-option code="master.menu.any" access="isAuthenticated()">
-			<acme:menu-suboption code="master.menu.any.course" action="/any/course/list"/>
-		</acme:menu-option>
     
 	</acme:menu-left>
 
