@@ -1,0 +1,7 @@
+key,title,activity-abstract,activity-type,start-time,end-time,link,key:enrolment
+activity-01,"Deberes","Hacer lo indicado por el profesor",HANDS_ON,2019/03/10 10:00,2019/03/10 11:00,https://ejemplo1.com/,enrolment-01
+activity-02,"Esquemas","Hacer resúmenes de teoría",THEORETICAL,2022/9/01 11:00,2022/09/01 14:00,https://ejemplo2.com/,enrolment-01
+activity-03,"Problemas","Hacer problemas del libro",HANDS_ON,2022/09/02 16:00,2022/09/02 19:00,https://ejemplo3.com/,enrolment-02
+activity-04,"Estudio","Repasar teoría",THEORETICAL,2022/09/03 17:00,2022/09/04 21:00,https://ejemplo4.com/,enrolment-03
+activity-05,"Practicas","Practica de laboratorio",HANDS_ON,2022/10/05 12:00,2022/10/05 14:00,https://ejemplo5.com/,enrolment-04
+activity-06,"Proyectos","Proyecto grupal",HANDS_ON,2022/09/15 08:00,2022/09/15 10:00,https://ejemplo6.com/,enrolment-05
