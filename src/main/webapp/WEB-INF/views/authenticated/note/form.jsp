@@ -19,6 +19,7 @@
   <acme:input-textbox code="authenticated.note.form.label.title" path="title"/>
   <acme:input-textarea code="authenticated.note.form.label.message" path="message"/>
   <acme:input-url code="authenticated.note.form.label.link" path="link"/>
+   <acme:input-textbox code="authenticated.note.form.label.email" path="email"/>
   <acme:input-checkbox code="authenticated.note.label.confirmation" path="confirmation"/>
   
 
