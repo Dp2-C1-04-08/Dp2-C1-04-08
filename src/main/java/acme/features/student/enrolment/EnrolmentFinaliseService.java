@@ -63,7 +63,7 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 	public void bind(final Enrolment object) {
 		assert object != null;
 
-		super.bind(object, "creditCardHolder", "lowerNibble", "isFinalised");
+		super.bind(object, "creditCardHolder", "lowerNibble");
 
 	}
 
@@ -71,23 +71,26 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 	public void validate(final Enrolment object) {
 		assert object != null;
 
-		final Boolean isCCCAccepted = this.getRequest().getData("creditCardHolder", String.class) != null;
-		final Boolean isExpiryDateAccepted = this.getRequest().getData("expiryDate", Date.class) != null;
-		final Boolean isCCVAccepted = this.getRequest().getData("cvc", int.class) != null;
-		final boolean isUpperNibbleAccepted = this.getRequest().getData("upperNibble", int.class) != null;
-		final boolean isLowerNibbleAccepted = this.getRequest().getData("lowerNibble", int.class) != null;
+		final String cch = this.getRequest().getData("creditCardHolder", String.class);
+		final Date expiryDate = this.getRequest().getData("expiryDate", Date.class);
+		final String ccv = this.getRequest().getData("cvc", String.class);
+		final String upperNibble = this.getRequest().getData("upperNibble", String.class);
+		final String lowerNibble = this.getRequest().getData("lowerNibble", String.class);
 
-		final boolean finalised = isCCCAccepted && isLowerNibbleAccepted;
+		final Boolean isCCHAccepted = cch != null;
+		final Boolean isExpiryDateAccepted = expiryDate != null;
+		final Boolean isCCVAccepted = ccv != null;
+		final boolean isUpperNibbleAccepted = upperNibble != null;
+		final boolean isLowerNibbleAccepted = lowerNibble != null;
 
-		super.state(isCCCAccepted, "creditCardHolder", "authentication.note.form.error.notAccepted");
+		super.state(ccv.length() == 3, "creditCardHolder", "authentication.note.form.error.notAccepted");
+		super.state(upperNibble.length() == 8, "upperNibble", "authentication.note.form.error.notAccepted");
+
+		super.state(isCCHAccepted, "creditCardHolder", "authentication.note.form.error.finalisationError");
 		super.state(isExpiryDateAccepted, "expiryDate", "authentication.note.form.error.notAccepted");
 		super.state(isCCVAccepted, "cvc", "authentication.note.form.error.notAccepted");
-		super.state(isLowerNibbleAccepted, "lowerNibble", "authentication.note.form.error.notAccepted");
+		super.state(isLowerNibbleAccepted, "lowerNibble", "authentication.note.form.error.finalisationError");
 		super.state(isUpperNibbleAccepted, "upperNibble", "authentication.note.form.error.notAccepted");
-
-		if (finalised)
-			object.setIsFinalised(true);
-		super.getBuffer().setData(object);
 
 	}
 

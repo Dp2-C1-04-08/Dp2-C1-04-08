@@ -15,6 +15,8 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
+<jstl:set var="f" value="${isFinalised}"/>
+
 <acme:form>
 	
 	<jstl:choose>
@@ -26,9 +28,13 @@
 			<jstl:choose>
 				<jstl:when test="${_command == 'show' || _command == 'update'|| _command == 'delete'}">
 					<acme:input-textbox readonly="${true}" code="student.enrolment.form.label.course-code" path="code"/>
-					<acme:submit code="student.enrolment.form.button.update" action="/student/enrolment/update"/>
-					<acme:submit code="student.enrolment.form.button.delete" action="/student/enrolment/delete"/>
-					<acme:button code="student.enrolment.form.button.finalise" action="/student/enrolment/finalise?id=${id}"/>
+					<jstl:choose>
+						<jstl:when test="${f == false}">
+							<acme:submit code="student.enrolment.form.button.update" action="/student/enrolment/update"/>
+							<acme:submit code="student.enrolment.form.button.delete" action="/student/enrolment/delete"/>
+							<acme:button code="student.enrolment.form.button.finalise" action="/student/enrolment/finalise?id=${id}"/>							
+						</jstl:when>
+					</jstl:choose>
 					<acme:button code="student.enrolment.form.button.activities" action="/student/activity/list?masterId=${id}"/>
 					
 				</jstl:when>

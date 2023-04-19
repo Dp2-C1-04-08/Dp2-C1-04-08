@@ -16,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.enrolments.Activity;
-import acme.entities.enrolments.Enrolment;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -44,12 +43,11 @@ public class ActivityUpdateService extends AbstractService<Student, Activity> {
 	public void authorise() {
 		boolean status;
 		int id;
-		Enrolment enrolment;
+		Activity activity;
 
 		id = super.getRequest().getData("id", int.class);
-		enrolment = this.repository.findActivityById(id).getEnrolment();
-		status = enrolment != null && super.getRequest().getPrincipal().hasRole(enrolment.getStudent()) && !enrolment.getIsFinalised();
-
+		activity = this.repository.findActivityById(id);
+		status = activity != null && super.getRequest().getPrincipal().hasRole(activity.getEnrolment().getStudent());
 		super.getResponse().setAuthorised(status);
 	}
 

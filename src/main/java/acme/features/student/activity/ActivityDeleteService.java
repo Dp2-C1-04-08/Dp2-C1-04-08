@@ -16,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.enrolments.Activity;
-import acme.entities.enrolments.Enrolment;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -41,15 +40,12 @@ public class ActivityDeleteService extends AbstractService<Student, Activity> {
 	public void authorise() {
 		boolean status;
 		int id;
-		final Enrolment enrolment;
-		final Activity activity;
+		Activity activity;
 
 		id = super.getRequest().getData("id", int.class);
 		activity = this.repository.findActivityById(id);
-		enrolment = activity.getEnrolment();
-		status = enrolment != null && !enrolment.getIsFinalised() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
-
-		super.getResponse().setChecked(true);
+		status = activity != null && super.getRequest().getPrincipal().hasRole(activity.getEnrolment().getStudent());
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
