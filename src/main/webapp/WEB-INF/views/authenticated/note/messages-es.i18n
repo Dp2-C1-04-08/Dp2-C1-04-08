@@ -4,6 +4,7 @@ authenticated.note.list.label.message = Mensaje
 authenticated.note.list.label.email =Email
 authenticated.note.list.label.author = Autor
 authenticated.note.list.label.link = URL
+authenticated.note.form.label.email = Email
 
 authenticated.note.form.label.title = Título
 authenticated.note.form.label.message = Mensaje
