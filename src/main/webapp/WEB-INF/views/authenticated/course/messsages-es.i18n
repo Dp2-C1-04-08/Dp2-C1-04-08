@@ -14,3 +14,4 @@ authenticated.course.list.label.link = Enlace
 
 authenticated.course.form.list.button = Listar Prácticas
 authenticated.course.form.list.button.tutorials = Listar tutoriales
+authenticated.course.form.list.button.audits = Listar auditorías
