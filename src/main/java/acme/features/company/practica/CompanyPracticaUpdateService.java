@@ -2,6 +2,7 @@
 package acme.features.company.practica;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,10 +56,17 @@ public class CompanyPracticaUpdateService extends AbstractService<Company, Pract
 	@Override
 	public void validate(final Practicum object) {
 		assert object != null;
+		String code;
 		final boolean published = object.getPublished();
 
 		final boolean isPublished = published;
 		super.state(!isPublished, "*", "company.practica.form.error.update.published");
+
+		Optional<Practicum> practicumWhithSameCode;
+
+		code = super.getRequest().getData("code", String.class);
+		practicumWhithSameCode = this.repository.findOnePracticumByCode(code);
+		super.state(!practicumWhithSameCode.isPresent(), "*", "company.practica.form.error.code");
 
 	}
 
