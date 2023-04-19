@@ -20,6 +20,8 @@
 			<acme:input-checkbox code="lecturer.course.form.label.draft" path="draft"/>
 			<acme:submit code="lecturer.course.form.button.update" action="/lecturer/course/update"/>
 			<acme:submit code="lecturer.course.form.button.delete" action="/lecturer/course/delete"/>
+			
+			<acme:button code="lecturer.lecture.list.button" action="/lecturer/lecture/list?masterId=${id}"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="lecturer.course.form.button.create" action="/lecturer/course/create"/>
