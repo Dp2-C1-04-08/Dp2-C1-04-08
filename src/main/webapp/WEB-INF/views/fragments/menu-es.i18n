@@ -51,14 +51,16 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+# master.menu.lecturer ##########################################################
+
+master.menu.lecturer = Profesor
+master.menu.lecturer.course.list = Listar Cursos
+master.menu.lecturer.course.create = Crear Cursos
+
 # master.menu.any ##########################################################
 
 master.menu.any = Cualquiera
 master.menu.any.course = Cursos Publicados
-
-#master.menu.lecturer ##########################################################
-master.menu.lecturer = Profesor
-master.menu.lecturer.course = Curso
 
 # master.menu.user-account ####################################################
 
@@ -68,3 +70,5 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.become-lecturer = Hazte profesor
+master.menu.user-account.company = Datos de profesor

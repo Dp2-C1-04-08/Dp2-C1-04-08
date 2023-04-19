@@ -10,23 +10,15 @@ import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class LecturerCourseShowService extends AbstractService<Lecturer, Course> {
-
-	// Internal state ---------------------------------------------------------
+public class LecturerCourseDeleteService extends AbstractService<Lecturer, Course> {
 
 	@Autowired
 	protected LecturerCourseRepository repository;
 
-	// AbstractService interface ----------------------------------------------
-
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
@@ -48,24 +40,47 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 
 	@Override
 	public void load() {
-		Course object;
 		int id;
+		Course course;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneCourseById(id);
+		course = this.repository.findOneCourseById(id);
 
-		super.getBuffer().setData(object);
+		super.getBuffer().setData(course);
 	}
 
 	@Override
-	public void unbind(final Course object) {
+	public void bind(final Course object) {
 		assert object != null;
+		super.bind(object, "code", "title", "courseAbstract", "courseType", "retailPrice", "link", "draft");
 
-		Tuple tuple;
-
-		tuple = super.unbind(object, "code", "title", "courseAbstract", "courseType", "retailPrice", "link", "draft");
-
-		super.getResponse().setData(tuple);
 	}
 
+	@Override
+	public void validate(final Course object) {
+		assert object != null;
+
+		boolean isDraft;
+
+		isDraft = object.isDraft();
+
+		super.state(isDraft, "*", "lecturer.course.form.error.delete.draft");
+	}
+	@Override
+	public void perform(final Course object) {
+		assert object != null;
+
+		this.repository.delete(object);
+	}
+	@Override
+	public void unbind(final Course object) {
+
+		assert object != null;
+		Tuple tuple;
+
+		tuple = super.unbind(object, "code", "title", "courseAbstract", "courseType", "retailPrice", "link", "lecturer");
+
+		super.getResponse().setData(tuple);
+
+	}
 }

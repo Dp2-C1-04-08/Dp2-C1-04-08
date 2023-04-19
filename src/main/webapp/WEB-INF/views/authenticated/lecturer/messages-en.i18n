@@ -1,0 +1,7 @@
+authenticated.lecturer.form.label.alma-mater = Alma mater
+authenticated.lecturer.form.label.resume = Resume
+authenticated.lecturer.form.label.list-qualifications = List Qualifications
+authenticated.lecturer.form.label.link = Link
+
+authenticated.lecturer.form.button.create = Register
+authenticated.lecturer.form.button.update = Update
