@@ -4,6 +4,8 @@ package acme.features.lecturer.course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.common.base.Optional;
+
 import acme.entities.courses.Course;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -39,6 +41,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		course = new Course();
 		lecturer = this.repository.findLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
 		course.setLecturer(lecturer);
+		course.setDraft(true);
 		super.getBuffer().setData(course);
 	}
 
@@ -46,12 +49,18 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	public void bind(final Course object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "courseAbstract", "courseType", "retailPrice", "link", "draft");
+		super.bind(object, "code", "title", "courseAbstract", "courseType", "retailPrice", "link");
 	}
 
 	@Override
 	public void validate(final Course object) {
-		assert object != null;
+		String code;
+		Optional<Course> courseWhithSameCode;
+
+		code = super.getRequest().getData("code", String.class);
+		courseWhithSameCode = this.repository.findOneCourseByCode(code);
+
+		super.state(!courseWhithSameCode.isPresent(), "code", "lecturer.course.form.error.code.duplicated");
 
 	}
 

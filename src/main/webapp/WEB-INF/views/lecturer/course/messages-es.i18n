@@ -16,3 +16,5 @@ lecturer.course.list.button.create = Crear
 
 lecturer.course.form.error.update.draft = No se puede actualizar sin el curso en modo borrador
 lecturer.course.form.error.delete.draft = No se puede eliminar sin el curso en modo borrador
+lecturer.course.form.error.update.code.duplicated = Este codigo esta en uso
+lecturer.course.form.error.code.duplicated = Este codigo esta en uso

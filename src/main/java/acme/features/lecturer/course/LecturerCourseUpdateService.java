@@ -4,6 +4,8 @@ package acme.features.lecturer.course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.common.base.Optional;
+
 import acme.entities.courses.Course;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -56,10 +58,15 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 
 		boolean draft;
 		boolean isDraft;
+		String code;
+		Optional<Course> courseWhithSameCode;
 
 		draft = object.isDraft();
 		isDraft = draft;
+		code = super.getRequest().getData("code", String.class);
+		courseWhithSameCode = this.repository.findOneCourseByCode(code);
 
+		super.state(!courseWhithSameCode.isPresent() || object.getId() == courseWhithSameCode.get().getId(), "code", "lecturer.course.form.error.update.code.duplicated");
 		super.state(isDraft, "*", "lecturer.course.form.error.update.draft");
 
 	}

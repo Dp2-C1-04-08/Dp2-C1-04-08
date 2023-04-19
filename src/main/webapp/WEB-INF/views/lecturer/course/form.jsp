@@ -14,10 +14,10 @@
 	<acme:input-textbox code="lecturer.course.form.label.course-type" path="courseType"/>
 	<acme:input-money code="lecturer.course.form.label.retail-price" path="retailPrice"/>
 	<acme:input-url code="lecturer.course.form.label.link" path="link"/>
-	<acme:input-checkbox code="lecturer.course.form.label.draft" path="draft"/>
 	
 	<jstl:choose>
 		<jstl:when test="${_command == 'show' || _command == 'update'|| _command == 'delete'}">
+			<acme:input-checkbox code="lecturer.course.form.label.draft" path="draft"/>
 			<acme:submit code="lecturer.course.form.button.update" action="/lecturer/course/update"/>
 			<acme:submit code="lecturer.course.form.button.delete" action="/lecturer/course/delete"/>
 		</jstl:when>
