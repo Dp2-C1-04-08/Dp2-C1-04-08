@@ -83,6 +83,12 @@ master.menu.assistant = Assistant
 master.menu.assistant.my-tutorials = My tutorials
 master.menu.assistant.dashboard = My dashboard
 
+# master.menu.auditor ###################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.my-audits = My audits
+master.menu.auditor.dashboard = My dashboard
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
