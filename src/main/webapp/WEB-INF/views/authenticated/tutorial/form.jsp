@@ -23,7 +23,4 @@
 	<acme:input-double code="authenticated.tutorial.form.label.estimated-total-time" path="estimatedTotalTime"/>
 	<acme:input-textbox code="authenticated.tutorial.form.label.course" path="course"/>
 	<acme:input-textbox code="authenticated.tutorial.form.label.assistant" path="assistant"/>
-	
-	<acme:button code="authenticated.tutorial.form.button.sessions" action="/authenticated/session-tutorial/list?masterId=${id}"/>
-
 </acme:form>

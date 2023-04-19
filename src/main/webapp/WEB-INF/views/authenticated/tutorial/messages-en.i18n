@@ -19,5 +19,3 @@ authenticated.tutorial.form.label.goals = Goals
 authenticated.tutorial.form.label.estimated-total-time = Estimated total time (hours)
 authenticated.tutorial.form.label.course = Course
 authenticated.tutorial.form.label.assistant = Assistant
-
-authenticated.tutorial.form.button.sessions = Sessions
