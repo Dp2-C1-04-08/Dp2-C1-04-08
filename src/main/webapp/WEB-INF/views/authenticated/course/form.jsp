@@ -19,4 +19,5 @@
 		<jstl:when test="${_command == 'create'}">
 			
 		</jstl:when>
-	</jstl:choose>
+</jstl:choose>
+<acme:button code="authenticated.course.form.list.button.tutorials" action="/authenticated/tutorial/list?masterId=${id}"/>	
