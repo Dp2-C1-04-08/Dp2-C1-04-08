@@ -3,6 +3,7 @@ package acme.features.company.practica;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -60,7 +61,12 @@ public class CompanyPracticaCreateService extends AbstractService<Company, Pract
 	@Override
 	public void validate(final Practicum object) {
 		assert object != null;
+		String code;
+		Optional<Practicum> practicumWhithSameCode;
 
+		code = super.getRequest().getData("code", String.class);
+		practicumWhithSameCode = this.repository.findOnePracticumByCode(code);
+		super.state(!practicumWhithSameCode.isPresent(), "*", "company.practica.form.error.code");
 	}
 
 	@Override

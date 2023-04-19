@@ -3,6 +3,7 @@ package acme.features.company.practica;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -35,5 +36,8 @@ public interface CompanyPracticaRepository extends AbstractRepository {
 
 	@Query("SELECT c FROM Course c WHERE c.id=:id")
 	Course findCourseById(int id);
+
+	@Query("Select p From Practicum p where p.code = :code")
+	Optional<Practicum> findOnePracticumByCode(String code);
 
 }

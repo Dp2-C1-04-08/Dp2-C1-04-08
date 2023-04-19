@@ -47,6 +47,7 @@
 		
 			<acme:menu-suboption code="master.menu.authenticated.bulletin.list" action="/authenticated/bulletin/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.offers.list" action="/authenticated/offer/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.course.list" action="/authenticated/course/list"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
@@ -77,9 +78,7 @@
 		  <acme:menu-suboption code="master.menu.company.company.dashboard" action="/company/company-dashboard/show"/>
 		</acme:menu-option>
     
-		<acme:menu-option code="master.menu.authenticated.course" access="hasRole('Authenticated')">
-			<acme:menu-suboption code="master.menu.authenticated.course.list" action="/authenticated/course/list"/>
-		</acme:menu-option>
+		
     
 	</acme:menu-left>
 

@@ -17,12 +17,14 @@ company.practica.list.label.course = Course
 company.practica.list.label.published = Published
 company.practica.list.form.published = Public
 
+
 company.practica.list.button.create = Create
 company.practica.list.button.update = Update
 company.practica.list.button.delete = Delete
 
 company.practica.form.error.update.published = Cannot be update with the practica published
 company.practica.form.error.delete.published = Cannot be deleted with the practica published
+company.practica.form.error.code = The Code cannot be duplicated
 
 
 company.practicumSession.list.button = List Sessions
