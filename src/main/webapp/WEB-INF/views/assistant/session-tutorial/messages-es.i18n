@@ -22,7 +22,7 @@ assistant.sessionTutorial.form.label.link = Link
 assistant.sessionTutorial.form.label.startTime = Comienzo
 assistant.sessionTutorial.form.label.endTime = Fin
 
-assistant.Sessiontutorial.form.button.update = Crear
+assistant.Sessiontutorial.form.button.create = Crear
 assistant.Sessiontutorial.form.button.update = Actualizar
 assistant.Sessiontutorial.form.button.delete = Eliminar
 

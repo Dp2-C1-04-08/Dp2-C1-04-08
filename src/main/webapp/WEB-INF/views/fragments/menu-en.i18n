@@ -78,10 +78,10 @@ master.menu.any = Any
 master.menu.any.course = Courses Published
 
 # master.menu.assistant ###################################################
+
 master.menu.assistant = Assistant
 master.menu.assistant.my-tutorials = My tutorials
-
-
+master.menu.assistant.dashboard = My dashboard
 
 # master.menu.user-account ####################################################
 
