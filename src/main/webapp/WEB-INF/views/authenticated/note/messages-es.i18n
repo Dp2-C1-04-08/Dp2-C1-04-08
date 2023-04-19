@@ -1,0 +1,14 @@
+authenticated.note.list.label.creationDate = Fecha Creación
+authenticated.note.list.label.title = Título
+authenticated.note.list.label.message = Mensaje
+authenticated.note.list.label.email =Email
+authenticated.note.list.label.author = Autor
+authenticated.note.list.label.link = URL
+
+authenticated.note.form.label.title = Título
+authenticated.note.form.label.message = Mensaje
+authenticated.note.form.label.link = URL
+authenticated.note.form.button.create = Crear
+authenticated.note.label.confirmation = Yo acepto publicar esta Nota
+
+authentication.note.form.error.notAccepted = Tu debes aceptar este campo

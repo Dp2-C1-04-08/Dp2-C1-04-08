@@ -86,6 +86,7 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 		try {
 			price = super.getRequest().getData("price", Money.class);
 			super.state(price.getAmount() > 0, "price", "administrator.offer.form.error.price.negative-or-zero");
+			super.state(price.getAmount() < 1000000, "price", "administrator.offer.form.error.price.too-big");
 			super.state(MoneyService.checkContains(price.getCurrency()), "price", "administrator.offer.form.error.price.invalid-currency");
 		} catch (final Exception e) {
 		}
