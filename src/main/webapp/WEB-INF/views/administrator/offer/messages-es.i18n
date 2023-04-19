@@ -26,6 +26,7 @@ administrator.offer.form.button.create = Crear
 administrator.offer.form.button.update = Actualizar
 administrator.offer.form.button.delete = Eliminar
 administrator.offer.form.error.price.negative-or-zero = Debe ser positivo
+administrator.offer.form.error.price.too-big = El precio máximo es de 1.000.000
 administrator.offer.form.error.price.invalid-currency = Divisa erronea
 administrator.offer.form.error.start-date.invalid = No puede empezar antes de mañana(24h desde ahora)
 administrator.offer.form.error.end-date.invalid = La oferta debe durar como mínimo 7 días
