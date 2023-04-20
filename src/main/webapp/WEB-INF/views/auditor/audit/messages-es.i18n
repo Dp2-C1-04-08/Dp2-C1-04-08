@@ -28,6 +28,6 @@ auditor.audit.form.button.delete = Borrar
 auditor.audit.form.button.publish = Publicar
 auditor.audit.form.button.records = Registros de auditoria
 
-assistant.tutorial.form.error.code.duplicated = Este código ya existe
-assistant.tutorial.form.error.general.update.not-draft = No se puede editar un tutorial una vez publicado
-assistant.tutorial.form.error.general.delete.not-draft = No se puede eliminar un tutorial una vez publicado
+auditor.audit.form.error.code.duplicated = Este código ya existe
+auditor.audit.form.error.general.update.published = No se puede editar una auditoría una vez publicada
+auditor.audit.form.error.general.delete.published = No se puede eliminar una auditoría una vez publicada
