@@ -53,6 +53,13 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
+
+# master.menu.lecturer ##########################################################
+
+master.menu.lecturer = Lecturer
+master.menu.lecturer.course.list = List Courses
+master.menu.lecturer.course.create = Create Courses
+
 #master.menu.note ##########################################################
 master.menu.note = Note
 master.menu.note.list = List
@@ -67,6 +74,7 @@ master.menu.company.company.dashboard = My Dashboard
 
 
 #master.menu.authenticated.course ##########################################################
+
 master.menu.authenticated.course = Courses
 master.menu.authenticated.course.list = Courses List
 
