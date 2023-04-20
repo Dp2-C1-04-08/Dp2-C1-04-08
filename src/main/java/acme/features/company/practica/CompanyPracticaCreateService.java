@@ -45,6 +45,9 @@ public class CompanyPracticaCreateService extends AbstractService<Company, Pract
 		Company company;
 		company = this.repository.findCompanyById(super.getRequest().getPrincipal().getActiveRoleId());
 		practicum.setCompany(company);
+		practicum.setPublished(false);
+		practicum.setEstimatedTime(0);
+
 		super.getBuffer().setData(practicum);
 	}
 
@@ -55,7 +58,7 @@ public class CompanyPracticaCreateService extends AbstractService<Company, Pract
 		final Course course = this.repository.findCourseById(courseId);
 		object.setCourse(course);
 
-		super.bind(object, "code", "title", "goals", "abstractStr", "published");
+		super.bind(object, "code", "title", "goals", "abstractStr");
 	}
 
 	@Override
@@ -74,7 +77,6 @@ public class CompanyPracticaCreateService extends AbstractService<Company, Pract
 		assert object != null;
 		final Date instant = MomentHelper.getCurrentMoment();
 		object.setCreationDate(instant);
-		object.setEstimatedTime(0);
 
 		this.repository.save(object);
 	}
