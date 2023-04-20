@@ -4,7 +4,6 @@ package acme.features.lecturer.lecture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.courses.Course;
 import acme.entities.courses.CourseLecture;
 import acme.entities.courses.Lecture;
 import acme.features.lecturer.courseLecture.LecturerCourseLectureRepository;
@@ -79,15 +78,10 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 	public void perform(final Lecture object) {
 		assert object != null;
 
-		int masterId;
-		Course course;
 		CourseLecture courseLecture;
 
-		courseLecture = new CourseLecture();
-		masterId = super.getRequest().getData("masterId", int.class);
-		course = this.repository.findCourseById(masterId);
+		courseLecture = this.repository.findCourseLectureByLectureId(object.getId());
 
-		courseLecture.setCourse(course);
 		courseLecture.setLecture(object);
 
 		this.repository.save(object);
