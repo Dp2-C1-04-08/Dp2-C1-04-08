@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>126</x>
-      <y>264</y>
+      <x>186</x>
+      <y>174</y>
       <w>210</w>
       <h>84</h>
     </coordinates>
@@ -22,15 +22,15 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>420</y>
-      <w>324</w>
-      <h>144</h>
+      <x>60</x>
+      <y>330</y>
+      <w>240</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 AssistantDashboard
 --
-+ tutorialsRatio = Map&lt;Nature,Integer&gt;
++ tutorialCountByCourseType = Map&lt;Nature,Integer&gt;
 + tutorialsAverage: Double
 + tutorialsDeviation: Double
 + tutorialsMinium: Double
@@ -45,8 +45,8 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>462</x>
-      <y>318</y>
+      <x>522</x>
+      <y>228</y>
       <w>30</w>
       <h>90</h>
     </coordinates>
@@ -57,8 +57,8 @@ m2=1..*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>420</x>
-      <y>396</y>
+      <x>480</x>
+      <y>306</y>
       <w>210</w>
       <h>96</h>
     </coordinates>
@@ -78,8 +78,8 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>432</x>
-      <y>234</y>
+      <x>492</x>
+      <y>144</y>
       <w>264</w>
       <h>90</h>
     </coordinates>
@@ -90,7 +90,7 @@ Tutorial
 + title:String {NotBlank, Length(1,75)}
 + abstractStr: String {NotBlank, Length(1,100)}
 + goals: String {NotBlank, Length(1,100)}
-+ estimatedTotalTime:Double {NotNull, PositiveOrZero}
++ estimatedTotalTime:Double 
 + draft: boolean
 bg=green</panel_attributes>
     <additional_attributes/>
@@ -98,21 +98,25 @@ bg=green</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>732</x>
-      <y>276</y>
-      <w>108</w>
-      <h>60</h>
+      <x>792</x>
+      <y>186</y>
+      <w>114</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>bg=pink
 The estimatedTotalTime 
-is stored in hours</panel_attributes>
+is stored in hours, and 
+recomputed each time a 
+sesion is created, updated 
+or deleted. It is not transient 
+but updated manually</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>690</x>
-      <y>288</y>
+      <x>750</x>
+      <y>198</y>
       <w>54</w>
       <h>42</h>
     </coordinates>
@@ -122,8 +126,8 @@ is stored in hours</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>702</x>
-      <y>438</y>
+      <x>762</x>
+      <y>348</y>
       <w>174</w>
       <h>66</h>
     </coordinates>
@@ -138,8 +142,8 @@ and 5 hours later than the startTime</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>624</x>
-      <y>462</y>
+      <x>684</x>
+      <y>372</y>
       <w>90</w>
       <h>30</h>
     </coordinates>
@@ -149,8 +153,8 @@ and 5 hours later than the startTime</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>456</x>
-      <y>90</y>
+      <x>516</x>
+      <y>0</y>
       <w>264</w>
       <h>78</h>
     </coordinates>
@@ -166,8 +170,8 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>534</x>
-      <y>162</y>
+      <x>594</x>
+      <y>72</y>
       <w>30</w>
       <h>84</h>
     </coordinates>
@@ -178,8 +182,8 @@ m2=1..*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>330</x>
-      <y>288</y>
+      <x>390</x>
+      <y>198</y>
       <w>114</w>
       <h>30</h>
     </coordinates>

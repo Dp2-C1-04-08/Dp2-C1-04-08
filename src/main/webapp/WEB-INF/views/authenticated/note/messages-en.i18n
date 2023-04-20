@@ -1,0 +1,15 @@
+authenticated.note.list.label.creationDate = Creation Date
+authenticated.note.list.label.title = Title
+authenticated.note.list.label.message = Message
+authenticated.note.list.label.email =Email
+authenticated.note.list.label.author = Author
+authenticated.note.list.label.link = Link
+authenticated.note.form.label.email = Email
+
+authenticated.note.form.label.title = Title
+authenticated.note.form.label.message = Message
+authenticated.note.form.label.link = Link
+authenticated.note.form.button.create = Create
+authenticated.note.label.confirmation = I Accept posting this Note
+
+authentication.note.form.error.notAccepted = You must accept this field

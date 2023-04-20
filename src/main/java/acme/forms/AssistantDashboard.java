@@ -17,7 +17,7 @@ public class AssistantDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	Map<Nature, Integer>		tutorialsRatio;
+	Map<Nature, Integer>		tutorialCountByCourseType;
 	Double						tutorialsAverage;
 	Double						tutorialsDeviation;
 	Double						tutorialsMinimum;

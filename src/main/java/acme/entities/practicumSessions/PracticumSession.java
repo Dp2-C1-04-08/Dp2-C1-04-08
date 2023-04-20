@@ -44,6 +44,8 @@ public class PracticumSession extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				endDate;
 
+	protected Boolean			addendum;
+
 	@ManyToOne(optional = false)
 	protected Practicum			practicum;
 
