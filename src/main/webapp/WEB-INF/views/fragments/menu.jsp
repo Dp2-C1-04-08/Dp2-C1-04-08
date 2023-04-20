@@ -83,6 +83,7 @@
       	</acme:menu-option>
 		<acme:menu-option code="master.menu.any">
       <acme:menu-suboption code="master.menu.any.course" action="/any/course/list"/>
+      <acme:menu-suboption code="master.menu.any.peep" action="/any/peep/list"/>
     </acme:menu-option>
 
 		<acme:menu-option code="master.menu.company.practicum" access="hasRole('Company')">
@@ -90,9 +91,6 @@
 		  <acme:menu-suboption code="master.menu.company.practicum.create" action="/company/practicum/create"/>
 		  <acme:menu-suboption code="master.menu.company.company.dashboard" action="/company/company-dashboard/show"/>
 		</acme:menu-option>
-    
-		
-    
 	</acme:menu-left>
 
 	<acme:menu-right>

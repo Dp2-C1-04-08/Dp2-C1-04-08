@@ -54,7 +54,6 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
-
 #master.menu.note ##########################################################
 master.menu.note = Nota
 master.menu.note.list = Listar
@@ -76,6 +75,7 @@ master.menu.authenticated.course.list = Listado Cursos
 
 master.menu.any = Cualquiera
 master.menu.any.course = Cursos Publicados
+master.menu.any.peep = Peep
 
 # master.menu.assistant ###################################################
 
