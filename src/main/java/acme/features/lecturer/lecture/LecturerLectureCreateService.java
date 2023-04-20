@@ -51,16 +51,9 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	@Override
 	public void load() {
 		Lecture lecture;
-		int masterId;
-		Course course;
-		CourseLecture courseLecture;
 
 		lecture = new Lecture();
 		lecture.setDraft(true);
-		courseLecture = new CourseLecture();
-		masterId = super.getRequest().getData("masterId", int.class);
-		course = this.repository.findCourseById(masterId);
-		courseLecture.setCourse(course);
 
 		super.getBuffer().setData(lecture);
 	}
@@ -81,9 +74,14 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	public void perform(final Lecture object) {
 		assert object != null;
 		CourseLecture courseLecture;
+		int masterId;
+		Course course;
 
-		courseLecture = this.repository.findCourseLectureByLectureId(object.getId());
+		masterId = super.getRequest().getData("masterId", int.class);
+		course = this.repository.findCourseById(masterId);
+		courseLecture = new CourseLecture();
 
+		courseLecture.setCourse(course);
 		courseLecture.setLecture(object);
 
 		this.repository.save(object);

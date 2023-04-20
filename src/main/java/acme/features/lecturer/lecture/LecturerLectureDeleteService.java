@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.courses.CourseLecture;
 import acme.entities.courses.Lecture;
+import acme.features.lecturer.courseLecture.LecturerCourseLectureRepository;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -14,7 +15,10 @@ import acme.roles.Lecturer;
 public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lecture> {
 
 	@Autowired
-	protected LecturerLectureRepository repository;
+	protected LecturerLectureRepository	repository;
+
+	@Autowired
+	LecturerCourseLectureRepository		clrepository;
 
 
 	@Override
@@ -74,7 +78,13 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 	public void perform(final Lecture object) {
 		assert object != null;
 
+		CourseLecture courseLecture;
+
+		courseLecture = this.repository.findCourseLectureByLectureId(object.getId());
+
+		this.clrepository.delete(courseLecture);
 		this.repository.delete(object);
+
 	}
 	@Override
 	public void unbind(final Lecture object) {
