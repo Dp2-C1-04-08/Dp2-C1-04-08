@@ -34,12 +34,14 @@ master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
+master.menu.administrator.bulletin.create = Crear un boletín
 master.menu.administrator.offer.list = Listar ofertas
 master.menu.administrator.banner.list = Listar pancartas
 
 # master.menu.authenticated ###################################################
 
 master.menu.authenticated = Autenticado
+master.menu.authenticated.bulletin.list = Listar boletines
 master.menu.authenticated.offers.list = Listar ofertas
 
 # master.menu.provider ########################################################
@@ -52,10 +54,40 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+
+#master.menu.note ##########################################################
+master.menu.note = Nota
+master.menu.note.list = Listar
+master.menu.note.create = Crear
+
+
+
+#master.menu.company ###########################################################
+master.menu.company.practicum = Mi Compañía
+master.menu.company.practicum.list = Listar Practicas
+master.menu.company.practicum.create = Crear Practica
+master.menu.company.company.dashboard = Mi Panel
+#master.menu.authenticated.course ##########################################################
+master.menu.authenticated.course = Cursos
+master.menu.authenticated.course.list = Listado Cursos
+
+
 # master.menu.any ##########################################################
 
 master.menu.any = Cualquiera
 master.menu.any.course = Cursos Publicados
+
+# master.menu.assistant ###################################################
+
+master.menu.assistant = Asistente
+master.menu.assistant.my-tutorials = Mis tutoriales
+master.menu.assistant.dashboard = Mi tablero
+
+# master.menu.auditor ###################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.my-audits = Mis auditorias
+master.menu.auditor.dashboard = Mi tablero
 
 # master.menu.user-account ####################################################
 
@@ -71,3 +103,19 @@ master.menu.user-account.become-consumer = Hazte consumidor
 menu.student = Estudiante
 menu.student.list = Listado de tus matriculaciones
 menu.student.courseList = Lista de cursos
+
+master.menu.user-account.become-lecturer = Hazte profesor
+master.menu.user-account.company = Datos de profesor
+
+master.menu.user-account.become-company = Hazte una compañia
+master.menu.user-account.company = Datos Compañia
+
+
+master.menu.user-account.become-student = Hazte estudiante
+master.menu.user-account.student = Actualizar perfil de estudiante
+
+master.menu.user-account.become-assistant= Hazte asistente
+master.menu.user-account.assistant = Datos de asistente
+
+master.menu.user-account.become-auditor = Hazte auditor
+master.menu.user-account.auditor = Datos de auditor
