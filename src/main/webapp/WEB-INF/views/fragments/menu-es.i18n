@@ -81,12 +81,19 @@ master.menu.authenticated.course.list = Listado Cursos
 
 master.menu.any = Cualquiera
 master.menu.any.course = Cursos Publicados
+master.menu.any.peep = Peep
 
 # master.menu.assistant ###################################################
 
 master.menu.assistant = Asistente
 master.menu.assistant.my-tutorials = Mis tutoriales
 master.menu.assistant.dashboard = Mi tablero
+
+# master.menu.auditor ###################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.my-audits = Mis auditorias
+master.menu.auditor.dashboard = Mi tablero
 
 # master.menu.user-account ####################################################
 
@@ -96,6 +103,12 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+
+# menu.student ##########################################################
+
+menu.student = Estudiante
+menu.student.list = Listado de tus matriculaciones
+menu.student.courseList = Lista de cursos
 
 master.menu.user-account.become-lecturer = Hazte profesor
 master.menu.user-account.company = Datos de profesor
@@ -109,3 +122,6 @@ master.menu.user-account.student = Actualizar perfil de estudiante
 
 master.menu.user-account.become-assistant= Hazte asistente
 master.menu.user-account.assistant = Datos de asistente
+
+master.menu.user-account.become-auditor = Hazte auditor
+master.menu.user-account.auditor = Datos de auditor

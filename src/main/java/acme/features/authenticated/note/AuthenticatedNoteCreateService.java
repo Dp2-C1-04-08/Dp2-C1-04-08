@@ -38,7 +38,7 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 	public void load() {
 		Note object;
 		object = new Note();
-		
+
 		super.getBuffer().setData(object);
 	}
 
@@ -55,9 +55,10 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 		final String email = userAccount.getIdentity().getEmail();
 		author = username + "-" + surname + "," + name;
 		object.setAuthor(author);
-		object.setEmail(email);
+		final Date creationDate = MomentHelper.getCurrentMoment();
+		object.setCreationDate(creationDate);
 
-		super.bind(object, "title", "message", "link");
+		super.bind(object, "title", "message", "link", "email", "confirmation");
 
 	}
 
@@ -74,8 +75,7 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 	@Override
 	public void perform(final Note object) {
 		assert object != null;
-		final Date creationDate = MomentHelper.getCurrentMoment();
-		object.setCreationDate(creationDate);
+
 		this.repository.save(object);
 	}
 

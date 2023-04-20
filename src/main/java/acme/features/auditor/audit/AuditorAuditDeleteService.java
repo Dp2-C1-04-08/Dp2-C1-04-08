@@ -1,0 +1,101 @@
+
+package acme.features.auditor.audit;
+
+import java.util.Collection;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import acme.entities.audits.Audit;
+import acme.entities.audits.AuditingRecord;
+import acme.entities.courses.Course;
+import acme.framework.components.accounts.Principal;
+import acme.framework.components.jsp.SelectChoices;
+import acme.framework.components.models.Tuple;
+import acme.framework.services.AbstractService;
+import acme.roles.Auditor;
+
+@Service
+public class AuditorAuditDeleteService extends AbstractService<Auditor, Audit> {
+
+	// Internal state ---------------------------------------------------------
+
+	@Autowired
+	protected AuditorAuditRepository repository;
+
+	// AbstractService interface ----------------------------------------------
+
+
+	@Override
+	public void check() {
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
+	}
+
+	@Override
+	public void authorise() {
+		Principal principal;
+		Integer exists;
+		int id;
+		Boolean status;
+
+		principal = super.getRequest().getPrincipal();
+		id = super.getRequest().getData("id", int.class);
+		exists = this.repository.existsAuditWithIdForAuditor(id, principal.getActiveRoleId());
+		status = exists.equals(1);
+
+		super.getResponse().setAuthorised(status);
+	}
+
+	@Override
+	public void load() {
+		Audit object;
+		int id;
+
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneAuditById(id);
+
+		super.getBuffer().setData(object);
+
+	}
+
+	@Override
+	public void bind(final Audit object) {
+		assert object != null;
+	}
+
+	@Override
+	public void validate(final Audit object) {
+		assert object != null;
+		super.state(!object.getPublished(), "*", "auditor.audit.form.error.general.delete.published");
+	}
+
+	@Override
+	public void perform(final Audit object) {
+		assert object != null;
+		final Collection<AuditingRecord> records = this.repository.getRecordsForAudit(object.getId());
+		for (final AuditingRecord record : records)
+			this.repository.delete(record);
+		this.repository.delete(object);
+	}
+
+	@Override
+	public void unbind(final Audit object) {
+		assert object != null;
+
+		Tuple tuple;
+		Collection<Course> courses;
+		final SelectChoices choices;
+		courses = this.repository.findValidCourses();
+		choices = SelectChoices.from(courses, "title", object.getCourse());
+
+		tuple = super.unbind(object, "code", "conclusion", "strongPoints", "weakPoints", "published");
+		tuple.put("courses", choices);
+		tuple.put("course", choices.getSelected().getKey());
+		super.getResponse().setData(tuple);
+	}
+
+}

@@ -25,3 +25,5 @@ company.practicumSession.list.button = Listar Sesiones
 
 company.practica.form.error.update.published = No puede ser actualizado con la práctica publicada
 company.practica.form.error.delete.published = No puede ser borrado con la práctica publicada
+company.practica.form.error.code = El código no puede estar duplicado
+

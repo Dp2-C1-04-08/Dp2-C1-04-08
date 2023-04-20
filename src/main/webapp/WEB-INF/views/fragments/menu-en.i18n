@@ -53,6 +53,7 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
+
 # master.menu.lecturer ##########################################################
 
 master.menu.lecturer = Lecturer
@@ -82,12 +83,19 @@ master.menu.authenticated.course.list = Courses List
 
 master.menu.any = Any
 master.menu.any.course = Courses Published
+master.menu.any.peep = Peep
 
 # master.menu.assistant ###################################################
 
 master.menu.assistant = Assistant
 master.menu.assistant.my-tutorials = My tutorials
 master.menu.assistant.dashboard = My dashboard
+
+# master.menu.auditor ###################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.my-audits = My audits
+master.menu.auditor.dashboard = My dashboard
 
 # master.menu.user-account ####################################################
 
@@ -97,6 +105,11 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+
+
+menu.student = Student
+menu.student.list = List your enrolments
+menu.student.courseList = List of courses
 
 master.menu.user-account.become-lecturer = Become a lecturer
 master.menu.user-account.lecturer = Lecturer Data
@@ -110,3 +123,6 @@ master.menu.user-account.student = Update Student Profile
 
 master.menu.user-account.become-assistant= Become an assistant
 master.menu.user-account.assistant = Assistant data
+
+master.menu.user-account.become-auditor = Become an auditor
+master.menu.user-account.auditor = Auditor data
