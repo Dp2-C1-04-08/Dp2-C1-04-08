@@ -4,9 +4,13 @@ any.peep.form.label.message = Mensaje:
 any.peep.form.label.email = Email:
 any.peep.form.label.link = Enlace: (Optional)
 
+any.peep.form.button.create = Crear
+
 any.peep.list.label.instanciationMoment = Momento de Instanciación
 any.peep.list.label.nick = Apodo
 any.peep.list.label.title = Titulo
 any.peep.list.label.message = Mensaje
 any.peep.list.label.email = Email
 any.peep.list.label.link = Enlace
+
+any.peep.list.button.create = Crear
