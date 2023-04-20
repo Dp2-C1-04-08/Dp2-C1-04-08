@@ -6,7 +6,6 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -38,16 +37,14 @@ public class Note extends AbstractEntity {
 
 	@NotNull
 	@NotBlank
-	@Length(max = 100)
+
+	@Length(max = 101)
 	protected String			message;
 
-	@NotNull
-	@NotBlank
 	@Email
 	protected String			email;
 
 	@NotNull
-	@Valid
 	@Length(max = 75)
 	protected String			author;
 

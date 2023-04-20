@@ -1,4 +1,5 @@
-key,code,title,courseAbstract,courseType,retailPrice,link,key:lecturer
-course-01,"ABC1234","1","1",THEORETICAL,"EUR 1,500.00",,lecturer-01
-course-02,"XY5678","Probando el limite de 75 caracteres maximo en el atributo titulo           ","Un resumen de un curso",HANDS_ON,"EUR 1,000.00",https://definicion.de/link/,lecturer-01
-course-03,"PQ1234","titulo de un curso","       Probando el limite máximo de caracteres en el atributo resumen de la entidad de curso(course)",THEORETICAL,"EUR 2,500.00",,lecturer-02
+key,code,title,courseAbstract,courseType,retailPrice,link,draft,key:lecturer
+course-01,"ABC1234","1","1",THEORETICAL,"EUR 1,500.00",,true,lecturer-01
+course-02,"XY5678","Probando el limite de 75 caracteres maximo en el atributo titulo           ","Un resumen de un curso",HANDS_ON,"EUR 1,000.00",https://definicion.de/link/,true,lecturer-01
+course-03,"PQ1234","titulo de un curso","       Probando el limite máximo de caracteres en el atributo resumen de la entidad de curso(course)",THEORETICAL,"EUR 2,500.00",,false,lecturer-02
+course-04,"ABC2234","1","1",THEORETICAL,"EUR 1,500.00",http://wow.com,true,lecturer-01
