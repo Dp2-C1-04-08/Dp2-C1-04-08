@@ -8,6 +8,6 @@
 	<acme:input-textbox code="administrator.system-configuration.form.label.system-currency" path="systemCurrency"/>
 	<acme:input-textbox code="administrator.system-configuration.form.label.accepted-currencies" path="acceptedCurrencies"/>
 	
-	<acme:submit code="administrator.system-configuration.form.button.update" action="/administrator/systemConfiguration/update"/>
+	<acme:submit code="administrator.system-configuration.form.button.update" action="/administrator/system-configuration/update"/>
 			
 </acme:form>
