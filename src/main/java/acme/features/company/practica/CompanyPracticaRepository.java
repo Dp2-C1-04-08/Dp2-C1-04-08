@@ -40,4 +40,6 @@ public interface CompanyPracticaRepository extends AbstractRepository {
 	@Query("Select p From Practicum p where p.code = :code")
 	Optional<Practicum> findOnePracticumByCode(String code);
 
+	@Query("Select count(ps) from PracticumSession ps where ps.practicum.id = :id")
+	Integer getCountPracticumSessionOfPracticum(int id);
 }

@@ -15,7 +15,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticaUpdateService extends AbstractService<Company, Practicum> {
+public class CompanyPracticaPublishService extends AbstractService<Company, Practicum> {
 
 	@Autowired
 	protected CompanyPracticaRepository repository;
@@ -50,7 +50,7 @@ public class CompanyPracticaUpdateService extends AbstractService<Company, Pract
 		final Course course = this.repository.findCourseById(courseId);
 		object.setCourse(course);
 
-		super.bind(object, "code", "title", "goals", "abstractStr");
+		super.bind(object, "code", "title", "goals", "abstractStr", "published");
 
 	}
 	@Override
@@ -58,9 +58,9 @@ public class CompanyPracticaUpdateService extends AbstractService<Company, Pract
 		assert object != null;
 		String code;
 		final Boolean sameCode;
-		final boolean published = object.getPublished();
+		Boolean noSessionInPracticum;
 
-		final boolean isPublished = published;
+		final boolean isPublished = object.getPublished();
 		super.state(!isPublished, "*", "company.practica.form.error.update.published");
 
 		Optional<Practicum> practicumWhithSameCode;
@@ -72,13 +72,17 @@ public class CompanyPracticaUpdateService extends AbstractService<Company, Pract
 		sameCode = !practicumWhithSameCode.isPresent() || practicum.getId() == object.getId();
 		super.state(sameCode, "*", "company.practica.form.error.code");
 
+		final Integer sessions = this.repository.getCountPracticumSessionOfPracticum(object.getId());
+		noSessionInPracticum = sessions > 0;
+		super.state(noSessionInPracticum, "*", "company.practica.form.error.noSessions");
+
 	}
 
 	@Override
 	public void perform(final Practicum object) {
 		assert object != null;
-		final boolean published = super.getRequest().getData("published", boolean.class);
-		object.setPublished(published);
+
+		object.setPublished(true);
 		this.repository.save(object);
 	}
 

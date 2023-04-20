@@ -16,6 +16,7 @@ company.practica.list.label.estimatedTime = Tiempo Estimado
 company.practica.list.label.course = Curso
 company.practica.list.label.published = Publicado
 company.practica.list.form.published = Publicar
+company.practica.form.button.publish = Publicar
 
 company.practica.list.button.create = Crear
 company.practica.list.button.update = Actualizar
@@ -26,4 +27,4 @@ company.practicumSession.list.button = Listar Sesiones
 company.practica.form.error.update.published = No puede ser actualizado con la práctica publicada
 company.practica.form.error.delete.published = No puede ser borrado con la práctica publicada
 company.practica.form.error.code = El código no puede estar duplicado
-
+company.practica.form.error.noSessions = No se puede publicar si no tiene sesiones asociadas
