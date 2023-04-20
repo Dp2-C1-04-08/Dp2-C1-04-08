@@ -49,11 +49,11 @@ public class ActivityCreateService extends AbstractService<Student, Activity> {
 	public void authorise() {
 		boolean status;
 		int id;
-		Activity activity;
+		Enrolment enrolment;
 
-		id = super.getRequest().getData("id", int.class);
-		activity = this.repository.findActivityById(id);
-		status = activity != null && super.getRequest().getPrincipal().hasRole(activity.getEnrolment().getStudent());
+		id = super.getRequest().getData("masterId", int.class);
+		enrolment = this.repository.findEnrolmentById(id);
+		status = enrolment != null && enrolment.getIsFinalised() != true && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
 		super.getResponse().setAuthorised(status);
 	}
 
