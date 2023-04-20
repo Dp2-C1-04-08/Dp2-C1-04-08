@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.audits.Audit;
+import acme.entities.audits.AuditingRecord;
 import acme.entities.courses.Course;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
@@ -83,6 +84,9 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 		code = super.getRequest().getData("code", String.class);
 		Optional<Audit> auditWithSameCode;
 		auditWithSameCode = this.repository.findAuditByCode(code);
+		Collection<AuditingRecord> records;
+		records = this.repository.getRecordsForAudit(object.getId());
+		super.state(!records.isEmpty(), "*", "auditor.audit.form.error.general.update.empty");
 		super.state(!auditWithSameCode.isPresent() || object.getId() == auditWithSameCode.get().getId(), "code", "auditor.audit.form.error.code.duplicated");
 		super.state(!object.getPublished(), "*", "auditor.audit.form.error.general.update.published");
 	}

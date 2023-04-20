@@ -21,11 +21,9 @@
 	<acme:input-textarea code="auditor.audit.form.label.strongPoints" path="strongPoints"/>
 	<acme:input-textarea code="auditor.audit.form.label.weakPoints" path="weakPoints"/>
 	<acme:input-select code="auditor.audit.form.label.course" path="course" choices="${courses}"/>
-	<jstl:choose>
-		<jstl:when test="${_command == 'show' && published == true}">
-				<acme:input-select code="auditor.audit.form.label.mark" path="mark" choices="${marks}"/>
-		</jstl:when>
-	</jstl:choose>
+	<jstl:if test="${_command == 'show'}">
+		<acme:input-select code="auditor.audit.form.label.mark" path="mark" choices="${marks}" readonly="true"/>
+	</jstl:if>
 	<acme:input-checkbox code="auditor.audit.form.label.published" path="published" readonly="true"/>
 	
 	<jstl:choose>
