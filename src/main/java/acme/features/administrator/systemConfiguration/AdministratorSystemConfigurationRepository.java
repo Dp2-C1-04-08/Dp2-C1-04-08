@@ -13,4 +13,7 @@ public interface AdministratorSystemConfigurationRepository extends AbstractRepo
 	@Query("select sc from SystemConfiguration sc")
 	SystemConfiguration findSystemConfigurations();
 
+	@Query("select sc from SystemConfiguration sc where sc.id = :id")
+	SystemConfiguration findSystemConfigurationById(int id);
+
 }

@@ -18,7 +18,11 @@ public class AdministratorSystemConfigurationUpdateService extends AbstractServi
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -33,8 +37,10 @@ public class AdministratorSystemConfigurationUpdateService extends AbstractServi
 	@Override
 	public void load() {
 		SystemConfiguration systemConfiguration;
+		int id;
 
-		systemConfiguration = this.repository.findSystemConfigurations();
+		id = super.getRequest().getData("id", int.class);
+		systemConfiguration = this.repository.findSystemConfigurationById(id);
 		super.getBuffer().setData(systemConfiguration);
 	}
 	@Override
@@ -62,6 +68,7 @@ public class AdministratorSystemConfigurationUpdateService extends AbstractServi
 		Tuple tuple;
 
 		tuple = super.unbind(object, "systemCurrency", "acceptedCurrencies");
+		tuple.put("id", object.getId());
 
 		super.getResponse().setData(tuple);
 	}
