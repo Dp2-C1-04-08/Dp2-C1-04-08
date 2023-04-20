@@ -355,4 +355,38 @@ bg=blue</panel_attributes>
     <panel_attributes>lt=-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>525</x>
+      <y>413</y>
+      <w>301</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Course
+--
++ code: String {Unique, NotBlank, Pattern("[A-Z]{1,3}[0-9][0-9]{3}")} 
++ title:String {NotBlank, Length(1,75)}
++ courseAbstract: String {NotBlank, Length(1,100)}
++ courseType: Nature
++ retailPrice: Money
++ link{URL}
+fg=BLACK
+bg=GREEN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>665</x>
+      <y>287</y>
+      <w>28</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
 </diagram>

@@ -98,6 +98,12 @@ master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
 
+# menu.student ##########################################################
+
+menu.student = Estudiante
+menu.student.list = Listado de tus matriculaciones
+menu.student.courseList = Lista de cursos
+
 master.menu.user-account.become-lecturer = Hazte profesor
 master.menu.user-account.company = Datos de profesor
 

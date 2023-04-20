@@ -73,6 +73,14 @@
 		<acme:menu-suboption code="master.menu.note.create" action="/authenticated/note/create"/>
 		</acme:menu-option>
 		
+		<acme:menu-option code="menu.student" access="hasRole('Student')">
+			<acme:menu-suboption code="menu.student.list" action="/student/enrolment/list"/>
+			<acme:menu-suboption code="menu.student.courseList" action="/student/course/list"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.any" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.any.course" action="/any/course/list"/>
+      
 		<acme:menu-option code="master.menu.any">
       <acme:menu-suboption code="master.menu.any.course" action="/any/course/list"/>
     </acme:menu-option>
