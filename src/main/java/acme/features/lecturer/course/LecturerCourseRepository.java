@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 import com.google.common.base.Optional;
 
 import acme.entities.courses.Course;
+import acme.entities.courses.CourseLecture;
+import acme.entities.courses.Lecture;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Lecturer;
 
@@ -26,5 +28,11 @@ public interface LecturerCourseRepository extends AbstractRepository {
 
 	@Query("Select c From Course c where c.code = :code")
 	Optional<Course> findOneCourseByCode(String code);
+
+	@Query("select cl.lecture from CourseLecture cl where cl.course.id = :id")
+	Collection<Lecture> findLecturesByCourseId(int id);
+
+	@Query("select cl from CourseLecture cl where cl.course.id = :id")
+	CourseLecture findCourseLecturesByCourseId(int id);
 
 }

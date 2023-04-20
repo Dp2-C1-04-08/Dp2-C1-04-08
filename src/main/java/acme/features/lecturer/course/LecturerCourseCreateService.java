@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.google.common.base.Optional;
 
 import acme.entities.courses.Course;
+import acme.entities.courses.Nature;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -42,6 +43,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		lecturer = this.repository.findLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
 		course.setLecturer(lecturer);
 		course.setDraft(true);
+		course.setCourseType(Nature.NOT_ASIGN);
 		super.getBuffer().setData(course);
 	}
 
@@ -49,7 +51,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	public void bind(final Course object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "courseAbstract", "courseType", "retailPrice", "link");
+		super.bind(object, "code", "title", "courseAbstract", "retailPrice", "link");
 	}
 
 	@Override
@@ -77,7 +79,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "courseAbstract", "courseType", "retailPrice", "link");
+		tuple = super.unbind(object, "code", "title", "courseAbstract", "retailPrice", "link");
 
 		super.getResponse().setData(tuple);
 	}

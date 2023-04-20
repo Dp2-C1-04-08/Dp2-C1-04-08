@@ -1,12 +1,15 @@
 
 package acme.features.lecturer.course;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.common.base.Optional;
 
 import acme.entities.courses.Course;
+import acme.entities.courses.Lecture;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -59,16 +62,28 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 		boolean draft;
 		boolean isDraft;
 		String code;
+		Course course;
 		Optional<Course> courseWhithSameCode;
+		Collection<Lecture> lectures;
+		boolean acumulador;
 
-		draft = object.isDraft();
-		isDraft = draft;
+		acumulador = false;
+		draft = super.getRequest().getData("draft", boolean.class);
+		course = this.repository.findOneCourseById(object.getId());
+		isDraft = course.isDraft();
+
+		lectures = this.repository.findLecturesByCourseId(course.getId());
+
+		if (isDraft && !draft)
+			for (final Lecture lecture : lectures)
+				acumulador = acumulador || lecture.isDraft();
+
 		code = super.getRequest().getData("code", String.class);
 		courseWhithSameCode = this.repository.findOneCourseByCode(code);
 
 		super.state(!courseWhithSameCode.isPresent() || object.getId() == courseWhithSameCode.get().getId(), "code", "lecturer.course.form.error.update.code.duplicated");
 		super.state(isDraft, "*", "lecturer.course.form.error.update.draft");
-
+		super.state(!acumulador, "*", "lecuter.course.form.error.update.publish");
 	}
 
 	@Override

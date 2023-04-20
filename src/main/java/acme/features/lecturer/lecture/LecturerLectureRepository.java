@@ -3,6 +3,8 @@ package acme.features.lecturer.lecture;
 
 import java.util.Collection;
 
+import javax.persistence.Tuple;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -28,4 +30,7 @@ public interface LecturerLectureRepository extends AbstractRepository {
 
 	@Query("select cl from CourseLecture cl where cl.lecture.id = :id")
 	CourseLecture findCourseLectureByLectureId(int id);
+
+	@Query("SELECT cl.lecture.lectureType, COUNT(cl.lecture) FROM CourseLecture cl WHERE cl.course.id = :id GROUP BY cl.lecture.lectureType")
+	Collection<Tuple> countLecturesGroupByType(int id);
 }
