@@ -41,6 +41,7 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
 
 		courseLecture = this.repository.findCourseLectureByLectureId(lectureId);
+		System.out.println(courseLecture);
 
 		status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
 		sameLecturer = courseLecture.getCourse().getLecturer().getId() == lecturerId;
