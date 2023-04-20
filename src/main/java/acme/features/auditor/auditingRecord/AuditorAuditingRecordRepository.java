@@ -3,6 +3,8 @@ package acme.features.auditor.auditingRecord;
 
 import java.util.Collection;
 
+import javax.persistence.Tuple;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -24,5 +26,8 @@ public interface AuditorAuditingRecordRepository extends AbstractRepository {
 
 	@Query("SELECT ar FROM AuditingRecord ar WHERE ar.id = :id")
 	AuditingRecord findOneAuditingRecordById(int id);
+
+	@Query("SELECT ar.mark, COUNT(ar) FROM AuditingRecord ar WHERE ar.audit.id = :masterId GROUP BY ar.mark")
+	Collection<Tuple> countRecordsGroupByMark(int masterId);
 
 }

@@ -1,9 +1,15 @@
 
 package acme.features.auditor.auditingRecord;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.audits.Audit;
 import acme.entities.audits.AuditingRecord;
 import acme.entities.audits.MarkValue;
 import acme.framework.components.accounts.Principal;
@@ -71,10 +77,23 @@ public class AuditorAuditingRecordDeleteService extends AbstractService<Auditor,
 	@Override
 	public void perform(final AuditingRecord object) {
 
-		// Compute the final mark for the audit here
-
+		final Audit audit = this.repository.findOneAuditByAuditingRecordId(object.getId());
+		final Collection<javax.persistence.Tuple> col = this.repository.countRecordsGroupByMark(object.getAudit().getId());
 		this.repository.delete(object);
-		//this.repository.save(audit);
+		long max = 0;
+		int index = 0;
+		final List<MarkValue> marks = new ArrayList<>();
+
+		for (final javax.persistence.Tuple t : col)
+			if ((long) t.get(1) >= max) {
+				marks.add((MarkValue) t.get(0));
+				max = (long) t.get(1);
+			}
+		ThreadLocalRandom random;
+		random = ThreadLocalRandom.current();
+		index = random.nextInt(0, marks.size());
+		audit.setMark(marks.get(index));
+		this.repository.save(audit);
 
 	}
 

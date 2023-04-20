@@ -31,4 +31,5 @@ auditor.audit.form.button.records = Auditing records
 auditor.audit.form.error.code.duplicated = This code already exists
 auditor.audit.form.error.general.update.published = You cannot edit an audit once it is published
 auditor.audit.form.error.general.delete.published = You cannot delete an audit once it is published
+auditor.audit.form.error.general.update.empty = You cannot publish an audit with no records
 

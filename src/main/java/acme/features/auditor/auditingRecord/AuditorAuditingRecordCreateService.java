@@ -2,7 +2,11 @@
 package acme.features.auditor.auditingRecord;
 
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -81,6 +85,7 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 	public void validate(final AuditingRecord object) {
 		Date startDate = null;
 		Date endDate = null;
+		MarkValue mark = null;
 		Boolean correction = false;
 		boolean confirmation = false;
 		if (object.getAudit().getPublished())
@@ -97,17 +102,20 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 			endDate = super.getRequest().getData("endDate", Date.class);
 		} catch (final Exception e) {
 		}
-		if (startDate != null) {
-			super.state(MomentHelper.isPast(startDate), "startDate", "auditor.auditingRecord.form.error.start-date.invalid");
-
-			if (endDate != null) {
-				super.state(MomentHelper.isPast(endDate), "endDate", "auditor.auditingRecord.form.error.end-date.invalid-future");
-				final Boolean endAfterStart = MomentHelper.isAfter(endDate, startDate);
-				super.state(endAfterStart, "endDate", "auditor.auditingRecord.form.error.end-date.invalid");
-				final Boolean hourOrLongerPeriod = MomentHelper.isLongEnough(startDate, endDate, 1, ChronoUnit.HOURS);
-				super.state(hourOrLongerPeriod, "endDate", "auditor.auditingRecord.form.error.period.invalid");
-			}
+		try {
+			mark = super.getRequest().getData("mark", MarkValue.class);
+		} catch (final Exception e) {
 		}
+		if (mark != null)
+			super.state(!mark.equals(MarkValue.NA), "mark", "auditor.auditingRecord.form.error.mark.invalid");
+
+		if (endDate != null) {
+			final Boolean endAfterStart = MomentHelper.isAfter(endDate, startDate);
+			super.state(endAfterStart, "endDate", "auditor.auditingRecord.form.error.end-date.invalid");
+			final Boolean hourOrLongerPeriod = MomentHelper.isLongEnough(startDate, endDate, 1, ChronoUnit.HOURS);
+			super.state(hourOrLongerPeriod, "endDate", "auditor.auditingRecord.form.error.period.invalid");
+		}
+
 		super.state(!correction || correction && confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 	}
 
@@ -115,10 +123,23 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 	public void perform(final AuditingRecord object) {
 		assert object != null;
 
-		//Compute new total mark for audit here
-
+		Audit audit;
 		this.repository.save(object);
-		//this.repository.save(audit);
+		long max = 0;
+		int index = 0;
+		final List<MarkValue> marks = new ArrayList<>();
+		final Collection<javax.persistence.Tuple> col = this.repository.countRecordsGroupByMark(object.getAudit().getId());
+		for (final javax.persistence.Tuple t : col)
+			if ((long) t.get(1) >= max) {
+				marks.add((MarkValue) t.get(0));
+				max = (long) t.get(1);
+			}
+		ThreadLocalRandom random;
+		random = ThreadLocalRandom.current();
+		index = random.nextInt(0, marks.size());
+		audit = this.repository.findOneAuditByAuditingRecordId(object.getId());
+		audit.setMark(marks.get(index));
+		this.repository.save(audit);
 	}
 
 	@Override

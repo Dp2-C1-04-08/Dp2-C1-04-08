@@ -26,8 +26,7 @@ auditor.auditingRecord.form.button.create = Crear
 auditor.auditingRecord.form.button.update = Actualizar
 auditor.auditingRecord.form.button.delete = Borrar
 
-auditor.auditingRecord.form.error.start-date.invalid = La fecha de inicio debe estar en el pasado
-auditor.auditingRecord.form.error.end-date.invalid-future = La fecha de fin debe estar en el pasado
 auditor.auditingRecord.form.error.end-date.invalid = La fecha de fin debe ser despues de la de inicio
 auditor.auditingRecord.form.error.period.invalid = El periodo de auditoría debe ser de al menos una hora
 auditor.auditingRecord.form.error.general.delete.published = Imposible eliminar un registro de una auditoría ya publicada
+auditor.auditingRecord.form.error.mark.invalid = Por favor, seleccione una nota entre APLUS y FMINUS
