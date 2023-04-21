@@ -13,12 +13,12 @@ assistant.dashboard.form.title = My assistant dashboard
 assistant.dashboard.form.label.HandsOnCount = Tutorials belonging to a Hands On course
 assistant.dashboard.form.label.TheoreticalCount = Tutorials belonging to a Theoretical course
 
-assistant.dashboard.form.label.tutorialsAverage = Average duration of my tutorials
-assistant.dashboard.form.label.tutorialsDeviation = Standard deviation of tutorials' duration
-assistant.dashboard.form.label.tutorialsMinimum = Minimum duration of my tutorials
-assistant.dashboard.form.label.tutorialsMaximum = Maximum duration of my tutorials
+assistant.dashboard.form.label.tutorialsAverage = Average duration of my tutorials (hours)
+assistant.dashboard.form.label.tutorialsDeviation = Standard deviation of tutorials' duration (hours)
+assistant.dashboard.form.label.tutorialsMinimum = Minimum duration of my tutorials (hours)
+assistant.dashboard.form.label.tutorialsMaximum = Maximum duration of my tutorials (hours)
 
-assistant.dashboard.form.label.sessionsAverage = Average duration of my sessions
-assistant.dashboard.form.label.sessionsDeviation = Standard deviation of session's duration
-assistant.dashboard.form.label.sessionsMinimum = Minimum duration of my sessions
-assistant.dashboard.form.label.sessionsMaximum = Maximum duration of my sessions
+assistant.dashboard.form.label.sessionsAverage = Average duration of my sessions (hours)
+assistant.dashboard.form.label.sessionsDeviation = Standard deviation of session's duration (hours)
+assistant.dashboard.form.label.sessionsMinimum = Minimum duration of my sessions (hours)
+assistant.dashboard.form.label.sessionsMaximum = Maximum duration of my sessions (hours)
