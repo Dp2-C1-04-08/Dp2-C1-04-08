@@ -3,6 +3,7 @@ package acme.forms;
 
 import java.util.Map;
 
+import acme.entities.courses.Nature;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,7 +17,7 @@ public class AuditorDashboard extends AbstractForm {
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-	Map<String, Integer>		numberOfAuditsForCoursesByType;
+	Map<Nature, Long>			numberOfAuditsForCoursesByType;
 	Double						averageNumberOfRecordsInAudit;
 	Double						deviationNumberOfRecordsInAudit;
 	Double						maximumNumberOfRecordsInAudit;
