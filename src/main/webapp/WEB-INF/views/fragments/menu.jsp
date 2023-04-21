@@ -30,6 +30,7 @@
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.system-configuration" action="/administrator/system-configuration/show"/>
 			<acme:menu-suboption code="master.menu.administrator.bulletin.create" action="/administrator/bulletin/create"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.offer.list" action="/administrator/offer/list"/>
@@ -72,6 +73,11 @@
 			<acme:menu-suboption code="master.menu.note.create" action="/authenticated/note/create"/>
 		</acme:menu-option>
 		
+		<acme:menu-option code="master.menu.lecturer" access="hasRole('Lecturer')">
+			<acme:menu-suboption code="master.menu.lecturer.course.list" action="/lecturer/course/list/"/>
+			<acme:menu-suboption code="master.menu.lecturer.course.create" action="/lecturer/course/create/"/>
+		</acme:menu-option>
+
 		<acme:menu-option code="menu.student" access="hasRole('Student')">
 			<acme:menu-suboption code="menu.student.list" action="/student/enrolment/list"/>
 			<acme:menu-suboption code="menu.student.courseList" action="/student/course/list"/>
@@ -79,20 +85,18 @@
 		
 		<acme:menu-option code="master.menu.any" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.any.course" action="/any/course/list"/>
-	   	</acme:menu-option>
-	   	
+      	</acme:menu-option>
+
 		<acme:menu-option code="master.menu.any">
-	      <acme:menu-suboption code="master.menu.any.course" action="/any/course/list"/>
-	    </acme:menu-option>
+      <acme:menu-suboption code="master.menu.any.course" action="/any/course/list"/>
+      <acme:menu-suboption code="master.menu.any.peep" action="/any/peep/list"/>
+    </acme:menu-option>
 
 		<acme:menu-option code="master.menu.company.practicum" access="hasRole('Company')">
 		  <acme:menu-suboption code="master.menu.company.practicum.list" action="/company/practicum/list"/>
 		  <acme:menu-suboption code="master.menu.company.practicum.create" action="/company/practicum/create"/>
 		  <acme:menu-suboption code="master.menu.company.company.dashboard" action="/company/company-dashboard/show"/>
 		</acme:menu-option>
-    
-		
-    
 	</acme:menu-left>
 
 	<acme:menu-right>

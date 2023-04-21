@@ -156,7 +156,7 @@ bg=green
       <x>567</x>
       <y>217</y>
       <w>210</w>
-      <h>77</h>
+      <h>112</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Enrolment
@@ -165,6 +165,10 @@ Enrolment
 + motivation: String {NotBlank, Length(1,75)} 
 + goals: String {NotBlank, Length(1,100)}
 + / workTime: Double
++ creditCardHolder: String{Length(1,75)}  
++ lowerNibble: String {Length(8,8)} 
++ isFinalised: Boolean {NotNull}
+
 bg=green
 </panel_attributes>
     <additional_attributes/>
@@ -348,12 +352,12 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>728</x>
-      <y>287</y>
+      <y>322</y>
       <w>21</w>
-      <h>70</h>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -380,13 +384,13 @@ bg=GREEN</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>665</x>
-      <y>287</y>
+      <y>322</y>
       <w>28</w>
-      <h>140</h>
+      <h>105</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
   </element>
 </diagram>

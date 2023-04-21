@@ -33,6 +33,7 @@ master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+master.menu.administrator.system-configuration = System currency
 master.menu.administrator.bulletin.create = Create a bulletin
 master.menu.administrator.offer.list = List offers
 master.menu.administrator.banner.list = List banners
@@ -54,6 +55,12 @@ master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
 
+# master.menu.lecturer ##########################################################
+
+master.menu.lecturer = Lecturer
+master.menu.lecturer.course.list = List Courses
+master.menu.lecturer.course.create = Create Courses
+
 #master.menu.note ##########################################################
 master.menu.note = Note
 master.menu.note.list = List
@@ -68,6 +75,7 @@ master.menu.company.company.dashboard = My Dashboard
 
 
 #master.menu.authenticated.course ##########################################################
+
 master.menu.authenticated.course = Courses
 master.menu.authenticated.course.list = Courses List
 
@@ -76,6 +84,7 @@ master.menu.authenticated.course.list = Courses List
 
 master.menu.any = Any
 master.menu.any.course = Courses Published
+master.menu.any.peep = Peep
 
 # master.menu.assistant ###################################################
 

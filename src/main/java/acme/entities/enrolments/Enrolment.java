@@ -51,7 +51,7 @@ public class Enrolment extends AbstractEntity {
 	@ManyToOne(optional = false)
 	protected Course			course;
 
-	@Length(min = 3, max = 100)
+	@Length(min = 3, max = 75)
 	protected String			creditCardHolder;
 
 	@Length(min = 8, max = 8)

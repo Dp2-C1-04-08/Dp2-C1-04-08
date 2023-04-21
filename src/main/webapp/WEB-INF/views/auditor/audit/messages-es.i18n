@@ -31,3 +31,4 @@ auditor.audit.form.button.records = Registros de auditoria
 auditor.audit.form.error.code.duplicated = Este código ya existe
 auditor.audit.form.error.general.update.published = No se puede editar una auditoría una vez publicada
 auditor.audit.form.error.general.delete.published = No se puede eliminar una auditoría una vez publicada
+auditor.audit.form.error.general.update.empty = No se puede publicar una auditoría sin registros

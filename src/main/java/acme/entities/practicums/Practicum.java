@@ -48,6 +48,7 @@ public class Practicum extends AbstractEntity {
 	protected String			abstractStr;
 
 	@PositiveOrZero
+	@NotNull
 	protected Integer			estimatedTime;
 
 	@NotNull
@@ -65,7 +66,6 @@ public class Practicum extends AbstractEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@PastOrPresent
-	@NotNull
 	protected Date				creationDate;
 
 }
