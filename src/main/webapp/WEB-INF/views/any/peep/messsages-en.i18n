@@ -1,8 +1,8 @@
 any.peep.form.label.title = Title:
 any.peep.form.label.nick = Nick:
 any.peep.form.label.message = Message:
-any.peep.form.label.email = Email:
-any.peep.form.label.link = Link: (Optional)
+any.peep.form.label.email = Email (Optional): 
+any.peep.form.label.link = Link (Optional): 
 
 any.peep.form.button.create = Create
 
