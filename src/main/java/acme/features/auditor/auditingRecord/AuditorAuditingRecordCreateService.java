@@ -130,9 +130,12 @@ public class AuditorAuditingRecordCreateService extends AbstractService<Auditor,
 		final List<MarkValue> marks = new ArrayList<>();
 		final Collection<javax.persistence.Tuple> col = this.repository.countRecordsGroupByMark(object.getAudit().getId());
 		for (final javax.persistence.Tuple t : col)
-			if ((long) t.get(1) >= max) {
+			if ((long) t.get(1) == max)
 				marks.add((MarkValue) t.get(0));
+			else if ((long) t.get(1) > max) {
 				max = (long) t.get(1);
+				marks.clear();
+				marks.add((MarkValue) t.get(0));
 			}
 		ThreadLocalRandom random;
 		random = ThreadLocalRandom.current();
