@@ -65,17 +65,10 @@ public class AuditorAuditingRecordListService extends AbstractService<Auditor, A
 		assert object != null;
 
 		final Tuple tuple;
-		int masterId;
-		final Audit audit;
-
-		masterId = super.getRequest().getData("masterId", int.class);
-		audit = this.repository.findOneAuditById(masterId);
 
 		tuple = super.unbind(object, "subject", "mark", "correction");
-		//		tuple.put("masterId", masterId);
 
 		super.getResponse().setData(tuple);
-		//		super.getResponse().setGlobal("showCreate", showCreate);
 	}
 
 	@Override

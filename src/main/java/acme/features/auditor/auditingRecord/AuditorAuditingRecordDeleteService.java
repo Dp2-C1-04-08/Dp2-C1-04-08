@@ -85,9 +85,12 @@ public class AuditorAuditingRecordDeleteService extends AbstractService<Auditor,
 		final List<MarkValue> marks = new ArrayList<>();
 
 		for (final javax.persistence.Tuple t : col)
-			if ((long) t.get(1) >= max) {
+			if ((long) t.get(1) == max)
 				marks.add((MarkValue) t.get(0));
+			else if ((long) t.get(1) > max) {
 				max = (long) t.get(1);
+				marks.clear();
+				marks.add((MarkValue) t.get(0));
 			}
 		ThreadLocalRandom random;
 		random = ThreadLocalRandom.current();
