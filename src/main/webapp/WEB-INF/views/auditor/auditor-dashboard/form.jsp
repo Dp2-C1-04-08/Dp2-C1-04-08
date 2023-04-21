@@ -22,10 +22,18 @@
 <table class="table table-sm">
 	<tr>
 		<th scope="row">
-			<acme:message code="auditor.dashboard.form.label.numberOfAuditsForCoursesByType"/>
+			<acme:message code="auditor.dashboard.form.label.numberOfAuditsForTheoreticalCourses"/>
 		</th>
 		<td>
-			<acme:print value="${numberOfAuditsForCoursesByType}"/>
+			<acme:print value="${numberOfAuditsForTheoreticalCourses}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="auditor.dashboard.form.label.numberOfAuditsForHandsOnCourses"/>
+		</th>
+		<td>
+			<acme:print value="${numberOfAuditsForHandsOnCourses}"/>
 		</td>
 	</tr>
 	<tr>
@@ -58,6 +66,38 @@
 		</th>
 		<td>
 			<acme:print value="${minimumNumberOfRecordsInAudit}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="auditor.dashboard.form.label.averageLengthOfPeriodInRecords"/>
+		</th>
+		<td>
+			<acme:print value="${averageLengthOfPeriodInRecords}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="auditor.dashboard.form.label.deviationLengthOfPeriodInRecords"/>
+		</th>
+		<td>
+			<acme:print value="${deviationLengthOfPeriodInRecords}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="auditor.dashboard.form.label.maximumLengthOfPeriodInRecords"/>
+		</th>
+		<td>
+			<acme:print value="${maximumLengthOfPeriodInRecords}"/>
+		</td>
+	</tr>	
+	<tr>
+		<th scope="row">
+			<acme:message code="auditor.dashboard.form.label.minimumLengthOfPeriodInRecords"/>
+		</th>
+		<td>
+			<acme:print value="${minimumLengthOfPeriodInRecords}"/>
 		</td>
 	</tr>			
 </table>

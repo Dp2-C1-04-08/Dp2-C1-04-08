@@ -8,17 +8,15 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-assistant.dashboard.form.title = My assistant dashboard
+auditor.dashboard.form.title = My auditor dashboard
 
-assistant.dashboard.form.label.HandsOnCount = Tutorials belonging to a Hands On course
-assistant.dashboard.form.label.TheoreticalCount = Tutorials belonging to a Theoretical course
-
-assistant.dashboard.form.label.tutorialsAverage = Average duration of my tutorials
-assistant.dashboard.form.label.tutorialsDeviation = Standard deviation of tutorials' duration
-assistant.dashboard.form.label.tutorialsMinimum = Minimum duration of my tutorials
-assistant.dashboard.form.label.tutorialsMaximum = Maximum duration of my tutorials
-
-assistant.dashboard.form.label.sessionsAverage = Average duration of my sessions
-assistant.dashboard.form.label.sessionsDeviation = Standard deviation of session's duration
-assistant.dashboard.form.label.sessionsMinimum = Minimum duration of my sessions
-assistant.dashboard.form.label.sessionsMaximum = Maximum duration of my sessions
+auditor.dashboard.form.label.numberOfAuditsForTheoreticalCourses = Number of audits for theoretical courses
+auditor.dashboard.form.label.numberOfAuditsForHandsOnCourses = Number of audits for Hands-On Courses
+auditor.dashboard.form.label.averageNumberOfRecordsInAudit = Average number of records in audits
+auditor.dashboard.form.label.deviationNumberOfRecordsInAudit = Deviation of number of records in audits
+auditor.dashboard.form.label.maximumNumberOfRecordsInAudit = Maximum number of records in audits
+auditor.dashboard.form.label.minimumNumberOfRecordsInAudit = Minimum number of records in audits
+auditor.dashboard.form.label.averageLengthOfPeriodInRecords = Average length of auditing period
+auditor.dashboard.form.label.deviationLengthOfPeriodInRecords = Deviation of length of auditing period
+auditor.dashboard.form.label.maximumLengthOfPeriodInRecords = Maximum length of auditing period
+auditor.dashboard.form.label.minimumLengthOfPeriodInRecords = Minimum length of auditing period

@@ -8,17 +8,15 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-assistant.dashboard.form.title = Mi tablero de asistente
+auditor.dashboard.form.title = Mi tablero de auditor
 
-assistant.dashboard.form.label.HandsOnCount = Tutoriales pertenecientes a un curso práctico
-assistant.dashboard.form.label.TheoreticalCount = Tutoriales pertenecientes a un curso teórico
-
-assistant.dashboard.form.label.tutorialsAverage = Duración media de mis tutoriales
-assistant.dashboard.form.label.tutorialsDeviation = Desviación estandar de la duración de mis tutoriales
-assistant.dashboard.form.label.tutorialsMinimum = Duración minima de mis tutoriales
-assistant.dashboard.form.label.tutorialsMaximum = Duración máxima de mis tutoriales
-
-assistant.dashboard.form.label.sessionsAverage = Duración media de mis sesiones
-assistant.dashboard.form.label.sessionsDeviation = Desviación estandar de la duración de mis sesiones
-assistant.dashboard.form.label.sessionsMinimum = Duración minima de mis sesiones
-assistant.dashboard.form.label.sessionsMaximum = Duración máxima de mis sesiones
+auditor.dashboard.form.label.numberOfAuditsForTheoreticalCourses = Numero de auditorías para cursos teóricos
+auditor.dashboard.form.label.numberOfAuditsForHandsOnCourses = Numero de auditorías para cursos prácticos
+auditor.dashboard.form.label.averageNumberOfRecordsInAudit = Media de registros por auditoría
+auditor.dashboard.form.label.deviationNumberOfRecordsInAudit = Desviación de registros por auditoría
+auditor.dashboard.form.label.maximumNumberOfRecordsInAudit = Máximo de registros por auditoría
+auditor.dashboard.form.label.minimumNumberOfRecordsInAudit = Mínimo de registros por auditoría
+auditor.dashboard.form.label.averageLengthOfPeriodInRecords = Media de duración de periodo de auditoría
+auditor.dashboard.form.label.deviationLengthOfPeriodInRecords = Desviación de duración de periodo de auditoría
+auditor.dashboard.form.label.maximumLengthOfPeriodInRecords = Máximo de duración de periodo de auditoría
+auditor.dashboard.form.label.minimumLengthOfPeriodInRecords = Mínimo de duración de periodo de auditoría

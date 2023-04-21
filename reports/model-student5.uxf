@@ -281,12 +281,13 @@ bg=blue</panel_attributes>
       <x>560</x>
       <y>203</y>
       <w>308</w>
-      <h>140</h>
+      <h>147</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 AuditorDashboard
 --
-+ numberOfAuditsForCoursesByType: Map&lt;String,Integer&gt;
++ numberOfAuditsForTheoreticalCourses: Integer
++ numberOfAuditsForHandsOnCourses: Integer
 + averageNumberOfRecordsInAudits: Double
 + deviationNumberOfRecordsInAudits: Double
 + maximumNumberOfRecordsInAudits: Double
