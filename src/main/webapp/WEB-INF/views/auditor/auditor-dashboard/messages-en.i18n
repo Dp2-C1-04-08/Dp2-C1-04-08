@@ -1,0 +1,22 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+auditor.dashboard.form.title = My auditor dashboard
+
+auditor.dashboard.form.label.numberOfAuditsForTheoreticalCourses = Number of audits for theoretical courses
+auditor.dashboard.form.label.numberOfAuditsForHandsOnCourses = Number of audits for Hands-On Courses
+auditor.dashboard.form.label.averageNumberOfRecordsInAudit = Average number of records in audits
+auditor.dashboard.form.label.deviationNumberOfRecordsInAudit = Deviation of number of records in audits
+auditor.dashboard.form.label.maximumNumberOfRecordsInAudit = Maximum number of records in audits
+auditor.dashboard.form.label.minimumNumberOfRecordsInAudit = Minimum number of records in audits
+auditor.dashboard.form.label.averageLengthOfPeriodInRecords = Average length of auditing period
+auditor.dashboard.form.label.deviationLengthOfPeriodInRecords = Deviation of length of auditing period
+auditor.dashboard.form.label.maximumLengthOfPeriodInRecords = Maximum length of auditing period
+auditor.dashboard.form.label.minimumLengthOfPeriodInRecords = Minimum length of auditing period
