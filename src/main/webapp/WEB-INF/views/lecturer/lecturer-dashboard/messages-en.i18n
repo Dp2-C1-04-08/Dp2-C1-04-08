@@ -1,0 +1,15 @@
+
+lecturer.dashboard.form.title = My lecturer dashboard
+
+lecturer.dashboard.form.label.HandsOnCount = Lectures belonging to a Hands On course
+lecturer.dashboard.form.label.TheoreticalCount = Lectures belonging to a Theoretical course
+
+lecturer.dashboard.form.label.averageLecture = Average duration of my lectures
+lecturer.dashboard.form.label.deviationLecture = Standard deviation of lectures's duration
+lecturer.dashboard.form.label.minimumLecture = Minimum duration of my lectures
+lecturer.dashboard.form.label.maximumLecture = Maximum duration of my lectures
+
+lecturer.dashboard.form.label.averageCourse = Average duration of my courses
+lecturer.dashboard.form.label.deviationCourse = Standard deviation of courses's duration
+lecturer.dashboard.form.label.minimumCourse = Minimum duration of my courses
+lecturer.dashboard.form.label.maximumCourse = Maximum duration of my courses

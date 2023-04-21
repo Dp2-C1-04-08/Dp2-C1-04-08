@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.google.common.base.Optional;
 
+import acme.components.MoneyService;
 import acme.entities.courses.Course;
 import acme.entities.courses.Lecture;
+import acme.framework.components.datatypes.Money;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -17,8 +19,15 @@ import acme.roles.Lecturer;
 @Service
 public class LecturerCourseUpdateService extends AbstractService<Lecturer, Course> {
 
+	// Internal state ---------------------------------------------------------
+
 	@Autowired
-	protected LecturerCourseRepository repository;
+	protected LecturerCourseRepository	repository;
+
+	@Autowired
+	MoneyService						moneyService;
+
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -66,6 +75,7 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 		Optional<Course> courseWhithSameCode;
 		Collection<Lecture> lectures;
 		boolean acumulador;
+		Money price = null;
 
 		acumulador = false;
 		draft = super.getRequest().getData("draft", boolean.class);
@@ -81,9 +91,12 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 		code = super.getRequest().getData("code", String.class);
 		courseWhithSameCode = this.repository.findOneCourseByCode(code);
 
+		price = super.getRequest().getData("retailPrice", Money.class);
+
 		super.state(!courseWhithSameCode.isPresent() || object.getId() == courseWhithSameCode.get().getId(), "code", "lecturer.course.form.error.update.code.duplicated");
 		super.state(isDraft, "*", "lecturer.course.form.error.update.draft");
 		super.state(!acumulador, "*", "lecuter.course.form.error.update.publish");
+		super.state(this.moneyService.checkContains(price.getCurrency()), "retailPrice", "lecturer.course.form.error.price.invalid-currency");
 	}
 
 	@Override

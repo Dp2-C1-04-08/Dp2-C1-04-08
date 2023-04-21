@@ -18,7 +18,7 @@ assistant.sessionTutorial.list.button.create = Create
 assistant.sessionTutorial.form.label.title = Title
 assistant.sessionTutorial.form.label.abstract-str = Abstract
 assistant.sessionTutorial.form.label.type = Type
-assistant.sessionTutorial.form.label.link = Link
+assistant.sessionTutorial.form.label.link = Link (Optional)
 assistant.sessionTutorial.form.label.startTime = Start
 assistant.sessionTutorial.form.label.endTime = End
 

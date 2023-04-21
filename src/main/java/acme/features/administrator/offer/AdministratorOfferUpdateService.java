@@ -18,8 +18,8 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.MoneyService;
 import acme.entities.offers.Offer;
-import acme.entities.systemConfiguration.MoneyService;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.datatypes.Money;
 import acme.framework.components.models.Tuple;
@@ -32,7 +32,10 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorOfferRepository repository;
+	protected AdministratorOfferRepository	repository;
+
+	@Autowired
+	MoneyService							moneyService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -87,7 +90,7 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 			price = super.getRequest().getData("price", Money.class);
 			super.state(price.getAmount() > 0, "price", "administrator.offer.form.error.price.negative-or-zero");
 			super.state(price.getAmount() < 1000000, "price", "administrator.offer.form.error.price.too-big");
-			super.state(MoneyService.checkContains(price.getCurrency()), "price", "administrator.offer.form.error.price.invalid-currency");
+			super.state(this.moneyService.checkContains(price.getCurrency()), "price", "administrator.offer.form.error.price.invalid-currency");
 		} catch (final Exception e) {
 		}
 		if (startDate != null) {
