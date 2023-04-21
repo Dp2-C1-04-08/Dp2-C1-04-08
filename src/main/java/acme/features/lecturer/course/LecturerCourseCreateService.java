@@ -6,8 +6,9 @@ import org.springframework.stereotype.Service;
 
 import com.google.common.base.Optional;
 
+import acme.components.MoneyService;
 import acme.entities.courses.Course;
-import acme.entities.courses.Nature;
+import acme.framework.components.datatypes.Money;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -18,7 +19,10 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerCourseRepository repository;
+	protected LecturerCourseRepository	repository;
+
+	@Autowired
+	MoneyService						moneyService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -43,7 +47,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		lecturer = this.repository.findLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
 		course.setLecturer(lecturer);
 		course.setDraft(true);
-		course.setCourseType(Nature.NOT_ASIGN);
+		course.setCourseType(null);
 		super.getBuffer().setData(course);
 	}
 
@@ -58,11 +62,18 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	public void validate(final Course object) {
 		String code;
 		Optional<Course> courseWhithSameCode;
+		Money price = null;
 
 		code = super.getRequest().getData("code", String.class);
 		courseWhithSameCode = this.repository.findOneCourseByCode(code);
 
 		super.state(!courseWhithSameCode.isPresent(), "code", "lecturer.course.form.error.code.duplicated");
+		try {
+			price = super.getRequest().getData("retailPrice", Money.class);
+			super.state(this.moneyService.checkContains(price.getCurrency()), "retailPrice", "lecturer.course.form.error.price.invalid-currency");
+		} catch (final Exception e) {
+
+		}
 
 	}
 

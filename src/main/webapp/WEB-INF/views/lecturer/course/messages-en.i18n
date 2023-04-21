@@ -21,5 +21,6 @@ lecturer.course.form.error.delete.draft = Cannot be delete without the course in
 lecturer.course.form.error.update.code.duplicated = This code is in use
 lecturer.course.form.error.code.duplicated = This code is in use
 lecuter.course.form.error.update.publish = You cannot publish a course without all its lectures being published
+lecturer.course.form.error.price.invalid-currency = Invalid currency
 
 lecturer.lecture.list.button = List Lecture
