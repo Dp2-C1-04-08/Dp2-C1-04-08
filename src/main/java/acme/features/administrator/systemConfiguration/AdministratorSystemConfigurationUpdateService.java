@@ -73,6 +73,9 @@ public class AdministratorSystemConfigurationUpdateService extends AbstractServi
 	@Override
 	public void perform(final SystemConfiguration object) {
 		assert object != null;
+		final String acceptedCurrenciesStr = object.getAcceptedCurrencies();
+
+		object.setAcceptedCurrencies(acceptedCurrenciesStr.replace(" ", ""));
 
 		this.repository.save(object);
 	}
