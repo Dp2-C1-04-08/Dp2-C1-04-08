@@ -27,6 +27,7 @@ assistant.tutorial.form.label.course = Curso
 assistant.tutorial.form.error.code.duplicated = Este código ya existe
 assistant.tutorial.form.error.general.update.not-draft = No se puede editar un tutorial una vez publicado
 assistant.tutorial.form.error.general.delete.not-draft = No se puede eliminar un tutorial una vez publicado
+assistant.tutorial.form.error.general.publish.no-sessions = No se puede publicar un tutorial sin sesiones
 
 assistant.tutorial.form.button.create = Crear
 assistant.tutorial.form.button.update = Actualizar

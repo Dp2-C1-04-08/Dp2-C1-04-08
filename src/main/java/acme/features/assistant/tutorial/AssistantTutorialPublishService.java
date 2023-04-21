@@ -100,6 +100,8 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 		tutorialWithSameCode = this.repository.findTutorialByCode(code);
 		super.state(!tutorialWithSameCode.isPresent() || object.getId() == tutorialWithSameCode.get().getId(), "code", "assistant.tutorial.form.error.code.duplicated");
 		super.state(object.isDraft(), "*", "assistant.tutorial.form.error.general.update.not-draft");
+		final Collection<SessionTutorial> sessions = this.repository.getChildrenForTutorial(object.getId());
+		super.state(!sessions.isEmpty(), "*", "assistant.tutorial.form.error.general.publish.no-sessions");
 	}
 
 	@Override
