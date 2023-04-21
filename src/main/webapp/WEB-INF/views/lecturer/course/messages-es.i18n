@@ -21,5 +21,6 @@ lecturer.course.form.error.delete.draft = No se puede eliminar sin el curso en m
 lecturer.course.form.error.update.code.duplicated = Este codigo esta en uso
 lecturer.course.form.error.code.duplicated = Este codigo esta en uso
 lecuter.course.form.error.update.publish = No puedes publicar un curso sin que todas sus clases sean publicadas
+lecturer.course.form.error.price.invalid-currency = Divisa erronea
 
 lecturer.lecture.list.button = Listado de clases
