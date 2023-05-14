@@ -1,0 +1,4 @@
+practicumRecordIndex,code,title,abstractStr,goals,published,course,estimatedTime
+3,ABC4321,practica4,esto es un abstract,Estos son los goals,false,titulo de un curso,0
+4,XY8765,practica5,Esto es el: abstact $,Probando el limite máximo de caracteres en el atributo de la entidad del rol de company (límite 100),false,titulo de un curso,0
+5,DEF2109,practica6,Se puede con codificación UTF-8,Metas para la practica: 1. Interiorizar conocimientos tema 1,false,1,0
