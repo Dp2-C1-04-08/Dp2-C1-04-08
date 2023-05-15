@@ -14,6 +14,7 @@ import acme.entities.courses.CourseLecture;
 import acme.entities.courses.Lecture;
 import acme.entities.courses.Nature;
 import acme.features.lecturer.courseLecture.LecturerCourseLectureRepository;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -73,13 +74,6 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 	public void validate(final Lecture object) {
 		assert object != null;
 
-		boolean isDraft;
-		CourseLecture courseLecture;
-
-		courseLecture = this.repository.findCourseLectureByLectureId(object.getId());
-		isDraft = courseLecture.getCourse().isDraft();
-		super.state(isDraft, "title", "lecturer.lecture.form.error.isDraft.update");
-
 	}
 	@Override
 	public void perform(final Lecture object) {
@@ -118,10 +112,14 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 	public void unbind(final Lecture object) {
 		assert object != null;
 
+		SelectChoices choices;
 		Tuple tuple;
 
 		tuple = super.unbind(object, "title", "lectureAbstract", "link", "estimatedLearningTime", "body", "lectureType", "draft");
 		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
+		choices = SelectChoices.from(Nature.class, object.getLectureType());
+		tuple.put("lectureTypes", choices);
+		tuple.put("lectureType", choices.getSelected());
 
 		super.getResponse().setData(tuple);
 	}

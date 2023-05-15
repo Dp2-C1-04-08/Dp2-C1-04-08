@@ -87,23 +87,25 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 
 		CourseLecture courseLecture;
 		Course course;
-		int index;
+		int index = 0;
+		List<Nature> types;
 
 		courseLecture = this.repository.findCourseLectureByLectureId(object.getId());
 		course = courseLecture.getCourse();
+		final Collection<javax.persistence.Tuple> col = this.repository.countLecturesGroupByType(course.getId());
 
 		this.clrepository.delete(courseLecture);
-
 		this.repository.delete(object);
-		this.clrepository.delete(courseLecture);
 
 		long max = 0;
-		final List<Nature> types = new ArrayList<>();
-		final Collection<javax.persistence.Tuple> col = this.repository.countLecturesGroupByType(course.getId());
+		types = new ArrayList<>();
 		for (final javax.persistence.Tuple t : col)
-			if ((long) t.get(1) >= max) {
+			if ((long) t.get(1) == max)
 				types.add((Nature) t.get(0));
+			else if ((long) t.get(1) > max) {
 				max = (long) t.get(1);
+				types.clear();
+				types.add((Nature) t.get(0));
 			}
 
 		ThreadLocalRandom random;

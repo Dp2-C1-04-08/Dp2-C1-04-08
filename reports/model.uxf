@@ -281,6 +281,7 @@ Peep
 + nick: String {NotBlank, Length(1,75)}
 + message: String {NotBlank, Length(1,100)}
 + email: String {Email}
++ published: Boolean {NotNull}
 + link: String  {URL}
 bg=green</panel_attributes>
     <additional_attributes/>

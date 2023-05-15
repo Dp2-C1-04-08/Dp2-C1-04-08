@@ -1,0 +1,4 @@
+lecturer.courseLecture.form.label.course = Course:
+lecturer.courseLecture.form.label.lecture = Lecture:
+
+lecturer.courseLecture.form.button.create = Add

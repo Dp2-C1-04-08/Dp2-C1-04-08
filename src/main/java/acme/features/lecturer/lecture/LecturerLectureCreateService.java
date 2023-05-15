@@ -5,7 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.courses.Lecture;
-import acme.features.lecturer.courseLecture.LecturerCourseLectureRepository;
+import acme.entities.courses.Nature;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -15,10 +16,7 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerLectureRepository	repository;
-
-	@Autowired
-	LecturerCourseLectureRepository		lecturerCourseLectureRepository;
+	protected LecturerLectureRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -30,20 +28,20 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 
 	@Override
 	public void authorise() {
-		boolean status;
-
-		status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
 		Lecture lecture;
+		Lecturer lecturer;
+		int lecturerId;
 
 		lecture = new Lecture();
+		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
+		lecturer = this.repository.findLecturerById(lecturerId);
 		lecture.setDraft(true);
-
+		lecture.setLecturer(lecturer);
 		super.getBuffer().setData(lecture);
 	}
 
@@ -62,36 +60,8 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	@Override
 	public void perform(final Lecture object) {
 		assert object != null;
-		//CourseLecture courseLecture;
-		//int masterId;
-		//Course course;
-		//int index;
-
-		//masterId = super.getRequest().getData("masterId", int.class);
-		//course = this.repository.findCourseById(masterId);
-		//courseLecture = new CourseLecture();
-
-		//courseLecture.setCourse(course);
-		//courseLecture.setLecture(object);
 
 		this.repository.save(object);
-		//this.lecturerCourseLectureRepository.save(courseLecture);
-
-		//		long max = 0;
-		//		final List<Nature> types = new ArrayList<>();
-		//		final Collection<javax.persistence.Tuple> col = this.repository.countLecturesGroupByType(course.getId());
-		//		for (final javax.persistence.Tuple t : col)
-		//			if ((long) t.get(1) >= max) {
-		//				types.add((Nature) t.get(0));
-		//				max = (long) t.get(1);
-		//			}
-		//		ThreadLocalRandom random;
-		//		random = ThreadLocalRandom.current();
-		//		index = random.nextInt(0, types.size());
-		//
-		//		course.setCourseType(types.get(index));
-		//
-		//		this.repository.save(course);
 
 	}
 
@@ -99,9 +69,13 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	public void unbind(final Lecture object) {
 		assert object != null;
 
+		SelectChoices choices;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "lectureAbstract", "link", "estimatedLearningTime", "body", "lectureType", "draft");
+		tuple = super.unbind(object, "title", "lectureAbstract", "link", "estimatedLearningTime", "body", "draft");
+		choices = SelectChoices.from(Nature.class, object.getLectureType());
+		tuple.put("lectureTypes", choices);
+		tuple.put("lectureType", choices.getSelected());
 
 		super.getResponse().setData(tuple);
 	}

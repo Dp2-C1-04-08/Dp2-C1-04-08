@@ -62,6 +62,7 @@ master.menu.lecturer.course.list = Listar Cursos
 master.menu.lecturer.course.create = Crear Curso
 master.menu.lecturer.dashboard = Tablero de profesor
 master.menu.lecturer.lecture.create = Crear Clase
+master.menu.lecturer.courseLecture.create = Añadir una Clase a un Curso
 
 #master.menu.note ##########################################################
 master.menu.note = Nota
