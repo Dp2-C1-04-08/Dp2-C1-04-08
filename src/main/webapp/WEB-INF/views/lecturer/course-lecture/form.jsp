@@ -7,5 +7,5 @@
 	<acme:input-select code="lecturer.courseLecture.form.label.course" path="course" choices="${courses}"/>
 	<acme:input-select code="lecturer.courseLecture.form.label.lecture" path="lecture" choices="${lectures}"/>
 	
-	<acme:submit code="lecturer.courseLecture.form.button.create" action="/lecturer/courseLecture/create"/>
+	<acme:submit code="lecturer.courseLecture.form.button.create" action="/lecturer/course-lecture/create"/>
 </acme:form>

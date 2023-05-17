@@ -50,6 +50,25 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 	@Override
 	public void bind(final CourseLecture object) {
 		assert object != null;
+		int courseId;
+		int lectureId;
+		Course course;
+		Lecture lecture;
+
+		Lecturer lecturer;
+		int lecturerId;
+
+		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
+		lecturer = this.repository.findLecturerById(lecturerId);
+		object.setLecturer(lecturer);
+
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repository.findCourseById(courseId);
+		object.setCourse(course);
+
+		lectureId = super.getRequest().getData("lecture", int.class);
+		lecture = this.repository.findLectureById(lectureId);
+		object.setLecture(lecture);
 
 		super.bind(object, "course", "lecture");
 	}
@@ -62,6 +81,25 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 	@Override
 	public void perform(final CourseLecture object) {
 		assert object != null;
+		int courseId;
+		int lectureId;
+		Course course;
+		Lecture lecture;
+
+		Lecturer lecturer;
+		int lecturerId;
+
+		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
+		lecturer = this.repository.findLecturerById(lecturerId);
+		object.setLecturer(lecturer);
+
+		courseId = super.getRequest().getData("course", int.class);
+		course = this.repository.findCourseById(courseId);
+		object.setCourse(course);
+
+		lectureId = super.getRequest().getData("lecture", int.class);
+		lecture = this.repository.findLectureById(lectureId);
+		object.setLecture(lecture);
 
 		this.repository.save(object);
 
@@ -81,14 +119,14 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
 		courses = this.repository.findCoursesByLecturerId(lecturerId);
 		lectures = this.repository.findLecturesByLecturerId(lecturerId);
-		choicesCourse = SelectChoices.from(courses, "course", object.getCourse());
-		choicesLecture = SelectChoices.from(lectures, "lecture", object.getLecture());
+		choicesCourse = SelectChoices.from(courses, "title", object.getCourse());
+		choicesLecture = SelectChoices.from(lectures, "title", object.getLecture());
 
 		tuple = super.unbind(object, "course", "lecture");
 		tuple.put("courses", choicesCourse);
-		tuple.put("course", choicesCourse.getSelected());
+		tuple.put("course", choicesCourse.getSelected().getKey());
 		tuple.put("lectures", choicesLecture);
-		tuple.put("lecture", choicesLecture.getSelected());
+		tuple.put("lecture", choicesLecture.getSelected().getKey());
 
 		super.getResponse().setData(tuple);
 	}
