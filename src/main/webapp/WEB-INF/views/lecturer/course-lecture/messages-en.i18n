@@ -1,0 +1,8 @@
+lecturer.courseLecture.form.label.course = Course:
+lecturer.courseLecture.form.label.lecture = Lecture:
+
+lecturer.courseLecture.form.button.create = Add
+
+lecturer.courselecture.form.error.course.invalid-lecturer = Not your course
+lecturer.courselecture.form.error.lecture.invalid-lecturer = Not your lecture
+lecturer.courselecture.form.error.alredyExist = Alredy exist

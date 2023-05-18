@@ -1,10 +1,10 @@
 
 package acme.features.lecturer.course;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.google.common.base.Optional;
 
 import acme.components.MoneyService;
 import acme.entities.courses.Course;
@@ -34,9 +34,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 
 	@Override
 	public void authorise() {
-		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
@@ -55,7 +53,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	public void bind(final Course object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "courseAbstract", "retailPrice", "link");
+		super.bind(object, "code", "title", "courseAbstract", "retailPrice", "link", "draft");
 	}
 
 	@Override
@@ -68,13 +66,9 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		courseWhithSameCode = this.repository.findOneCourseByCode(code);
 
 		super.state(!courseWhithSameCode.isPresent(), "code", "lecturer.course.form.error.code.duplicated");
-		try {
-			price = super.getRequest().getData("retailPrice", Money.class);
-			super.state(this.moneyService.checkContains(price.getCurrency()), "retailPrice", "lecturer.course.form.error.price.invalid-currency");
-		} catch (final Exception e) {
-
-		}
-
+		price = super.getRequest().getData("retailPrice", Money.class);
+		super.state(this.moneyService.checkContains(price.getCurrency()), "retailPrice", "lecturer.course.form.error.price.invalid-currency");
+		super.state(price.getAmount() > 0.0, "retailPrice", "lecturer.course.form.error.price.invalid-amount");
 	}
 
 	@Override
@@ -90,7 +84,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "courseAbstract", "retailPrice", "link");
+		tuple = super.unbind(object, "code", "title", "courseAbstract", "retailPrice", "link", "draft");
 
 		super.getResponse().setData(tuple);
 	}

@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import acme.framework.data.AbstractEntity;
+import acme.roles.Lecturer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,5 +30,10 @@ public class CourseLecture extends AbstractEntity {
 	@NotNull
 	@Valid
 	protected Lecture			lecture;
+
+	@ManyToOne(optional = false)
+	@NotNull
+	@Valid
+	protected Lecturer			lecturer;
 
 }

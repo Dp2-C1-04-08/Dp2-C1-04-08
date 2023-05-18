@@ -42,7 +42,8 @@ public class LecturerLectureListService extends AbstractService<Lecturer, Lectur
 		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
 		super.getResponse().setGlobal("masterId", masterId);
 		course = this.repository.findCourseById(masterId);
-		status = super.getRequest().getPrincipal().hasRole(Lecturer.class) && course.getLecturer().getId() == lecturerId;
+		status = course.getLecturer().getId() == lecturerId;
+
 		super.getResponse().setAuthorised(status);
 	}
 
