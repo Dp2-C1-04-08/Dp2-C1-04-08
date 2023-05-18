@@ -100,7 +100,10 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 		random = ThreadLocalRandom.current();
 		index = random.nextInt(0, types.size());
 
-		course.setCourseType(types.get(index));
+		if (types.isEmpty())
+			course.setCourseType(null);
+		else
+			course.setCourseType(types.get(index));
 
 		this.repository.save(course);
 	}
