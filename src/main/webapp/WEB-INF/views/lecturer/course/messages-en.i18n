@@ -1,0 +1,26 @@
+lecturer.course.form.label.code = Code:
+lecturer.course.form.label.title = Title:
+lecturer.course.form.label.course-abstract = Abstract:
+lecturer.course.form.label.course-type = Type:
+lecturer.course.form.label.retail-price = Retail Price:
+lecturer.course.form.label.link = Link:
+lecturer.course.form.list.lecture = List Lecture
+lecturer.course.form.label.draft = Draft
+
+lecturer.course.form.button.update = Update
+lecturer.course.form.button.delete = Delete
+lecturer.course.form.button.create = Create
+
+lecturer.course.list.label.code = Code
+lecturer.course.list.label.title = Title
+lecturer.course.list.label.course-abstract = Abstract
+lecturer.course.list.button.create = Create
+
+lecturer.course.form.error.update.draft = Cannot be update without the course in mode draft
+lecturer.course.form.error.delete.draft = Cannot be delete without the course in mode draft
+lecturer.course.form.error.update.code.duplicated = This code is in use
+lecturer.course.form.error.code.duplicated = This code is in use
+lecuter.course.form.error.update.publish = You cannot publish a course without all its lectures being published
+lecturer.course.form.error.price.invalid-currency = Invalid currency
+
+lecturer.lecture.list.button = List Lecture

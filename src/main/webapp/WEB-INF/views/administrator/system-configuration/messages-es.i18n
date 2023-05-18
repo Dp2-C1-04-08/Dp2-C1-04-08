@@ -1,0 +1,9 @@
+administrator.system-configuration.form.label.system-currency = Divisa del sistema
+administrator.system-configuration.form.label.accepted-currencies = Divisas aceptadas
+
+administrator.system-configuration.form.placeholder.accepted-currencies = divisa1;divisa2;divisa3;...
+
+administrator.system-configuration.form.error.invalidFormat = Formato inválido, el formato debe ser del tipo divisa1;divisa2;...
+administrator.system-configuration.form.error.notInAcceptedCurrencies = La divisa del sistema no está en las divisas aceptadas
+
+administrator.system-configuration.form.button.update = Actualizar

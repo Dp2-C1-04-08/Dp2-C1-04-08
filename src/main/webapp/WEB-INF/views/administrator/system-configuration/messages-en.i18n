@@ -1,0 +1,9 @@
+administrator.system-configuration.form.label.system-currency = System currency
+administrator.system-configuration.form.label.accepted-currencies = Accepted currencies
+
+administrator.system-configuration.form.placeholder.accepted-currencies = currency1;currency2;currency3;...
+
+administrator.system-configuration.form.error.invalidFormat = Invalid format, correct format is currency1;currency2;...
+administrator.system-configuration.form.error.notInAcceptedCurrencies = The system currency is not in the accepted currencies
+
+administrator.system-configuration.form.button.update = Update
