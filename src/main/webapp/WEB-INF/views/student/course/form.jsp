@@ -31,5 +31,5 @@
 	<acme:input-textbox code="student.course.form.label.lectures-body" path="body"/>
 	<acme:input-url code="student.course.form.label.lectures-link" path="link"/> --%>
 	
-	<acme:submit code="student.enrolment.form.button.register" action="/student/enrolment/register?id=${id}"/>
+	<acme:button code="student.enrolment.form.button.register" action="/student/enrolment/register?id=${id}"/>
 </acme:form>
