@@ -6,6 +6,8 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.common.base.Optional;
+
 import acme.entities.courses.Course;
 import acme.entities.courses.CourseLecture;
 import acme.entities.courses.Lecture;
@@ -70,12 +72,31 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 		lecture = this.repository.findLectureById(lectureId);
 		object.setLecture(lecture);
 
-		super.bind(object, "course", "lecture");
 	}
 
 	@Override
 	public void validate(final CourseLecture object) {
-		assert object != null;
+		Course course;
+		Lecture lecture;
+		int lecturerId;
+		boolean isCourseLecturer;
+		boolean isLectureLecturer;
+		Optional<CourseLecture> courseLecture;
+		boolean alredyExist;
+
+		course = object.getCourse();
+		lecture = object.getLecture();
+		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
+
+		isCourseLecturer = course.getLecturer().getId() == lecturerId;
+		isLectureLecturer = lecture.getLecturer().getId() == lecturerId;
+
+		courseLecture = this.repository.findCourseLectureByLectureAndCourseId(course.getId(), lecture.getId());
+		alredyExist = courseLecture.isPresent();
+
+		super.state(isCourseLecturer, "course", "lecturer.courselecture.form.error.course.invalid-lecturer");
+		super.state(isLectureLecturer, "lecture", "lecturer.courselecture.form.error.lecture.invalid-lecturer");
+		super.state(!alredyExist, "*", "lecturer.courselecture.form.error.alredyExist");
 	}
 
 	@Override
@@ -123,6 +144,7 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 		choicesLecture = SelectChoices.from(lectures, "title", object.getLecture());
 
 		tuple = super.unbind(object, "course", "lecture");
+
 		tuple.put("courses", choicesCourse);
 		tuple.put("course", choicesCourse.getSelected().getKey());
 		tuple.put("lectures", choicesLecture);

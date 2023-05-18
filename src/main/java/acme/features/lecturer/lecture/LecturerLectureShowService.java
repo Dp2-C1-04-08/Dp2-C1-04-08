@@ -35,7 +35,6 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 	@Override
 	public void authorise() {
 		boolean status;
-		boolean sameLecturer;
 		int lectureId;
 		int lecturerId;
 		CourseLecture courseLecture;
@@ -44,9 +43,7 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
 		courseLecture = this.repository.findCourseLectureByLectureId(lectureId);
 
-		status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
-		sameLecturer = courseLecture.getCourse().getLecturer().getId() == lecturerId;
-		status = status && sameLecturer;
+		status = courseLecture.getCourse().getLecturer().getId() == lecturerId;
 
 		super.getResponse().setAuthorised(status);
 	}

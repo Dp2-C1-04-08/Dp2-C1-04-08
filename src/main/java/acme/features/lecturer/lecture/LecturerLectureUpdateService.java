@@ -41,7 +41,6 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 		boolean status;
 		int lectureId;
 		int lecturerId;
-		boolean sameLecturer;
 		CourseLecture courseLecture;
 
 		lectureId = super.getRequest().getData("id", int.class);
@@ -49,9 +48,7 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 
 		courseLecture = this.repository.findCourseLectureByLectureId(lectureId);
 
-		status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
-		sameLecturer = courseLecture.getCourse().getLecturer().getId() == lecturerId;
-		status = status && sameLecturer;
+		status = courseLecture.getCourse().getLecturer().getId() == lecturerId;
 
 		super.getResponse().setAuthorised(status);
 	}
