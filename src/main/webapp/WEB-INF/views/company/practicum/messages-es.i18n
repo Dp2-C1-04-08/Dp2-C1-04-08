@@ -13,6 +13,9 @@ company.practica.list.label.title = Título
 company.practica.list.label.goals = Metas
 company.practica.list.label.abstractStr = Extracto
 company.practica.list.label.estimatedTime = Tiempo Estimado
+company.practica.list.label.minus10estimatedTime = -10% Tiempo Estimado
+company.practica.list.label.plus10estimatedTime = +10% Tiempo Estimado
+
 company.practica.list.label.course = Curso
 company.practica.list.label.published = Publicado
 company.practica.list.form.published = Publicar

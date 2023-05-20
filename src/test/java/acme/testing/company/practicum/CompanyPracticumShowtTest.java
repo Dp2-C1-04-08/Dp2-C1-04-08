@@ -21,7 +21,7 @@ public class CompanyPracticumShowtTest extends TestHarness {
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/company/practicum/show-positve.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/company/practicum/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int practicumRecordIndex, final String code, final String title, final String abstractStr, final String goals, final String published, final String course) {
 
 		super.signIn("company1", "company1");
