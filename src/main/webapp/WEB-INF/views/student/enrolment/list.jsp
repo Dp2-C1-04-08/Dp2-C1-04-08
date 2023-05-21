@@ -17,7 +17,6 @@
 
 <acme:list> 
 	<acme:list-column code="student.enrolment.list.label.code" path="code"/>
-	<acme:list-column code="student.enrolment.list.label.student-id" path="id"/>
 	<acme:list-column code="student.enrolment.list.label.course-code" path="code"/>
 	<acme:list-column code="student.enrolment.list.label.isFinalised" path="isFinalised"/>
 </acme:list>

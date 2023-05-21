@@ -33,7 +33,11 @@ public class ActivityDeleteService extends AbstractService<Student, Activity> {
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -44,7 +48,7 @@ public class ActivityDeleteService extends AbstractService<Student, Activity> {
 
 		id = super.getRequest().getData("id", int.class);
 		activity = this.repository.findActivityById(id);
-		status = activity != null && super.getRequest().getPrincipal().hasRole(activity.getEnrolment().getStudent());
+		status = super.getRequest().getPrincipal().getActiveRoleId() == activity.getEnrolment().getStudent().getId() && activity != null && super.getRequest().getPrincipal().hasRole(activity.getEnrolment().getStudent());
 		super.getResponse().setAuthorised(status);
 	}
 
