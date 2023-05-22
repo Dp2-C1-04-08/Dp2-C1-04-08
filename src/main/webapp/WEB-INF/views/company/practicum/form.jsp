@@ -38,9 +38,10 @@
 	<jstl:choose>
 		<jstl:when test="${_command == 'show' || _command == 'update'|| _command == 'delete' || _command == 'list' || _command == 'publish'}">
 			
-			<acme:submit code="company.practica.list.button.update" action="/company/practicum/update"/>
+			
 			<acme:submit code="company.practica.list.button.delete" action="/company/practicum/delete"/>
 			<jstl:if test="${!isPublished }">
+			<acme:submit code="company.practica.list.button.update" action="/company/practicum/update"/>
 			<acme:submit code="company.practica.form.button.publish" action="/company/practicum/publish"/>
 			</jstl:if>
 			

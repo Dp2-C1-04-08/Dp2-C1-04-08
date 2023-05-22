@@ -1,6 +1,6 @@
-practicumRecordIndex,code,title,abstractStr,goals,published,course
-0,ABC1234,practica1,esto es un abstract,Estos son los goals,true,1
-1,XY5678,practica2,Esto es el: abstact $,Probando el limite máximo de caracteres en el atributo de la entidad del rol de company (límite 100),false,1
-2,DEF9012,practica3,Se puede con codificación UTF-8,Metas para la practica: 1. Interiorizar conocimientos tema 1,true,1
-3,XYZ5688,practica7,extracto del practica7,Meta final: #Evaluación,false,Probando el limite de 75 caracteres maximo en el atributo titulo
-4,XYZ5698,practica8,extracto del practica8,Meta final: #Evaluación,false,Probando el limite de 75 caracteres maximo en el atributo titulo
+practicumRecordIndex,code,title,abstractStr,goals,published,course,minus10estimatedTime,plus10estimatedTime
+0,ABC1234,practica1,esto es un abstract,Estos son los goals,true,1,37.8,46.2
+1,XY5678,practica2,Esto es el: abstact $,Probando el limite máximo de caracteres en el atributo de la entidad del rol de company (límite 100),false,1,49.5,60.5
+2,DEF9012,practica3,Se puede con codificación UTF-8,Metas para la practica: 1. Interiorizar conocimientos tema 1,true,1,200.7,245.3
+3,XYZ5688,practica7,extracto del practica7,Meta final: #Evaluación,false,Probando el limite de 75 caracteres maximo en el atributo titulo,0.0,0.0
+4,XYZ5698,practica8,extracto del practica8,Meta final: #Evaluación,false,Probando el limite de 75 caracteres maximo en el atributo titulo,0.0,0.0

@@ -16,7 +16,8 @@ public class CompanyPracticumCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/company/practicum/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int practicumRecordIndex, final String code, final String title, final String abstractStr, final String goals, final String published, final String course, final String estimatedTime) {
+	public void test100Positive(final int practicumRecordIndex, final String code, final String title, final String abstractStr, final String goals, final String published, final String course, final String estimatedTime, final String minus10estimatedTime,
+		final String plus10estimatedTime) {
 
 		super.signIn("company1", "company1");
 
@@ -51,6 +52,9 @@ public class CompanyPracticumCreateTest extends TestHarness {
 		super.checkInputBoxHasValue("abstractStr", abstractStr);
 		super.checkInputBoxHasValue("course", course);
 		super.checkInputBoxHasValue("published", published);
+		super.checkInputBoxHasValue("minus10estimatedTime", minus10estimatedTime);
+
+		super.checkInputBoxHasValue("plus10estimatedTime", plus10estimatedTime);
 
 		super.signOut();
 	}

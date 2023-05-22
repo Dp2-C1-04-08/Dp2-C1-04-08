@@ -1,2 +1,4 @@
 practicumRecordIndex,code,title,abstractStr,goals,published,course,estimatedTime
 1,XY5679,practica2,Esto es el: abstact $ sdsd ,Probando el limite máximo de caracteres en el atributo de la entidad del rol de company (límite 100),false,1,55
+3,XY5688,practica7,Nuevo abstract!!!,Nuevas metas para 2022,false,Probando el limite de 75 caracteres maximo en el atributo titulo,0
+4,XY5666,practica8,Esto es un abstract para comprobar si soporta el máximo de caracteres cuyo número es 100!!!!!!!!!!!!,Metas (()(""$,false,Probando el limite de 75 caracteres maximo en el atributo titulo,0

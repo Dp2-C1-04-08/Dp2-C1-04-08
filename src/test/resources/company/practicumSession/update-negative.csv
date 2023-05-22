@@ -1,5 +1,6 @@
 sessionRecord,practicumRecord,title,addendum,link,duration,abstractStr,startDate,endDate
 0,1,,false,ftp://ejemplo.com/pub/fichero.txt,32,Esto es el: abstact $,2022/09/28 12:00,2022/10/30 12:00
+0,1,esto es un titulo ,false,ftp://ejemplo.com/pub/fichero.txt,32,,2022/09/01 12:00,2022/10/08 12:00
 0,1,esto es un titulo demasiado largo asi que producira un error a la hora de crear la sesión de practica,false,ftp://ejemplo.com/pub/fichero.txt,32,Esto es el: abstact $,2022/09/01 12:00,2022/10/08 12:00
 0,1,practicumSession5,false,ftp://ejemplo.com/pub/fichero.txt,32,,2022/09/01 12:00,2022/10/08 12:00
 0,1,practicumSession5,false,ftp://ejemplo.com/pub/fichero.txt,32,esto es un abstract demasiado largo asi que producira un error a la hora de crear la sesión de practica,2022/09/01 12:00,2022/10/08 12:00
