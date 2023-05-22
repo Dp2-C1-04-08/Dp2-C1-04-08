@@ -27,14 +27,12 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 		int lecturerId;
 		int courseId;
 		Course course;
-		boolean sameLecturer;
 
 		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
 		courseId = super.getRequest().getData("id", int.class);
 		course = this.repository.findOneCourseById(courseId);
-		sameLecturer = course.getLecturer().getId() == lecturerId;
+		status = course.getLecturer().getId() == lecturerId;
 
-		status = super.getRequest().getPrincipal().hasRole(Lecturer.class) && sameLecturer;
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -78,7 +76,7 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "courseAbstract", "courseType", "retailPrice", "link", "lecturer");
+		tuple = super.unbind(object, "code", "title", "courseAbstract", "courseType", "retailPrice", "link", "lecturer", "draft");
 
 		super.getResponse().setData(tuple);
 

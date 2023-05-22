@@ -66,7 +66,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="assistant.dashboard.form.label.deviationCourse"/>
+			<acme:message code="lecturer.dashboard.form.label.deviationCourse"/>
 		</th>
 		<td>
 			<acme:print value="${deviationCourse}"/>
