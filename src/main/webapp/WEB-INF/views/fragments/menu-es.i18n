@@ -115,7 +115,7 @@ menu.student.list = Listado de tus matriculaciones
 menu.student.courseList = Lista de cursos
 
 master.menu.user-account.become-lecturer = Hazte profesor
-master.menu.user-account.company = Datos de profesor
+master.menu.user-account.lecturer = Datos de profesor
 
 master.menu.user-account.become-company = Hazte una compañia
 master.menu.user-account.company = Datos Compañia
