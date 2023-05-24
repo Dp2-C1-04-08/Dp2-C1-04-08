@@ -23,17 +23,26 @@ public class LecturerLecturePublishTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/lecture/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int lectureRecord, final String reference) {
+	public void test100Positive(final int lectureRecord, final int courseRecord, final String code) {
 
 		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Lecturer", "List Courses");
 		super.checkListingExists();
+		super.sortListing(1, "asc");
+
+		super.clickOnListingRecord(courseRecord);
+		super.checkFormExists();
+
+		super.clickOnButton("List Lecture");
+		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.checkColumnHasValue(lectureRecord, 0, reference);
+		super.checkColumnHasValue(lectureRecord, 0, code);
 
 		super.clickOnListingRecord(lectureRecord);
+
 		super.checkFormExists();
+
 		super.clickOnSubmit("Publish");
 		super.checkNotErrorsExist();
 
@@ -42,17 +51,26 @@ public class LecturerLecturePublishTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/lecture/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int lectureRecord, final String reference) {
+	public void test200Negative(final int lectureRecord, final int courseRecord, final String code) {
 
 		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Lecturer", "List Courses");
 		super.checkListingExists();
+		super.sortListing(1, "asc");
+
+		super.clickOnListingRecord(courseRecord);
+		super.checkFormExists();
+
+		super.clickOnButton("List Lecture");
+		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.checkColumnHasValue(lectureRecord, 0, reference);
+		super.checkColumnHasValue(lectureRecord, 0, code);
 
 		super.clickOnListingRecord(lectureRecord);
+
 		super.checkFormExists();
+
 		super.clickOnSubmit("Publish");
 		super.checkAlertExists(false);
 

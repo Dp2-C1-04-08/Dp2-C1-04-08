@@ -1,5 +1,5 @@
 courseRecordIndex,code,title,courseAbstract,retailPrice,link
-course-05,EMP7678,Marketing Digital,"Introducción al marketing digital: claves para el éxito online.",THEORETICAL,"USD 1,000.99",http://www.example.com
+5,EMP7678,Marketing Digital,"Introducción al marketing digital: claves para el éxito online.",THEORETICAL,"USD 1,000.99",http://www.example.com
 6,OPQ9999,Finanzas Personales,Finanzas personales: gestionando tus recursos con inteligencia.,HANDS_ON,USD 1.50,http://www.acme.com/master/welcome
 7,LGH5656,Desarrollo web,Desarrollo web: crea tu página desde cero.,THEORETICAL,"EUR 2,345.01",http://www.acme.org
 8,EMP1514,Liderazgo efectivo,Liderazgo efectivo: inspirando equipos hacia el logro.,HANDS_ON,"BGP 2,000.99",http://localhost
