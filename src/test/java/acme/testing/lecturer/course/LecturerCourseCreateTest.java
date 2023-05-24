@@ -6,8 +6,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.entities.courses.Nature;
-import acme.framework.components.datatypes.Money;
 import acme.testing.TestHarness;
 
 public class LecturerCourseCreateTest extends TestHarness {
@@ -18,7 +16,7 @@ public class LecturerCourseCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/course/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int courseRecordIndex, final String code, final String title, final String courseAbstract, final Nature courseType, final Money retailPrice, final String link, final boolean draft) {
+	public void test100Positive(final int courseRecordIndex, final String code, final String title, final String courseAbstract, final String courseType, final String retailPrice, final String link) {
 
 		super.signIn("lecturer1", "lecturer1");
 
@@ -51,14 +49,13 @@ public class LecturerCourseCreateTest extends TestHarness {
 		super.checkInputBoxHasValue("retailPrice", retailPrice);
 		super.checkInputBoxHasValue("courseType", courseType);
 		super.checkInputBoxHasValue("link", link);
-		super.checkInputBoxHasValue("draft", draft);
 
 		super.signOut();
 	}
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/course/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int courseRecordIndex, final String code, final String title, final String courseAbstract, final Nature courseType, final Money retailPrice, final String link, final boolean draft) {
+	public void test200Negative(final int courseRecordIndex, final String code, final String title, final String courseAbstract, final String courseType, final String retailPrice, final String link) {
 
 		super.signIn("lecturer1", "lecturer1");
 

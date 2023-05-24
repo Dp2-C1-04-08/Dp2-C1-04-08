@@ -9,7 +9,6 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.entities.courses.Lecture;
-import acme.entities.courses.Nature;
 import acme.testing.TestHarness;
 import acme.testing.lecturer.course.LecturerCourseTestRepository;
 
@@ -24,7 +23,7 @@ public class LecturerLectureUpdateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/lecture/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int courseRecord, final int lectureRecord, final String title, final String lectureAbstract, final String link, final Double estimatedLearningTime, final String body, final Nature lectureType, final boolean draft) {
+	public void test100Positive(final int courseRecord, final int lectureRecord, final String title, final String lectureAbstract, final String link, final String estimatedLearningTime, final String body, final String lectureType) {
 
 		super.signIn("lecturer1", "lecturer1");
 
@@ -72,14 +71,13 @@ public class LecturerLectureUpdateTest extends TestHarness {
 		super.checkInputBoxHasValue("body", body);
 		super.checkInputBoxHasValue("lectureType", lectureType);
 		super.checkInputBoxHasValue("link", link);
-		super.checkInputBoxHasValue("draft", draft);
 
 		super.signOut();
 	}
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/lecture/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int courseRecord, final int lectureRecord, final String title, final String lectureAbstract, final String link, final Double estimatedLearningTime, final String body, final Nature lectureType, final boolean draft) {
+	public void test200Negative(final int courseRecord, final int lectureRecord, final String title, final String lectureAbstract, final String link, final String estimatedLearningTime, final String body, final String lectureType) {
 
 		super.signIn("lecturer1", "lecturer1");
 

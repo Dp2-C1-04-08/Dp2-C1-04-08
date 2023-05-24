@@ -12,7 +12,7 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface LecturerCourseTestRepository extends AbstractRepository {
 
-	@Query("SELECT c from Course c WHERE c.lecturer.name=:name")
+	@Query("SELECT c from Course c WHERE c.lecturer.getUserAccount()=:name")
 	Collection<Course> findCourseByLecturerName(String name);
 
 }

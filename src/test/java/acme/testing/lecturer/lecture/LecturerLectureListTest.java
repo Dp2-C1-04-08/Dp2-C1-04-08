@@ -19,7 +19,7 @@ public class LecturerLectureListTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/lecture/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int lectureRecord, final int courseRecord, final String title, final String lectureAbstract, final Double estimatedLearningTime) {
+	public void test100Positive(final int lectureRecord, final int courseRecord, final String title, final String lectureAbstract, final String estimatedLearningTime) {
 
 		super.signIn("company1", "company1");
 
@@ -51,7 +51,7 @@ public class LecturerLectureListTest extends TestHarness {
 		String param;
 		List<Lecture> lectures;
 
-		lectures = this.repository.findLectureByLecturerTitle("lecturer1");
+		lectures = this.repository.findLectureByLecturerName("lecturer1");
 
 		for (final Lecture lecture : lectures) {
 			param = String.format("masterId=%d", 108);
