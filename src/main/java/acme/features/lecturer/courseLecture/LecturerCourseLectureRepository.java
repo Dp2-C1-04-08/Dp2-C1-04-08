@@ -34,4 +34,5 @@ public interface LecturerCourseLectureRepository extends AbstractRepository {
 
 	@Query("select cl from CourseLecture cl where cl.course.id = :courseId and cl.lecture.id = :lectureId")
 	Optional<CourseLecture> findCourseLectureByLectureAndCourseId(int courseId, int lectureId);
+
 }
