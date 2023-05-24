@@ -1,0 +1,6 @@
+courseRecordIndex,code,title,courseAbstract,courseType,retailPrice,link
+0,"XY5678","Probando el limite de 75 caracteres maximo en el atributo titulo           ","Un resumen de un curso",HANDS_ON,"EUR 1,000.00",https://definicion.de/link/
+1,"PQ1234","titulo de un curso","       Probando el limite máximo de caracteres en el atributo resumen de la entidad de curso(course)",THEORETICAL,"EUR 2,500.00",
+2,"ABC2234","1","1",THEORETICAL,"EUR 1,500.00",http://wow.com
+3,EMP7678,Marketing Digital,"Introducción al marketing digital: claves para el éxito online.",THEORETICAL,"USD 1,000.99",http://www.example.com
+4,OPQ9999,Finanzas Personales,"Finanzas personales: gestionando tus recursos con inteligencia.",HANDS_ON,USD 1.50,http://www.acme.com/master/welcome
