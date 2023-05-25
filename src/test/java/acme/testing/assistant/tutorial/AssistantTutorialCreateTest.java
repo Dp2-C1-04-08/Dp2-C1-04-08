@@ -26,7 +26,7 @@ public class AssistantTutorialCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String title, final String abstractStr, final String goals, final String estimatedTotalTime, final String draft, final String course) {
+	public void test100Positive(final int recordIndex, final String code, final String title, final String abstractStr, final String goals, final String course) {
 		// HINT: this test signs in as an employer, then lists the announcements,
 		// HINT+ and checks that the listing shows the expected data.
 
@@ -57,32 +57,41 @@ public class AssistantTutorialCreateTest extends TestHarness {
 		super.checkInputBoxHasValue("goals", goals);
 		super.checkInputBoxHasValue("course", course);
 		super.checkInputBoxHasValue("estimatedTotalTime", "0.00");
+		super.checkInputBoxHasValue("draft", "true");
+
+		super.signOut();
+	}
+
+	@ParameterizedTest
+	@CsvFileSource(resources = "/assistant/tutorial/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test200Negative(final int recordIndex, final String code, final String title, final String abstractStr, final String goals, final String course) {
+		super.signIn("assistant1", "assistant1");
+
+		super.clickOnMenu("Assistant", "My tutorials");
+		super.checkListingExists();
+
+		super.clickOnButton("Create");
+
+		super.fillInputBoxIn("code", code);
+		super.fillInputBoxIn("title", title);
+		super.fillInputBoxIn("abstractStr", abstractStr);
+		super.fillInputBoxIn("goals", goals);
+		super.fillInputBoxIn("course", course);
+		super.clickOnSubmit("Create");
+		super.checkErrorsExist();
 
 		super.signOut();
 	}
 
 	@Test
-	public void test200Negative() {
-		// HINT: there aren't any negative tests for this feature because it
-		// HINT+ doesn't involve any forms.
-	}
+	public void test300Hacking() {
+		super.checkLinkExists("Sign in");
+		super.request("/assistant/tutorial/create");
+		super.checkPanicExists();
 
-	//	@Test
-	//	public void test300Hacking() {
-	//		// HINT: this test tries to show old announcements as an authenticated principal.
-	//
-	//		Collection<Announcement> announcements;
-	//		Date deadline;
-	//		String query;
-	//
-	//		super.signIn("employer1", "employer1");
-	//		deadline = MomentHelper.deltaFromMoment(MomentHelper.getBaseMoment(), -1, ChronoUnit.MONTHS);
-	//		announcements = this.repository.findManyAnnouncementsBeforeDeadline(deadline);
-	//		for (final Announcement announcement : announcements) {
-	//			query = String.format("id=%d", announcement.getId());
-	//			super.request("/authenticated/announcement/show", query);
-	//			super.checkPanicExists();
-	//		}
-	//	}
+		super.signIn("administrator1", "administrator1");
+		super.request("/assistant/tutorial/create");
+		super.checkPanicExists();
+	}
 
 }
