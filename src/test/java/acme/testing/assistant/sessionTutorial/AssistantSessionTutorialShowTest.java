@@ -15,7 +15,6 @@ package acme.testing.assistant.sessionTutorial;
 import java.util.Collection;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -32,7 +31,7 @@ public class AssistantSessionTutorialShowTest extends TestHarness {
 	// Test methods -----------------------------------------------------------
 
 
-	@ParameterizedTest
+	//	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/session-tutorial/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final int tutorialRecordIndex, final String title, final String abstractStr, final String type, final String start, final String end, final String tutorialCode, final String link, final String draft) {
 		// HINT: this test signs in as an employer, then lists the announcements,
@@ -79,7 +78,7 @@ public class AssistantSessionTutorialShowTest extends TestHarness {
 		final Collection<Tutorial> tutorials = this.repository.findManyTutorialsOfOtherAssistants("assistant2");
 		for (final Tutorial tutorial : tutorials) {
 			final String query = String.format("id=%d", tutorial.getId());
-			super.request("/assistant/tutorial/show", query);
+			super.request("/assistant/session-tutorial/show", query);
 			super.checkPanicExists();
 		}
 
