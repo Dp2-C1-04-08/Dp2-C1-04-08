@@ -1,0 +1,6 @@
+recordIndex,code,conclusion,strongPoints,weakPoints,course,mark,published
+0,A1111,Valid conclusion,Valid strong points,Valid weak points,titulo de un curso,APLUS,true
+1,BB1111,Valid conclusion,Valid strong points,Valid weak points,titulo de un curso,A,true
+2,CCC1111,Valid conclusion,Valid strong points,Valid weak points,titulo de un curso,C,false
+3,D1111,Valid conclusion,Valid strong points,Valid weak points,titulo de un curso,B,false
+4,EE1111,Valid conclusion,Valid strong points,Valid weak points,titulo de un curso,F,false
