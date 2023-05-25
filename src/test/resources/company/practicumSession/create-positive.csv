@@ -1,0 +1,4 @@
+sessionRecord,practicumRecord,title,addendum,link,duration,abstractStr,startDate,endDate,estimatedTime,minus10estimatedTime,plus10estimatedTime
+2,0,practicumSession3,true,,10,Esto es un abstract,2022/08/09 15:55,2022/08/19 15:55,52,46.8,57.2
+1,1,practicumSession4,false,ftp://ejemplo.com/pub/fichero.txt,32,Esto es el: abstact $,2022/09/28 12:00,2022/10/30 12:00,87,78.3,95.7
+2,1,practicumSession5,false,ftp://ejemplo.com/pub/fichero2.txt,37,Esto es el: abstact $,2022/09/01 12:00,2022/10/08 12:00,124,111.6,136.4

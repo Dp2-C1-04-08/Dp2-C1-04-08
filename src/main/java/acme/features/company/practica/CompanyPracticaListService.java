@@ -44,7 +44,7 @@ public class CompanyPracticaListService extends AbstractService<Company, Practic
 		assert object != null;
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "goals", "abstractStr", "estimatedTime", "estimatedTime", "company", "published");
+		tuple = super.unbind(object, "code", "title", "goals", "abstractStr", "estimatedTime", "company", "published");
 
 		super.getResponse().setData(tuple);
 	}

@@ -25,7 +25,7 @@ public interface CompanyPracticaRepository extends AbstractRepository {
 	@Query("SELECT p FROM Practicum p WHERE p.id = :id")
 	Practicum findPracticaById(int id);
 
-	@Query("SELECT p FROM Practicum p WHERE p.company.id = :id")
+	@Query("SELECT p FROM Practicum p WHERE p.company.id = :id ")
 	List<Practicum> findPracticaByCompanyId(int id);
 
 	@Query("SELECT c FROM Company c WHERE c.id = :id")
