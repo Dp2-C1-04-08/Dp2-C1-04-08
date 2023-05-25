@@ -18,33 +18,46 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
-public class AssistantTutorialShowTest extends TestHarness {
+public class AssistantTutorialCreateTest extends TestHarness {
 
 	// Internal state ---------------------------------------------------------
 
 	// Test methods -----------------------------------------------------------
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/assistant/tutorial/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/assistant/tutorial/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code, final String title, final String abstractStr, final String goals, final String estimatedTotalTime, final String draft, final String course) {
 		// HINT: this test signs in as an employer, then lists the announcements,
 		// HINT+ and checks that the listing shows the expected data.
 
 		super.signIn("assistant1", "assistant1");
+		super.clickOnMenu("Assistant", "My tutorials");
+
+		super.checkListingExists();
+		super.clickOnButton("Create");
+
+		super.fillInputBoxIn("title", title);
+		super.fillInputBoxIn("code", code);
+		super.fillInputBoxIn("abstractStr", abstractStr);
+		super.fillInputBoxIn("goals", goals);
+		super.fillInputBoxIn("course", course);
+		super.clickOnSubmit("Create");
 
 		super.clickOnMenu("Assistant", "My tutorials");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.clickOnListingRecord(recordIndex);
-		super.checkFormExists();
+		super.checkColumnHasValue(recordIndex, 0, code);
+		super.checkColumnHasValue(recordIndex, 1, title);
 
-		super.checkInputBoxHasValue("code", code);
+		super.clickOnListingRecord(recordIndex);
+
 		super.checkInputBoxHasValue("title", title);
+		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("abstractStr", abstractStr);
 		super.checkInputBoxHasValue("goals", goals);
-		super.checkInputBoxHasValue("estimatedTotalTime", estimatedTotalTime);
 		super.checkInputBoxHasValue("course", course);
-		super.checkInputBoxHasValue("draft", draft);
+		super.checkInputBoxHasValue("estimatedTotalTime", "0.00");
+
 		super.signOut();
 	}
 
