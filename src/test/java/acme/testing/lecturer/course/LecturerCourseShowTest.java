@@ -28,7 +28,7 @@ public class LecturerCourseShowTest extends TestHarness {
 
 		super.clickOnMenu("Lecturer", "List Courses");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(courseRecordIndex);
 
@@ -57,7 +57,7 @@ public class LecturerCourseShowTest extends TestHarness {
 		String param;
 		final Collection<Course> courseLecturer;
 
-		courseLecturer = this.repository.findCourseByLecturerName("lecturer1");
+		courseLecturer = this.repository.findCourseByLecturerResume("1");
 		for (final Course course : courseLecturer) {
 
 			param = String.format("id=%d", course.getId());

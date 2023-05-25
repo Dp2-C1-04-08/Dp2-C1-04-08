@@ -23,14 +23,14 @@ public class LecturerCoursePublishTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/course/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int courseRecord, final String title) {
+	public void test100Positive(final int courseRecord, final String code) {
 
 		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Lecturer", "List Courses");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.checkColumnHasValue(courseRecord, 0, title);
+		super.checkColumnHasValue(courseRecord, 0, code);
 
 		super.clickOnListingRecord(courseRecord);
 		super.checkFormExists();
@@ -42,14 +42,14 @@ public class LecturerCoursePublishTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/course/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int courseRecord, final String title) {
+	public void test200Negative(final int courseRecord, final String code) {
 
 		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Lecturer", "List Courses");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.checkColumnHasValue(courseRecord, 0, title);
+		super.checkColumnHasValue(courseRecord, 0, code);
 
 		super.clickOnListingRecord(courseRecord);
 		super.checkFormExists();
@@ -65,7 +65,7 @@ public class LecturerCoursePublishTest extends TestHarness {
 		Collection<Course> courses;
 		String params;
 
-		courses = this.repository.findCourseByLecturerName("lecturer1");
+		courses = this.repository.findCourseByLecturerResume("1");
 		for (final Course course : courses)
 			if (course.isDraft()) {
 				params = String.format("id=%d", course.getId());

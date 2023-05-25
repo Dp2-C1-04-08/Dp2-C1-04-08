@@ -21,18 +21,18 @@ public class LecturerLectureListTest extends TestHarness {
 	@CsvFileSource(resources = "/lecturer/lecture/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int lectureRecord, final int courseRecord, final String title, final String lectureAbstract, final String estimatedLearningTime) {
 
-		super.signIn("company1", "company1");
+		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Lecturer", "List Courses");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(courseRecord);
 		super.checkFormExists();
 
 		super.clickOnButton("List Lecture");
 		super.checkListingExists();
-		super.sortListing(2, "asc");
+		super.sortListing(0, "asc");
 
 		super.checkColumnHasValue(lectureRecord, 0, title);
 		super.checkColumnHasValue(lectureRecord, 1, lectureAbstract);
@@ -51,7 +51,7 @@ public class LecturerLectureListTest extends TestHarness {
 		String param;
 		List<Lecture> lectures;
 
-		lectures = this.repository.findLectureByLecturerName("lecturer1");
+		lectures = this.repository.findLectureByLecturerResume("1");
 
 		for (final Lecture lecture : lectures) {
 			param = String.format("masterId=%d", 108);

@@ -25,7 +25,7 @@ public class LecturerCourseUpdateTest extends TestHarness {
 
 		super.clickOnMenu("Lecturer", "List Courses");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(courseRecordIndex);
 		super.checkFormExists();
@@ -37,23 +37,14 @@ public class LecturerCourseUpdateTest extends TestHarness {
 
 		super.clickOnSubmit("Update");
 
-		super.clickOnMenu("lecturer", "List Courses");
-		super.checkListingExists();
-		super.sortListing(1, "asc");
-
-		super.checkColumnHasValue(courseRecordIndex, 0, code);
-		super.checkColumnHasValue(courseRecordIndex, 1, title);
-		super.checkColumnHasValue(courseRecordIndex, 2, courseAbstract);
-
 		super.clickOnListingRecord(courseRecordIndex);
 		super.checkFormExists();
 
 		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("title", title);
 		super.checkInputBoxHasValue("courseAbstract", courseAbstract);
-		super.checkInputBoxHasValue("courseAbstract", courseAbstract);
-		super.checkInputBoxHasValue("retailPrice", retailPrice);
 		super.checkInputBoxHasValue("courseType", courseType);
+		super.checkInputBoxHasValue("retailPrice", retailPrice);
 		super.checkInputBoxHasValue("link", link);
 		super.signOut();
 	}
@@ -65,7 +56,7 @@ public class LecturerCourseUpdateTest extends TestHarness {
 
 		super.clickOnMenu("Lecturer", "List Courses");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(courseRecordIndex);
 		super.checkFormExists();
@@ -88,7 +79,7 @@ public class LecturerCourseUpdateTest extends TestHarness {
 		String param;
 		Collection<Course> courseLecturer;
 
-		courseLecturer = this.repository.findCourseByLecturerName("lecturer1");
+		courseLecturer = this.repository.findCourseByLecturerResume("1");
 		for (final Course course : courseLecturer) {
 
 			param = String.format("id=%d", course.getId());

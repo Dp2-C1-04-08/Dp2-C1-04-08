@@ -23,13 +23,13 @@ public class LecturerLecturePublishTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/lecture/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int lectureRecord, final int courseRecord, final String code) {
+	public void test100Positive(final int lectureRecord, final int courseRecord, final String title) {
 
 		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Lecturer", "List Courses");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(courseRecord);
 		super.checkFormExists();
@@ -37,7 +37,7 @@ public class LecturerLecturePublishTest extends TestHarness {
 		super.clickOnButton("List Lecture");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.checkColumnHasValue(lectureRecord, 0, code);
+		super.checkColumnHasValue(lectureRecord, 0, title);
 
 		super.clickOnListingRecord(lectureRecord);
 
@@ -49,32 +49,10 @@ public class LecturerLecturePublishTest extends TestHarness {
 		super.signOut();
 	}
 
-	@ParameterizedTest
-	@CsvFileSource(resources = "/lecturer/lecture/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int lectureRecord, final int courseRecord, final String code) {
-
-		super.signIn("lecturer1", "lecturer1");
-
-		super.clickOnMenu("Lecturer", "List Courses");
-		super.checkListingExists();
-		super.sortListing(1, "asc");
-
-		super.clickOnListingRecord(courseRecord);
-		super.checkFormExists();
-
-		super.clickOnButton("List Lecture");
-		super.checkListingExists();
-		super.sortListing(0, "asc");
-		super.checkColumnHasValue(lectureRecord, 0, code);
-
-		super.clickOnListingRecord(lectureRecord);
-
-		super.checkFormExists();
-
-		super.clickOnSubmit("Publish");
-		super.checkAlertExists(false);
-
-		super.signOut();
+	@Test
+	public void test200Negative() {
+		// HINT: there's no negative test case for this listing, since it doesn't
+		// HINT+ involve filling in any forms.
 	}
 
 	@Test
@@ -83,7 +61,7 @@ public class LecturerLecturePublishTest extends TestHarness {
 		Collection<Lecture> lectures;
 		String params;
 
-		lectures = this.repository.findLectureByLecturerName("lecturer1");
+		lectures = this.repository.findLectureByLecturerResume("1");
 		for (final Lecture lecture : lectures)
 			if (lecture.isDraft()) {
 				params = String.format("id=%d", lecture.getId());

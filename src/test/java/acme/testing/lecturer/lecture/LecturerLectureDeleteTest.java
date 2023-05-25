@@ -84,7 +84,7 @@ public class LecturerLectureDeleteTest extends TestHarness {
 		String param;
 		Collection<Lecture> lectures;
 
-		lectures = this.repository.findLectureByLecturerName("lecturer1");
+		lectures = this.repository.findLectureByLecturerResume("1");
 
 		for (final Lecture lecture : lectures) {
 			param = String.format("masterId=%d", lecture.getId());

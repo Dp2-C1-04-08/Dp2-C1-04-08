@@ -19,16 +19,16 @@ public class LecturerLectureShowTest extends TestHarness {
 	public void test100Positive(final int courseRecord, final int lectureRecord, final String title, final String lectureAbstract, final String estimatedLearningTime, final String body, final String lectureType, final String link) {
 		super.signIn("lecturer1", "lecturer1");
 
-		super.clickOnMenu("Lecturer", "List Lecturer");
+		super.clickOnMenu("Lecturer", "List Courses");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(courseRecord);
 		super.checkFormExists();
 
 		super.clickOnButton("List Lecture");
 		super.checkListingExists();
-		super.sortListing(2, "asc");
+		super.sortListing(0, "asc");
 
 		super.checkColumnHasValue(lectureRecord, 0, title);
 		super.checkColumnHasValue(lectureRecord, 1, lectureAbstract);

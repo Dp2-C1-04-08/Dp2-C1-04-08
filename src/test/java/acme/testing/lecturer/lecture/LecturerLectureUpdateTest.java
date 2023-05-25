@@ -29,20 +29,20 @@ public class LecturerLectureUpdateTest extends TestHarness {
 
 		super.clickOnMenu("Lecturer", "List Courses");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(courseRecord);
 		super.checkFormExists();
 
 		super.clickOnButton("List Lecture");
 		super.checkListingExists();
-		super.sortListing(2, "asc");
+		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(lectureRecord);
 		super.checkFormExists();
 
 		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("abstractStr", lectureAbstract);
+		super.fillInputBoxIn("lectureAbstract", lectureAbstract);
 		super.fillInputBoxIn("estimatedLearningTime", estimatedLearningTime);
 		super.fillInputBoxIn("body", body);
 		super.fillInputBoxIn("lectureType", lectureType);
@@ -52,7 +52,7 @@ public class LecturerLectureUpdateTest extends TestHarness {
 
 		super.clickOnMenu("Lecturer", "List Courses");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(courseRecord);
 		super.checkFormExists();
@@ -83,20 +83,20 @@ public class LecturerLectureUpdateTest extends TestHarness {
 
 		super.clickOnMenu("Lecturer", "List Courses");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(courseRecord);
 		super.checkFormExists();
 
 		super.clickOnButton("List Lecture");
 		super.checkListingExists();
-		super.sortListing(2, "asc");
+		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(lectureRecord);
 		super.checkFormExists();
 
 		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("abstractStr", lectureAbstract);
+		super.fillInputBoxIn("lectureAbstract", lectureAbstract);
 		super.fillInputBoxIn("estimatedLearningTime", estimatedLearningTime);
 		super.fillInputBoxIn("body", body);
 		super.fillInputBoxIn("lectureType", lectureType);
@@ -113,7 +113,7 @@ public class LecturerLectureUpdateTest extends TestHarness {
 		String param;
 		Collection<Lecture> lectures;
 
-		lectures = this.repository.findLectureByLecturerName("lecturer1");
+		lectures = this.repository.findLectureByLecturerResume("1");
 
 		for (final Lecture lecture : lectures) {
 			param = String.format("masterId=%d", lecture.getId());

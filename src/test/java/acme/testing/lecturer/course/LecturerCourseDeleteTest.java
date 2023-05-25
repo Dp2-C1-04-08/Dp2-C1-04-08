@@ -21,7 +21,7 @@ public class LecturerCourseDeleteTest extends TestHarness {
 	@CsvFileSource(resources = "/lecturer/course/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int courseRecordIndex) {
 
-		super.signIn("lecturer2", "lecturer2");
+		super.signIn("lecturer3", "lecturer3");
 
 		super.clickOnMenu("Lecturer", "List Courses");
 		super.checkListingExists();
@@ -62,7 +62,7 @@ public class LecturerCourseDeleteTest extends TestHarness {
 		String param;
 		Collection<Course> courseLecturer;
 
-		courseLecturer = this.repository.findCourseByLecturerName("lecturer1");
+		courseLecturer = this.repository.findCourseByLecturerResume("1");
 		for (final Course course : courseLecturer) {
 
 			param = String.format("id=%d", course.getId());
@@ -70,6 +70,7 @@ public class LecturerCourseDeleteTest extends TestHarness {
 			super.checkLinkExists("Sign in");
 			super.request("/lecturer/course/delete", param);
 			super.checkPanicExists();
+			super.signOut();
 
 			super.signIn("administrator", "administrator");
 			super.request("/lecturer/course/delete", param);

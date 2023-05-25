@@ -24,10 +24,10 @@ public class LecturerCourseListTest extends TestHarness {
 
 		super.clickOnMenu("Lecturer", "List Courses");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
-
-		super.checkColumnHasValue(courseRecordIndex, 0, title);
-		super.checkColumnHasValue(courseRecordIndex, 1, code);
+		super.sortListing(0, "asc");
+		
+		super.checkColumnHasValue(courseRecordIndex, 0, code);
+		super.checkColumnHasValue(courseRecordIndex, 1, title);
 		super.checkColumnHasValue(courseRecordIndex, 2, courseAbstract);
 
 		super.signOut();

@@ -1,6 +1,6 @@
 courseRecordIndex,code,title,courseAbstract
-0,"ABC1234","1","1"
-1,"XY5678","Probando el limite de 75 caracteres maximo en el atributo titulo           ","Un resumen de un curso"
-2,"PQ1234","titulo de un curso","       Probando el limite máximo de caracteres en el atributo resumen de la entidad de curso(course)"
-3,"ABC2234","1","1"
-4,EMP7678,Marketing Digital,"Introducción al marketing digital: claves para el éxito online."
+0,ABC1234,1,1
+1,ABC2234,1,1
+2,BGT1522,Ventas y negociación,Ventas y negociación: técnicas para cerrar acuerdos exitosos.
+3,BHJ1515,Curso de Excel Avanzado,Curso de Excel Avanzado: Domina las funciones y herramientas.
+4,CFH1520,Diseño gráfico,Diseño gráfico: crea diseños impactantes con herramientas digitales.

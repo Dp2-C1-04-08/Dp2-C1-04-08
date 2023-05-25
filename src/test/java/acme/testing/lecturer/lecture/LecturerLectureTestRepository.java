@@ -12,7 +12,7 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface LecturerLectureTestRepository extends AbstractRepository {
 
-	@Query("SELECT l FROM Lecture l WHERE l.lecturer.gertUserAccount()= :name")
-	List<Lecture> findLectureByLecturerName(String name);
+	@Query("SELECT l FROM Lecture l WHERE l.lecturer.resume= :resume")
+	List<Lecture> findLectureByLecturerResume(String resume);
 
 }
