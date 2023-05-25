@@ -25,7 +25,7 @@ public class LecturerCourseListTest extends TestHarness {
 		super.clickOnMenu("Lecturer", "List Courses");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		
+
 		super.checkColumnHasValue(courseRecordIndex, 0, code);
 		super.checkColumnHasValue(courseRecordIndex, 1, title);
 		super.checkColumnHasValue(courseRecordIndex, 2, courseAbstract);
@@ -35,15 +35,10 @@ public class LecturerCourseListTest extends TestHarness {
 
 	@Test
 	public void test200Negative() {
-		// HINT: there's no negative test case for this listing, since it doesn't
-		// HINT+ involve filling in any forms.
 	}
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to list the courses of a lecturer that is unpublished
-		// HINT+ using a principal that didn't create it. 
-
 		super.checkLinkExists("Sign in");
 		super.request("/lecturer/course/list");
 		super.checkPanicExists();

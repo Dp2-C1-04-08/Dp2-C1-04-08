@@ -45,21 +45,17 @@ public class LecturerLectureListTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-		String param;
-
-		param = String.format("masterId=%d", 108);
-
 		super.checkLinkExists("Sign in");
-		super.request("/lecturer/lecture/list", param);
+		super.request("/lecturer/lecture/list");
 		super.checkPanicExists();
 
 		super.signIn("administrator", "administrator");
-		super.request("/lecturer/lecture/list", param);
+		super.request("/lecturer/lecture/list");
 		super.checkPanicExists();
 		super.signOut();
 
-		super.signIn("lecturer2", "lecturer2");
-		super.request("/lecturer/lecture/ist", param);
+		super.signIn("company1", "company1");
+		super.request("/lecturer/lecture/list");
 		super.checkPanicExists();
 		super.signOut();
 

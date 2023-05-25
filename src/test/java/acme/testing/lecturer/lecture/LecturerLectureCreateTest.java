@@ -20,7 +20,7 @@ public class LecturerLectureCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/lecture/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int lectureRecord, final String title, final String lectureAbstract, final String estimatedLearningTime, final String body, final String lectureType, final String link) {
+	public void test100Positive(final String title, final String lectureAbstract, final String estimatedLearningTime, final String body, final String lectureType, final String link) {
 
 		super.signIn("lecturer1", "lecturer1");
 
@@ -34,13 +34,14 @@ public class LecturerLectureCreateTest extends TestHarness {
 		super.fillInputBoxIn("link", link);
 
 		super.clickOnSubmit("Create");
+		super.checkNotErrorsExist();
 
 		super.signOut();
 	}
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/lecture/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int lectureRecord, final String title, final String lectureAbstract, final String link, final String estimatedLearningTime, final String body, final String lectureType) {
+	public void test200Negative(final String title, final String lectureAbstract, final String estimatedLearningTime, final String body, final String lectureType, final String link) {
 
 		super.signIn("lecturer1", "lecturer1");
 

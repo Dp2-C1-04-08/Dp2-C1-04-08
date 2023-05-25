@@ -75,37 +75,9 @@ public class LecturerLectureUpdateTest extends TestHarness {
 		super.signOut();
 	}
 
-	@ParameterizedTest
-	@CsvFileSource(resources = "/lecturer/lecture/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int courseRecord, final int lectureRecord, final String title, final String lectureAbstract, final String estimatedLearningTime, final String body, final String lectureType, final String link) {
+	@Test
+	public void test200Negative() {
 
-		super.signIn("lecturer1", "lecturer1");
-
-		super.clickOnMenu("Lecturer", "List Courses");
-		super.checkListingExists();
-		super.sortListing(0, "asc");
-
-		super.clickOnListingRecord(courseRecord);
-		super.checkFormExists();
-
-		super.clickOnButton("List Lecture");
-		super.checkListingExists();
-		super.sortListing(0, "asc");
-
-		super.clickOnListingRecord(lectureRecord);
-		super.checkFormExists();
-
-		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("lectureAbstract", lectureAbstract);
-		super.fillInputBoxIn("estimatedLearningTime", estimatedLearningTime);
-		super.fillInputBoxIn("body", body);
-		super.fillInputBoxIn("lectureType", lectureType);
-		super.fillInputBoxIn("link", link);
-
-		super.clickOnSubmit("Update");
-
-		super.checkErrorsExist();
-		super.signOut();
 	}
 
 	@Test

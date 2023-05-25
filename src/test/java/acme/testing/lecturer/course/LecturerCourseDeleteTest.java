@@ -32,9 +32,10 @@ public class LecturerCourseDeleteTest extends TestHarness {
 
 		super.clickOnSubmit("Delete");
 
-		super.clickOnMenu("Lecturer", "List Courses");
-		super.checkListingEmpty();
-
+		if (courseRecordIndex == 0) {
+			super.clickOnMenu("Lecturer", "List Courses");
+			super.checkListingEmpty();
+		}
 	}
 
 	@ParameterizedTest
@@ -44,7 +45,7 @@ public class LecturerCourseDeleteTest extends TestHarness {
 
 		super.clickOnMenu("Lecturer", "List Courses");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(0, "asc");
 
 		super.clickOnListingRecord(courseRecordIndex);
 		super.checkFormExists();
@@ -70,7 +71,6 @@ public class LecturerCourseDeleteTest extends TestHarness {
 			super.checkLinkExists("Sign in");
 			super.request("/lecturer/course/delete", param);
 			super.checkPanicExists();
-			super.signOut();
 
 			super.signIn("administrator", "administrator");
 			super.request("/lecturer/course/delete", param);

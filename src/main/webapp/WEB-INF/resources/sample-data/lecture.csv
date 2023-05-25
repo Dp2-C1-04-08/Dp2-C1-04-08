@@ -8,7 +8,7 @@ lecture-06,Titulo 3,Resumen 3,2,Cuerpo 3,HANDS_ON,false,https://tinyurl.com/y7l6
 lecture-07,Titulo 4,Resumen 4,2,Cuerpo 4,THEORETICAL,false,,lecturer-02
 lecture-08,Titulo 5,Resumen 5,2,Cuerpo 5,THEORETICAL,false,,lecturer-02
 lecture-09,Optimización de motores de búsqueda,Mejora tu visibilidad online.,1.5,"Palabras clave, contenido relevante, metadatos.",HANDS_ON,false,https://is.gd/f9MzxK,lecturer-01
-lecture-10,Estrategias de redes sociales,Conecta con tu audiencia.,3,"Publicaciones atractivas, interacción social, análisis de datos.",THEORETICAL,false,,lecturer-01
+lecture-10,Estrategias de redes sociales,Conecta con tu audiencia.,3,"Publicaciones atractivas, interacción social, análisis de datos.",THEORETICAL,true,,lecturer-01
 lecture-11,Planificación financiera para el éxito,Aprende a gestionar tus finanzas.,3,"Presupuesto, ahorro, inversión, deudas.",HANDS_ON,false,,lecturer-01
 lecture-12,Introducción al desarrollo web,Descubre el mundo del desarrollo web.,1,"HTML, CSS, JavaScript básico.",HANDS_ON,false,,lecturer-01
 lecture-13,Diseño web responsivo,Crea sitios web adaptables.,1,"Media queries, flexbox, grid.",THEORETICAL,false,https://t2m.io/8L9GSbW,lecturer-01
