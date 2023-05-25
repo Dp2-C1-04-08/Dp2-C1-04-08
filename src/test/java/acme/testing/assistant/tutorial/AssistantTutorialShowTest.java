@@ -12,17 +12,24 @@
 
 package acme.testing.assistant.tutorial;
 
+import java.util.Collection;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import acme.entities.tutorials.Tutorial;
 import acme.testing.TestHarness;
 
 public class AssistantTutorialShowTest extends TestHarness {
 
 	// Internal state ---------------------------------------------------------
 
+	@Autowired
+	AssistantTutorialTestRepository repository;
 	// Test methods -----------------------------------------------------------
+
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -54,22 +61,21 @@ public class AssistantTutorialShowTest extends TestHarness {
 		// HINT+ doesn't involve any forms.
 	}
 
-	//	@Test
-	//	public void test300Hacking() {
-	//		// HINT: this test tries to show old announcements as an authenticated principal.
-	//
-	//		Collection<Announcement> announcements;
-	//		Date deadline;
-	//		String query;
-	//
-	//		super.signIn("employer1", "employer1");
-	//		deadline = MomentHelper.deltaFromMoment(MomentHelper.getBaseMoment(), -1, ChronoUnit.MONTHS);
-	//		announcements = this.repository.findManyAnnouncementsBeforeDeadline(deadline);
-	//		for (final Announcement announcement : announcements) {
-	//			query = String.format("id=%d", announcement.getId());
-	//			super.request("/authenticated/announcement/show", query);
-	//			super.checkPanicExists();
-	//		}
-	//	}
+	@Test
+	public void test300Hacking() {
+		// HINT: this test tries to show other assistant's tutorials not published
+		// It does not take into account an authenticated triying to access a not published tutorial
+		super.signIn("assistant2", "assistant2");
+
+		final Collection<Tutorial> tutorials = this.repository.findManyTutorialsOfOtherAssistants("assistant2");
+		for (final Tutorial tutorial : tutorials) {
+			final String query = String.format("id=%d", tutorial.getId());
+			super.request("/assistant/tutorial/show", query);
+			super.checkPanicExists();
+		}
+
+		super.signOut();
+
+	}
 
 }
