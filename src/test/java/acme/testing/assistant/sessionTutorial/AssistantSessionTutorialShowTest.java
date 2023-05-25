@@ -72,7 +72,7 @@ public class AssistantSessionTutorialShowTest extends TestHarness {
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to show other assistant's tutorials not published
+		// HINT: this test tries to show other assistant's sessiontutorials
 		// It does not take into account an authenticated triying to access a not published tutorial
 		super.signIn("assistant2", "assistant2");
 
