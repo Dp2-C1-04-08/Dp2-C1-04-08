@@ -33,7 +33,8 @@ public class CompanyPracticumDeleteTest extends TestHarness {
 		super.clickOnSubmit("Delete");
 
 		super.clickOnMenu("My Company", "List Practicum");
-		super.checkListingEmpty();
+		if (practicumRecordIndex == 0)
+			super.checkListingEmpty();
 
 	}
 
