@@ -67,7 +67,6 @@ public class ActivityListService extends AbstractService<Student, Activity> {
 		assert object != null;
 
 		Tuple tuple;
-		final int masterId = super.getRequest().getData("masterId", int.class);
 		tuple = super.unbind(object, "title", "activityAbstract", "activityType", "startTime", "endTime", "link");
 
 		tuple.put("masterId", 4);
