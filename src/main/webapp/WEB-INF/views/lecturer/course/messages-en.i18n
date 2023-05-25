@@ -19,6 +19,7 @@ lecturer.course.form.button.publish = Publish
 
 lecturer.course.form.error.update.draft = Cannot be update without the course in mode draft
 lecturer.course.form.error.delete.draft = Cannot be delete without the course in mode draft
+lecturer.course.form.error.delete.lectures = Cannot be delete, it has got lectures
 lecturer.course.form.error.update.code.duplicated = This code is in use
 lecturer.course.form.error.code.duplicated = This code is in use
 lecuter.course.form.error.update.publish = You cannot publish a course without all its lectures being published
