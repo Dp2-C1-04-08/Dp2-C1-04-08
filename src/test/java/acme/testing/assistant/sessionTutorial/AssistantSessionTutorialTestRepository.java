@@ -16,6 +16,7 @@ import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 
+import acme.entities.tutorials.SessionTutorial;
 import acme.entities.tutorials.Tutorial;
 import acme.framework.repositories.AbstractRepository;
 
@@ -23,5 +24,8 @@ public interface AssistantSessionTutorialTestRepository extends AbstractReposito
 
 	@Query("select t from Tutorial t where t.assistant.userAccount.username != :username")
 	Collection<Tutorial> findManyTutorialsOfOtherAssistants(final String username);
+
+	@Query("select st from SessionTutorial st where st.tutorial.assistant.userAccount.username != :username")
+	Collection<SessionTutorial> findManySessionTutorialsOfOtherAssistants(final String username);
 
 }

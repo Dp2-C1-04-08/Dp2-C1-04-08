@@ -19,16 +19,15 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.entities.tutorials.Tutorial;
+import acme.entities.tutorials.SessionTutorial;
 import acme.testing.TestHarness;
-import acme.testing.assistant.tutorial.AssistantTutorialTestRepository;
 
 public class AssistantSessionTutorialShowTest extends TestHarness {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	AssistantTutorialTestRepository repository;
+	AssistantSessionTutorialTestRepository repository;
 
 	// Test methods -----------------------------------------------------------
 
@@ -36,8 +35,6 @@ public class AssistantSessionTutorialShowTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/session-tutorial/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final int tutorialRecordIndex, final String title, final String abstractStr, final String type, final String start, final String end, final String tutorialCode, final String link, final String draft) {
-		// HINT: this test signs in as an employer, then lists the announcements,
-		// HINT+ and checks that the listing shows the expected data.
 
 		super.signIn("assistant1", "assistant1");
 
@@ -77,9 +74,9 @@ public class AssistantSessionTutorialShowTest extends TestHarness {
 		// It does not take into account an authenticated triying to access a not published tutorial
 		super.signIn("assistant2", "assistant2");
 
-		final Collection<Tutorial> tutorials = this.repository.findManyTutorialsOfOtherAssistants("assistant2");
-		for (final Tutorial tutorial : tutorials) {
-			final String query = String.format("id=%d", tutorial.getId());
+		final Collection<SessionTutorial> sessions = this.repository.findManySessionTutorialsOfOtherAssistants("assistant2");
+		for (final SessionTutorial session : sessions) {
+			final String query = String.format("id=%d", session.getId());
 			super.request("/assistant/session-tutorial/show", query);
 			super.checkPanicExists();
 		}

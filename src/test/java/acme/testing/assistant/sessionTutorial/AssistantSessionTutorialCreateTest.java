@@ -21,14 +21,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.entities.tutorials.Tutorial;
 import acme.testing.TestHarness;
-import acme.testing.assistant.tutorial.AssistantTutorialTestRepository;
 
 public class AssistantSessionTutorialCreateTest extends TestHarness {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	AssistantTutorialTestRepository repository;
+	AssistantSessionTutorialTestRepository repository;
 
 	// Test methods -----------------------------------------------------------
 
@@ -117,7 +116,7 @@ public class AssistantSessionTutorialCreateTest extends TestHarness {
 		final Collection<Tutorial> tutorials = this.repository.findManyTutorialsOfOtherAssistants("assistant2");
 		for (final Tutorial tutorial : tutorials) {
 			final String query = String.format("id=%d", tutorial.getId());
-
+			super.signOut();
 			super.checkLinkExists("Sign in");
 			super.request("/assistant/session-tutorial/create", query);
 			super.checkPanicExists();
