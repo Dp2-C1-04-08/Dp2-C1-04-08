@@ -2,11 +2,10 @@
 package acme.features.lecturer.course;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
-import com.google.common.base.Optional;
 
 import acme.entities.courses.Course;
 import acme.entities.courses.CourseLecture;

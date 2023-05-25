@@ -14,6 +14,7 @@ import acme.entities.courses.CourseLecture;
 import acme.entities.courses.Lecture;
 import acme.entities.courses.Nature;
 import acme.features.lecturer.courseLecture.LecturerCourseLectureRepository;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -40,7 +41,6 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 		boolean status;
 		int lectureId;
 		int lecturerId;
-		boolean sameLecturer;
 		CourseLecture courseLecture;
 
 		lectureId = super.getRequest().getData("id", int.class);
@@ -48,9 +48,7 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 
 		courseLecture = this.repository.findCourseLectureByLectureId(lectureId);
 
-		status = super.getRequest().getPrincipal().hasRole(Lecturer.class);
-		sameLecturer = courseLecture.getCourse().getLecturer().getId() == lecturerId;
-		status = status && sameLecturer;
+		status = courseLecture.getCourse().getLecturer().getId() == lecturerId;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -72,13 +70,6 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 	@Override
 	public void validate(final Lecture object) {
 		assert object != null;
-
-		boolean isDraft;
-		CourseLecture courseLecture;
-
-		courseLecture = this.repository.findCourseLectureByLectureId(object.getId());
-		isDraft = courseLecture.getCourse().isDraft();
-		super.state(isDraft, "title", "lecturer.lecture.form.error.isDraft.update");
 
 	}
 	@Override
@@ -109,7 +100,10 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 		random = ThreadLocalRandom.current();
 		index = random.nextInt(0, types.size());
 
-		course.setCourseType(types.get(index));
+		if (types.isEmpty())
+			course.setCourseType(null);
+		else
+			course.setCourseType(types.get(index));
 
 		this.repository.save(course);
 	}
@@ -118,10 +112,14 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 	public void unbind(final Lecture object) {
 		assert object != null;
 
+		SelectChoices choices;
 		Tuple tuple;
 
 		tuple = super.unbind(object, "title", "lectureAbstract", "link", "estimatedLearningTime", "body", "lectureType", "draft");
 		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
+		choices = SelectChoices.from(Nature.class, object.getLectureType());
+		tuple.put("lectureTypes", choices);
+		tuple.put("lectureType", choices.getSelected());
 
 		super.getResponse().setData(tuple);
 	}

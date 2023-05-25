@@ -1,4 +1,4 @@
-key,key:course,key:lecture
-course-lecture-01,course-01,lecture-01
-course-lecture-02,course-01,lecture-02
-course-lecture-03,course-02,lecture-03
+key,key:course,key:lecture,key:lecturer
+course-lecture-01,course-01,lecture-01,lecturer-01
+course-lecture-02,course-01,lecture-02,lecturer-01
+course-lecture-03,course-02,lecture-03,lecturer-01
