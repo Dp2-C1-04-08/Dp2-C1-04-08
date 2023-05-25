@@ -12,6 +12,7 @@ public class AnyPeepShowTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/any/peep/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String instanciationMoment, final String title, final String nick, final String message, final String email, final String link) {
+		//This test checks peeps are shown correctly
 		super.clickOnMenu("Any", "Peep");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
