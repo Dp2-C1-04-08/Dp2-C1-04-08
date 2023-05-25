@@ -1,14 +1,11 @@
 
 package acme.testing.lecturer.lecture;
 
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.entities.courses.Lecture;
 import acme.testing.TestHarness;
 
 public class LecturerLectureListTest extends TestHarness {
@@ -49,27 +46,22 @@ public class LecturerLectureListTest extends TestHarness {
 	@Test
 	public void test300Hacking() {
 		String param;
-		List<Lecture> lectures;
 
-		lectures = this.repository.findLectureByLecturerResume("1");
+		param = String.format("masterId=%d", 108);
 
-		for (final Lecture lecture : lectures) {
-			param = String.format("masterId=%d", 108);
+		super.checkLinkExists("Sign in");
+		super.request("/lecturer/lecture/list", param);
+		super.checkPanicExists();
 
-			super.checkLinkExists("Sign in");
-			super.request("/lecturer/lecture/list", param);
-			super.checkPanicExists();
+		super.signIn("administrator", "administrator");
+		super.request("/lecturer/lecture/list", param);
+		super.checkPanicExists();
+		super.signOut();
 
-			super.signIn("administrator", "administrator");
-			super.request("/lecturer/lecture/list", param);
-			super.checkPanicExists();
-			super.signOut();
-
-			super.signIn("lecturer2", "lecturer2");
-			super.request("/lecturer/lecture/ist", param);
-			super.checkPanicExists();
-			super.signOut();
-		}
+		super.signIn("lecturer2", "lecturer2");
+		super.request("/lecturer/lecture/ist", param);
+		super.checkPanicExists();
+		super.signOut();
 
 	}
 
