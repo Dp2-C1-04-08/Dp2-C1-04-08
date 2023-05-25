@@ -23,7 +23,7 @@ public class StudentActivityShowTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnListingRecord(0);
 		super.checkFormExists();
 		super.clickOnButton("Workbook");
 
