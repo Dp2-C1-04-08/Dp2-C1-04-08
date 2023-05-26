@@ -28,4 +28,10 @@ public interface AssistantSessionTutorialTestRepository extends AbstractReposito
 	@Query("select st from SessionTutorial st where st.tutorial.assistant.userAccount.username != :username")
 	Collection<SessionTutorial> findManySessionTutorialsOfOtherAssistants(final String username);
 
+	@Query("select st from SessionTutorial st where st.tutorial.assistant.userAccount.username = :username and st.tutorial.draft = true")
+	Collection<SessionTutorial> findManyDraftSessionTutorialsByAssistantUsername(final String username);
+
+	@Query("select st from SessionTutorial st where st.tutorial.assistant.userAccount.username = :username and st.tutorial.draft = false")
+	Collection<SessionTutorial> findManyPublishedSessionTutorialsByAssistantUsername(final String username);
+
 }
