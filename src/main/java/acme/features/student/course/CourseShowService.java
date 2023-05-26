@@ -21,6 +21,7 @@ import acme.entities.courses.Course;
 import acme.entities.courses.Lecture;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Lecturer;
 import acme.roles.Student;
 
 @Service
@@ -64,12 +65,15 @@ public class CourseShowService extends AbstractService<Student, Course> {
 		assert object != null;
 		int id;
 		final Collection<Lecture> lectures;
+		Lecturer lecturer;
 
 		Tuple tuple;
 		id = super.getRequest().getData("id", int.class);
 
-		tuple = super.unbind(object, "code", "title", "courseAbstract", "courseType", "retailPrice", "link", "lecturer");
+		tuple = super.unbind(object, "code", "title", "courseAbstract", "courseType", "retailPrice", "link");
 		lectures = this.repository.findLecturesByCourseId(id);
+		lecturer = object.getLecturer();
+		tuple.put("lecturer", lecturer.getAlmaMater());
 		tuple.put("lectures", lectures);
 		super.getResponse().setData(tuple);
 	}

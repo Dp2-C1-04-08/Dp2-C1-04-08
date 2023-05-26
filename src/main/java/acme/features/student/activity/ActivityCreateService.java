@@ -53,7 +53,7 @@ public class ActivityCreateService extends AbstractService<Student, Activity> {
 
 		id = super.getRequest().getData("masterId", int.class);
 		enrolment = this.repository.findEnrolmentById(id);
-		status = enrolment != null && enrolment.getIsFinalised() != true && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
+		status = super.getRequest().getPrincipal().getActiveRoleId() == enrolment.getStudent().getId() && enrolment != null && enrolment.getIsFinalised() != true && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -87,8 +87,8 @@ public class ActivityCreateService extends AbstractService<Student, Activity> {
 
 		final Date startTime = object.getStartTime();
 		final Date endTime = object.getEndTime();
-		super.state(startTime.before(endTime), "*", "student.activity.form.error.invalidDuration");
-
+		if (startTime != null && endTime != null)
+			super.state(startTime.before(endTime), "*", "student.activity.form.error.invalidDuration");
 	}
 
 	@Override

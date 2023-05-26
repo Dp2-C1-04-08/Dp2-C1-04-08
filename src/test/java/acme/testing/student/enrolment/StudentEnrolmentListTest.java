@@ -1,0 +1,52 @@
+
+package acme.testing.student.enrolment;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+
+import acme.testing.TestHarness;
+
+public class StudentEnrolmentListTest extends TestHarness {
+
+	@ParameterizedTest
+	@CsvFileSource(resources = "/student/enrolment/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test100Positive(final int recordIndex, final String code, final String course_code, final String isFinalised) {
+		// HINT: this test authenticates as an employer and checks that he or
+		// HINT+ she can list his or her applications.
+
+		super.signIn("student1", "student1");
+
+		super.clickOnMenu("Student", "List your enrolments");
+		super.checkListingExists();
+		super.sortListing(0, "asc");
+
+		super.checkColumnHasValue(recordIndex, 0, code);
+		super.checkColumnHasValue(recordIndex, 1, course_code);
+		super.checkColumnHasValue(recordIndex, 2, isFinalised);
+
+		super.signOut();
+	}
+
+	@Test
+	public void test200Negative() {
+		// HINT: this is a listing, which implies that no data must be entered in any forms.
+		// HINT+ Then, there are not any negative test cases for this feature.
+	}
+
+	@Test
+	public void test300Hacking() {
+		// HINT: this test tries to list the applications of an employer as a
+		// HINT+ principal with the wrong role.
+
+		super.checkLinkExists("Sign in");
+		super.request("/student/enrolment/list");
+		super.checkPanicExists();
+
+		super.checkLinkExists("Sign in");
+		super.signIn("administrator1", "administrator1");
+		super.request("/student/enrolment/list");
+		super.checkPanicExists();
+		super.signOut();
+	}
+}

@@ -13,6 +13,7 @@
 
 package acme.features.student.enrolment;
 
+import java.time.Duration;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.enrolments.Enrolment;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
@@ -36,7 +38,11 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -47,7 +53,7 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 
 		id = super.getRequest().getData("id", int.class);
 		enrolment = this.repository.findEnrolmentById(id);
-		status = !enrolment.getIsFinalised() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
+		status = !enrolment.getIsFinalised() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent()) && super.getRequest().getPrincipal().getActiveRoleId() == enrolment.getStudent().getId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -71,26 +77,22 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 	public void validate(final Enrolment object) {
 		assert object != null;
 
-		final String cch = this.getRequest().getData("creditCardHolder", String.class);
 		final Date expiryDate = this.getRequest().getData("expiryDate", Date.class);
-		final String ccv = this.getRequest().getData("cvc", String.class);
+		final String cvc = this.getRequest().getData("cvc", String.class);
 		final String upperNibble = this.getRequest().getData("upperNibble", String.class);
 		final String lowerNibble = this.getRequest().getData("lowerNibble", String.class);
 
-		final Boolean isCCHAccepted = cch != null;
 		final Boolean isExpiryDateAccepted = expiryDate != null;
-		final Boolean isCCVAccepted = ccv != null;
-		final boolean isUpperNibbleAccepted = upperNibble != null;
-		final boolean isLowerNibbleAccepted = lowerNibble != null;
+		if (isExpiryDateAccepted) {
+			final Duration untilExpiry = MomentHelper.computeDuration(expiryDate, MomentHelper.getCurrentMoment());
+			final boolean isExpiryDateValid = isExpiryDateAccepted && untilExpiry.isNegative();
+			super.state(isExpiryDateValid, "expiryDate", "authentication.note.form.error.expired");
+		}
 
-		super.state(ccv.length() == 3, "creditCardHolder", "authentication.note.form.error.notAccepted");
-		super.state(upperNibble.length() == 8, "upperNibble", "authentication.note.form.error.notAccepted");
-
-		super.state(isCCHAccepted, "creditCardHolder", "authentication.note.form.error.finalisationError");
-		super.state(isExpiryDateAccepted, "expiryDate", "authentication.note.form.error.notAccepted");
-		super.state(isCCVAccepted, "cvc", "authentication.note.form.error.notAccepted");
-		super.state(isLowerNibbleAccepted, "lowerNibble", "authentication.note.form.error.finalisationError");
-		super.state(isUpperNibbleAccepted, "upperNibble", "authentication.note.form.error.notAccepted");
+		super.state(cvc.length() == 3, "cvc", "authentication.note.form.error.wrongLength");
+		super.state(upperNibble.length() == 8, "upperNibble", "authentication.note.form.error.wrongLength");
+		super.state(lowerNibble.length() == 8, "lowerNibble", "authentication.note.form.error.wrongLength");
+		super.state(isExpiryDateAccepted, "expiryDate", "authentication.note.form.error.null");
 
 	}
 

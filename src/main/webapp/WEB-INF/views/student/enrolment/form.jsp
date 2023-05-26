@@ -27,7 +27,7 @@
 			
 			<jstl:choose>
 				<jstl:when test="${_command == 'show' || _command == 'update'|| _command == 'delete'}">
-					<acme:input-textbox readonly="${true}" code="student.enrolment.form.label.course-code" path="code"/>
+					<acme:input-textbox readonly="${true}" code="student.enrolment.form.label.course-code" path="courseCode"/>
 					<jstl:choose>
 						<jstl:when test="${f == false}">
 							<acme:submit code="student.enrolment.form.button.update" action="/student/enrolment/update"/>
