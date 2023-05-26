@@ -105,6 +105,31 @@ public class CompanyPracticumSessionUpdateTest extends TestHarness {
 		super.signOut();
 	}
 
+	@ParameterizedTest
+	@CsvFileSource(resources = "/company/practicumSession/update-negative2.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test201Negative(final int sessionRecord, final int practicumRecord) {
+
+		super.signIn("company1", "company1");
+
+		super.clickOnMenu("My Company", "List Practicum");
+		super.checkListingExists();
+		super.sortListing(1, "asc");
+
+		super.clickOnListingRecord(practicumRecord);
+		super.checkFormExists();
+
+		super.clickOnButton("List Sessions");
+		super.checkListingExists();
+		super.sortListing(2, "asc");
+
+		super.clickOnListingRecord(sessionRecord);
+		super.checkFormExists();
+
+		super.checkNotButtonExists("Update");
+
+		super.signOut();
+	}
+
 	@Test
 	public void test300Hacking() {
 		String param;

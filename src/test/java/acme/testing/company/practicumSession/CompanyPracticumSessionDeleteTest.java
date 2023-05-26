@@ -72,9 +72,7 @@ public class CompanyPracticumSessionDeleteTest extends TestHarness {
 		super.clickOnListingRecord(sessionRecord);
 		super.checkFormExists();
 
-		super.clickOnSubmit("Delete");
-
-		super.checkErrorsExist();
+		super.checkNotButtonExists("Delete");
 
 		super.signOut();
 	}
