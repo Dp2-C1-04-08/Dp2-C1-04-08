@@ -24,4 +24,10 @@ public interface AssistantTutorialTestRepository extends AbstractRepository {
 	@Query("select t from Tutorial t where t.assistant.userAccount.username != :username")
 	Collection<Tutorial> findManyTutorialsOfOtherAssistants(final String username);
 
+	@Query("select t from Tutorial t where t.assistant.userAccount.username = :username and t.draft = true")
+	Collection<Tutorial> findManyDraftTutorialsByAssistantUsername(final String username);
+
+	@Query("select t from Tutorial t where t.assistant.userAccount.username = :username and t.draft = false")
+	Collection<Tutorial> findManyPublishedTutorialsByAssistantUsername(final String username);
+
 }
