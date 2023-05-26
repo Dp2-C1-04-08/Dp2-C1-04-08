@@ -15,12 +15,17 @@ lecturer.course.list.label.code = Code
 lecturer.course.list.label.title = Title
 lecturer.course.list.label.course-abstract = Abstract
 lecturer.course.list.button.create = Create
+lecturer.course.form.button.publish = Publish
 
 lecturer.course.form.error.update.draft = Cannot be update without the course in mode draft
 lecturer.course.form.error.delete.draft = Cannot be delete without the course in mode draft
+lecturer.course.form.error.delete.lectures = Cannot be delete, it has got lectures
 lecturer.course.form.error.update.code.duplicated = This code is in use
 lecturer.course.form.error.code.duplicated = This code is in use
 lecuter.course.form.error.update.publish = You cannot publish a course without all its lectures being published
 lecturer.course.form.error.price.invalid-currency = Invalid currency
+lecturer.course.form.error.price.invalid-amount = Cannot be negative
+lecturer.course.form.error.general.publish.no-lecture = Cannot be published without any lectures
+lecturer.course.form.error.general.publish.no-handsOn = Cannot be published without any hands-On lecture
 
 lecturer.lecture.list.button = List Lecture

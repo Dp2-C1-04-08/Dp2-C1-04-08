@@ -1,8 +1,6 @@
 
 package acme.features.company.practicumSession;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -63,40 +61,44 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 	public void bind(final PracticumSession object) {
 		assert object != null;
 
-		final String startDateStr = this.getRequest().getData("startDate", String.class);
-		final String endDateStr = this.getRequest().getData("endDate", String.class);
-		final SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-		try {
-			final Date startDate = format.parse(startDateStr);
-			final Date endDate = format.parse(endDateStr);
-			object.setStartDate(startDate);
-			object.setEndDate(endDate);
-		} catch (final ParseException e) {
-
-			e.printStackTrace();
-		}
-
 		super.bind(object, "title", "abstractStr", "link", "startDate", "endDate");
 
 	}
 	@Override
 	public void validate(final PracticumSession object) {
-		assert object != null;
 
-		final LocalDateTime initialDate = Instant.ofEpochMilli(object.getStartDate().getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
-		final LocalDateTime endDate = Instant.ofEpochMilli(object.getEndDate().getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
-		final Duration durationLong = Duration.between(initialDate, endDate);
-		final long daysLong = durationLong.toDays();
-		final boolean isOneWeekLong = daysLong >= 7;
-		super.state(isOneWeekLong, "endDate", "company.practicumSession.form.error.oneWeekLong");
+		Date startDate = null;
+		Date endDate = null;
+		try {
+			startDate = super.getRequest().getData("startDate", Date.class);
 
-		final Date actualDate = MomentHelper.getCurrentMoment();
-		final LocalDateTime actualDateLocalTime = Instant.ofEpochMilli(actualDate.getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
-		final Duration durationAhead = Duration.between(actualDateLocalTime, initialDate);
-		final Long daysAhead = durationAhead.toDays();
-		final boolean isOneWeekAhead = daysAhead >= 7;
-		super.state(isOneWeekAhead, "startDate", "company.practicumSession.form.error.oneWeekAhead");
+		} catch (final Exception e) {
+		}
+		try {
 
+			endDate = super.getRequest().getData("endDate", Date.class);
+		} catch (final Exception e) {
+		}
+
+		if (startDate != null && endDate != null) {
+
+			object.setStartDate(startDate);
+			object.setEndDate(endDate);
+
+			final LocalDateTime initialDate = Instant.ofEpochMilli(object.getStartDate().getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
+			final LocalDateTime endDateDuration = Instant.ofEpochMilli(object.getEndDate().getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
+			final Duration durationLong = Duration.between(initialDate, endDateDuration);
+			final long daysLong = durationLong.toDays();
+			final boolean isOneWeekLong = daysLong >= 7;
+			super.state(isOneWeekLong, "endDate", "company.practicumSession.form.error.oneWeekLong");
+
+			final Date actualDate = MomentHelper.getCurrentMoment();
+			final LocalDateTime actualDateLocalTime = Instant.ofEpochMilli(actualDate.getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
+			final Duration durationAhead = Duration.between(actualDateLocalTime, initialDate);
+			final Long daysAhead = durationAhead.toDays();
+			final boolean isOneWeekAhead = daysAhead >= 7;
+			super.state(isOneWeekAhead, "startDate", "company.practicumSession.form.error.oneWeekAhead");
+		}
 		final boolean isPublished = object.getPracticum().getPublished();
 		super.state(!isPublished, "title", "company.practicumSession.form.error.isPublished");
 

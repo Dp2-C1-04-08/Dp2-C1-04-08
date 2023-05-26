@@ -26,20 +26,11 @@
 	<acme:input-textarea code="company.practica.list.label.goals" path="goals"/>
 	<acme:input-textarea code="company.practica.list.label.abstractStr" path="abstractStr"/>
 	<acme:input-select code="company.practica.list.label.course" path="course" choices="${courses}"/>
-	<jstl:choose>
-	<jstl:when test="${estimatedTime==0 }">
-	<acme:box code="company.practica.list.label.estimatedTime"/>
-	<span style="font-size: 1.2em;">
-  <jstl:out value="0" />
-</span>
-	</jstl:when>
-	<jstl:when test="${estimatedTime>0 }">
-	<acme:box code="company.practica.list.label.estimatedTime"/>
-	<span style="font-size: 1.2em;">
-  <jstl:out value="${minus10EstimatedTime} - ${plus10EstimatedTime}" />
-</span>
-</jstl:when>
-</jstl:choose>
+	<jstl:if test="${_command == 'show' || _command == 'update'|| _command == 'delete' || _command == 'list' || _command == 'publish'}">
+	<acme:input-textbox readonly = "${true }" code="company.practica.list.label.minus10estimatedTime" path="minus10estimatedTime"/>
+	<acme:input-textbox readonly = "${true }" code="company.practica.list.label.plus10estimatedTime" path="plus10estimatedTime"/>
+			</jstl:if>
+	
 	
 	<acme:input-checkbox code="company.practica.list.label.published" path="published" readonly="true"  />
 	
@@ -47,10 +38,12 @@
 	<jstl:choose>
 		<jstl:when test="${_command == 'show' || _command == 'update'|| _command == 'delete' || _command == 'list' || _command == 'publish'}">
 			
-			<acme:submit code="company.practica.list.button.update" action="/company/practicum/update"/>
-			<acme:submit code="company.practica.list.button.delete" action="/company/practicum/delete"/>
+			
+			
 			<jstl:if test="${!isPublished }">
+			<acme:submit code="company.practica.list.button.update" action="/company/practicum/update"/>
 			<acme:submit code="company.practica.form.button.publish" action="/company/practicum/publish"/>
+			<acme:submit code="company.practica.list.button.delete" action="/company/practicum/delete"/>
 			</jstl:if>
 			
 			<acme:button code="company.practicumSession.list.button" action="/company/practicum-session/list?masterId=${id}"/>

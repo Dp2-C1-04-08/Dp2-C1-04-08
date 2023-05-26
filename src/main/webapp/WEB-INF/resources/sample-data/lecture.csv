@@ -1,4 +1,29 @@
-key,title,lectureAbstract,estimatedLearningTime,body,lectureType,draft,link
-lecture-01,"titulo","Esto es el resumen(abstract)de clase(lecture) donde comprueba que los caracteres son 100 como maximo",1.80,"body",HANDS_ON,true,https://www.contadordecaracteres.com/
-lecture-02,"1","1",2.0,"Esto es el contenido(body) de clase(lecture) donde comprueba que los caracteres son 100 como maximo ",THEORETICAL,false,
-lecture-03,"Esto es un titulo de una clase donde comprueba los caracteres son 75 maximo","resumen",1.50,"1",THEORETICAL,true,https://www.youtube.com/
+key,title,lectureAbstract,estimatedLearningTime,body,lectureType,draft,link,key:lecturer
+lecture-01,titulo,Esto es el resumen(abstract)de clase(lecture) donde comprueba que los caracteres son 100 como maximo,1.80,body,HANDS_ON,true,https://www.contadordecaracteres.com/,lecturer-01
+lecture-02,1,1,2.0,Esto es el contenido(body) de clase(lecture) donde comprueba que los caracteres son 100 como maximo,THEORETICAL,false,,lecturer-01
+lecture-03,Esto es un titulo de una clase donde comprueba los caracteres son 75 maximo,resumen,1.50,1,THEORETICAL,true,https://www.youtube.com/,lecturer-01
+lecture-04,Titulo 1,Resumen 1,1.5,Cuerpo 1,HANDS_ON,true,,lecturer-01
+lecture-05,Titulo 2,Resumen 2,1.75,Cuerpo 2,HANDS_ON,true,https://bit.ly/3uYJ5vG,lecturer-01
+lecture-06,Titulo 3,Resumen 3,2,Cuerpo 3,HANDS_ON,false,https://tinyurl.com/y7l6udw2,lecturer-02
+lecture-07,Titulo 4,Resumen 4,2,Cuerpo 4,THEORETICAL,false,,lecturer-02
+lecture-08,Titulo 5,Resumen 5,2,Cuerpo 5,THEORETICAL,false,,lecturer-02
+lecture-09,Optimización de motores de búsqueda,Mejora tu visibilidad online.,1.5,"Palabras clave, contenido relevante, metadatos.",HANDS_ON,false,https://is.gd/f9MzxK,lecturer-01
+lecture-10,Estrategias de redes sociales,Conecta con tu audiencia.,3,"Publicaciones atractivas, interacción social, análisis de datos.",THEORETICAL,true,,lecturer-01
+lecture-11,Planificación financiera para el éxito,Aprende a gestionar tus finanzas.,3,"Presupuesto, ahorro, inversión, deudas.",HANDS_ON,false,,lecturer-01
+lecture-12,Introducción al desarrollo web,Descubre el mundo del desarrollo web.,1,"HTML, CSS, JavaScript básico.",HANDS_ON,false,,lecturer-01
+lecture-13,Diseño web responsivo,Crea sitios web adaptables.,1,"Media queries, flexbox, grid.",THEORETICAL,false,https://t2m.io/8L9GSbW,lecturer-01
+lecture-14,Optimización de rendimiento web,Mejora la velocidad de carga.,1,"Compresión de archivos, caché, minificación.",THEORETICAL,false,,lecturer-01
+lecture-15,Fundamentos del liderazgo efectivo,Desarrolla habilidades para liderar.,1,"Comunicación, influencia, toma decisiones.",HANDS_ON,false,,lecturer-01
+lecture-16,Estrategias de redacción persuasiva,Domina el poder de persuasión.,3.5,"Argumentación, llamado a la acción.",HANDS_ON,false,https://u.to/-S1PGQ,lecturer-01
+lecture-17,El arte de la persuasión en publicidad,Crea anuncios irresistibles y efectivos.,2,"Tono persuasivo, storytelling, copywriting.",THEORETICAL,false,https://soo.gd/Uzrj,lecturer-01
+lecture-18,Introducción a la programación con Python,Aprende los fundamentos básicos.,2,"Variables, condicionales, bucles, funciones.",HANDS_ON,false,,lecturer-01
+lecture-19,Manipulación de datos con Python,Explora y procesa información.,1,"Listas, diccionarios, manipulación de cadenas.",THEORETICAL,false,,lecturer-01
+lecture-20,Optimización del tiempo personal,Aprende a aprovechar cada minuto.,1,"Planificación, establecimiento de prioridades.",HANDS_ON,false,https://linktr.ee/hf7K,lecturer-01
+lecture-21,Técnicas de gestión del tiempo,Domina las estrategias efectivas.,2,"Pomodoro, matriz Eisenhower, bloqueo de tiempo.",THEORETICAL,false,,lecturer-01
+lecture-22,Productividad y equilibrio personal,Logra más sin agotarte.,3,"Delegación, gestión de interrupciones.",THEORETICAL,false,,lecturer-01
+lecture-23,Estrategias de ventas efectivas,Aprende a cerrar acuerdos exitosos.,2,"Prospección, persuasión, cierre de ventas.",HANDS_ON,false,,lecturer-01
+lecture-24,Negociación ganar-ganar,Desarrolla habilidades de negociación.,1,"Comunicación, empatía, resolución de conflictos.",HANDS_ON,false,https://tiny.cc/kj2cuz,lecturer-01
+lecture-25,Titulo 6,Resumen 6,2,Cuerpo 6,THEORETICAL,true,,lecturer-01
+lecture-26,Titulo 7,Resumen 7,1,Cuerpo 7,HANDS_ON,true,,lecturer-01
+lecture-27,Titulo 8,Resumen 8,2,Cuerpo 8,THEORETICAL,true,https://shr.link/7Jgv1,lecturer-01
+lecture-28,Titulo 9,Resumen 9,2,Cuerpo 9,THEORETICAL,true,,lecturer-01

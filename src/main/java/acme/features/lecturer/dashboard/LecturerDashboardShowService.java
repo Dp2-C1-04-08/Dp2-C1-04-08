@@ -42,7 +42,7 @@ public class LecturerDashboardShowService extends AbstractService<Lecturer, Lect
 	@Override
 	public void load() {
 		LecturerDashboard dashboard;
-		final HashMap<Nature, Integer> totalLecture = new HashMap();
+		final HashMap<Nature, Integer> totalLecture = new HashMap<Nature, Integer>();
 		totalLecture.put(Nature.THEORETICAL, 0);
 		totalLecture.put(Nature.HANDS_ON, 0);
 		Collection<Course> courses;

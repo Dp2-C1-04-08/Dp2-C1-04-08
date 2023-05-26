@@ -64,12 +64,12 @@ public class CompanyPracticaUpdateService extends AbstractService<Company, Pract
 		super.state(!isPublished, "*", "company.practica.form.error.update.published");
 
 		Optional<Practicum> practicumWhithSameCode;
-		Practicum practicum;
+		final Practicum practicum;
 
 		code = super.getRequest().getData("code", String.class);
 		practicumWhithSameCode = this.repository.findOnePracticumByCode(code);
-		practicum = practicumWhithSameCode.get();
-		sameCode = !practicumWhithSameCode.isPresent() || practicum.getId() == object.getId();
+
+		sameCode = !practicumWhithSameCode.isPresent() || practicumWhithSameCode.get().getId() == object.getId();
 		super.state(sameCode, "*", "company.practica.form.error.code");
 
 	}

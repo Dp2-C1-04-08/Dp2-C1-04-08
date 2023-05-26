@@ -54,9 +54,14 @@ public class CompanyPracticaShowService extends AbstractService<Company, Practic
 		Tuple tuple;
 		final Collection<Course> courses = this.repository.findAllCourse();
 		final SelectChoices choices = SelectChoices.from(courses, "title", object.getCourse());
+		final Float minus10estimatedTime = (float) (object.getEstimatedTime() - 0.1 * object.getEstimatedTime());
+		final Float plus10estimatedTime = (float) (object.getEstimatedTime() + 0.1 * object.getEstimatedTime());
+
 		tuple = super.unbind(object, "code", "title", "goals", "abstractStr", "estimatedTime", "estimatedTime", "company", "published");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
+		tuple.put("minus10estimatedTime", minus10estimatedTime);
+		tuple.put("plus10estimatedTime", plus10estimatedTime);
 		super.getResponse().setData(tuple);
 	}
 
