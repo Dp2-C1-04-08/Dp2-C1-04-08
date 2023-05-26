@@ -50,9 +50,7 @@ public class CompanyPracticumDeleteTest extends TestHarness {
 		super.clickOnListingRecord(practicumRecordIndex);
 		super.checkFormExists();
 
-		super.clickOnSubmit("Delete");
-
-		super.checkErrorsExist();
+		super.checkNotButtonExists("Delete");
 
 		super.signOut();
 	}

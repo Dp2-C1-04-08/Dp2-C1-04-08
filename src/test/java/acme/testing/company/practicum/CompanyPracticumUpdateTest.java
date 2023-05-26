@@ -59,6 +59,39 @@ public class CompanyPracticumUpdateTest extends TestHarness {
 		super.checkInputBoxHasValue("published", published);
 		super.signOut();
 	}
+	@ParameterizedTest
+	@CsvFileSource(resources = "/company/practicum/update-positive2.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test101Positive(final int practicumRecordIndex, final String code, final String title, final String abstractStr, final String goals, final String published, final String course, final String estimatedTime) {
+
+		super.signIn("company1", "company1");
+
+		super.clickOnMenu("My Company", "List Practicum");
+		super.checkListingExists();
+		super.sortListing(1, "asc");
+
+		super.clickOnListingRecord(practicumRecordIndex);
+		super.checkFormExists();
+		super.fillInputBoxIn("code", code);
+		super.fillInputBoxIn("title", title);
+		super.fillInputBoxIn("abstractStr", abstractStr);
+		super.fillInputBoxIn("goals", goals);
+		super.fillInputBoxIn("published", published);
+		super.fillInputBoxIn("course", course);
+
+		super.clickOnSubmit("Publish");
+
+		super.clickOnMenu("My Company", "List Practicum");
+		super.checkListingExists();
+		super.sortListing(1, "asc");
+
+		super.checkColumnHasValue(practicumRecordIndex, 2, published);
+
+		super.clickOnListingRecord(practicumRecordIndex);
+		super.checkFormExists();
+
+		super.checkInputBoxHasValue("published", published);
+		super.signOut();
+	}
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/company/practicum/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -81,6 +114,23 @@ public class CompanyPracticumUpdateTest extends TestHarness {
 		super.clickOnSubmit("Update");
 
 		super.checkErrorsExist();
+
+		super.signOut();
+	}
+
+	@ParameterizedTest
+	@CsvFileSource(resources = "/company/practicum/update-negative2.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test201Negative(final int practicumRecordIndex) {
+		super.signIn("company1", "company1");
+
+		super.clickOnMenu("My Company", "List Practicum");
+		super.checkListingExists();
+		super.sortListing(1, "asc");
+
+		super.clickOnListingRecord(practicumRecordIndex);
+		super.checkFormExists();
+
+		super.checkNotButtonExists("Update");
 
 		super.signOut();
 	}

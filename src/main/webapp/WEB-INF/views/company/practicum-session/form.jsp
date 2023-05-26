@@ -15,7 +15,7 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
-<acme:form>
+<acme:form readonly="${practicumPublished == true}">
 	<acme:input-textbox code="company.practicumSession.list.label.title" path="title"/>
 	<acme:input-textbox code="company.practicumSession.list.label.abstractStr" path="abstractStr"/>
 	<acme:input-textarea code="company.practicumSession.list.label.link" path="link"/>
@@ -26,8 +26,11 @@
 
 	<jstl:choose>
 		<jstl:when test="${_command == 'show' || _command == 'update'|| _command == 'delete'}">
+		<jstl:if test ="${practicumPublished == false}">
 			<acme:submit code="company.practicumSession.list.button.update" action="/company/practicum-session/update"/>
 			<acme:submit code="company.practicumSession.list.button.delete" action="/company/practicum-session/delete"/>
+			</jstl:if>
+			
 			
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
