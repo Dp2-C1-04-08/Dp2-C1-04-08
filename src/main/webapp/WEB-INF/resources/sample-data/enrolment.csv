@@ -1,6 +1,6 @@
 key,code,motivation,goals,key:student,key:course,isFinalised
 enrolment-01,A1003,Aprender,Graduarse,student-01,course-01,False
 enrolment-02,B1113,Aprobar,Terminar el programa,student-02,course-02,False
-enrolment-03,C3223,Aprender,Graduarse de un nuevo curso,student-03,course-03,False
-enrolment-04,D2663,Conseguir una subida de sueldo,Aprender a trabajar en equipo,student-04,course-02,False
-enrolment-05,E1993,Adaptarse,Aprender español,student-05,course-01,False
+enrolment-03,C3223,Aprender,Graduarse de un nuevo curso,student-01,course-03,False
+enrolment-04,D2663,Conseguir una subida de sueldo,Aprender a trabajar en equipo,student-01,course-02,False
+enrolment-05,E1993,Adaptarse,Aprender español,student-02,course-01,False

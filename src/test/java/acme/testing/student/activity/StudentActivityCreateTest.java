@@ -1,24 +1,22 @@
 
 package acme.testing.student.activity;
 
-import java.util.Collection;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.entities.enrolments.Activity;
 import acme.testing.TestHarness;
 
-public class StudentActivityUpdateTest extends TestHarness {
+public class StudentActivityCreateTest extends TestHarness {
 
-	@Autowired
-	protected StudentActivityTestRepository repository;
-
+	//	@Autowired
+	//	protected CompanyPracticumSessionTestRepository	repository;
+	//
+	//	@Autowired
+	//	protected CompanyPracticumTestRepository		practicumRepository;
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/student/activity/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/student/activity/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String title, final String activityAbstract, final String type, final String start, final String end, final String link) {
 
 		super.signIn("student1", "student1");
@@ -30,13 +28,12 @@ public class StudentActivityUpdateTest extends TestHarness {
 		super.clickOnListingRecord(0);
 		super.checkFormExists();
 		super.clickOnButton("Workbook");
-
 		super.checkListingExists();
-		super.sortListing(2, "asc");
 
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnButton("Create");
 		super.checkFormExists();
 
+		//		title,activityAbstract,type,start,end,link
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("activityAbstract", activityAbstract);
 		super.fillInputBoxIn("activityType", type);
@@ -44,7 +41,7 @@ public class StudentActivityUpdateTest extends TestHarness {
 		super.fillInputBoxIn("endTime", end);
 		super.fillInputBoxIn("link", link);
 
-		super.clickOnSubmit("Update");
+		super.clickOnSubmit("Create");
 
 		super.clickOnMenu("Student", "List your enrolments");
 		super.checkListingExists();
@@ -67,11 +64,13 @@ public class StudentActivityUpdateTest extends TestHarness {
 		super.checkInputBoxHasValue("endTime", end);
 		super.checkInputBoxHasValue("link", link);
 
+		super.signOut();
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/student/activity/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/student/activity/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex, final String title, final String activityAbstract, final String type, final String start, final String end, final String link) {
+
 		super.signIn("student1", "student1");
 
 		super.clickOnMenu("Student", "List your enrolments");
@@ -81,13 +80,12 @@ public class StudentActivityUpdateTest extends TestHarness {
 		super.clickOnListingRecord(0);
 		super.checkFormExists();
 		super.clickOnButton("Workbook");
-
 		super.checkListingExists();
-		super.sortListing(2, "asc");
 
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnButton("Create");
 		super.checkFormExists();
 
+		//		title,activityAbstract,type,start,end,link
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("activityAbstract", activityAbstract);
 		super.fillInputBoxIn("activityType", type);
@@ -95,40 +93,21 @@ public class StudentActivityUpdateTest extends TestHarness {
 		super.fillInputBoxIn("endTime", end);
 		super.fillInputBoxIn("link", link);
 
-		super.clickOnSubmit("Update");
+		super.clickOnSubmit("Create");
 		super.checkErrorsExist();
-
 		super.signOut();
 	}
 
 	@Test
 	public void test300Hacking() {
+		super.checkLinkExists("Sign in");
+		super.request("/student/activity/create");
+		super.checkPanicExists();
 
-		// HINT: this test tries to show other assistant's tutorials not published
-		// It does not take into account an authenticated triying to access a not published tutorial
-		String param;
-		final Collection<Activity> activities;
-
-		activities = this.repository.findActivitiesByEnrolmentId(1);
-		for (final Activity activity : activities) {
-
-			param = String.format("id=%d", activity.getId());
-
-			super.checkLinkExists("Sign in");
-			super.request("/student/enrolment/update", param);
-			super.checkPanicExists();
-
-			super.signIn("administrator", "administrator");
-			super.request("/student/enrolment/update", param);
-			super.checkPanicExists();
-			super.signOut();
-
-			super.signIn("student2", "student2");
-			super.request("/student/enrolment/update", param);
-			super.checkPanicExists();
-			super.signOut();
-
-		}
-
+		super.signIn("administrator", "administrator");
+		super.request("/student/activity/create");
+		super.checkPanicExists();
+		super.signOut();
 	}
+
 }

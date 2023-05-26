@@ -87,8 +87,8 @@ public class ActivityCreateService extends AbstractService<Student, Activity> {
 
 		final Date startTime = object.getStartTime();
 		final Date endTime = object.getEndTime();
-		super.state(startTime.before(endTime), "*", "student.activity.form.error.invalidDuration");
-
+		if (startTime != null && endTime != null)
+			super.state(startTime.before(endTime), "*", "student.activity.form.error.invalidDuration");
 	}
 
 	@Override

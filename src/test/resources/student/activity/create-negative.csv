@@ -1,0 +1,8 @@
+recordIndex,title,activityAbstract,type,start,end,link
+0,Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,Abstracto de la actividad,HANDS_ON,2019/03/10 10:00,2019/03/10 11:00,https://ejemplo.com/
+0,Actividad,Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,HANDS_ON,2019/03/10 10:00,2019/03/10 11:00,https://ejemplo.com/
+0,,Abstracto de la actividad,HANDS_ON,2019/03/10 10:00,2019/03/10 11:00,https://ejemplo.com/
+0,Actividad,,HANDS_ON,2019/03/10 10:00,2019/03/10 11:00,https://ejemplo.com/
+0,Actividad,Abstracto de la actividad,HANDS_ON,,2019/03/10 11:00,https://ejemplo.com/
+0,Actividad,Abstracto de la actividad,HANDS_ON,2019/03/10 10:00,,https://ejemplo.com/
+0,Actividad,Abstracto de la actividad,HANDS_ON,2020/03/10 10:00,2019/03/10 11:00,https://ejemplo.com/

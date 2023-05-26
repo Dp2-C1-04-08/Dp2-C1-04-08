@@ -36,4 +36,7 @@ student.enrolment.form.label.expiryDate =  Expiration date
 student.enrolment.form.label.upperNibble = Card number (first half)
 student.enrolment.form.label.lowerNibble = Card number (second half)
 
+authentication.note.form.error.null = May not be null
+authentication.note.form.error.wrongLength = Wrong field length
+
 student.enrolment.list.button = List Enrolments
