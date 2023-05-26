@@ -1,0 +1,12 @@
+recordIndex,code,title,abstract-str,goals,course
+0,,,,,---
+0,AAA0001,Valid title,Valid abstract-str,valid goals,titulo de un curso
+0,adawdacaw,Valid title,Valid abstract-str,valid goals,titulo de un curso
+0,,Valid title,Valid abstract-str,valid goals,titulo de un curso
+0,TST0001,,Valid abstract-str,valid goals,titulo de un curso
+0,TST0001,rThX7vpZzwBTiWU4Gqnewv828pmxhLQmzN65zxh6mWPiy7Q7ABa5rrHYV2bWQZ8HknPBScA6fVjd,Valid abstract-str,valid goals,titulo de un curso
+0,TST0001,Valid title,,valid goals,titulo de un curso
+0,TST0001,Valid title,bXd6B8EKMYrp4kn7T8eTxjjemmhKfhVfeBPtGcSupmf9bDTkNTTJmHxpWueHR9FjGhRynrBAjJiXCAQi8bEeJwWcffyEJDkvQqCzMValid,valid goals,titulo de un curso
+0,TST0001,Valid title,Valid abstract-str,,titulo de un curso
+0,TST0001,Valid title,Valid abstract-str,bXd6B8EKMYrp4kn7T8eTxjjemmhKfhVfeBPtGcSupmf9bDTkNTTJmHxpWueHR9FjGhRynrBAjJiXCAQi8bEeJwWcffyEJDkvQqCzMValid,titulo de un curso
+0,TST0001,Valid title,Valid abstract-str,valid goals,---

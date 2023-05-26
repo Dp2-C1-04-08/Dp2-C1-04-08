@@ -1,7 +1,7 @@
 key,key:tutorial,title,abstract-str,type,link,start-time,end-time,draft
 session-tutorial-01,tutorial-01,First Law of Newton,Reviewing the prerequisites,THEORETICAL,http://newton.com,2023/03/01 09:30,2023/03/01 11:30,true
 session-tutorial-02,tutorial-01,F,Reviewing the prerequisites,THEORETICAL,http://newton.com,2023/03/02 09:30,2023/03/02 11:30,true
-session-tutorial-03,tutorial-01,75 chars long title.In this tutorial session we will see the 1st Newton law,Reviewing the prerequisites,THEORETICAL,http://newton.com,2023/03/03 09:30,2023/03/03 11:30,true
+session-tutorial-03,tutorial-01,B75chars long title.In this tutorial session we will see the 1st Newton law,Reviewing the prerequisites,THEORETICAL,http://newton.com,2023/03/03 09:30,2023/03/03 11:30,true
 session-tutorial-04,tutorial-01,"<script>alert(""Hello from script injection"");</script>",Reviewing the prerequisites,THEORETICAL,http://newton.com,2023/03/04 09:30,2023/03/04 11:30,true
 session-tutorial-05,tutorial-01,First Law of Newton,R,THEORETICAL,http://newton.com,2023/03/05 09:30,2023/03/05 11:30,true
 session-tutorial-06,tutorial-01,First Law of Newton,100 chars long abstract.In this tutorial session we'll see the 1st Newton law and experiment with it,THEORETICAL,http://newton.com,2023/03/06 09:30,2023/03/06 11:30,true
@@ -15,3 +15,4 @@ session-tutorial-13,tutorial-01,First Law of Newton,Reviewing the prerequisites,
 session-tutorial-14,tutorial-02,First Law of Newton,Reviewing the prerequisites,THEORETICAL,http://newton.com,2022/08/29 21:59,2022/08/29 23:59,false
 session-tutorial-15,tutorial-10,First Law of Newton,Reviewing the prerequisites,THEORETICAL,http://newton.com,2022/08/10 21:59,2022/08/10 23:59,false
 session-tutorial-16,tutorial-03,First Law of Newton,Reviewing the prerequisites,THEORETICAL,http://newton.com,2022/07/31 00:01,2022/07/31 01:01,true
+session-tutorial-17,tutorial-12,First Law of Newton,Reviewing the prerequisites,THEORETICAL,http://newton.com,2022/07/31 00:01,2022/07/31 01:01,true
