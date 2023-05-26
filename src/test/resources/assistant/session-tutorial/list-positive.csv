@@ -1,7 +1,7 @@
 recordIndex,tutorialRecordIndex,title,abstract-str,type,start,tutorialCode
 9,0,First Law of Newton,Reviewing the prerequisites,THEORETICAL,2023/03/01 09:30,AAA0001
 2,0,F,Reviewing the prerequisites,THEORETICAL,2023/03/02 09:30,AAA0001
-1,0,75 chars long title.In this tutorial session we will see the 1st Newton law,Reviewing the prerequisites,THEORETICAL,2023/03/03 09:30,AAA0001
+1,0,B75chars long title.In this tutorial session we will see the 1st Newton law,Reviewing the prerequisites,THEORETICAL,2023/03/03 09:30,AAA0001
 0,0,"<script>alert(""Hello from script injection"");</script>",Reviewing the prerequisites,THEORETICAL,2023/03/04 09:30,AAA0001
 7,0,First Law of Newton,R,THEORETICAL,2023/03/05 09:30,AAA0001
 6,0,First Law of Newton,100 chars long abstract.In this tutorial session we'll see the 1st Newton law and experiment with it,THEORETICAL,2023/03/06 09:30,AAA0001

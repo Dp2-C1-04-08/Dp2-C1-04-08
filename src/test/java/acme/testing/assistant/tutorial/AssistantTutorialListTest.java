@@ -13,13 +13,14 @@
 package acme.testing.assistant.tutorial;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
 public class AssistantTutorialListTest extends TestHarness {
 
-	//	@ParameterizedTest
+	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code, final String title, final String abstractStr, final String draft) {
 		// HINT: this test authenticates as an employer and checks that he or
