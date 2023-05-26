@@ -1,0 +1,5 @@
+auditRecord,recordIndex,subject,assessment,startDate,endDate,mark,link,confirmation
+0,1,Valid subject 2,Valid assessment,2019/01/01 12:00,2019/01/01 14:00,APLUS,https://www.example.com,true
+0,2,Valid subject 3,V,2020/12/28 22:00,2020/12/28 23:00,A,http://127.0.0.1:8080,true
+0,3,Valid subject 4,Valid assessment,2020/12/28 22:00,2020/12/28 23:00,B,,true
+0,4,Valid subject 5,Valid assessment,2020/12/28 22:00,2020/12/28 23:00,C,,true

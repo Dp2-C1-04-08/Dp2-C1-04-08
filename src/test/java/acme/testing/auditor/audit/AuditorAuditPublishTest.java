@@ -11,17 +11,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.entities.audits.Audit;
 import acme.testing.TestHarness;
 
-public class AuditorAuditDeleteTest extends TestHarness {
+public class AuditorAuditPublishTest extends TestHarness {
 
 	@Autowired
 	AuditorAuditTestRepository repository;
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/auditor/audit/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/auditor/audit/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex) {
 
-		super.signIn("auditor8", "auditor8");
+		super.signIn("auditor1", "auditor1");
 
 		super.clickOnMenu("Auditor", "My audits");
 		super.checkListingExists();
@@ -30,15 +30,18 @@ public class AuditorAuditDeleteTest extends TestHarness {
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 
-		super.clickOnSubmit("Delete");
+		super.clickOnSubmit("Publish");
 
 		super.clickOnMenu("Auditor", "My audits");
-		super.checkListingEmpty();
+		super.checkListingExists();
+		super.sortListing(0, "asc");
+
+		super.checkColumnHasValue(recordIndex, 3, "true");
 
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/auditor/audit/delete-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/auditor/audit/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int recordIndex) {
 
 		super.signIn("auditor1", "auditor1");
@@ -50,7 +53,7 @@ public class AuditorAuditDeleteTest extends TestHarness {
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 
-		super.checkNotButtonExists("Delete");
+		super.checkNotButtonExists("Publish");
 
 		super.signOut();
 
@@ -66,21 +69,21 @@ public class AuditorAuditDeleteTest extends TestHarness {
 			url = String.format("id=%d", audit.getId());
 
 			super.checkLinkExists("Sign in");
-			super.request("/auditor/audit/delete", url);
+			super.request("/auditor/audit/publish", url);
 			super.checkPanicExists();
 
 			super.signIn("administrator", "administrator");
-			super.request("/auditor/audit/delete", url);
+			super.request("/auditor/audit/publish", url);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("assistant2", "assistant2");
-			super.request("/auditor/audit/delete", url);
+			super.request("/auditor/audit/publish", url);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("auditor1", "auditor1");
-			super.request("/auditor/audit/delete", url);
+			super.request("/auditor/audit/publish", url);
 			super.checkPanicExists();
 			super.signOut();
 		}
