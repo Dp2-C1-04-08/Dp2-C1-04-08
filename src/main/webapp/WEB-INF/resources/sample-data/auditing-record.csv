@@ -8,3 +8,6 @@ auditing-record-06,Valid subject,Valid assessment,2019/01/01 12:00,2019/01/01 14
 auditing-record-07,Valid subject,Valid assessment,2022/07/29 22:00,2022/07/29 23:59,B,https://www.example.com,false,audit-07
 auditing-record-08,Valid subject,Valid assessment,2019/01/01 12:00,2019/01/01 14:00,C,https://www.example.com,false,audit-08
 auditing-record-09,Valid subject,Valid assessment,2019/01/01 12:00,2019/01/01 14:00,A,null,false,audit-09
+auditing-record-10,1 Valid subject,Valid assessment,2019/01/01 12:00,2019/01/01 14:00,C,null,false,audit-11
+auditing-record-11,2 Valid subject,Valid assessment,2019/01/01 12:00,2019/01/01 14:00,C,null,false,audit-11
+auditing-record-12,3 Valid subject,Valid assessment,2019/01/01 12:00,2019/01/01 14:00,C,null,false,audit-11
