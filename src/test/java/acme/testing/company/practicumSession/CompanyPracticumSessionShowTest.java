@@ -53,8 +53,7 @@ public class CompanyPracticumSessionShowTest extends TestHarness {
 
 	@Test
 	public void test200Negative() {
-		// HINT: there's no negative test case for this listing, since it doesn't
-		// HINT+ involve filling in any forms.
+
 	}
 
 	@Test
