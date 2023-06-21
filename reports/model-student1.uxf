@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>665</x>
-      <y>42</y>
+      <y>70</y>
       <w>238</w>
       <h>84</h>
     </coordinates>
@@ -24,14 +24,14 @@ bg=GREEN</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>259</x>
-      <y>21</y>
+      <y>49</y>
       <w>301</w>
       <h>112</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Course
 --
-+ code: String {Unique, NotBlank, Pattern("[A-Z]{1,3}[0-9][0-9]{3}")} 
++ code: String {Unique, NotBlank, Pattern("[A-Z]{1,3}[0-9]{3}")} 
 + title:String {NotBlank, Length(1,75)}
 + courseAbstract: String {NotBlank, Length(1,100)}
 + courseType: Nature
@@ -46,7 +46,7 @@ bg=GREEN</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>252</x>
-      <y>224</y>
+      <y>252</y>
       <w>301</w>
       <h>112</h>
     </coordinates>
@@ -68,7 +68,7 @@ bg=GREEN</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>637</x>
-      <y>182</y>
+      <y>210</y>
       <w>301</w>
       <h>133</h>
     </coordinates>
@@ -92,20 +92,20 @@ bg=GREEN</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>553</x>
-      <y>84</y>
+      <y>105</y>
       <w>126</w>
       <h>28</h>
     </coordinates>
     <panel_attributes>lt=x-&gt;
 m1=1
 m2=*</panel_attributes>
-    <additional_attributes>10.0;10.0;160.0;10.0</additional_attributes>
+    <additional_attributes>160.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>392</x>
-      <y>126</y>
+      <y>154</y>
       <w>35</w>
       <h>112</h>
     </coordinates>
@@ -118,7 +118,7 @@ m2=1..*</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>182</y>
+      <y>210</y>
       <w>147</w>
       <h>56</h>
     </coordinates>
@@ -134,14 +134,40 @@ bg=GREEN</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>518</x>
-      <y>112</y>
-      <w>161</w>
-      <h>126</h>
+      <x>546</x>
+      <y>133</y>
+      <w>133</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>lt=x-&gt;
 m1=1
-m2=*</panel_attributes>
-    <additional_attributes>10.0;160.0;210.0;10.0</additional_attributes>
+m2=    *</panel_attributes>
+    <additional_attributes>170.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>77</x>
+      <y>70</y>
+      <w>133</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>bg=pink
+Purely theoretical courses,
+course that all its lectures
+are theoretical,must be 
+rejected by the system</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>203</x>
+      <y>98</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
   </element>
 </diagram>
