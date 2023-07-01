@@ -8,3 +8,8 @@ user-account-company-04,true,"UserIdentity{name: 'Company', surname: '4', email:
 user-account-lecturer-01,true,"UserIdentity{name: 'Lecturer', surname: '1', email: 'lecturer1@acme.com'}",lecturer1,lecturer1
 user-account-lecturer-02,true,"UserIdentity{name: 'Lecturer', surname: '2', email: 'lecturer2@acme.com'}",lecturer2,lecturer2
 user-account-lecturer-03,true,"UserIdentity{name: 'Lecturer', surname: '3', email: 'lecturer3@acme.com'}",lecturer3,lecturer3
+user-account-student-1,true,"UserIdentity{name: 'Student1', surname: '01', email: 'student1@acme.com'}",student1,student1
+user-account-student-2,true,"UserIdentity{name: 'Student2', surname: '02', email: 'student2@acme.com'}",student2,student2
+user-account-student-3,true,"UserIdentity{name: 'Student3', surname: '03', email: 'student3@acme.com'}",student3,student3
+user-account-student-4,true,"UserIdentity{name: 'Student4', surname: '04', email: 'student4@acme.com'}",student4,student4
+user-account-student-5,true,"UserIdentity{name: 'Student5', surname: '05', email: 'student5@acme.com'}",student5,student5
