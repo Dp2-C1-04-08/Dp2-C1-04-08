@@ -24,6 +24,7 @@
 			<acme:input-textbox code="student.enrolment.form.label.code" path="code"/>	
 			<acme:input-textbox code="student.enrolment.form.label.motivation" path="motivation"/>
 			<acme:input-textbox code="student.enrolment.form.label.goals" path="goals"/>
+			<acme:input-integer readonly="${true}" code="student.enrolment.form.label.worktime" path="worktime"/>
 			
 			<jstl:choose>
 				<jstl:when test="${_command == 'show' || _command == 'update'|| _command == 'delete'}">

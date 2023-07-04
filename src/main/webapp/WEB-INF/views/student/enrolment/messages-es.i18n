@@ -19,6 +19,7 @@ student.enrolment.form.label.motivation = Motivación
 student.enrolment.form.label.goals = Metas
 student.enrolment.form.label.isFinalised = Está finalizado
 student.enrolment.form.label.student-id = Id del estudiante
+student.enrolment.form.label.worktime = Tiempo de trabajo (en horas)
 student.enrolment.form.label.course-code = Código del curso
 
 student.enrolment.form.button.finalise = Finalizar
