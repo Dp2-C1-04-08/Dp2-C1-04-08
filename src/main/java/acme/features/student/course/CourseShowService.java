@@ -65,6 +65,10 @@ public class CourseShowService extends AbstractService<Student, Course> {
 		assert object != null;
 		int id;
 		final Collection<Lecture> lectures;
+		final Collection<String> lectureTitles;
+		final String name;
+		final String surname;
+		final String email;
 		Lecturer lecturer;
 
 		Tuple tuple;
@@ -72,9 +76,16 @@ public class CourseShowService extends AbstractService<Student, Course> {
 
 		tuple = super.unbind(object, "code", "title", "courseAbstract", "courseType", "retailPrice", "link");
 		lectures = this.repository.findLecturesByCourseId(id);
+
 		lecturer = object.getLecturer();
-		tuple.put("lecturer", lecturer.getAlmaMater());
-		tuple.put("lectures", lectures);
+		name = lecturer.getUserAccount().getIdentity().getName();
+		surname = lecturer.getUserAccount().getIdentity().getSurname();
+		email = lecturer.getUserAccount().getIdentity().getEmail();
+		lectureTitles = this.repository.findLectureTitlesByCourseId(id);
+
+		tuple.put("lecturerFullName", name + " " + surname);
+		tuple.put("lecturerEmail", email);
+		tuple.put("lectures", lectureTitles);
 		super.getResponse().setData(tuple);
 	}
 

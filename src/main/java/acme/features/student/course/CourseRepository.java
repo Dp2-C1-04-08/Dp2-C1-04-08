@@ -36,4 +36,7 @@ public interface CourseRepository extends AbstractRepository {
 
 	@Query("SELECT cl.lecture FROM CourseLecture cl WHERE cl.course.id = :id")
 	Collection<Lecture> findLecturesByCourseId(int id);
+
+	@Query("SELECT cl.lecture.title FROM CourseLecture cl WHERE cl.course.id = :id")
+	Collection<String> findLectureTitlesByCourseId(int id);
 }
