@@ -21,14 +21,15 @@
 	
 	<jstl:choose>
 		<jstl:when test="${_command == 'show' || _command == 'update'|| _command == 'delete' || _command == 'register'}">
-			<acme:input-textbox code="student.enrolment.form.label.code" path="code"/>	
-			<acme:input-textbox code="student.enrolment.form.label.motivation" path="motivation"/>
-			<acme:input-textbox code="student.enrolment.form.label.goals" path="goals"/>
-			<acme:input-integer readonly="${true}" code="student.enrolment.form.label.worktime" path="worktime"/>
+			<acme:input-textbox readonly="${false}" code="student.enrolment.form.label.code" path="code"/>	
+			<acme:input-textbox readonly="${false}" code="student.enrolment.form.label.motivation" path="motivation"/>
+			<acme:input-textbox readonly="${false}" code="student.enrolment.form.label.goals" path="goals"/>
 			
 			<jstl:choose>
 				<jstl:when test="${_command == 'show' || _command == 'update'|| _command == 'delete'}">
+					<acme:input-integer readonly="${true}" code="student.enrolment.form.label.worktime" path="worktime"/>
 					<acme:input-textbox readonly="${true}" code="student.enrolment.form.label.course-code" path="courseCode"/>
+					<acme:input-textbox readonly="${true}" code="student.enrolment.form.label.course-title" path="courseTitle"/>
 					<jstl:choose>
 						<jstl:when test="${f == false}">
 							<acme:submit code="student.enrolment.form.button.update" action="/student/enrolment/update"/>

@@ -21,12 +21,16 @@ student.enrolment.form.label.isFinalised = Está finalizado
 student.enrolment.form.label.student-id = Id del estudiante
 student.enrolment.form.label.worktime = Tiempo de trabajo (en horas)
 student.enrolment.form.label.course-code = Código del curso
+student.enrolment.form.label.course-title = Título del curso
 
 student.enrolment.form.button.finalise = Finalizar
 student.enrolment.form.button.register = Registrar
 student.enrolment.form.button.update = Actualizar
 student.enrolment.form.button.delete = Borrar
 student.enrolment.form.button.activities = Libro de actividades
+
+authentication.note.form.error.repeatCode = El código de la matriculación debe de ser único
+authentication.note.form.error.repeatCourse = Ya estás registrado en este curs
 
 student.enrolment.form.error.update.finalised = No se puede actualizar una matriculación finalizada
 student.enrolment.form.error.delete.finalised = No se puede borrar una matriculación finalizada
@@ -38,6 +42,7 @@ student.enrolment.form.label.expiryDate =  Fecha de caducidad
 student.enrolment.form.label.upperNibble = Número de tarjeta (primera mitad)
 student.enrolment.form.label.lowerNibble = Número de tarjeta (segunda mitad)
 
+authentication.note.form.error.expired = Esta tarjeta está caducada
 authentication.note.form.error.null = No puede ser nulo
 authentication.note.form.error.wrongLength = Longitud de campo inapropiada
 

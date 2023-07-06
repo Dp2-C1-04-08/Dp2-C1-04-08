@@ -15,6 +15,8 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
+<jstl:set var="f" value="${enrolment.isFinalised}"/>
+
 <acme:form>
 	<acme:input-textbox code="student.activity.form.label.title" path="title"/>	
 	<acme:input-textbox code="student.activity.form.label.activityAbstract" path="activityAbstract"/>
@@ -25,8 +27,12 @@
 	
 	<jstl:choose>
 		<jstl:when test="${_command == 'show' || _command == 'update'|| _command == 'delete'}">
-			<acme:submit code="student.activity.form.button.update" action="/student/activity/update"/>
-			<acme:submit code="student.activity.form.button.delete" action="/student/activity/delete"/>
+			<jstl:choose>
+				<jstl:when test="${f == true}">
+					<acme:submit code="student.activity.form.button.update" action="/student/activity/update"/>
+					<acme:submit code="student.activity.form.button.delete" action="/student/activity/delete"/>							
+				</jstl:when>
+			</jstl:choose>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}"> 
 			<acme:submit code="student.activity.form.button.createActivity" action="/student/activity/create?masterId=${masterId}"/>

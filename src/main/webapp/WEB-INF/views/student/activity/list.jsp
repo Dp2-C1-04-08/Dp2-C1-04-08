@@ -15,10 +15,17 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
+<jstl:set var="f" value="${enrolment.isFinalised}"/>
+
 <acme:list> 
 	<acme:list-column code="student.activity.list.label.title" path="title"/>
 	<acme:list-column code="student.activity.list.label.activityAbstract" path="activityAbstract"/>
 	<acme:list-column code="student.activity.list.label.activityType" path="activityType"/>
 </acme:list>
-	<acme:button code="student.activity.list.button.createActivity" action="/student/activity/create?masterId=${masterId}"/>
+	<jstl:choose>
+		<jstl:when test="${f == true}">
+			<acme:button code="student.activity.list.button.createActivity" action="/student/activity/create?masterId=${masterId}"/>							
+		</jstl:when>
+	</jstl:choose>
+	
 	
