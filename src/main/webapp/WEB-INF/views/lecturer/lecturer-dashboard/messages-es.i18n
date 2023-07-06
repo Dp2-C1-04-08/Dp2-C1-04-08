@@ -1,8 +1,8 @@
 
 lecturer.dashboard.form.title = Mi tablero de profesor
 
-lecturer.dashboard.form.label.HandsOnCount = Clases pertenecientes a un curso practico
-lecturer.dashboard.form.label.TheoreticalCount = Clases pertenecientes a un curso teorico
+lecturer.dashboard.form.label.HandsOnCount = Clases practicas
+lecturer.dashboard.form.label.TheoreticalCount = Clases teoricas
 
 lecturer.dashboard.form.label.averageLecture = Duracion media de mis clases
 lecturer.dashboard.form.label.deviationLecture = Desviacion estándar de la duracion de las clases

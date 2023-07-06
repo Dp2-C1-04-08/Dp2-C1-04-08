@@ -1,8 +1,8 @@
 
 lecturer.dashboard.form.title = My lecturer dashboard
 
-lecturer.dashboard.form.label.HandsOnCount = Lectures belonging to a Hands On course
-lecturer.dashboard.form.label.TheoreticalCount = Lectures belonging to a Theoretical course
+lecturer.dashboard.form.label.HandsOnCount = Hands On's lectures
+lecturer.dashboard.form.label.TheoreticalCount = Theoretical's lectures
 
 lecturer.dashboard.form.label.averageLecture = Average duration of my lectures
 lecturer.dashboard.form.label.deviationLecture = Standard deviation of lectures's duration

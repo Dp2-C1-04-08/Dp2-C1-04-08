@@ -50,11 +50,11 @@ public class LecturerDashboardShowService extends AbstractService<Lecturer, Lect
 		Principal principal;
 		principal = super.getRequest().getPrincipal();
 		final int lecturerId = principal.getActiveRoleId();
-		courses = this.repository.findCoursesByLectureId(lecturerId);
+		courses = this.repository.findCoursesByLecturerId(lecturerId);
 		lectures = this.repository.findLecturesByLecturerId(lecturerId);
 
-		for (final Course c : courses) {
-			final Nature type = c.getCourseType();
+		for (final Lecture l : lectures) {
+			final Nature type = l.getLectureType();
 			Integer count = totalLecture.getOrDefault(type, 0);
 			count += 1;
 			totalLecture.put(type, count);

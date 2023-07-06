@@ -13,22 +13,22 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface LecturerDashboardRepository extends AbstractRepository {
 
-	@Query("select avg(cl.lecture.estimatedLearningTime) from CourseLecture cl where cl.course.lecturer.id = :id")
+	@Query("select avg(l.estimatedLearningTime) from Lecture l where l.lecturer.id = :id")
 	Double averageLecture(int id);
 
-	@Query("select STDDEV(cl.lecture.estimatedLearningTime) from CourseLecture cl where cl.course.lecturer.id = :id")
+	@Query("select STDDEV(l.estimatedLearningTime) from Lecture l where l.lecturer.id = :id")
 	Double deviationLecture(int id);
 
-	@Query("select min(cl.lecture.estimatedLearningTime)from CourseLecture cl where cl.course.lecturer.id = :id")
+	@Query("select min(l.estimatedLearningTime)from Lecture l where l.lecturer.id = :id")
 	Double minLecture(int id);
 
-	@Query("select max(cl.lecture.estimatedLearningTime) from CourseLecture cl where cl.course.lecturer.id = :id")
+	@Query("select max(l.estimatedLearningTime) from Lecture l where l.lecturer.id = :id")
 	Double maxLecture(int id);
 
 	@Query("select c from Course c where c.lecturer.id = :id")
-	Collection<Course> findCoursesByLectureId(int id);
+	Collection<Course> findCoursesByLecturerId(int id);
 
-	@Query("select cl.lecture from CourseLecture cl where cl.course.lecturer.id = :id")
+	@Query("select l from Lecture l where l.lecturer.id = :id")
 	Collection<Lecture> findLecturesByLecturerId(int id);
 
 	@Query("select sum(cl.lecture.estimatedLearningTime) from CourseLecture cl where cl.course.id = :id")

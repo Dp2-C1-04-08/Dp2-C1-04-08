@@ -58,9 +58,10 @@ master.menu.consumer.favourite-link = Favourite link
 # master.menu.lecturer ##########################################################
 
 master.menu.lecturer = Lecturer
-master.menu.lecturer.course.list = List Courses
+master.menu.lecturer.course.list = List my Courses
 master.menu.lecturer.course.create = Create Course
 master.menu.lecturer.dashboard = Lecturer Dashboard
+master.menu.lecturer.lecture.list = List my Lectures
 master.menu.lecturer.lecture.create = Create Lecture
 master.menu.lecturer.courseLecture.create = Add Lecture to Course
 

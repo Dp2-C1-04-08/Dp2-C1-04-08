@@ -24,7 +24,8 @@ lecturer.course.form.error.update.code.duplicated = This code is in use
 lecturer.course.form.error.code.duplicated = This code is in use
 lecuter.course.form.error.update.publish = You cannot publish a course without all its lectures being published
 lecturer.course.form.error.price.invalid-currency = Invalid currency
-lecturer.course.form.error.price.invalid-amount = Cannot be negative
+lecturer.course.form.error.retailPrice.negative-or-zero = Cannot be negative
+lecturer.course.form.error.retailPrice.too-big = This is too big
 lecturer.course.form.error.general.publish.no-lecture = Cannot be published without any lectures
 lecturer.course.form.error.general.publish.no-handsOn = Cannot be published without any hands-On lecture
 
