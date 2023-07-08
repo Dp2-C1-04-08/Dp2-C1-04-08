@@ -104,8 +104,8 @@ public class EnrolmentUpdateService extends AbstractService<Student, Enrolment> 
 			final Date end = a.getEndTime();
 			final Duration time = MomentHelper.computeDuration(start, end);
 			final long seconds = time.getSeconds();
-			final double minutes = seconds / 60;
-			final double hours = minutes / 60;
+			final double minutes = seconds / 60.0;
+			final double hours = minutes / 60.0;
 			worktime = worktime + hours;
 		}
 		tuple.put("worktime", worktime);

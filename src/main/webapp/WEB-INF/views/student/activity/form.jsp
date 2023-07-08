@@ -17,23 +17,42 @@
 
 
 <acme:form>
-	<acme:input-textbox readonly="${false}" code="student.activity.form.label.title" path="title"/>	
-	<acme:input-textbox readonly="${false}" code="student.activity.form.label.activityAbstract" path="activityAbstract"/>
-	<acme:input-select readonly="${false}" code="student.activity.form.label.activityType" path="activityType" choices="${activityTypes}"/>
-	<acme:input-moment readonly="${false}" code="student.activity.form.label.startTime" path="startTime"/>
-	<acme:input-moment readonly="${false}" code="student.activity.form.label.endTime" path="endTime"/>
-	<acme:input-url code="student.activity.form.label.link" path="link"/>
-	
 	<jstl:choose>
-		<jstl:when test="${_command == 'show' || _command == 'update'|| _command == 'delete'}">
+		<jstl:when test="${_command == 'show'|| _command == 'delete'}">
 			<jstl:choose>
 				<jstl:when test="${finalised == true}">
+					<acme:input-textbox code="student.activity.form.label.title" path="title"/>	
+					<acme:input-textbox code="student.activity.form.label.activityAbstract" path="activityAbstract"/>
+					<acme:input-select code="student.activity.form.label.activityType" path="activityType" choices="${activityTypes}"/>
+					<acme:input-moment code="student.activity.form.label.startTime" path="startTime"/>
+					<acme:input-moment code="student.activity.form.label.endTime" path="endTime"/>
+					<acme:input-url code="student.activity.form.label.link" path="link"/>
+	
 					<acme:submit code="student.activity.form.button.update" action="/student/activity/update"/>
 					<acme:submit code="student.activity.form.button.delete" action="/student/activity/delete"/>							
 				</jstl:when>
+				<jstl:when test="${finalised == false}">
+					<acme:input-textbox readonly="${true}" code="student.activity.form.label.title" path="title"/>	
+					<acme:input-textbox readonly="${true}" code="student.activity.form.label.activityAbstract" path="activityAbstract"/>
+					<acme:input-select readonly="${true}" code="student.activity.form.label.activityType" path="activityType" choices="${activityTypes}"/>
+					<acme:input-moment readonly="${true}" code="student.activity.form.label.startTime" path="startTime"/>
+					<acme:input-moment readonly="${true}" code="student.activity.form.label.endTime" path="endTime"/>
+					<acme:input-url readonly="${true}" code="student.activity.form.label.link" path="link"/>
+				</jstl:when>
 			</jstl:choose>
 		</jstl:when>
-		<jstl:when test="${_command == 'create' && finalised==true}"> 
+		<jstl:when test="${_command == 'update'}"> 
+			<acme:input-textbox code="student.activity.form.label.title" path="title"/>	
+			<acme:input-textbox code="student.activity.form.label.activityAbstract" path="activityAbstract"/>
+			<acme:input-select code="student.activity.form.label.activityType" path="activityType" choices="${activityTypes}"/>
+			<acme:input-moment code="student.activity.form.label.startTime" path="startTime"/>
+			<acme:input-moment code="student.activity.form.label.endTime" path="endTime"/>
+			<acme:input-url code="student.activity.form.label.link" path="link"/>
+			
+			<acme:submit code="student.activity.form.button.update" action="/student/activity/update"/>
+			<acme:submit code="student.activity.form.button.delete" action="/student/activity/delete"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'create'}"> 
 			<acme:submit code="student.activity.form.button.createActivity" action="/student/activity/create?masterId=${masterId}"/>
 		</jstl:when>
 	</jstl:choose>
