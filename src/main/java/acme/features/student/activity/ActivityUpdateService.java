@@ -19,7 +19,6 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.courses.Nature;
 import acme.entities.enrolments.Activity;
-import acme.entities.enrolments.Enrolment;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -48,11 +47,12 @@ public class ActivityUpdateService extends AbstractService<Student, Activity> {
 	public void authorise() {
 		boolean status;
 		int id;
-		Enrolment enrolment;
+		Activity activity;
 
 		id = super.getRequest().getData("id", int.class);
-		enrolment = this.repository.findEnrolmentById(id);
-		status = super.getRequest().getPrincipal().getActiveRoleId() == enrolment.getStudent().getId() && enrolment != null && enrolment.getIsFinalised() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
+		activity = this.repository.findActivityById(id);
+		status = super.getRequest().getPrincipal().getActiveRoleId() == activity.getEnrolment().getStudent().getId() && activity.getEnrolment().getIsFinalised() && activity != null
+			&& super.getRequest().getPrincipal().hasRole(activity.getEnrolment().getStudent());
 		super.getResponse().setAuthorised(status);
 	}
 

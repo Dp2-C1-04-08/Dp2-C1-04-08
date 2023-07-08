@@ -17,11 +17,11 @@
 
 
 <acme:form>
-	<acme:input-textbox code="student.activity.form.label.title" path="title"/>	
-	<acme:input-textbox code="student.activity.form.label.activityAbstract" path="activityAbstract"/>
-	<acme:input-select code="student.activity.form.label.activityType" path="activityType" choices="${activityTypes}"/>
-	<acme:input-moment code="student.activity.form.label.startTime" path="startTime"/>
-	<acme:input-moment code="student.activity.form.label.endTime" path="endTime"/>
+	<acme:input-textbox readonly="${false}" code="student.activity.form.label.title" path="title"/>	
+	<acme:input-textbox readonly="${false}" code="student.activity.form.label.activityAbstract" path="activityAbstract"/>
+	<acme:input-select readonly="${false}" code="student.activity.form.label.activityType" path="activityType" choices="${activityTypes}"/>
+	<acme:input-moment readonly="${false}" code="student.activity.form.label.startTime" path="startTime"/>
+	<acme:input-moment readonly="${false}" code="student.activity.form.label.endTime" path="endTime"/>
 	<acme:input-url code="student.activity.form.label.link" path="link"/>
 	
 	<jstl:choose>
