@@ -69,7 +69,13 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 	}
 	@Override
 	public void validate(final Lecture object) {
-		assert object != null;
+		Double estimatedLearningTime;
+
+		try {
+			estimatedLearningTime = super.getRequest().getData("estimatedLearningTime", Double.class);
+			super.state(estimatedLearningTime > 0.0, "estimatedLearningTime", "lecturer.leccture.form.error.estimatedLearningTime.negative-or-zero");
+		} catch (final Exception e) {
+		}
 
 	}
 	@Override
@@ -116,7 +122,7 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 		Tuple tuple;
 
 		tuple = super.unbind(object, "title", "lectureAbstract", "link", "estimatedLearningTime", "body", "lectureType", "draft");
-		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
+		tuple.put("id", super.getRequest().getData("id", int.class));
 		choices = SelectChoices.from(Nature.class, object.getLectureType());
 		tuple.put("lectureTypes", choices);
 		tuple.put("lectureType", choices.getSelected());
