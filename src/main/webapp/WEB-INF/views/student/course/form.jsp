@@ -22,17 +22,10 @@
 	<acme:input-textbox code="student.course.form.label.courseType" path="courseType"/>
 	<acme:input-money code="student.course.form.label.retailPrice" path="retailPrice"/>
 	<acme:input-url code="student.course.form.label.link" path="link"/>
-	
-	<acme:input-integer code="student.course.form.label.lecturer" path="lecturer"/>
-	<acme:list> 
-		<acme:list-column code="student.course.list.label.lectureTitle" path="title"/>
-		<acme:list-column code="student.course.list.label.lectureBody" path="courseAbstract"/>
-		<acme:list-column code="student.course.list.label.lectureType" path="courseType"/>
-	</acme:list>	<%--<acme:input-textbox code="student.course.form.label.lectures-lectureAbstract" path="lectureAbstract"/>
-	<acme:input-textbox code="student.course.form.label.lectures-lectureType" path="lectureType"/>
-	<acme:input-double code="student.course.form.label.lectures-estimatedLearningTime" path="estimatedLearningTime"/>
-	<acme:input-textbox code="student.course.form.label.lectures-body" path="body"/>
-	<acme:input-url code="student.course.form.label.lectures-link" path="link"/> --%>
+	 
+	<acme:input-textbox code="student.course.form.label.lectures" path="lectures"/>
+	<acme:input-textbox code="student.course.form.label.lecturerFullName" path="lecturerFullName"/>
+	<acme:input-textbox code="student.course.form.label.lecturerEmail" path="lecturerEmail"/>
 	
 	<acme:button code="student.enrolment.form.button.register" action="/student/enrolment/register?id=${id}"/>
 </acme:form>

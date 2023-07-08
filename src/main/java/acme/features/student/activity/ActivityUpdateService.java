@@ -12,10 +12,14 @@
 
 package acme.features.student.activity;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.courses.Nature;
 import acme.entities.enrolments.Activity;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -47,17 +51,15 @@ public class ActivityUpdateService extends AbstractService<Student, Activity> {
 
 		id = super.getRequest().getData("id", int.class);
 		activity = this.repository.findActivityById(id);
-		status = super.getRequest().getPrincipal().getActiveRoleId() == activity.getEnrolment().getStudent().getId() && activity != null && super.getRequest().getPrincipal().hasRole(activity.getEnrolment().getStudent());
+		status = super.getRequest().getPrincipal().getActiveRoleId() == activity.getEnrolment().getStudent().getId() && activity.getEnrolment().getIsFinalised() && activity != null
+			&& super.getRequest().getPrincipal().hasRole(activity.getEnrolment().getStudent());
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Activity object;
-		int id;
-
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findActivityById(id);
+		final int id = super.getRequest().getData("id", int.class);
+		final Activity object = this.repository.findActivityById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -65,13 +67,18 @@ public class ActivityUpdateService extends AbstractService<Student, Activity> {
 	@Override
 	public void bind(final Activity object) {
 		assert object != null;
-
 		super.bind(object, "title", "activityAbstract", "activityType", "startTime", "endTime", "link");
 	}
 
 	@Override
 	public void validate(final Activity object) {
 		assert object != null;
+
+		final Date startTime = object.getStartTime();
+		final Date endTime = object.getEndTime();
+		if (startTime != null && endTime != null)
+			super.state(startTime.before(endTime), "*", "student.activity.form.error.invalidDuration");
+
 	}
 
 	@Override
@@ -83,12 +90,14 @@ public class ActivityUpdateService extends AbstractService<Student, Activity> {
 	@Override
 	public void unbind(final Activity object) {
 		assert object != null;
+		final SelectChoices choices;
 
 		Tuple tuple;
-
 		tuple = super.unbind(object, "title", "activityAbstract", "activityType", "startTime", "endTime", "link");
-		tuple.put("id", object.getEnrolment().getId());
-		tuple.put("isFinalised", object.getEnrolment().getIsFinalised());
+
+		choices = SelectChoices.from(Nature.class, object.getActivityType());
+		tuple.put("activityTypes", choices);
+		super.getResponse().setData(tuple);
 	}
 
 }

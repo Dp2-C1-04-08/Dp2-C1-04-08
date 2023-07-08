@@ -77,6 +77,7 @@ public class ActivityShowService extends AbstractService<Student, Activity> {
 		tuple = super.unbind(object, "title", "activityAbstract", "activityType", "startTime", "endTime", "link");
 
 		tuple.put("activityTypes", choices);
+		tuple.put("finalised", object.getEnrolment().getIsFinalised());
 		super.getResponse().setData(tuple);
 	}
 

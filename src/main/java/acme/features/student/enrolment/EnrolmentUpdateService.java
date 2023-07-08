@@ -12,12 +12,17 @@
 
 package acme.features.student.enrolment;
 
+import java.time.Duration;
+import java.util.Collection;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.courses.Course;
+import acme.entities.enrolments.Activity;
 import acme.entities.enrolments.Enrolment;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
@@ -58,11 +63,8 @@ public class EnrolmentUpdateService extends AbstractService<Student, Enrolment> 
 
 	@Override
 	public void load() {
-		Enrolment object;
-		int id;
-
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findEnrolmentById(id);
+		final int id = super.getRequest().getData("id", int.class);
+		final Enrolment object = this.repository.findEnrolmentById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -70,7 +72,6 @@ public class EnrolmentUpdateService extends AbstractService<Student, Enrolment> 
 	@Override
 	public void bind(final Enrolment object) {
 		assert object != null;
-
 		super.bind(object, "code", "motivation", "goals");
 	}
 
@@ -88,15 +89,28 @@ public class EnrolmentUpdateService extends AbstractService<Student, Enrolment> 
 	@Override
 	public void unbind(final Enrolment object) {
 		assert object != null;
-		final int courseId;
-		Course course;
+		final int id;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "motivation", "goals");
+		tuple = super.unbind(object, "code", "motivation", "goals", "isFinalised", "course");
 
-		course = object.getCourse();
-		tuple.put("course", course);
+		id = super.getRequest().getData("id", int.class);
+		final Collection<Activity> l = this.repository.findActivitiesByEnrolmentId(id);
+		double worktime = 0.0;
+
+		for (final Activity a : l) {
+			final Date start = a.getStartTime();
+			final Date end = a.getEndTime();
+			final Duration time = MomentHelper.computeDuration(start, end);
+			final long seconds = time.getSeconds();
+			final double minutes = seconds / 60.0;
+			final double hours = minutes / 60.0;
+			worktime = worktime + hours;
+		}
+		tuple.put("worktime", worktime);
+		tuple.put("courseCode", object.getCourse().getCode());
+		tuple.put("courseTitle", object.getCourse().getTitle());
 		super.getResponse().setData(tuple);
 	}
 

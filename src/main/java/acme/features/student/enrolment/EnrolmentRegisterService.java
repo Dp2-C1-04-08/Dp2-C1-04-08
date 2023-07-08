@@ -77,6 +77,10 @@ public class EnrolmentRegisterService extends AbstractService<Student, Enrolment
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
+		final Enrolment repeatCode = this.repository.findEnrolmentByCode(object.getCode());
+		final Enrolment repeatCourse = this.repository.findEnrolmentByCourse(object.getCourse().getCode());
+		super.state(repeatCode == null, "code", "authentication.note.form.error.repeatCode");
+		super.state(repeatCourse == null, "code", "authentication.note.form.error.repeatCourse");
 	}
 
 	@Override

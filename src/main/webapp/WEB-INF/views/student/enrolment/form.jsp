@@ -27,7 +27,9 @@
 			
 			<jstl:choose>
 				<jstl:when test="${_command == 'show' || _command == 'update'|| _command == 'delete'}">
+					<acme:input-integer readonly="${true}" code="student.enrolment.form.label.worktime" path="worktime"/>
 					<acme:input-textbox readonly="${true}" code="student.enrolment.form.label.course-code" path="courseCode"/>
+					<acme:input-textbox readonly="${true}" code="student.enrolment.form.label.course-title" path="courseTitle"/>
 					<jstl:choose>
 						<jstl:when test="${f == false}">
 							<acme:submit code="student.enrolment.form.button.update" action="/student/enrolment/update"/>
@@ -45,7 +47,6 @@
 		</jstl:when>
 		
 		<jstl:when test="${_command == 'finalise'}">
-			<acme:input-textbox readonly = "${true}" code="student.enrolment.form.label.code" path="code"/>	
 			<acme:input-textbox code="student.enrolment.form.label.creditCardHolder" path="creditCardHolder"/>
 			<acme:input-moment code="student.enrolment.form.label.expiryDate" path="expiryDate"/>
 			<acme:input-integer code="student.enrolment.form.label.cvc" path="cvc"/>
