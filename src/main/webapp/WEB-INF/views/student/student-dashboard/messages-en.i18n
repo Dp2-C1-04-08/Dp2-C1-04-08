@@ -1,0 +1,21 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+student.dashboard.form.title = My Student Dashboard
+student.dashboard.form.label.numberOfTheoreticalActivities = Number of Theoretical Activities
+student.dashboard.form.label.numberOfHandsOnActivities = Number of Hands-on Activities
+student.dashboard.form.label.averagePeriodOfActivities = Average Duration of Activities
+student.dashboard.form.label.deviationPeriodOfActivities = Deviation of Duration of Activities
+student.dashboard.form.label.maximumPeriodOfActivities = Maximum Duration of Activities
+student.dashboard.form.label.minimumPeriodOfActivities = Minimum Duration of Activities
+student.dashboard.form.label.averageWorkTime = Average Learning Time of Enrolments
+student.dashboard.form.label.deviationWorkTime = Deviation of Learning Time of Enrolments
+student.dashboard.form.label.maximumWorkTime = Maximum Learning Time of Enrolments
+student.dashboard.form.label.minimumWorkTime = Minimum Learning Time of Enrolments

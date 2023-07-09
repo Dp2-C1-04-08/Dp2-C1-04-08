@@ -115,6 +115,7 @@ master.menu.user-account.become-consumer = Become a consumer
 menu.student = Student
 menu.student.list = List your enrolments
 menu.student.courseList = List of courses
+menu.student.dashboards = Your dashboard
 
 master.menu.user-account.become-lecturer = Become a lecturer
 master.menu.user-account.lecturer = Lecturer Data

@@ -114,6 +114,7 @@ master.menu.user-account.become-consumer = Hazte consumidor
 menu.student = Estudiante
 menu.student.list = Listado de tus matriculaciones
 menu.student.courseList = Lista de cursos
+menu.student.dashboards = Mi tablero
 
 master.menu.user-account.become-lecturer = Hazte profesor
 master.menu.user-account.lecturer = Datos de profesor

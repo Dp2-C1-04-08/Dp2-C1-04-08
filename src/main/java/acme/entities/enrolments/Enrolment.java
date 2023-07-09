@@ -43,7 +43,7 @@ public class Enrolment extends AbstractEntity {
 	protected String			goals;
 
 	@Transient
-	protected Integer			workTime			= 0;
+	protected Double			workTime			= 0.0;
 
 	@NotNull
 	@Valid
