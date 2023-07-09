@@ -70,11 +70,14 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 		code = super.getRequest().getData("code", String.class);
 		courseWhithSameCode = this.repository.findOneCourseByCode(code);
 
-		price = super.getRequest().getData("retailPrice", Money.class);
-
 		super.state(!courseWhithSameCode.isPresent() || object.getId() == courseWhithSameCode.get().getId(), "code", "lecturer.course.form.error.update.code.duplicated");
-		super.state(this.moneyService.checkContains(price.getCurrency()), "retailPrice", "lecturer.course.form.error.price.invalid-currency");
-		super.state(price.getAmount() > 0.0, "retailPrice", "lecturer.course.form.error.price.invalid-amount");
+		try {
+			price = super.getRequest().getData("retailPrice", Money.class);
+			super.state(this.moneyService.checkContains(price.getCurrency()), "retailPrice", "lecturer.course.form.error.price.invalid-currency");
+			super.state(price.getAmount() > 0.0, "retailPrice", "lecturer.course.form.error.retailPrice.negative-or-zero");
+			super.state(price.getAmount() < 1000000, "retailPrice", "lecturer.course.form.error.retailPrice.too-big");
+		} catch (final Exception e) {
+		}
 	}
 
 	@Override
