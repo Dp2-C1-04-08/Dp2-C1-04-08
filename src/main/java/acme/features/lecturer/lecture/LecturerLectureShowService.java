@@ -4,7 +4,6 @@ package acme.features.lecturer.lecture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.courses.CourseLecture;
 import acme.entities.courses.Lecture;
 import acme.entities.courses.Nature;
 import acme.framework.components.jsp.SelectChoices;
@@ -37,13 +36,15 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 		boolean status;
 		int lectureId;
 		int lecturerId;
-		CourseLecture courseLecture;
+		Lecture lecture;
+
+		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
 
 		lectureId = super.getRequest().getData("id", int.class);
-		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
-		courseLecture = this.repository.findCourseLectureByLectureId(lectureId);
 
-		status = courseLecture.getCourse().getLecturer().getId() == lecturerId;
+		lecture = this.repository.findOneLectureById(lectureId);
+
+		status = lecture.getLecturer().getId() == lecturerId;
 
 		super.getResponse().setAuthorised(status);
 	}
