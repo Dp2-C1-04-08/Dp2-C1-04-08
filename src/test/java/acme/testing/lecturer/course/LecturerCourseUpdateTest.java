@@ -23,7 +23,7 @@ public class LecturerCourseUpdateTest extends TestHarness {
 
 		super.signIn("lecturer1", "lecturer1");
 
-		super.clickOnMenu("Lecturer", "List Courses");
+		super.clickOnMenu("Lecturer", "List my Courses");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
@@ -54,7 +54,7 @@ public class LecturerCourseUpdateTest extends TestHarness {
 	public void test200Negative(final int courseRecordIndex, final String code, final String title, final String courseAbstract, final String courseType, final String retailPrice, final String link) {
 		super.signIn("lecturer1", "lecturer1");
 
-		super.clickOnMenu("Lecturer", "List Courses");
+		super.clickOnMenu("Lecturer", "List my Courses");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 

@@ -30,7 +30,7 @@ public class LecturerCourseCreateTest extends TestHarness {
 
 		super.clickOnSubmit("Create");
 
-		super.clickOnMenu("Lecturer", "List Courses");
+		super.clickOnMenu("Lecturer", "List my Courses");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
@@ -44,7 +44,6 @@ public class LecturerCourseCreateTest extends TestHarness {
 
 		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("courseAbstract", courseAbstract);
 		super.checkInputBoxHasValue("courseAbstract", courseAbstract);
 		super.checkInputBoxHasValue("retailPrice", retailPrice);
 		super.checkInputBoxHasValue("link", link);
