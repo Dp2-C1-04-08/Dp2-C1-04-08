@@ -1,8 +1,14 @@
 courseRecordIndex,code,title,courseAbstract,retailPrice,link
-0,AAA0000,Marketing Digital,Introducción al marketing digital: claves para el éxito online.,"USD 1,000.99",http://www.example.com
-1,AAA0001,Finanzas Personales,Finanzas personales: gestionando tus recursos con inteligencia.,USD 1.50,http://www.acme.com/master/welcome
-2,AAA0002,Desarrollo web,Desarrollo web: crea tu página desde cero.,"EUR 2,345.01",http://www.acme.org
-3,AAA0003,Liderazgo efectivo,Liderazgo efectivo: inspirando equipos hacia el logro.,"EUR 2,000.99",http://localhost
-4,AAA0004,Curso de Excel Avanzado,Curso de Excel Avanzado: Domina las funciones y herramientas.,"EUR 1,000.00",
-5,AAA0005,Photoshop básico,Photoshop básico: manipula imágenes como un profesional.,EUR 300.25,
-6,AAA0006,Redacción persuasiva,Redacción persuasiva: convence con palabras poderosas.,EUR 1.00,http://www.example.com
+0,AAA000,Marketing Digital,Introducción al marketing digital: claves para el éxito online.,"USD 1,000.99",http://www.example.com
+1,AAA001,Finanzas Personales,Finanzas personales: gestionando tus recursos con inteligencia.,USD 1.50,http://www.acme.com/master/welcome
+2,AAA002,Desarrollo web,Desarrollo web: crea tu página desde cero.,"EUR 2,345.01",http://www.acme.org
+3,AAA003,Liderazgo efectivo,Liderazgo efectivo: inspirando equipos hacia el logro.,"EUR 2,000.99",http://localhost
+4,AAA004,Curso de Excel Avanzado,Curso de Excel Avanzado: Domina las funciones y herramientas.,"EUR 1,000.00",
+5,AAA005,Photoshop básico,Photoshop básico: manipula imágenes como un profesional.,EUR 300.25,
+6,AAA006,Redacción persuasiva,Redacción persuasiva: convence con palabras poderosas.,EUR 1.00,http://www.example.com
+7,AAA007,*****Probando el limite de 75 caracteres maximo en el atributo titulo*****,Un resumen de un curso,"EUR 1,000.00",https://definicion.de/link/
+8,AAA008,1,Un resumen de un curso,"EUR 1,500.00",
+9,AAA009,titulo de un curso,+++Probando el limite máximo de caracteres en el atributo resumen de la entidad de curso(course)+++,"EUR 2,500.00",
+10,AAA010,TITULO DE UN CURSO,1,"EUR 1,500.00",http://wow.com
+11,AAA011,TITULO,RESUMEN,EUR 0.01,
+12,AAA012,TITLE,ABSTRACT,"EUR 999,999.99",
