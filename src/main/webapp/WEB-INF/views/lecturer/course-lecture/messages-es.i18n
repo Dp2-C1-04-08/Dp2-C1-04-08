@@ -6,3 +6,4 @@ lecturer.courseLecture.form.button.create = Añadir
 lecturer.courselecture.form.error.course.invalid-lecturer = No es tu curso
 lecturer.courselecture.form.error.lecture.invalid-lecturer = No es tu clase
 lecturer.courselecture.form.error.alredyExist = Ya existe
+lecturer.courselecture.form.error.courseNotIsDraft = El curso está publicado

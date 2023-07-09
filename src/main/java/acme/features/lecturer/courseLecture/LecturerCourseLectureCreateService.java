@@ -1,7 +1,10 @@
 
 package acme.features.lecturer.courseLecture;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +14,8 @@ import com.google.common.base.Optional;
 import acme.entities.courses.Course;
 import acme.entities.courses.CourseLecture;
 import acme.entities.courses.Lecture;
+import acme.entities.courses.Nature;
+import acme.features.lecturer.lecture.LecturerLectureRepository;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -21,7 +26,10 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerCourseLectureRepository repository;
+	protected LecturerCourseLectureRepository	repository;
+
+	@Autowired
+	LecturerLectureRepository					lrepository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -83,6 +91,7 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 		boolean isLectureLecturer;
 		Optional<CourseLecture> courseLecture;
 		boolean alredyExist;
+		boolean courseIsDraft;
 
 		course = object.getCourse();
 		lecture = object.getLecture();
@@ -90,6 +99,7 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 
 		isCourseLecturer = course.getLecturer().getId() == lecturerId;
 		isLectureLecturer = lecture.getLecturer().getId() == lecturerId;
+		courseIsDraft = course.isDraft();
 
 		courseLecture = this.repository.findCourseLectureByLectureAndCourseId(course.getId(), lecture.getId());
 		alredyExist = courseLecture.isPresent();
@@ -97,6 +107,7 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 		super.state(isCourseLecturer, "course", "lecturer.courselecture.form.error.course.invalid-lecturer");
 		super.state(isLectureLecturer, "lecture", "lecturer.courselecture.form.error.lecture.invalid-lecturer");
 		super.state(!alredyExist, "*", "lecturer.courselecture.form.error.alredyExist");
+		super.state(courseIsDraft, "course", "lecturer.courselecture.form.error.courseNotIsDraft");
 	}
 
 	@Override
@@ -124,6 +135,28 @@ public class LecturerCourseLectureCreateService extends AbstractService<Lecturer
 
 		this.repository.save(object);
 
+		int index = 0;
+		List<Nature> types;
+
+		final Collection<javax.persistence.Tuple> col = this.lrepository.countLecturesGroupByType(course.getId());
+
+		long max = 0;
+		types = new ArrayList<>();
+		for (final javax.persistence.Tuple t : col)
+			if ((long) t.get(1) == max)
+				types.add((Nature) t.get(0));
+			else if ((long) t.get(1) > max) {
+				max = (long) t.get(1);
+				types.clear();
+				types.add((Nature) t.get(0));
+			}
+
+		ThreadLocalRandom random;
+		random = ThreadLocalRandom.current();
+		index = random.nextInt(0, types.size());
+		course.setCourseType(types.get(index));
+
+		this.repository.save(course);
 	}
 
 	@Override

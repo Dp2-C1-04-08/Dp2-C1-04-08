@@ -69,7 +69,7 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 	public void bind(final Enrolment object) {
 		assert object != null;
 
-		super.bind(object, "creditCardHolder", "lowerNibble");
+		super.bind(object, "creditCardHolder", "lowerNibble", "expiryDate", "cvc", "upperNibble");
 
 	}
 
@@ -110,6 +110,20 @@ public class EnrolmentFinaliseService extends AbstractService<Student, Enrolment
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "motivation", "goals", "student", "course", "creditCardHolder", "lowerNibble", "isFinalised");
+
+		if (object.getIsFinalised() == true || object.getLowerNibble() != null || object.getCreditCardHolder() != null) {
+			final Date expiryDate = this.getRequest().getData("expiryDate", Date.class);
+			final String cvc = this.getRequest().getData("cvc", String.class);
+			final String upperNibble = this.getRequest().getData("upperNibble", String.class);
+
+			tuple.put("expiryDate", expiryDate);
+			tuple.put("cvc", cvc);
+			tuple.put("upperNibble", upperNibble);
+		} else {
+			tuple.put("expiryDate", null);
+			tuple.put("cvc", null);
+			tuple.put("upperNibble", null);
+		}
 
 		super.getResponse().setData(tuple);
 	}

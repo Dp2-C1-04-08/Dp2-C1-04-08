@@ -70,6 +70,8 @@ public class ActivityListService extends AbstractService<Student, Activity> {
 		tuple = super.unbind(object, "title", "activityAbstract", "activityType", "startTime", "endTime", "link");
 
 		tuple.put("masterId", 4);
+		tuple.put("finalised", object.getEnrolment().getIsFinalised());
+
 		super.getResponse().setData(tuple);
 	}
 	@Override
@@ -79,8 +81,11 @@ public class ActivityListService extends AbstractService<Student, Activity> {
 		int masterId;
 
 		masterId = super.getRequest().getData("masterId", int.class);
-
 		super.getResponse().setGlobal("masterId", masterId);
+		boolean finalised = true;
+		for (final Activity a : objects)
+			finalised = finalised && a.getEnrolment().getIsFinalised();
+		super.getResponse().setGlobal("finalised", finalised);
 	}
 
 }

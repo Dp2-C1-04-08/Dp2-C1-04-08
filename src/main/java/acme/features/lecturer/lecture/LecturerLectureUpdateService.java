@@ -41,14 +41,14 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 		boolean status;
 		int lectureId;
 		int lecturerId;
-		CourseLecture courseLecture;
+		Lecture lecture;
 
 		lectureId = super.getRequest().getData("id", int.class);
 		lecturerId = super.getRequest().getPrincipal().getActiveRoleId();
 
-		courseLecture = this.repository.findCourseLectureByLectureId(lectureId);
+		lecture = this.repository.findOneLectureById(lectureId);
 
-		status = courseLecture.getCourse().getLecturer().getId() == lecturerId;
+		status = lecture.getLecturer().getId() == lecturerId;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -82,36 +82,39 @@ public class LecturerLectureUpdateService extends AbstractService<Lecturer, Lect
 	public void perform(final Lecture object) {
 		assert object != null;
 
-		CourseLecture courseLecture;
-		Course course;
-		int index;
+		try {
+			CourseLecture courseLecture;
+			Course course;
+			int index;
 
-		courseLecture = this.repository.findCourseLectureByLectureId(object.getId());
-		course = courseLecture.getCourse();
+			courseLecture = this.repository.findCourseLectureByLectureId(object.getId());
+			course = courseLecture.getCourse();
 
-		courseLecture.setLecture(object);
+			courseLecture.setLecture(object);
 
-		this.repository.save(object);
-		this.lecturerCourseLectureRepository.save(courseLecture);
+			this.repository.save(object);
+			this.lecturerCourseLectureRepository.save(courseLecture);
 
-		long max = 0;
-		final List<Nature> types = new ArrayList<>();
-		final Collection<javax.persistence.Tuple> col = this.repository.countLecturesGroupByType(course.getId());
-		for (final javax.persistence.Tuple t : col)
-			if ((long) t.get(1) >= max) {
-				types.add((Nature) t.get(0));
-				max = (long) t.get(1);
-			}
-		ThreadLocalRandom random;
-		random = ThreadLocalRandom.current();
-		index = random.nextInt(0, types.size());
+			long max = 0;
+			final List<Nature> types = new ArrayList<>();
+			final Collection<javax.persistence.Tuple> col = this.repository.countLecturesGroupByType(course.getId());
+			for (final javax.persistence.Tuple t : col)
+				if ((long) t.get(1) >= max) {
+					types.add((Nature) t.get(0));
+					max = (long) t.get(1);
+				}
+			ThreadLocalRandom random;
+			random = ThreadLocalRandom.current();
+			index = random.nextInt(0, types.size());
 
-		if (types.isEmpty())
-			course.setCourseType(null);
-		else
-			course.setCourseType(types.get(index));
+			if (types.isEmpty())
+				course.setCourseType(null);
+			else
+				course.setCourseType(types.get(index));
 
-		this.repository.save(course);
+			this.repository.save(course);
+		} catch (final Exception e) {
+		}
 	}
 
 	@Override
