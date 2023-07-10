@@ -1,9 +1,0 @@
-key,code,title,abstractStr,goals,estimatedTime,key:company,published,key:course,creationDate
-practicum-01,ABC1234,practica1,esto es un abstract,Estos son los goals,42,company-01,true,course-01,2022/06/09 15:55
-practicum-02,XY5678,practica2,Esto es el: abstact $,Probando el limite máximo de caracteres en el atributo de la entidad del rol de company (límite 100),55,company-01,false,course-01,2022/04/09 15:55
-practicum-03,DEF9012,practica3,Se puede con codificación UTF-8,Metas para la practica: 1. Interiorizar conocimientos tema 1,223,company-01,true,course-01,2022/03/09 15:55
-practicum-04,MNO4567,practica4,ADMITE MAYÚSCULAS,Meta2: Tener testeado el 50% de la app,13,company-02,false,course-02,2022/02/09 19:00
-practicum-05,PQ1234,practica5,"#Practica 5, coste de 50$",Meta3: Leyes de Datos en España,0,company-02,false,course-02,2022/06/09 16:55
-practicum-06,XYZ5678,practica6,Probando el limite máximo de caracteres en el atributo de la entidad del rol de company (límite 100),Meta final: #Evaluación,0,company-02,false,course-02,2022/05/19 16:00
-practicum-07,XYZ5688,practica7,extracto del practica7,Meta final: #Evaluación,0,company-01,false,course-02,2022/05/19 16:00
-practicum-08,XYZ5698,practica8,extracto del practica8,Meta final: #Evaluación,0,company-01,false,course-02,2022/05/19 16:00

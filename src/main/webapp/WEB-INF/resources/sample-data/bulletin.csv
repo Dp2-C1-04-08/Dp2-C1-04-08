@@ -1,6 +1,0 @@
-key,instantiationMoment,title,message,flag,link
-bulletin-01,2019/04/06 08:45,"Primer Bulletin","Este es mi primer Bulletin",false,https://www.google.com/
-bulletin-02,2019/04/06 14:30,"Soy el Admistrador","Envió este mensaje para deciros que soy el administrador",false,https://www.facebook.com/
-bulletin-03,2019/04/06 18:15,"¡Aviso Importante!","La página estará inhabilitada dentro de 2 horas",true,https://www.instagram.com/
-bulletin-04,2019/04/06 10:00,"Pérdida Contraseña","Ha habido un ataque informático,modifiquén sus contraseñas",true,
-bulletin-05,2019/04/06 22:45,"Actualización","Habrá una actualización de la página el 07/07/2019",true,

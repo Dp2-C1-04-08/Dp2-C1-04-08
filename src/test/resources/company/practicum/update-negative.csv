@@ -1,9 +1,0 @@
-practicumRecordIndex,code,title,abstractStr,goals,published,course,estimatedTime
-1,,practica5,Esto es el: abstact $,Probando el limite máximo de caracteres en el atributo de la entidad del rol de company (límite 100),false,titulo de un curso,0
-1,asdad,practica5,Esto es el: abstact $,Probando el limite máximo de caracteres en el atributo de la entidad del rol de company (límite 100),false,titulo de un curso,0
-1,DEF2109,,Se puede con codificación UTF-8,Metas para la practica: 1. Interiorizar conocimientos tema 1,false,1,0
-1,DEF2109,titulo muy largo para probar que no se puede mas de 75 caracteres en los test de casos negativos de la creación de practica,Se puede con codificación UTF-8,Metas para la practica: 1. Interiorizar conocimientos tema 1,false,1,0
-1,DEF2109,practica5,,abstractStr de prueba,false,1,0
-1,DEF2109,practica5,abstractStr muy largo para probar que no se puede mas de 75 caracteres en los test de casos negativos de la creación de practica,Metas para la practica: 1. Interiorizar conocimientos tema 1,false,1,0
-1,DEF2109,practica5,abstract de prueba,,false,1,0
-1,DEF2109,practica5,abstract de prueba,goal muy largo para probar que no se puede mas de 75 caracteres en los test de casos negativos de la creación de practica ,false,1,0
