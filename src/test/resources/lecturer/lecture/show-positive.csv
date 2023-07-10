@@ -1,5 +1,5 @@
-courseRecord,lectureRecord,title,lectureAbstract,estimatedLearningTime,body,lectureType,link
-14,0,El arte de la persuasión en publicidad,Crea anuncios irresistibles y efectivos.,2.00,"Tono persuasivo, storytelling, copywriting.",THEORETICAL,https://soo.gd/Uzrj
-14,1,Estrategias de redacción persuasiva,Domina el poder de persuasión.,3.50,"Argumentación, llamado a la acción.",HANDS_ON,https://u.to/-S1PGQ
-13,0,Introducción a la programación con Python,Aprende los fundamentos básicos.,2.00,"Variables, condicionales, bucles, funciones.",HANDS_ON,
-13,1,Manipulación de datos con Python,Explora y procesa información.,1.00,"Listas, diccionarios, manipulación de cadenas.",THEORETICAL,
+lectureRecord,title,lectureAbstract,estimatedLearningTime,body,lectureType,link
+2,El arte de la persuasión en publicidad,Crea anuncios irresistibles y efectivos.,2.00,"Tono persuasivo, storytelling, copywriting.",THEORETICAL,https://soo.gd/Uzrj
+4,Estrategias de redacción persuasiva,Domina el poder de persuasión.,3.50,"Argumentación, llamado a la acción.",HANDS_ON,https://u.to/-S1PGQ
+8,Introducción a la programación con Python,Aprende los fundamentos básicos.,2.00,"Variables, condicionales, bucles, funciones.",HANDS_ON,
+10,Manipulación de datos con Python,Explora y procesa información.,1.00,"Listas, diccionarios, manipulación de cadenas.",THEORETICAL,

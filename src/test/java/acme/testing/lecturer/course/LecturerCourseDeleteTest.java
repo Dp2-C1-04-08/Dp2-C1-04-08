@@ -23,7 +23,7 @@ public class LecturerCourseDeleteTest extends TestHarness {
 
 		super.signIn("lecturer3", "lecturer3");
 
-		super.clickOnMenu("Lecturer", "List Courses");
+		super.clickOnMenu("Lecturer", "List my Courses");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
@@ -33,7 +33,7 @@ public class LecturerCourseDeleteTest extends TestHarness {
 		super.clickOnSubmit("Delete");
 
 		if (courseRecordIndex == 0) {
-			super.clickOnMenu("Lecturer", "List Courses");
+			super.clickOnMenu("Lecturer", "List my Courses");
 			super.checkListingEmpty();
 		}
 	}
@@ -43,7 +43,7 @@ public class LecturerCourseDeleteTest extends TestHarness {
 	public void test200Negative(final int courseRecordIndex) {
 		super.signIn("lecturer1", "lecturer1");
 
-		super.clickOnMenu("Lecturer", "List Courses");
+		super.clickOnMenu("Lecturer", "List my Courses");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
@@ -64,6 +64,7 @@ public class LecturerCourseDeleteTest extends TestHarness {
 		Collection<Course> courseLecturer;
 
 		courseLecturer = this.repository.findCourseByLecturerResume("1");
+
 		for (final Course course : courseLecturer) {
 
 			param = String.format("id=%d", course.getId());

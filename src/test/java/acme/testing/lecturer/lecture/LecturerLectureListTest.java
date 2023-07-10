@@ -16,18 +16,11 @@ public class LecturerLectureListTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/lecture/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int lectureRecord, final int courseRecord, final String title, final String lectureAbstract, final String estimatedLearningTime) {
+	public void test100Positive(final int lectureRecord, final String title, final String lectureAbstract, final String estimatedLearningTime) {
 
 		super.signIn("lecturer1", "lecturer1");
 
-		super.clickOnMenu("Lecturer", "List Courses");
-		super.checkListingExists();
-		super.sortListing(0, "asc");
-
-		super.clickOnListingRecord(courseRecord);
-		super.checkFormExists();
-
-		super.clickOnButton("List Lecture");
+		super.clickOnMenu("Lecturer", "List my Lectures");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 

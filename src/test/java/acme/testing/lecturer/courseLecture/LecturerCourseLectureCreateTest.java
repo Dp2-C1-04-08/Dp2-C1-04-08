@@ -22,7 +22,7 @@ public class LecturerCourseLectureCreateTest extends TestHarness {
 
 		super.clickOnSubmit("Add");
 
-		super.clickOnMenu("Lecturer", "List Courses");
+		super.clickOnMenu("Lecturer", "List my Courses");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
